@@ -22,4 +22,15 @@ public class StopMapViewModel {
         self.mapPosition = MapCameraPosition.userLocation(fallback: .automatic)
         self.locationBannerClosed = false
     }
+    
+    public func searchAtUserLoc() async {
+        if let loc = LocationManager.shared.manager.location {
+            do {
+                let result = try await StopPointService.SearchAround(lat: loc.coordinate.latitude, lon: loc.coordinate.longitude)
+                print(result)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

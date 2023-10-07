@@ -12,6 +12,10 @@
 		E273078B2AD1FCAD0060FF99 /* NotificationCenter+GoLondon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoLondon.swift */; };
 		E273078D2AD208990060FF99 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E273078C2AD208990060FF99 /* Localizable.xcstrings */; };
 		E273078F2AD20A4E0060FF99 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273078E2AD20A4E0060FF99 /* Strings.swift */; };
+		E27307952AD20C920060FF99 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27307942AD20C920060FF99 /* APIClient.swift */; };
+		E27307972AD20D3B0060FF99 /* Error+GoLondon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27307962AD20D3B0060FF99 /* Error+GoLondon.swift */; };
+		E27307992AD20D610060FF99 /* Codable+GoLondon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27307982AD20D610060FF99 /* Codable+GoLondon.swift */; };
+		E273079B2AD20E750060FF99 /* StopPointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273079A2AD20E750060FF99 /* StopPointService.swift */; };
 		E283D3822AC23316008ECF81 /* GoLondonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E283D3812AC23316008ECF81 /* GoLondonApp.swift */; };
 		E283D3842AC23316008ECF81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E283D3832AC23316008ECF81 /* ContentView.swift */; };
 		E283D3862AC23318008ECF81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E283D3852AC23318008ECF81 /* Assets.xcassets */; };
@@ -27,6 +31,10 @@
 		E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoLondon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+GoLondon.swift"; sourceTree = "<group>"; };
 		E273078C2AD208990060FF99 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		E273078E2AD20A4E0060FF99 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		E27307942AD20C920060FF99 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		E27307962AD20D3B0060FF99 /* Error+GoLondon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+GoLondon.swift"; sourceTree = "<group>"; };
+		E27307982AD20D610060FF99 /* Codable+GoLondon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+GoLondon.swift"; sourceTree = "<group>"; };
+		E273079A2AD20E750060FF99 /* StopPointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointService.swift; sourceTree = "<group>"; };
 		E283D37E2AC23316008ECF81 /* GoLondon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoLondon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E283D3812AC23316008ECF81 /* GoLondonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoLondonApp.swift; sourceTree = "<group>"; };
 		E283D3832AC23316008ECF81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,8 +84,27 @@
 			isa = PBXGroup;
 			children = (
 				E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoLondon.swift */,
+				E27307962AD20D3B0060FF99 /* Error+GoLondon.swift */,
+				E27307982AD20D610060FF99 /* Codable+GoLondon.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E27307922AD20C7E0060FF99 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E27307942AD20C920060FF99 /* APIClient.swift */,
+				E27307932AD20C890060FF99 /* Services */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E27307932AD20C890060FF99 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E273079A2AD20E750060FF99 /* StopPointService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		E283D3752AC23316008ECF81 = {
@@ -100,12 +127,13 @@
 			isa = PBXGroup;
 			children = (
 				E2000C1F2AC82C97003D01A9 /* Info.plist */,
-				E283D38F2AC233A7008ECF81 /* App */,
 				E283D3832AC23316008ECF81 /* ContentView.swift */,
+				E283D38F2AC233A7008ECF81 /* App */,
 				E29848BF2AC6FB79004A5BDC /* Pages */,
 				E2000C1C2AC8299B003D01A9 /* Views */,
 				E2000C162AC8217E003D01A9 /* ViewModels */,
 				E27307892AD1FC920060FF99 /* Extensions */,
+				E27307922AD20C7E0060FF99 /* Network */,
 			);
 			path = GoLondon;
 			sourceTree = "<group>";
@@ -219,12 +247,16 @@
 			files = (
 				E29848C12AC6FB83004A5BDC /* HomeMapPage.swift in Sources */,
 				E2000C182AC821D3003D01A9 /* StopMapViewModel.swift in Sources */,
+				E273079B2AD20E750060FF99 /* StopPointService.swift in Sources */,
+				E27307992AD20D610060FF99 /* Codable+GoLondon.swift in Sources */,
 				E273078F2AD20A4E0060FF99 /* Strings.swift in Sources */,
 				E2000C1B2AC82799003D01A9 /* LocationManager.swift in Sources */,
 				E2CFBAA12AC89EC200662DC1 /* LocationNeededBanner.swift in Sources */,
 				E283D3842AC23316008ECF81 /* ContentView.swift in Sources */,
+				E27307972AD20D3B0060FF99 /* Error+GoLondon.swift in Sources */,
 				E283D3822AC23316008ECF81 /* GoLondonApp.swift in Sources */,
 				E273078B2AD1FCAD0060FF99 /* NotificationCenter+GoLondon.swift in Sources */,
+				E27307952AD20C920060FF99 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +393,7 @@
 				DEVELOPMENT_TEAM = 8H3J46CN24;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				GLAPI_BASE_URL = "https://api.dev.golondon.tomk.online/";
 				INFOPLIST_FILE = GoLondon/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Go London";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
@@ -399,6 +432,7 @@
 				DEVELOPMENT_TEAM = 8H3J46CN24;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				GLAPI_BASE_URL = "https://api.golondon.tomk.online/";
 				INFOPLIST_FILE = GoLondon/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Go London";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
