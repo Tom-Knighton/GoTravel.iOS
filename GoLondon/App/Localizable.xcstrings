@@ -1,0 +1,28 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "LocationDisabled" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Location Disabled"
+          }
+        }
+      }
+    },
+    "StopPointsEnableLocation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Want to know what stops are around you now? Grant Go London access to your location in Settings "
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
