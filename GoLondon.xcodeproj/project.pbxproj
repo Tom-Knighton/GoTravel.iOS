@@ -364,8 +364,8 @@
 				INFOPLIST_FILE = GoLondon/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Go London";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Tesr;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Test2;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Go London can use your location to search for stops and nearby buses and trains";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Go London can use your location to search for stops and nearby buses and trains";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -402,8 +402,8 @@
 				INFOPLIST_FILE = GoLondon/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Go London";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Tesr;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Test2;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Go London can use your location to search for stops and nearby buses and trains";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Go London can use your location to search for stops and nearby buses and trains";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
