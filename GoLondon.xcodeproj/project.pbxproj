@@ -7,20 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2000C182AC821D3003D01A9 /* StopMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2000C172AC821D3003D01A9 /* StopMapViewModel.swift */; };
+		E2000C1B2AC82799003D01A9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2000C1A2AC82799003D01A9 /* LocationManager.swift */; };
+		E273078B2AD1FCAD0060FF99 /* NotificationCenter+GoLondon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoLondon.swift */; };
 		E283D3822AC23316008ECF81 /* GoLondonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E283D3812AC23316008ECF81 /* GoLondonApp.swift */; };
 		E283D3842AC23316008ECF81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E283D3832AC23316008ECF81 /* ContentView.swift */; };
 		E283D3862AC23318008ECF81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E283D3852AC23318008ECF81 /* Assets.xcassets */; };
 		E283D3892AC23318008ECF81 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E283D3882AC23318008ECF81 /* Preview Assets.xcassets */; };
 		E29848C12AC6FB83004A5BDC /* HomeMapPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29848C02AC6FB83004A5BDC /* HomeMapPage.swift */; };
+		E2CFBAA12AC89EC200662DC1 /* LocationNeededBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFBAA02AC89EC200662DC1 /* LocationNeededBanner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E2000C172AC821D3003D01A9 /* StopMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopMapViewModel.swift; sourceTree = "<group>"; };
+		E2000C1A2AC82799003D01A9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		E2000C1F2AC82C97003D01A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoLondon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+GoLondon.swift"; sourceTree = "<group>"; };
 		E283D37E2AC23316008ECF81 /* GoLondon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoLondon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E283D3812AC23316008ECF81 /* GoLondonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoLondonApp.swift; sourceTree = "<group>"; };
 		E283D3832AC23316008ECF81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E283D3852AC23318008ECF81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E283D3882AC23318008ECF81 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E29848C02AC6FB83004A5BDC /* HomeMapPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMapPage.swift; sourceTree = "<group>"; };
+		E2CFBAA02AC89EC200662DC1 /* LocationNeededBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNeededBanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +43,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E2000C162AC8217E003D01A9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E2000C172AC821D3003D01A9 /* StopMapViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E2000C192AC8278C003D01A9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E2000C1A2AC82799003D01A9 /* LocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E2000C1C2AC8299B003D01A9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E2CFBA9F2AC89EB700662DC1 /* Map */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E27307892AD1FC920060FF99 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoLondon.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E283D3752AC23316008ECF81 = {
 			isa = PBXGroup;
 			children = (
@@ -53,9 +94,13 @@
 		E283D3802AC23316008ECF81 /* GoLondon */ = {
 			isa = PBXGroup;
 			children = (
+				E2000C1F2AC82C97003D01A9 /* Info.plist */,
 				E283D38F2AC233A7008ECF81 /* App */,
 				E283D3832AC23316008ECF81 /* ContentView.swift */,
 				E29848BF2AC6FB79004A5BDC /* Pages */,
+				E2000C1C2AC8299B003D01A9 /* Views */,
+				E2000C162AC8217E003D01A9 /* ViewModels */,
+				E27307892AD1FC920060FF99 /* Extensions */,
 			);
 			path = GoLondon;
 			sourceTree = "<group>";
@@ -71,6 +116,7 @@
 		E283D38F2AC233A7008ECF81 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				E2000C192AC8278C003D01A9 /* Managers */,
 				E283D3872AC23318008ECF81 /* Preview Content */,
 				E283D3852AC23318008ECF81 /* Assets.xcassets */,
 				E283D3812AC23316008ECF81 /* GoLondonApp.swift */,
@@ -84,6 +130,14 @@
 				E29848C02AC6FB83004A5BDC /* HomeMapPage.swift */,
 			);
 			path = Pages;
+			sourceTree = "<group>";
+		};
+		E2CFBA9F2AC89EB700662DC1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				E2CFBAA02AC89EC200662DC1 /* LocationNeededBanner.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,8 +211,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E29848C12AC6FB83004A5BDC /* HomeMapPage.swift in Sources */,
+				E2000C182AC821D3003D01A9 /* StopMapViewModel.swift in Sources */,
+				E2000C1B2AC82799003D01A9 /* LocationManager.swift in Sources */,
+				E2CFBAA12AC89EC200662DC1 /* LocationNeededBanner.swift in Sources */,
 				E283D3842AC23316008ECF81 /* ContentView.swift in Sources */,
 				E283D3822AC23316008ECF81 /* GoLondonApp.swift in Sources */,
+				E273078B2AD1FCAD0060FF99 /* NotificationCenter+GoLondon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,8 +353,11 @@
 				DEVELOPMENT_TEAM = 8H3J46CN24;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoLondon/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Go London";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Tesr;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Test2;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -330,8 +391,11 @@
 				DEVELOPMENT_TEAM = 8H3J46CN24;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoLondon/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Go London";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Tesr;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Test2;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

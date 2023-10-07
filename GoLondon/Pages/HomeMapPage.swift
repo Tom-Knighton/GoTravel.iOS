@@ -10,10 +10,68 @@ import MapKit
 
 public struct HomeMapPage: View {
     
+    @Environment(LocationManager.self) private var locationManager
+
+    @State private var viewModel = StopMapViewModel()
+    
     public var body: some View {
-        Map(interactionModes: [.pan, .pitch, .zoom]) {
+        ZStack {
+            Map(position: $viewModel.mapPosition, interactionModes: [.pan, .pitch, .zoom]) {
+                UserAnnotation()
+            }
+            .mapControlVisibility(.hidden)
+            .mapStyle(.standard(pointsOfInterest: .excludingAll, showsTraffic: true))
+            
+            noLocationBanner()
         }
-        .mapControlVisibility(.hidden)
-        .mapStyle(.standard(pointsOfInterest: .excludingAll, showsTraffic: true))
+        
     }
+}
+
+extension HomeMapPage {
+    
+    private var shouldShowBanner: Bool {
+        !viewModel.locationBannerClosed && !locationManager.isLocationGranted
+    }
+    
+    @ViewBuilder
+    func noLocationBanner() -> some View {
+        if shouldShowBanner {
+            VStack {
+                LocationNeededBanner(onClose: { withAnimation(.easeInOut(duration: 1)) {
+                    viewModel.locationBannerClosed = true
+                }})
+                    .padding(.horizontal, 12)
+                    .gesture(
+                        DragGesture()
+                            .onChanged({ val in
+                                withAnimation(.linear) {
+                                    self.viewModel.locationBannerOffser = val.translation.height
+                                }
+                            })
+                            .onEnded({ val in
+                                if abs(val.translation.height) > 50 {
+                                    withAnimation(.easeInOut(duration: 1)) {
+                                        self.viewModel.locationBannerClosed = true
+                                    }
+                                } else {
+                                    self.viewModel.locationBannerOffser = .zero
+                                }
+                            })
+                    )
+                    .offset(y: self.viewModel.locationBannerOffser)
+                    .onTapGesture {
+                        if let url = URL(string: UIApplication.openSettingsURLString) {
+                            UIApplication.shared.open(url)
+                        }
+                    }
+                    .transition(.move(edge: .top))
+                Spacer()
+            }
+        }
+    }
+}
+
+#Preview {
+    HomeMapPage()
 }
