@@ -24,6 +24,9 @@ public struct HomeMapPage: View {
             
             noLocationBanner()
         }
+        .task {
+            await viewModel.searchAtUserLoc()
+        }
         
     }
 }

@@ -15,7 +15,7 @@ class LocationManager: NSObject {
     
     public var status: CLAuthorizationStatus? = nil
     
-    private var manager: CLLocationManager = CLLocationManager()
+    public var manager: CLLocationManager = CLLocationManager()
     private var allowedStatuses: [CLAuthorizationStatus] = [.authorizedAlways, .authorizedWhenInUse]
     
     override init() {
