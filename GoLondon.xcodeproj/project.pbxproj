@@ -10,6 +10,8 @@
 		E2000C182AC821D3003D01A9 /* StopMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2000C172AC821D3003D01A9 /* StopMapViewModel.swift */; };
 		E2000C1B2AC82799003D01A9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2000C1A2AC82799003D01A9 /* LocationManager.swift */; };
 		E273078B2AD1FCAD0060FF99 /* NotificationCenter+GoLondon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoLondon.swift */; };
+		E273078D2AD208990060FF99 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E273078C2AD208990060FF99 /* Localizable.xcstrings */; };
+		E273078F2AD20A4E0060FF99 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273078E2AD20A4E0060FF99 /* Strings.swift */; };
 		E283D3822AC23316008ECF81 /* GoLondonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E283D3812AC23316008ECF81 /* GoLondonApp.swift */; };
 		E283D3842AC23316008ECF81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E283D3832AC23316008ECF81 /* ContentView.swift */; };
 		E283D3862AC23318008ECF81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E283D3852AC23318008ECF81 /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 		E2000C1A2AC82799003D01A9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E2000C1F2AC82C97003D01A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoLondon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+GoLondon.swift"; sourceTree = "<group>"; };
+		E273078C2AD208990060FF99 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		E273078E2AD20A4E0060FF99 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		E283D37E2AC23316008ECF81 /* GoLondon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoLondon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E283D3812AC23316008ECF81 /* GoLondonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoLondonApp.swift; sourceTree = "<group>"; };
 		E283D3832AC23316008ECF81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				E2000C1A2AC82799003D01A9 /* LocationManager.swift */,
+				E273078E2AD20A4E0060FF99 /* Strings.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 				E283D3872AC23318008ECF81 /* Preview Content */,
 				E283D3852AC23318008ECF81 /* Assets.xcassets */,
 				E283D3812AC23316008ECF81 /* GoLondonApp.swift */,
+				E273078C2AD208990060FF99 /* Localizable.xcstrings */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -200,6 +206,7 @@
 			files = (
 				E283D3892AC23318008ECF81 /* Preview Assets.xcassets in Resources */,
 				E283D3862AC23318008ECF81 /* Assets.xcassets in Resources */,
+				E273078D2AD208990060FF99 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +219,7 @@
 			files = (
 				E29848C12AC6FB83004A5BDC /* HomeMapPage.swift in Sources */,
 				E2000C182AC821D3003D01A9 /* StopMapViewModel.swift in Sources */,
+				E273078F2AD20A4E0060FF99 /* Strings.swift in Sources */,
 				E2000C1B2AC82799003D01A9 /* LocationManager.swift in Sources */,
 				E2CFBAA12AC89EC200662DC1 /* LocationNeededBanner.swift in Sources */,
 				E283D3842AC23316008ECF81 /* ContentView.swift in Sources */,

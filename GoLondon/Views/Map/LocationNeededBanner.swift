@@ -14,20 +14,20 @@ public struct LocationNeededBanner: View {
     public var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Location disabled")
-                Image(systemName: "location.slash")
+                Text(Strings.Map.LocationDisabled)
+                Image(systemName: Icons.location_slash)
                 Spacer()
                 Button(action: { onClose() }) {
-                    Image(systemName: "xmark.circle.fill")
+                    Image(systemName: Icons.cross_circle_fill)
                 }
             }
             .font(.system(.title3, design: .rounded).bold())
             
-            Text("Want to know what stops are around you now? Grant Go London access to your location in Settings ")
+            Text(Strings.Map.EnableLocationStopPoints)
                 .font(.system(.subheadline, design: .rounded)) +
-            Text(Image(systemName: "gear"))
+            Text(Image(systemName: Icons.gear))
                 .font(.system(.subheadline, design: .rounded)) +
-            Text(Image(systemName: "arrow.right"))
+            Text(Image(systemName: Icons.arrow_right))
                 .font(.system(.subheadline, design: .rounded))
         }
         .padding(6)
