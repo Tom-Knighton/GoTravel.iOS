@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct GoLondonApp: App {
     
+    @State private var globalVM = GlobalViewModel.shared
     @State private var locationManager = LocationManager()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(globalVM)
                 .environment(locationManager)
                 .task {
                     if self.locationManager.locationUndetermined {
