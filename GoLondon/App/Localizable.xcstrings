@@ -12,6 +12,17 @@
         }
       }
     },
+    "MapTab" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Map"
+          }
+        }
+      }
+    },
     "StopPointsEnableLocation" : {
       "extractionState" : "manual",
       "localizations" : {

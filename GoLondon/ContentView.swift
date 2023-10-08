@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @Environment(GlobalViewModel.self) private var globalVM
+    
     var body: some View {
-        HomeMapPage()
+        @Bindable var globalVM = globalVM
+        
+        TabView(selection: $globalVM.tabIndex) {
+            HomeMapPage()
+                .tag(0)
+                .tabItem {
+                    Label(Strings.Navigation.MapTab, systemImage: Icons.map)
+                }
+        }
     }
-}
-
-#Preview {
-    ContentView()
 }
