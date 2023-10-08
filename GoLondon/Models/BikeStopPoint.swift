@@ -11,8 +11,20 @@ import Foundation
 public class BikeStopPoint: StopPointBase {
     
     /// The number of bikes free at this stop point
-    public var bikesRemaining: Int = 0
+    public let bikesRemaining: Int
     
     /// The number of electronic bikes free at this stop point
-    public var eBikesRemaining: Int = 0
+    public let eBikesRemaining: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case bikesRemaining, eBikesRemaining
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.bikesRemaining = try container.decode(Int.self, forKey: .bikesRemaining)
+        self.eBikesRemaining = try container.decode(Int.self, forKey: .eBikesRemaining)
+        
+        try super.init(from: decoder)
+    }
 }

@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Bike %@" : {
+
+    },
+    "Bus %@" : {
+
+    },
     "LocationDisabled" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -33,6 +39,9 @@
           }
         }
       }
+    },
+    "Train %@" : {
+
     }
   },
   "version" : "1.0"
