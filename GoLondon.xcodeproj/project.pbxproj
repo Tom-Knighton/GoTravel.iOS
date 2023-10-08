@@ -24,6 +24,13 @@
 		E2F9415B2AD2C2A10047EA04 /* GlobalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9415A2AD2C2A10047EA04 /* GlobalViewModel.swift */; };
 		E2F9415D2AD2C3A60047EA04 /* NavigationPath+GoLondon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9415C2AD2C3A60047EA04 /* NavigationPath+GoLondon.swift */; };
 		E2F9415F2AD30A3F0047EA04 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E2F9415E2AD30A3F0047EA04 /* Localizable.xcstrings */; };
+		E2F941622AD30B650047EA04 /* StopPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F941612AD30B650047EA04 /* StopPoint.swift */; };
+		E2F941642AD30BFD0047EA04 /* LineMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F941632AD30BFD0047EA04 /* LineMode.swift */; };
+		E2F941662AD30C340047EA04 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F941652AD30C340047EA04 /* Line.swift */; };
+		E2F941682AD30C6C0047EA04 /* TrainStopPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F941672AD30C6C0047EA04 /* TrainStopPoint.swift */; };
+		E2F9416A2AD30C890047EA04 /* BusStopPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F941692AD30C890047EA04 /* BusStopPoint.swift */; };
+		E2F9416C2AD30EDA0047EA04 /* BikeStopPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9416B2AD30EDA0047EA04 /* BikeStopPoint.swift */; };
+		E2F9416F2AD312E80047EA04 /* Turf in Frameworks */ = {isa = PBXBuildFile; productRef = E2F9416E2AD312E80047EA04 /* Turf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +53,12 @@
 		E2F9415A2AD2C2A10047EA04 /* GlobalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewModel.swift; sourceTree = "<group>"; };
 		E2F9415C2AD2C3A60047EA04 /* NavigationPath+GoLondon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationPath+GoLondon.swift"; sourceTree = "<group>"; };
 		E2F9415E2AD30A3F0047EA04 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		E2F941612AD30B650047EA04 /* StopPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPoint.swift; sourceTree = "<group>"; };
+		E2F941632AD30BFD0047EA04 /* LineMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineMode.swift; sourceTree = "<group>"; };
+		E2F941652AD30C340047EA04 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		E2F941672AD30C6C0047EA04 /* TrainStopPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStopPoint.swift; sourceTree = "<group>"; };
+		E2F941692AD30C890047EA04 /* BusStopPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopPoint.swift; sourceTree = "<group>"; };
+		E2F9416B2AD30EDA0047EA04 /* BikeStopPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStopPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2F9416F2AD312E80047EA04 /* Turf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +152,9 @@
 				E29848BF2AC6FB79004A5BDC /* Pages */,
 				E2000C1C2AC8299B003D01A9 /* Views */,
 				E2000C162AC8217E003D01A9 /* ViewModels */,
-				E27307892AD1FC920060FF99 /* Extensions */,
+				E2F941602AD30B530047EA04 /* Models */,
 				E27307922AD20C7E0060FF99 /* Network */,
+				E27307892AD1FC920060FF99 /* Extensions */,
 			);
 			path = GoLondon;
 			sourceTree = "<group>";
@@ -180,6 +195,19 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		E2F941602AD30B530047EA04 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E2F941612AD30B650047EA04 /* StopPoint.swift */,
+				E2F941632AD30BFD0047EA04 /* LineMode.swift */,
+				E2F941652AD30C340047EA04 /* Line.swift */,
+				E2F941672AD30C6C0047EA04 /* TrainStopPoint.swift */,
+				E2F941692AD30C890047EA04 /* BusStopPoint.swift */,
+				E2F9416B2AD30EDA0047EA04 /* BikeStopPoint.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -196,6 +224,9 @@
 			dependencies = (
 			);
 			name = GoLondon;
+			packageProductDependencies = (
+				E2F9416E2AD312E80047EA04 /* Turf */,
+			);
 			productName = GoLondon;
 			productReference = E283D37E2AC23316008ECF81 /* GoLondon.app */;
 			productType = "com.apple.product-type.application";
@@ -224,6 +255,9 @@
 				Base,
 			);
 			mainGroup = E283D3752AC23316008ECF81;
+			packageReferences = (
+				E2F9416D2AD312E80047EA04 /* XCRemoteSwiftPackageReference "turf-swift" */,
+			);
 			productRefGroup = E283D37F2AC23316008ECF81 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -252,18 +286,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				E29848C12AC6FB83004A5BDC /* HomeMapPage.swift in Sources */,
+				E2F9416C2AD30EDA0047EA04 /* BikeStopPoint.swift in Sources */,
 				E2000C182AC821D3003D01A9 /* StopMapViewModel.swift in Sources */,
+				E2F941662AD30C340047EA04 /* Line.swift in Sources */,
 				E273079B2AD20E750060FF99 /* StopPointService.swift in Sources */,
 				E27307992AD20D610060FF99 /* Codable+GoLondon.swift in Sources */,
 				E2F9415D2AD2C3A60047EA04 /* NavigationPath+GoLondon.swift in Sources */,
 				E273078F2AD20A4E0060FF99 /* Strings.swift in Sources */,
+				E2F941682AD30C6C0047EA04 /* TrainStopPoint.swift in Sources */,
+				E2F941642AD30BFD0047EA04 /* LineMode.swift in Sources */,
 				E2000C1B2AC82799003D01A9 /* LocationManager.swift in Sources */,
 				E2CFBAA12AC89EC200662DC1 /* LocationNeededBanner.swift in Sources */,
 				E283D3842AC23316008ECF81 /* ContentView.swift in Sources */,
 				E27307972AD20D3B0060FF99 /* Error+GoLondon.swift in Sources */,
 				E283D3822AC23316008ECF81 /* GoLondonApp.swift in Sources */,
+				E2F941622AD30B650047EA04 /* StopPoint.swift in Sources */,
 				E273078B2AD1FCAD0060FF99 /* NotificationCenter+GoLondon.swift in Sources */,
 				E2F9415B2AD2C2A10047EA04 /* GlobalViewModel.swift in Sources */,
+				E2F9416A2AD30C890047EA04 /* BusStopPoint.swift in Sources */,
 				E27307952AD20C920060FF99 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +530,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E2F9416D2AD312E80047EA04 /* XCRemoteSwiftPackageReference "turf-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/turf-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E2F9416E2AD312E80047EA04 /* Turf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2F9416D2AD312E80047EA04 /* XCRemoteSwiftPackageReference "turf-swift" */;
+			productName = Turf;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E283D3762AC23316008ECF81 /* Project object */;
 }
