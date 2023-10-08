@@ -20,14 +20,12 @@ public struct HomeMapPage: View {
                 UserAnnotation()
                 
                 ForEach(viewModel.stopPoints, id: \.stopPoint.stopPointId) { stopPoint in
-                    switch stopPoint {
-                    case .bike(let bike):
-                        Marker("Bike \(bike.stopPointName)", systemImage: "bicycle", coordinate: bike.stopPointCoordinate.coordinates)
-                    case .bus(let bus):
-                        Marker("Bus \(bus.stopPointName)", systemImage: "bus", coordinate: bus.stopPointCoordinate.coordinates)
-                    case .train(let train):
-                        Marker("Train \(train.stopPointName)", systemImage: "tram", coordinate: train.stopPointCoordinate.coordinates)
+                    Annotation(coordinate: stopPoint.stopPoint.stopPointCoordinate.coordinates, anchor: .bottom) {
+                        StopPointMarkerView(stopPoint: stopPoint)
+                    } label: {
+                        Text(stopPoint.stopPoint.stopPointName)
                     }
+
                 }
             }
             .mapControlVisibility(.hidden)
