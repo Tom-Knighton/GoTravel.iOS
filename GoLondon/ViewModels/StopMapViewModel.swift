@@ -16,6 +16,10 @@ public class StopMapViewModel {
     
     public var stopPoints: [StopPoint] = []
     
+    //MARK: Search
+    public var searchDistance: Int = 1_000
+    public var searchedLocation: CLLocation? = nil
+    
     //MARK: Location Banner
     public var locationBannerClosed: Bool = false
     public var locationBannerOffser: Double = .zero
@@ -28,8 +32,9 @@ public class StopMapViewModel {
     public func searchAtUserLoc() async {
         if let loc = LocationManager.shared.manager.location {
             do {
-                let result = try await StopPointService.SearchAround(lat: loc.coordinate.latitude, lon: loc.coordinate.longitude, radius: 10_000)
+                let result = try await StopPointService.SearchAround(lat: loc.coordinate.latitude, lon: loc.coordinate.longitude, radius: searchDistance)
                 self.stopPoints = result
+                self.searchedLocation = loc
             } catch let DecodingError.typeMismatch(type, context) {
                 print(context.debugDescription)
                 print(context.codingPath)
