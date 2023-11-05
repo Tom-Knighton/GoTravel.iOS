@@ -38,16 +38,32 @@ public struct StopPointMarkerView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .foregroundStyle(.white)
-        case .bus(_):
-            Image(systemName: Icons.bus)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+        case .bus(let busStop):
+            busCircleContent(busStop)
                 .foregroundStyle(.white)
         case .train(_):
             Image(systemName: Icons.train)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .foregroundStyle(.white)
+        }
+    }
+    
+    @ViewBuilder
+    func busCircleContent(_ bus: BusStopPoint) -> some View {
+        if let letter = bus.busStopLetter {
+            Text(letter)
+                .bold()
+                .minimumScaleFactor(0.5)
+        } else if let indicator = bus.busStopIndicator {
+            Text(indicator)
+                .bold()
+                .minimumScaleFactor(0.1)
+                .frame(width: 28, height: 28)
+        } else {
+            Image(systemName: Icons.bus)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
         }
     }
 }
