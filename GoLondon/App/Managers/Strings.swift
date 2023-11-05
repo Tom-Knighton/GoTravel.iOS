@@ -25,4 +25,7 @@ public struct Icons {
     public static let location_slash = "location.slash"
     public static let cross_circle_fill = "xmark.circle.fill"
     public static let map = "map"
+    public static let bike = "bicycle"
+    public static let train = "tram"
+    public static let bus = "bus"
 }

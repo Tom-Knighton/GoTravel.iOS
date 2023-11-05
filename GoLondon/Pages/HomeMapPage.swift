@@ -18,6 +18,15 @@ public struct HomeMapPage: View {
         ZStack {
             Map(position: $viewModel.mapPosition, interactionModes: [.pan, .pitch, .zoom]) {
                 UserAnnotation()
+                
+                ForEach(viewModel.stopPoints, id: \.stopPoint.stopPointId) { stopPoint in
+                    Annotation(coordinate: stopPoint.stopPoint.stopPointCoordinate.coordinates, anchor: .bottom) {
+                        StopPointMarkerView(stopPoint: stopPoint)
+                    } label: {
+                        Text(stopPoint.stopPoint.stopPointName)
+                    }
+
+                }
             }
             .mapControlVisibility(.hidden)
             .mapStyle(.standard(pointsOfInterest: .excludingAll, showsTraffic: true))
@@ -73,8 +82,4 @@ extension HomeMapPage {
             }
         }
     }
-}
-
-#Preview {
-    HomeMapPage()
 }
