@@ -16,10 +16,11 @@ public struct StopPointMarkerView: View {
             ZStack {
                 Circle()
                     .frame(width: 30, height: 30)
-                    .foregroundStyle(Color.red)
+                    .foregroundStyle(stopPoint.stopPoint.mostImportantLineMode?.lineModeColour ?? .red)
                 circleContent()
                     .bold()
                     .shadow(radius: 3)
+                    .frame(width: 20, height: 20)
             }
             
             UnevenRoundedRectangle(bottomLeadingRadius: 10, bottomTrailingRadius: 10)
@@ -34,10 +35,19 @@ public struct StopPointMarkerView: View {
         switch self.stopPoint {
         case .bike(_):
             Image(systemName: Icons.bike)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .foregroundStyle(.white)
         case .bus(_):
             Image(systemName: Icons.bus)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .foregroundStyle(.white)
         case .train(_):
             Image(systemName: Icons.train)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .foregroundStyle(.white)
         }
     }
 }
