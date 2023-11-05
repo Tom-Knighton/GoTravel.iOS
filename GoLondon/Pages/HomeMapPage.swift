@@ -27,6 +27,12 @@ public struct HomeMapPage: View {
                     }
 
                 }
+                
+                if let searchedLocation = viewModel.searchedLocation {
+                    MapCircle(center: searchedLocation.coordinate, radius: CLLocationDistance(viewModel.searchDistance))
+                        .foregroundStyle(.clear)
+                        .stroke(.blue, lineWidth: 1)
+                }
             }
             .mapControlVisibility(.hidden)
             .mapStyle(.standard(pointsOfInterest: .excludingAll, showsTraffic: true))
