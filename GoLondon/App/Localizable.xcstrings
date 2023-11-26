@@ -12,6 +12,26 @@
         }
       }
     },
+    "Map:Hint:SearchHere" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find nearby stops"
+          }
+        }
+      }
+    },
+    "Map:Hint:SearchHereText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move around the map and tap this button to search for nearby stops!"
+          }
+        }
+      }
+    },
     "MapTab" : {
       "extractionState" : "manual",
       "localizations" : {

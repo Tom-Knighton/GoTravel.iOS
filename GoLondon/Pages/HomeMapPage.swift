@@ -13,7 +13,7 @@ public struct HomeMapPage: View {
     @Environment(LocationManager.self) private var locationManager
 
     @State private var viewModel = StopMapViewModel()
-    
+        
     public var body: some View {
         ZStack {
             Map(position: $viewModel.mapPosition, interactionModes: [.pan, .pitch, .zoom]) {
@@ -29,13 +29,18 @@ public struct HomeMapPage: View {
                 }
                 
                 if let searchedLocation = viewModel.searchedLocation {
-                    MapCircle(center: searchedLocation.coordinate, radius: CLLocationDistance(viewModel.searchDistance))
+                    MapCircle(center: searchedLocation, radius: CLLocationDistance(viewModel.searchDistance))
                         .foregroundStyle(.clear)
                         .stroke(.blue, lineWidth: 1)
                 }
             }
             .mapControlVisibility(.hidden)
             .mapStyle(.standard(pointsOfInterest: .excludingAll, showsTraffic: true))
+            .onMapCameraChange { context in
+                self.viewModel.mapPannedCenter = context.camera.centerCoordinate
+            }
+            
+            mapControls()
             
             noLocationBanner()
         }
@@ -86,6 +91,60 @@ extension HomeMapPage {
                     .transition(.move(edge: .top))
                 Spacer()
             }
+        }
+    }
+}
+
+extension HomeMapPage {
+    
+    @ViewBuilder
+    func mapControls() -> some View {
+        HStack {
+            Spacer()
+            VStack(alignment: .trailing) {
+                Spacer().frame(height: 8)
+                
+                Button(action: { self.userLocationTapped() }) {
+                    Image(systemName: Icons.location)
+                }
+                .frame(minWidth: 45, minHeight: 45)
+                .background(Material.thick)
+                .clipShape(.rect(cornerRadius: 10))
+                
+                Button(action: { self.searchHereTapped() }) {
+                    if self.viewModel.isSearching {
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                    } else {
+                        Image(systemName: Icons.location_magnifyingglass)
+                    }
+                }
+                .frame(minWidth: 45, minHeight: 45)
+                .background(Material.thick)
+                .clipShape(.rect(cornerRadius: 10))
+                .popoverTip(SearchHereTip(), arrowEdge: .top)
+                
+                Spacer()
+            }
+        }
+        .padding(.horizontal, 12)
+    }
+    
+    func userLocationTapped() {
+        if let loc = LocationManager.shared.manager.location {
+            self.viewModel.goToLocation(loc.coordinate)
+            Task {
+                await self.viewModel.searchAtUserLoc()
+            }
+        }
+    }
+    
+    func searchHereTapped() {
+        AppData.shared.hasUsedSearchAround = true
+        SearchHereTip.hasCompletedActionInSession = true
+        
+        Task {
+            await self.viewModel.searchAtMapCenter()
         }
     }
 }
