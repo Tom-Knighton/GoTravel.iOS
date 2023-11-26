@@ -16,6 +16,8 @@ public struct Strings {
     public struct Map {
         public static let LocationDisabled: LocalizedStringKey = "LocationDisabled"
         public static let EnableLocationStopPoints: LocalizedStringKey = "StopPointsEnableLocation"
+        public static let HintSearchHere: LocalizedStringKey = "Map:Hint:SearchHere"
+        public static let HintSearchHereText: LocalizedStringKey = "Map:Hint:SearchHereText"
     }
 }
 
@@ -28,4 +30,6 @@ public struct Icons {
     public static let bike = "bicycle"
     public static let train = "tram"
     public static let bus = "bus"
+    public static let location = "location"
+    public static let location_magnifyingglass = "location.magnifyingglass"
 }
