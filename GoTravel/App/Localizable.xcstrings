@@ -1,6 +1,29 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
+    "Errors:NoLineModesFromAPI" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Line Modes"
+          }
+        }
+      }
+    },
+    "Errors:NoLineModesFromAPI:Description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We couldn't find any Line Modes :( Please try again later."
+          }
+        }
+      }
+    },
     "LocationDisabled" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -28,6 +51,47 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Move around the map and tap this button to search for nearby stops!"
+          }
+        }
+      }
+    },
+    "Map:LineModeFilters:Nearby" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nearby"
+          }
+        }
+      }
+    },
+    "Map:LineModeFilters:Others" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UK"
+          }
+        }
+      }
+    },
+    "Map:LineModeFilters:Subtitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can filter out certain line modes from the map page by toggling them here."
+          }
+        }
+      }
+    },
+    "Map:LineModeFilters:Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Line Modes"
           }
         }
       }

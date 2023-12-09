@@ -23,7 +23,7 @@ public class BusStopPoint: StopPointBase {
         case busStopLetter, busStopIndicator, busStopSMSCode
     }
     
-    required init(from decoder: Decoder) throws {
+    public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.busStopLetter = try? container.decode(String.self, forKey: .busStopLetter)
         self.busStopIndicator = try? container.decode(String.self, forKey: .busStopIndicator)

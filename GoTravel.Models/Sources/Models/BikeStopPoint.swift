@@ -20,7 +20,7 @@ public class BikeStopPoint: StopPointBase {
         case bikesRemaining, eBikesRemaining
     }
     
-    required init(from decoder: Decoder) throws {
+    public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.bikesRemaining = try container.decode(Int.self, forKey: .bikesRemaining)
         self.eBikesRemaining = try container.decode(Int.self, forKey: .eBikesRemaining)

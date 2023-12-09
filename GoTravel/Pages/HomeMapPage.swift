@@ -11,8 +11,8 @@ import MapKit
 public struct HomeMapPage: View {
     
     @Environment(LocationManager.self) private var locationManager
-
     @State private var viewModel = StopMapViewModel()
+    @State private var filterViewModel = LineModeFilterViewModel()
         
     public var body: some View {
         ZStack {
@@ -43,6 +43,10 @@ public struct HomeMapPage: View {
             mapControls()
             
             noLocationBanner()
+        }
+        .sheet(isPresented: $viewModel.filterSheetOpen) {
+            LineModeFilterView()
+                .environment(filterViewModel)
         }
         .task {
             await viewModel.searchAtUserLoc()
@@ -107,9 +111,7 @@ extension HomeMapPage {
                 Button(action: { self.userLocationTapped() }) {
                     Image(systemName: Icons.location)
                 }
-                .frame(minWidth: 45, minHeight: 45)
-                .background(Material.thick)
-                .clipShape(.rect(cornerRadius: 10))
+                .buttonStyle(.mapControl)
                 
                 Button(action: { self.searchHereTapped() }) {
                     if self.viewModel.isSearching {
@@ -119,10 +121,13 @@ extension HomeMapPage {
                         Image(systemName: Icons.location_magnifyingglass)
                     }
                 }
-                .frame(minWidth: 45, minHeight: 45)
-                .background(Material.thick)
-                .clipShape(.rect(cornerRadius: 10))
+                .buttonStyle(.mapControl)
                 .popoverTip(SearchHereTip(), arrowEdge: .top)
+                
+                Button(action: { openFilterSheet() }) {
+                    Image(systemName: Icons.filter)
+                }
+                .buttonStyle(.mapControl)
                 
                 Spacer()
             }
@@ -146,5 +151,10 @@ extension HomeMapPage {
         Task {
             await self.viewModel.searchAtMapCenter()
         }
+    }
+    
+    func openFilterSheet() {
+        self.filterViewModel.load(for: self.viewModel.mapPannedCenter)
+        self.viewModel.filterSheetOpen.toggle()
     }
 }

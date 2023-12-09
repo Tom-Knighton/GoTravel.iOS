@@ -1,5 +1,5 @@
 //
-//  Codable+GoTravel.swift
+//  Codable+API.swift
 //  GoTravel
 //
 //  Created by Tom Knighton on 07/10/2023.

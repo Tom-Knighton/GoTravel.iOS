@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoTravel_Models
 
 public struct StopPointMarkerView: View {
     

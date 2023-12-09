@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GoTravel_Models
 
 public struct StopPointService {
     

@@ -8,6 +8,8 @@
 import SwiftUI
 import Observation
 import MapKit
+import GoTravel_Models
+import GoTravel_API
 
 @Observable
 public class StopMapViewModel {
@@ -28,6 +30,9 @@ public class StopMapViewModel {
     //MARK: Location Banner
     public var locationBannerClosed: Bool = false
     public var locationBannerOffser: Double = .zero
+    
+    //MARK: Filters
+    public var filterSheetOpen: Bool = false
     
     public init() {
         self.mapPosition = MapCameraPosition.userLocation(fallback: .automatic)

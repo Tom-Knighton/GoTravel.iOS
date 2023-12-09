@@ -11,15 +11,20 @@
 		E2000C1B2AC82799003D01A9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2000C1A2AC82799003D01A9 /* LocationManager.swift */; };
 		E273078B2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift */; };
 		E273078F2AD20A4E0060FF99 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273078E2AD20A4E0060FF99 /* Strings.swift */; };
-		E27307952AD20C920060FF99 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27307942AD20C920060FF99 /* APIClient.swift */; };
-		E27307972AD20D3B0060FF99 /* Error+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27307962AD20D3B0060FF99 /* Error+GoTravel.swift */; };
-		E27307992AD20D610060FF99 /* Codable+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27307982AD20D610060FF99 /* Codable+GoTravel.swift */; };
-		E273079B2AD20E750060FF99 /* StopPointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273079A2AD20E750060FF99 /* StopPointService.swift */; };
 		E280F6552B13ADC100563D7E /* String+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280F6542B13ADC100563D7E /* String+GoTravel.swift */; };
 		E283D3822AC23316008ECF81 /* GoLondonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E283D3812AC23316008ECF81 /* GoLondonApp.swift */; };
 		E283D3842AC23316008ECF81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E283D3832AC23316008ECF81 /* ContentView.swift */; };
 		E283D3862AC23318008ECF81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E283D3852AC23318008ECF81 /* Assets.xcassets */; };
 		E283D3892AC23318008ECF81 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E283D3882AC23318008ECF81 /* Preview Assets.xcassets */; };
+		E28DC2B02B1F62B900E2FECE /* GoTravel.CoreData in Frameworks */ = {isa = PBXBuildFile; productRef = E28DC2AF2B1F62B900E2FECE /* GoTravel.CoreData */; };
+		E28DC2B32B1FE44900E2FECE /* GoTravel.Models in Frameworks */ = {isa = PBXBuildFile; productRef = E28DC2B22B1FE44900E2FECE /* GoTravel.Models */; };
+		E28DC2B62B1FE5DE00E2FECE /* GoTravel.API in Frameworks */ = {isa = PBXBuildFile; productRef = E28DC2B52B1FE5DE00E2FECE /* GoTravel.API */; };
+		E28DC2B82B1FE6D500E2FECE /* LineModeFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28DC2B72B1FE6D500E2FECE /* LineModeFilterView.swift */; };
+		E28DC2BA2B1FE73700E2FECE /* MapControlButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28DC2B92B1FE73700E2FECE /* MapControlButtonStyle.swift */; };
+		E28DC2BC2B1FE7CA00E2FECE /* SwiftUI+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28DC2BB2B1FE7CA00E2FECE /* SwiftUI+GoTravel.swift */; };
+		E28DC2BF2B2107D900E2FECE /* LineModeFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28DC2BE2B2107D900E2FECE /* LineModeFilterViewModel.swift */; };
+		E28DC2C12B210C1100E2FECE /* LineModeCache+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28DC2C02B210C1100E2FECE /* LineModeCache+GoTravel.swift */; };
+		E28DC2C52B210E5500E2FECE /* LineMode+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28DC2C42B210E5500E2FECE /* LineMode+Cache.swift */; };
 		E29848C12AC6FB83004A5BDC /* HomeMapPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29848C02AC6FB83004A5BDC /* HomeMapPage.swift */; };
 		E2BF5D712AD35A8E00261261 /* StopPointMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF5D702AD35A8E00261261 /* StopPointMarkerView.swift */; };
 		E2BF5D732AD3629500261261 /* LineMode+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF5D722AD3629500261261 /* LineMode+GoTravel.swift */; };
@@ -30,15 +35,21 @@
 		E2F9415B2AD2C2A10047EA04 /* GlobalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9415A2AD2C2A10047EA04 /* GlobalViewModel.swift */; };
 		E2F9415D2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9415C2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift */; };
 		E2F9415F2AD30A3F0047EA04 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E2F9415E2AD30A3F0047EA04 /* Localizable.xcstrings */; };
-		E2F941622AD30B650047EA04 /* StopPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F941612AD30B650047EA04 /* StopPoint.swift */; };
-		E2F941642AD30BFD0047EA04 /* LineMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F941632AD30BFD0047EA04 /* LineMode.swift */; };
-		E2F941662AD30C340047EA04 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F941652AD30C340047EA04 /* Line.swift */; };
-		E2F941682AD30C6C0047EA04 /* TrainStopPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F941672AD30C6C0047EA04 /* TrainStopPoint.swift */; };
-		E2F9416A2AD30C890047EA04 /* BusStopPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F941692AD30C890047EA04 /* BusStopPoint.swift */; };
-		E2F9416C2AD30EDA0047EA04 /* BikeStopPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9416B2AD30EDA0047EA04 /* BikeStopPoint.swift */; };
-		E2F9416F2AD312E80047EA04 /* Turf in Frameworks */ = {isa = PBXBuildFile; productRef = E2F9416E2AD312E80047EA04 /* Turf */; };
 		E2FA5C3B2AF8240500DCE810 /* SearchHereTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA5C3A2AF8240500DCE810 /* SearchHereTip.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E28DC2A02B1F56F600E2FECE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E2000C172AC821D3003D01A9 /* StopMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopMapViewModel.swift; sourceTree = "<group>"; };
@@ -46,16 +57,21 @@
 		E2000C1F2AC82C97003D01A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+GoTravel.swift"; sourceTree = "<group>"; };
 		E273078E2AD20A4E0060FF99 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
-		E27307942AD20C920060FF99 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		E27307962AD20D3B0060FF99 /* Error+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+GoTravel.swift"; sourceTree = "<group>"; };
-		E27307982AD20D610060FF99 /* Codable+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+GoTravel.swift"; sourceTree = "<group>"; };
-		E273079A2AD20E750060FF99 /* StopPointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointService.swift; sourceTree = "<group>"; };
 		E280F6542B13ADC100563D7E /* String+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GoTravel.swift"; sourceTree = "<group>"; };
 		E283D37E2AC23316008ECF81 /* GoTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E283D3812AC23316008ECF81 /* GoLondonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoLondonApp.swift; sourceTree = "<group>"; };
 		E283D3832AC23316008ECF81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E283D3852AC23318008ECF81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E283D3882AC23318008ECF81 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E28DC2AC2B1F62AC00E2FECE /* GoTravel.CoreData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GoTravel.CoreData; sourceTree = "<group>"; };
+		E28DC2B12B1FE42B00E2FECE /* GoTravel.Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GoTravel.Models; sourceTree = "<group>"; };
+		E28DC2B42B1FE45F00E2FECE /* GoTravel.API */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GoTravel.API; sourceTree = "<group>"; };
+		E28DC2B72B1FE6D500E2FECE /* LineModeFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineModeFilterView.swift; sourceTree = "<group>"; };
+		E28DC2B92B1FE73700E2FECE /* MapControlButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapControlButtonStyle.swift; sourceTree = "<group>"; };
+		E28DC2BB2B1FE7CA00E2FECE /* SwiftUI+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+GoTravel.swift"; sourceTree = "<group>"; };
+		E28DC2BE2B2107D900E2FECE /* LineModeFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineModeFilterViewModel.swift; sourceTree = "<group>"; };
+		E28DC2C02B210C1100E2FECE /* LineModeCache+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LineModeCache+GoTravel.swift"; sourceTree = "<group>"; };
+		E28DC2C42B210E5500E2FECE /* LineMode+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LineMode+Cache.swift"; sourceTree = "<group>"; };
 		E29848C02AC6FB83004A5BDC /* HomeMapPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMapPage.swift; sourceTree = "<group>"; };
 		E2BF5D702AD35A8E00261261 /* StopPointMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointMarkerView.swift; sourceTree = "<group>"; };
 		E2BF5D722AD3629500261261 /* LineMode+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LineMode+GoTravel.swift"; sourceTree = "<group>"; };
@@ -66,12 +82,6 @@
 		E2F9415A2AD2C2A10047EA04 /* GlobalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewModel.swift; sourceTree = "<group>"; };
 		E2F9415C2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationPath+GoTravel.swift"; sourceTree = "<group>"; };
 		E2F9415E2AD30A3F0047EA04 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		E2F941612AD30B650047EA04 /* StopPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPoint.swift; sourceTree = "<group>"; };
-		E2F941632AD30BFD0047EA04 /* LineMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineMode.swift; sourceTree = "<group>"; };
-		E2F941652AD30C340047EA04 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
-		E2F941672AD30C6C0047EA04 /* TrainStopPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStopPoint.swift; sourceTree = "<group>"; };
-		E2F941692AD30C890047EA04 /* BusStopPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopPoint.swift; sourceTree = "<group>"; };
-		E2F9416B2AD30EDA0047EA04 /* BikeStopPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStopPoint.swift; sourceTree = "<group>"; };
 		E2FA5C3A2AF8240500DCE810 /* SearchHereTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHereTip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +90,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2F9416F2AD312E80047EA04 /* Turf in Frameworks */,
+				E28DC2B02B1F62B900E2FECE /* GoTravel.CoreData in Frameworks */,
+				E28DC2B32B1FE44900E2FECE /* GoTravel.Models in Frameworks */,
+				E28DC2B62B1FE5DE00E2FECE /* GoTravel.API in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +102,7 @@
 		E2000C162AC8217E003D01A9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				E2000C172AC821D3003D01A9 /* StopMapViewModel.swift */,
+				E28DC2BD2B2107CC00E2FECE /* Map */,
 				E2F9415A2AD2C2A10047EA04 /* GlobalViewModel.swift */,
 			);
 			path = ViewModels;
@@ -118,40 +130,26 @@
 		E27307892AD1FC920060FF99 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E28DC2C32B210E4800E2FECE /* Models */,
+				E28DC2C22B210E4200E2FECE /* Cache */,
 				E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift */,
-				E27307962AD20D3B0060FF99 /* Error+GoTravel.swift */,
-				E27307982AD20D610060FF99 /* Codable+GoTravel.swift */,
 				E2F9415C2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift */,
 				E2BF5D742AD3634700261261 /* Color+GoTravel.swift */,
-				E2BF5D762AD3641100261261 /* StopPoint+GoTravel.swift */,
-				E2BF5D722AD3629500261261 /* LineMode+GoTravel.swift */,
 				E280F6542B13ADC100563D7E /* String+GoTravel.swift */,
+				E28DC2BB2B1FE7CA00E2FECE /* SwiftUI+GoTravel.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		E27307922AD20C7E0060FF99 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				E27307942AD20C920060FF99 /* APIClient.swift */,
-				E27307932AD20C890060FF99 /* Services */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		E27307932AD20C890060FF99 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				E273079A2AD20E750060FF99 /* StopPointService.swift */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		E283D3752AC23316008ECF81 = {
 			isa = PBXGroup;
 			children = (
 				E283D3802AC23316008ECF81 /* GoTravel */,
+				E28DC2B42B1FE45F00E2FECE /* GoTravel.API */,
+				E28DC2B12B1FE42B00E2FECE /* GoTravel.Models */,
+				E28DC2AC2B1F62AC00E2FECE /* GoTravel.CoreData */,
 				E283D37F2AC23316008ECF81 /* Products */,
+				E28DC2A22B1F58CD00E2FECE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,8 +170,6 @@
 				E29848BF2AC6FB79004A5BDC /* Pages */,
 				E2000C1C2AC8299B003D01A9 /* Views */,
 				E2000C162AC8217E003D01A9 /* ViewModels */,
-				E2F941602AD30B530047EA04 /* Models */,
-				E27307922AD20C7E0060FF99 /* Network */,
 				E27307892AD1FC920060FF99 /* Extensions */,
 			);
 			path = GoTravel;
@@ -199,6 +195,40 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		E28DC2A22B1F58CD00E2FECE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E28DC2BD2B2107CC00E2FECE /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				E2000C172AC821D3003D01A9 /* StopMapViewModel.swift */,
+				E28DC2BE2B2107D900E2FECE /* LineModeFilterViewModel.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		E28DC2C22B210E4200E2FECE /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				E28DC2C02B210C1100E2FECE /* LineModeCache+GoTravel.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		E28DC2C32B210E4800E2FECE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E2BF5D762AD3641100261261 /* StopPoint+GoTravel.swift */,
+				E2BF5D722AD3629500261261 /* LineMode+GoTravel.swift */,
+				E28DC2C42B210E5500E2FECE /* LineMode+Cache.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E29848BF2AC6FB79004A5BDC /* Pages */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,21 +242,10 @@
 			children = (
 				E2CFBAA02AC89EC200662DC1 /* LocationNeededBanner.swift */,
 				E2BF5D702AD35A8E00261261 /* StopPointMarkerView.swift */,
+				E28DC2B72B1FE6D500E2FECE /* LineModeFilterView.swift */,
+				E28DC2B92B1FE73700E2FECE /* MapControlButtonStyle.swift */,
 			);
 			path = Map;
-			sourceTree = "<group>";
-		};
-		E2F941602AD30B530047EA04 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E2F941612AD30B650047EA04 /* StopPoint.swift */,
-				E2F941632AD30BFD0047EA04 /* LineMode.swift */,
-				E2F941652AD30C340047EA04 /* Line.swift */,
-				E2F941672AD30C6C0047EA04 /* TrainStopPoint.swift */,
-				E2F941692AD30C890047EA04 /* BusStopPoint.swift */,
-				E2F9416B2AD30EDA0047EA04 /* BikeStopPoint.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		E2FA5C392AF823FA00DCE810 /* Tips */ = {
@@ -247,6 +266,7 @@
 				E283D37A2AC23316008ECF81 /* Sources */,
 				E283D37B2AC23316008ECF81 /* Frameworks */,
 				E283D37C2AC23316008ECF81 /* Resources */,
+				E28DC2A02B1F56F600E2FECE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -254,7 +274,9 @@
 			);
 			name = GoTravel;
 			packageProductDependencies = (
-				E2F9416E2AD312E80047EA04 /* Turf */,
+				E28DC2AF2B1F62B900E2FECE /* GoTravel.CoreData */,
+				E28DC2B22B1FE44900E2FECE /* GoTravel.Models */,
+				E28DC2B52B1FE5DE00E2FECE /* GoTravel.API */,
 			);
 			productName = GoLondon;
 			productReference = E283D37E2AC23316008ECF81 /* GoTravel.app */;
@@ -285,7 +307,6 @@
 			);
 			mainGroup = E283D3752AC23316008ECF81;
 			packageReferences = (
-				E2F9416D2AD312E80047EA04 /* XCRemoteSwiftPackageReference "turf-swift" */,
 			);
 			productRefGroup = E283D37F2AC23316008ECF81 /* Products */;
 			projectDirPath = "";
@@ -315,31 +336,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				E29848C12AC6FB83004A5BDC /* HomeMapPage.swift in Sources */,
-				E2F9416C2AD30EDA0047EA04 /* BikeStopPoint.swift in Sources */,
+				E28DC2C52B210E5500E2FECE /* LineMode+Cache.swift in Sources */,
 				E2000C182AC821D3003D01A9 /* StopMapViewModel.swift in Sources */,
-				E2F941662AD30C340047EA04 /* Line.swift in Sources */,
+				E28DC2BF2B2107D900E2FECE /* LineModeFilterViewModel.swift in Sources */,
 				E2BF5D732AD3629500261261 /* LineMode+GoTravel.swift in Sources */,
-				E273079B2AD20E750060FF99 /* StopPointService.swift in Sources */,
-				E27307992AD20D610060FF99 /* Codable+GoTravel.swift in Sources */,
 				E2F9415D2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift in Sources */,
 				E273078F2AD20A4E0060FF99 /* Strings.swift in Sources */,
-				E2F941682AD30C6C0047EA04 /* TrainStopPoint.swift in Sources */,
-				E2F941642AD30BFD0047EA04 /* LineMode.swift in Sources */,
 				E2FA5C3B2AF8240500DCE810 /* SearchHereTip.swift in Sources */,
 				E2000C1B2AC82799003D01A9 /* LocationManager.swift in Sources */,
+				E28DC2B82B1FE6D500E2FECE /* LineModeFilterView.swift in Sources */,
+				E28DC2C12B210C1100E2FECE /* LineModeCache+GoTravel.swift in Sources */,
 				E2CFD9932AFA8233008A6726 /* AppData.swift in Sources */,
 				E2CFBAA12AC89EC200662DC1 /* LocationNeededBanner.swift in Sources */,
 				E283D3842AC23316008ECF81 /* ContentView.swift in Sources */,
 				E2BF5D772AD3641100261261 /* StopPoint+GoTravel.swift in Sources */,
-				E27307972AD20D3B0060FF99 /* Error+GoTravel.swift in Sources */,
 				E283D3822AC23316008ECF81 /* GoLondonApp.swift in Sources */,
-				E2F941622AD30B650047EA04 /* StopPoint.swift in Sources */,
+				E28DC2BA2B1FE73700E2FECE /* MapControlButtonStyle.swift in Sources */,
 				E2BF5D712AD35A8E00261261 /* StopPointMarkerView.swift in Sources */,
+				E28DC2BC2B1FE7CA00E2FECE /* SwiftUI+GoTravel.swift in Sources */,
 				E280F6552B13ADC100563D7E /* String+GoTravel.swift in Sources */,
 				E273078B2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift in Sources */,
 				E2F9415B2AD2C2A10047EA04 /* GlobalViewModel.swift in Sources */,
-				E2F9416A2AD30C890047EA04 /* BusStopPoint.swift in Sources */,
-				E27307952AD20C920060FF99 /* APIClient.swift in Sources */,
 				E2BF5D752AD3634700261261 /* Color+GoTravel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,22 +584,18 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		E2F9416D2AD312E80047EA04 /* XCRemoteSwiftPackageReference "turf-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mapbox/turf-swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.7.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		E2F9416E2AD312E80047EA04 /* Turf */ = {
+		E28DC2AF2B1F62B900E2FECE /* GoTravel.CoreData */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E2F9416D2AD312E80047EA04 /* XCRemoteSwiftPackageReference "turf-swift" */;
-			productName = Turf;
+			productName = GoTravel.CoreData;
+		};
+		E28DC2B22B1FE44900E2FECE /* GoTravel.Models */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GoTravel.Models;
+		};
+		E28DC2B52B1FE5DE00E2FECE /* GoTravel.API */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GoTravel.API;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
