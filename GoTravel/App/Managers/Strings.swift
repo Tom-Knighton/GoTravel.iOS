@@ -45,6 +45,8 @@ public struct Strings {
 public struct Icons {
     public static let gear: String = "gear"
     public static let arrow_right: String = "arrow.right"
+    public static let arrow_up: String = "arrow.up"
+    public static let arrow_down: String = "arrow.down"
     public static let location_slash = "location.slash"
     public static let cross_circle_fill = "xmark.circle.fill"
     public static let map = "map"

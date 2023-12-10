@@ -86,7 +86,7 @@ public struct LineModeFilterAreaView: View {
                     Spacer()
                     
                     if !self.isNearby {
-                        Image(systemName: Icons.arrow_right)
+                        Image(systemName: self.showSection ? Icons.arrow_down : Icons.arrow_right)
                             .accessibilityHidden()
                     }
                 }
@@ -142,7 +142,7 @@ public struct LineModeFilterAreaView: View {
     private func toggleSection() {
         guard !isNearby else { return }
         
-        withAnimation {
+        withAnimation(.snappy) {
             self.showSection.toggle()
         }
         
