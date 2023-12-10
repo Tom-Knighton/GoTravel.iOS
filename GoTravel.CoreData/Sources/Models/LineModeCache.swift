@@ -15,10 +15,13 @@ public final class LineModeCache {
     public let primaryAreaName: String
     public let branding: LineModeBrandingCache
     
+    public let cacheTime: Date
+    
     public init(lineMode: String, primaryAreaName: String, branding: LineModeBrandingCache) {
         self.lineMode = lineMode
         self.primaryAreaName = primaryAreaName
         self.branding = branding
+        cacheTime = Date()
     }
     
 }

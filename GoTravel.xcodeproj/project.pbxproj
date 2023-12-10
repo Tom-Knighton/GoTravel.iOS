@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E2000C182AC821D3003D01A9 /* StopMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2000C172AC821D3003D01A9 /* StopMapViewModel.swift */; };
 		E2000C1B2AC82799003D01A9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2000C1A2AC82799003D01A9 /* LocationManager.swift */; };
+		E2438F1E2B25D82B00BBF345 /* Accessibility+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */; };
+		E2438F202B26195100BBF345 /* AccessibilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */; };
 		E273078B2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift */; };
 		E273078F2AD20A4E0060FF99 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273078E2AD20A4E0060FF99 /* Strings.swift */; };
 		E280F6552B13ADC100563D7E /* String+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280F6542B13ADC100563D7E /* String+GoTravel.swift */; };
@@ -55,6 +57,8 @@
 		E2000C172AC821D3003D01A9 /* StopMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopMapViewModel.swift; sourceTree = "<group>"; };
 		E2000C1A2AC82799003D01A9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E2000C1F2AC82C97003D01A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Accessibility+GoTravel.swift"; sourceTree = "<group>"; };
+		E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityHelper.swift; sourceTree = "<group>"; };
 		E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+GoTravel.swift"; sourceTree = "<group>"; };
 		E273078E2AD20A4E0060FF99 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		E280F6542B13ADC100563D7E /* String+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GoTravel.swift"; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 				E2000C1A2AC82799003D01A9 /* LocationManager.swift */,
 				E273078E2AD20A4E0060FF99 /* Strings.swift */,
 				E2CFD9922AFA8233008A6726 /* AppData.swift */,
+				E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				E2BF5D742AD3634700261261 /* Color+GoTravel.swift */,
 				E280F6542B13ADC100563D7E /* String+GoTravel.swift */,
 				E28DC2BB2B1FE7CA00E2FECE /* SwiftUI+GoTravel.swift */,
+				E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -335,12 +341,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2438F202B26195100BBF345 /* AccessibilityHelper.swift in Sources */,
 				E29848C12AC6FB83004A5BDC /* HomeMapPage.swift in Sources */,
 				E28DC2C52B210E5500E2FECE /* LineMode+Cache.swift in Sources */,
 				E2000C182AC821D3003D01A9 /* StopMapViewModel.swift in Sources */,
 				E28DC2BF2B2107D900E2FECE /* LineModeFilterViewModel.swift in Sources */,
 				E2BF5D732AD3629500261261 /* LineMode+GoTravel.swift in Sources */,
 				E2F9415D2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift in Sources */,
+				E2438F1E2B25D82B00BBF345 /* Accessibility+GoTravel.swift in Sources */,
 				E273078F2AD20A4E0060FF99 /* Strings.swift in Sources */,
 				E2FA5C3B2AF8240500DCE810 /* SearchHereTip.swift in Sources */,
 				E2000C1B2AC82799003D01A9 /* LocationManager.swift in Sources */,

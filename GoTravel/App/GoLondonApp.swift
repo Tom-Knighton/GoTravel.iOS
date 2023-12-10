@@ -39,6 +39,6 @@ struct GoTravelApp: App {
                     }
                  }
         }
-        .modelContainer(for: GoTravelCoreData.AllModels)
+        .modelContainer(GoTravelCoreData.shared.container)
     }
 }

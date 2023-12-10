@@ -12,7 +12,7 @@ import SwiftData
 public final class HiddenLineMode {
     
     public let lineModeName: String
-    public let hidden: Bool
+    public var hidden: Bool
     
     public init(lineModeName: String, hidden: Bool) {
         self.lineModeName = lineModeName

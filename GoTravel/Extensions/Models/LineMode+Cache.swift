@@ -9,14 +9,6 @@ import Foundation
 import GoTravel_Models
 import GoTravel_CoreData
 
-
-extension LineModeGroup {
-    
-    public init(cache: LineModeAreaCache) {
-        self.init(areaName: cache.areaName, lineModes: cache.lineModes.compactMap { .init(cache: $0) })
-    }
-}
-
 extension LineMode {
     
     public init(cache: LineModeCache) {

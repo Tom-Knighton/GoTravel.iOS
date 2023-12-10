@@ -1,8 +1,15 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
+    "%@ %@ stops on the map" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$@ stops on the map"
+          }
+        }
+      }
     },
     "Errors:NoLineModesFromAPI" : {
       "localizations" : {
@@ -20,6 +27,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "We couldn't find any Line Modes :( Please try again later."
+          }
+        }
+      }
+    },
+    "Line modes for the %@ area. %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Line modes for the %1$@ area. %2$@"
           }
         }
       }

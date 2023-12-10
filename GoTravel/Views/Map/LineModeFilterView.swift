@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+import GoTravel_CoreData
 import GoTravel_Models
+import SwiftData
 
 public struct LineModeFilterView: View {
     
@@ -32,7 +34,9 @@ public struct LineModeFilterView: View {
             
             ScrollView {
                 ForEach(viewModel.lineModeGroups, id: \.areaName) { area in
-                    LineModeFilterAreaView(areaName: area.areaName, lineModes: area.lineModes)
+                    LineModeFilterAreaView(areaName: area.areaName, lineModes: area.lineModes) { toggledLineMode in
+                        self.viewModel.toggleLineMode(lineMode: toggledLineMode)
+                    }
                 }
             }
         }
@@ -42,48 +46,66 @@ public struct LineModeFilterView: View {
 }
 
 public struct LineModeFilterAreaView: View {
-    
-    
+        
     public let areaName: String
     public let lineModes: [LineMode]
-    @State private var showSection: Bool = false
     
     private var isNearby: Bool
+    private var callback: (_ lineMode: String) -> Void
+    private let flatLMNames: [String]
     
-    public init(areaName: String, lineModes: [LineMode]) {
+    @State private var showSection: Bool = false
+    @Query private var hiddenLineModes: [HiddenLineMode]
+    @AccessibilityFocusState private var isFocused: Bool
+    
+    public init(areaName: String, lineModes: [LineMode], toggledCallback: @escaping (_ lineMode: String) -> Void) {
         self.areaName = areaName
         self.lineModes = lineModes
         
         let isNearby = areaName == Strings.Map.LineModeFilterNearby.toString()
         self.isNearby = isNearby
         self._showSection = State(wrappedValue: isNearby)
+        self.callback = toggledCallback
+        
+        flatLMNames = lineModes.compactMap { $0.lineModeName }
+        _hiddenLineModes = Query(filter: #Predicate<HiddenLineMode> { hidden in
+            flatLMNames.contains(hidden.lineModeName)
+        })
     }
     
     public var body: some View {
         VStack {
-            HStack {
-                Text(areaName)
-                    .font(.title3.bold())
-                    .fontDesign(.rounded)
-                Spacer()
-                
-                if !self.isNearby {
-                    Image(systemName: Icons.arrow_right)
-                }
-            }
-            .contentShape(.rect)
-            .onTapGesture {
-                if !self.isNearby {
-                    withAnimation {
-                        self.showSection.toggle()
+            Button(action: { toggleSection() }) {
+                HStack {
+                    Text(areaName)
+                        .font(.title3.bold())
+                        .fontDesign(.rounded)
+                        .if(!self.isNearby) { view in
+                            view.accessibilityHidden()
+                        }
+                    Spacer()
+                    
+                    if !self.isNearby {
+                        Image(systemName: Icons.arrow_right)
+                            .accessibilityHidden()
                     }
                 }
+            }
+            .tint(.primary)
+            .accessibilityFocused($isFocused)
+            .accessibilityAddTraits(.isHeader)
+            .accessibilityHint("Line modes for the \(areaName) area. \(isNearby ? "" : "Tap to \(showSection ? "collapse" : "expand")")")
+            .if(self.isNearby) { view in
+                view
+                    .accessibilityRemoveTraits(.isButton)
+                    .accessibilityAddTraits(.isStaticText)
             }
             
             if self.showSection {
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
                     ForEach(lineModes, id: \.lineModeName) { lineMode in
-                        Button(action: {}) {
+                        let isHidden = isLineModeHidden(lineModeName: lineMode.lineModeName)
+                        Button(action: { self.lineModeTapped(lineMode: lineMode) }) {
                             VStack {
                                 Spacer().frame(height: 16)
                                 Text(lineMode.lineModeName)
@@ -99,19 +121,45 @@ public struct LineModeFilterAreaView: View {
                                 }, placeholder: {
                                     ProgressView()
                                 })
-                                .accessibilityHidden(true)
                                 Spacer().frame(height: 30)
                             }
                             .frame(maxWidth: .infinity, minHeight: 150, maxHeight: .infinity)
-                            .background(.layer3)
+                            .background(isHidden ? .layer3 : .blue)
                             .clipShape(.rect(cornerRadius: 10))
                             .shadow(radius: 3)
                             .tint(.primary)
+                            .accessibilityHidden()
                         }
-                        .accessibilityHint("Shows/hides \(lineMode.lineModeName) stops on the mapll")
+                        .accessibilityHint("\(isHidden ? "Re-enables" : "Hides all") \(lineMode.lineModeName) stops on the map")
                     }
                 }
             }
-        }   
+        }
+    }
+    
+    @MainActor
+    private func toggleSection() {
+        guard !isNearby else { return }
+        
+        withAnimation {
+            self.showSection.toggle()
+        }
+        
+        if self.showSection {
+            AccessibilityHelper.postMessage("Added \(lineModes.count) line modes for the \(areaName) area to the view", messageType: .layoutChanged)
+        } else {
+            AccessibilityHelper.postMessage("Hidden \(lineModes.count) line modes for the \(areaName) area from the view", messageType: .layoutChanged)
+        }
+        self.isFocused = true
+    }
+    
+    private func lineModeTapped(lineMode: LineMode) {
+        self.callback(lineMode.lineModeName)
+    }
+    
+    private func isLineModeHidden(lineModeName: String) -> Bool {
+        return hiddenLineModes.contains { hidden in
+            hidden.lineModeName == lineModeName && hidden.hidden
+        }
     }
 }
