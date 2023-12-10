@@ -39,6 +39,13 @@ public struct HomeMapPage: View {
             .onMapCameraChange { context in
                 self.viewModel.mapPannedCenter = context.camera.centerCoordinate
             }
+            .onChange(of: viewModel.filterSheetOpen, initial: false) { _, newVal in
+                if !newVal {
+                    Task {
+                        await viewModel.searchAtMapCenter()
+                    }
+                }
+            }
             
             mapControls()
             

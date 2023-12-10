@@ -10,6 +10,8 @@ import Observation
 import MapKit
 import GoTravel_Models
 import GoTravel_API
+import GoTravel_CoreData
+import SwiftData
 
 @Observable
 public class StopMapViewModel {
@@ -79,8 +81,9 @@ public class StopMapViewModel {
     
     public func searchAtLocation(_ coordinate: CLLocationCoordinate2D) async {
         do {
+            let hiddenLineModes = getHiddenLineModeNames()
             self.isSearching = true
-            let result = try await StopPointService.SearchAround(lat: coordinate.latitude, lon: coordinate.longitude, radius: searchDistance)
+            let result = try await StopPointService.SearchAround(lat: coordinate.latitude, lon: coordinate.longitude, radius: searchDistance, hiddenLineModes: hiddenLineModes)
             self.stopPoints = result
             self.searchedLocation = coordinate
             self.isSearching = false
@@ -88,5 +91,13 @@ public class StopMapViewModel {
             print("error decoding results")
             self.isSearching = false
         }
+    }
+    
+    private func getHiddenLineModeNames() -> [String] {
+        let context = GoTravelCoreData.shared.context
+        let predicate = FetchDescriptor(predicate: #Predicate<HiddenLineMode> { $0.hidden })
+        let hiddenLineModes = (try? context.fetch(predicate)) ?? []
+        
+        return hiddenLineModes.compactMap { $0.lineModeName }
     }
 }
