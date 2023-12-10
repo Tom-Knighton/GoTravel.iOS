@@ -13,7 +13,7 @@ public enum StopPoint: Decodable {
     case bus(BusStopPoint)
     case bike(BikeStopPoint)
     
-    var stopPoint: StopPointBase {
+    public var stopPoint: StopPointBase {
         switch self {
         case .bike(let bike):
             return bike

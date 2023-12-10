@@ -8,6 +8,10 @@
 import SwiftUI
 import Observation
 import MapKit
+import GoTravel_Models
+import GoTravel_API
+import GoTravel_CoreData
+import SwiftData
 
 @Observable
 public class StopMapViewModel {
@@ -28,6 +32,9 @@ public class StopMapViewModel {
     //MARK: Location Banner
     public var locationBannerClosed: Bool = false
     public var locationBannerOffser: Double = .zero
+    
+    //MARK: Filters
+    public var filterSheetOpen: Bool = false
     
     public init() {
         self.mapPosition = MapCameraPosition.userLocation(fallback: .automatic)
@@ -60,6 +67,12 @@ public class StopMapViewModel {
         do {
             guard let mapCenter = self.mapPannedCenter else { throw "No map"}
             
+            if UIAccessibility.isVoiceOverRunning {
+                print(mapCenter)
+                print(self.mapPosition.positionedByUser)
+                print(self.mapPosition.region?.center)
+            }
+            
             await self.searchAtLocation(mapCenter)
         } catch {
             print("error decoding results" + error.localizedDescription)
@@ -74,14 +87,27 @@ public class StopMapViewModel {
     
     public func searchAtLocation(_ coordinate: CLLocationCoordinate2D) async {
         do {
+            let hiddenLineModes = getHiddenLineModeNames()
             self.isSearching = true
-            let result = try await StopPointService.SearchAround(lat: coordinate.latitude, lon: coordinate.longitude, radius: searchDistance)
+            let result = try await StopPointService.SearchAround(lat: coordinate.latitude, lon: coordinate.longitude, radius: searchDistance, hiddenLineModes: hiddenLineModes)
             self.stopPoints = result
             self.searchedLocation = coordinate
             self.isSearching = false
+            
+            await MainActor.run {
+                AccessibilityHelper.postMessage("Stop points on map refreshed", messageType: .screenChanged)
+            }
         } catch {
             print("error decoding results")
             self.isSearching = false
         }
+    }
+    
+    private func getHiddenLineModeNames() -> [String] {
+        let context = GoTravelCoreData.shared.context
+        let predicate = FetchDescriptor(predicate: #Predicate<HiddenLineMode> { $0.hidden })
+        let hiddenLineModes = (try? context.fetch(predicate)) ?? []
+        
+        return hiddenLineModes.compactMap { $0.lineModeName }
     }
 }

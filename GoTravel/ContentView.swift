@@ -11,6 +11,8 @@ struct ContentView: View {
     
     @Environment(GlobalViewModel.self) private var globalVM
     
+    @State private var number: Int = 0
+    
     var body: some View {
         @Bindable var globalVM = globalVM
         

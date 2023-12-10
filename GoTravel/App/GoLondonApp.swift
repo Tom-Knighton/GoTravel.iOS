@@ -7,6 +7,8 @@
 
 import SwiftUI
 import TipKit
+import SwiftData
+import GoTravel_CoreData
 
 @main
 struct GoTravelApp: App {
@@ -17,7 +19,7 @@ struct GoTravelApp: App {
     
     
     init() {
-//        try? Tips.resetDatastore()
+        try? Tips.resetDatastore()
         try? Tips.configure()
 
         
@@ -37,5 +39,6 @@ struct GoTravelApp: App {
                     }
                  }
         }
+        .modelContainer(GoTravelCoreData.shared.container)
     }
 }
