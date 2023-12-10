@@ -30,6 +30,16 @@ public struct Strings {
         public static let NoLineModesAPI: LocalizedStringKey = "Errors:NoLineModesFromAPI"
         public static let NoLineModesAPIDescription: LocalizedStringKey = "Errors:NoLineModesFromAPI:Description"
     }
+    
+    public struct Accessibility {
+        
+        public static let MapLabelUserSearch: LocalizedStringKey = "Accessibility:Map:UserSearchLabel"
+        public static let MapHintUserSearch: LocalizedStringKey = "Accessibility:Map:UserSearchHint"
+        public static let MapLabelMapSearch: LocalizedStringKey = "Accessibility:Map:MapSearchLabel"
+        public static let MapHintMapSearch: LocalizedStringKey = "Accessibility:Map:MapSearchHint"
+        public static let MapLabelFilterSheet: LocalizedStringKey = "Accessibility:Map:FilterSheetLabel"
+        public static let MapHintFilterSheet: LocalizedStringKey = "Accessibility:Map:FilterSheetHint"
+    }
 }
 
 public struct Icons {

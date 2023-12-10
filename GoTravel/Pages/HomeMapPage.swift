@@ -38,6 +38,7 @@ public struct HomeMapPage: View {
             .mapStyle(.standard(pointsOfInterest: .excludingAll, showsTraffic: true))
             .onMapCameraChange { context in
                 self.viewModel.mapPannedCenter = context.camera.centerCoordinate
+                print("changed")
             }
             .onChange(of: viewModel.filterSheetOpen, initial: false) { _, newVal in
                 if !newVal {
@@ -119,6 +120,8 @@ extension HomeMapPage {
                     Image(systemName: Icons.location)
                 }
                 .buttonStyle(.mapControl)
+                .accessibilityLabel(Strings.Accessibility.MapLabelUserSearch)
+                .accessibilityHint(Strings.Accessibility.MapHintUserSearch)
                 
                 Button(action: { self.searchHereTapped() }) {
                     if self.viewModel.isSearching {
@@ -130,11 +133,15 @@ extension HomeMapPage {
                 }
                 .buttonStyle(.mapControl)
                 .popoverTip(SearchHereTip(), arrowEdge: .top)
+                .accessibilityLabel(Strings.Accessibility.MapLabelMapSearch)
+                .accessibilityHint(Strings.Accessibility.MapHintMapSearch)
                 
                 Button(action: { openFilterSheet() }) {
                     Image(systemName: Icons.filter)
                 }
                 .buttonStyle(.mapControl)
+                .accessibilityLabel(Strings.Accessibility.MapLabelFilterSheet)
+                .accessibilityHint(Strings.Accessibility.MapHintFilterSheet)
                 
                 Spacer()
             }

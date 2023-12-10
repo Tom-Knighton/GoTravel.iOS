@@ -94,7 +94,7 @@ public struct LineModeFilterAreaView: View {
             .tint(.primary)
             .accessibilityFocused($isFocused)
             .accessibilityAddTraits(.isHeader)
-            .accessibilityHint("Line modes for the \(areaName) area. \(isNearby ? "" : "Tap to \(showSection ? "collapse" : "expand")")")
+            .accessibilityLabel("Line modes for the \(areaName) area. \(isNearby ? "" : "Tap to \(showSection ? "collapse" : "expand")")")
             .if(self.isNearby) { view in
                 view
                     .accessibilityRemoveTraits(.isButton)
@@ -130,6 +130,7 @@ public struct LineModeFilterAreaView: View {
                             .tint(.primary)
                             .accessibilityHidden()
                         }
+                        .accessibilityLabel(lineMode.lineModeName)
                         .accessibilityHint("\(isHidden ? "Re-enables" : "Hides all") \(lineMode.lineModeName) stops on the map")
                     }
                 }

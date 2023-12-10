@@ -11,6 +11,66 @@
         }
       }
     },
+    "Accessibility:Map:FilterSheetHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opens the filter line modes sheet view"
+          }
+        }
+      }
+    },
+    "Accessibility:Map:FilterSheetLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Line Mode Filters"
+          }
+        }
+      }
+    },
+    "Accessibility:Map:MapSearchHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Searches for stop points around the center of the map"
+          }
+        }
+      }
+    },
+    "Accessibility:Map:MapSearchLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search Here"
+          }
+        }
+      }
+    },
+    "Accessibility:Map:UserSearchHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moves the map to the user's location and searches for stop points"
+          }
+        }
+      }
+    },
+    "Accessibility:Map:UserSearchLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search at my location"
+          }
+        }
+      }
+    },
     "Errors:NoLineModesFromAPI" : {
       "localizations" : {
         "en" : {

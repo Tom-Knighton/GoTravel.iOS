@@ -67,6 +67,12 @@ public class StopMapViewModel {
         do {
             guard let mapCenter = self.mapPannedCenter else { throw "No map"}
             
+            if UIAccessibility.isVoiceOverRunning {
+                print(mapCenter)
+                print(self.mapPosition.positionedByUser)
+                print(self.mapPosition.region?.center)
+            }
+            
             await self.searchAtLocation(mapCenter)
         } catch {
             print("error decoding results" + error.localizedDescription)
@@ -87,6 +93,10 @@ public class StopMapViewModel {
             self.stopPoints = result
             self.searchedLocation = coordinate
             self.isSearching = false
+            
+            await MainActor.run {
+                AccessibilityHelper.postMessage("Stop points on map refreshed", messageType: .screenChanged)
+            }
         } catch {
             print("error decoding results")
             self.isSearching = false
