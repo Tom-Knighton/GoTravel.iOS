@@ -23,7 +23,16 @@ public struct Strings {
         public static let LineModeFilterSubtitle: LocalizedStringKey = "Map:LineModeFilters:Subtitle"
         public static let LineModeFilterNearby: LocalizedStringKey = "Map:LineModeFilters:Nearby"
         public static let LineModeFilterOthers: LocalizedStringKey = "Map:LineModeFilters:Others"
-
+        
+        public static let SearchSheetSearch: LocalizedStringKey = "Map:SearchSheet:Search"
+        
+        public static func BusStopIndication(_ indication: String) -> LocalizedStringKey {
+            LocalizedStringKey("Map:SearchSheet:BusStopIndication:\(indication)")
+        }
+        
+        public static func Distance(_ distance: String, measurement: String = "miles") -> LocalizedStringKey {
+            LocalizedStringKey("Map:Distance:\(distance):\(measurement)")
+        }
     }
     
     public struct Errors {
@@ -39,6 +48,26 @@ public struct Strings {
         public static let MapHintMapSearch: LocalizedStringKey = "Accessibility:Map:MapSearchHint"
         public static let MapLabelFilterSheet: LocalizedStringKey = "Accessibility:Map:FilterSheetLabel"
         public static let MapHintFilterSheet: LocalizedStringKey = "Accessibility:Map:FilterSheetHint"
+        
+        public static func MapBikesRemaining(_ bikes: Int) -> LocalizedStringKey {
+            return "Accessibility:Map:BikesRemainingText:\(bikes)"
+        }
+        
+        public static func MapEBikesRemaining(_ bikes: Int) -> LocalizedStringKey {
+            return "Accessibility:Map:EBikesRemainingText:\(bikes)"
+        }
+        
+        public static func MapLineRoute(_ route: String) -> LocalizedStringKey {
+            LocalizedStringKey("Accessibility:Map:LineRoute:\(route)")
+        }
+        
+        public static func MapFilterEnables(_ lineMode: String) -> LocalizedStringKey {
+            LocalizedStringKey("Accessibility:Map:FilterReEnables:\(lineMode)")
+        }
+        
+        public static func MapFilterHides(_ lineMode: String) -> LocalizedStringKey {
+            LocalizedStringKey("Accessibility:Map:FilterHides:\(lineMode)")
+        }
     }
 }
 
@@ -52,6 +81,8 @@ public struct Icons {
     public static let map = "map"
     public static let map_circle = "map.circle.fill"
     public static let bike = "bicycle"
+    public static let bike_circle = "bicycle.circle"
+    public static let bike_circle_fill = "bicycle.circle.fill"
     public static let train = "tram"
     public static let bus = "bus"
     public static let location = "location"
