@@ -7,13 +7,16 @@
 
 import SwiftUI
 import MapKit
+import Combine
 
 public struct HomeMapPage: View {
     
     @Environment(LocationManager.self) private var locationManager
     @State private var viewModel = StopMapViewModel()
     @State private var filterViewModel = LineModeFilterViewModel()
-        
+    
+    let searchTextPublisher = PassthroughSubject<String, Never>()
+
     public var body: some View {
         ZStack {
             Map(position: $viewModel.mapPosition, interactionModes: [.pan, .pitch, .zoom]) {
@@ -34,11 +37,11 @@ public struct HomeMapPage: View {
                         .stroke(.blue, lineWidth: 1)
                 }
             }
+            .ignoresSafeArea(.keyboard, edges: [.bottom])
             .mapControlVisibility(.hidden)
             .mapStyle(.standard(pointsOfInterest: .excludingAll, showsTraffic: true))
             .onMapCameraChange { context in
                 self.viewModel.mapPannedCenter = context.camera.centerCoordinate
-                print("changed")
             }
             .onChange(of: viewModel.filterSheetOpen, initial: false) { _, newVal in
                 if !newVal {
@@ -56,6 +59,23 @@ public struct HomeMapPage: View {
             LineModeFilterView()
                 .environment(filterViewModel)
         }
+        .bottomSheet(bottomSheetPosition: $viewModel.sheetPosition, switchablePositions: viewModel.sheetPositions, headerContent: {
+            MapSheetSearchBar(text: $viewModel.searchText)
+                .onTapGesture {
+                    if let top = self.viewModel.sheetPositions.last {
+                        viewModel.sheetPosition = top
+                    }
+                }
+        }) {
+            MapSheetSearchResults(searchResults: $viewModel.searchResults)
+        }
+        .customAnimation(.spring)
+        .onChange(of: self.viewModel.searchText, { _, newValue in
+            self.searchTextPublisher.send(newValue)
+        })
+        .onReceive(searchTextPublisher.debounce(for: .seconds(0.5), scheduler: DispatchQueue.main), perform: { val in
+            self.viewModel.searchStopPoints(val)
+        })
         .task {
             await viewModel.searchAtUserLoc()
         }

@@ -23,5 +23,6 @@ struct ContentView: View {
                     Label(Strings.Navigation.MapTab, systemImage: Icons.map)
                 }
         }
+        
     }
 }

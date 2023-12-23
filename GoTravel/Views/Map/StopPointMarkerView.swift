@@ -17,7 +17,7 @@ public struct StopPointMarkerView: View {
             ZStack {
                 Circle()
                     .frame(width: 30, height: 30)
-                    .foregroundStyle(stopPoint.stopPoint.mostImportantLineMode?.lineModeColour ?? .red)
+                    .foregroundStyle(Color(hex: stopPoint.stopPoint.mostImportantLineMode?.branding.lineModePrimaryColour ?? "") ?? .red)
                 circleContent()
                     .bold()
                     .shadow(radius: 3)

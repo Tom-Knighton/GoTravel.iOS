@@ -131,7 +131,7 @@ public struct LineModeFilterAreaView: View {
                             .accessibilityHidden()
                         }
                         .accessibilityLabel(lineMode.lineModeName)
-                        .accessibilityHint("\(isHidden ? "Re-enables" : "Hides all") \(lineMode.lineModeName) stops on the map")
+                        .accessibilityHint(isHidden ? Strings.Accessibility.MapFilterHides(lineMode.lineModeName) : Strings.Accessibility.MapFilterEnables(lineMode.lineModeName))
                     }
                 }
             }

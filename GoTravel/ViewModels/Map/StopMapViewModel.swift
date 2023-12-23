@@ -36,6 +36,13 @@ public class StopMapViewModel {
     //MARK: Filters
     public var filterSheetOpen: Bool = false
     
+    //MARK: Search Sheet
+    public var sheetPosition: BottomSheetPosition = .relativeBottom(0.2)
+    public var sheetPositions: [BottomSheetPosition] = [.relativeBottom(0.2), .relative(0.4), .relativeTop(1)]
+    public var searchText: String = ""
+    public var searchResults: [StopPoint] = []
+    public var isSearchResultsLoading: Bool = false
+    
     public init() {
         self.mapPosition = MapCameraPosition.userLocation(fallback: .automatic)
         self.locationBannerClosed = false
@@ -67,12 +74,6 @@ public class StopMapViewModel {
         do {
             guard let mapCenter = self.mapPannedCenter else { throw "No map"}
             
-            if UIAccessibility.isVoiceOverRunning {
-                print(mapCenter)
-                print(self.mapPosition.positionedByUser)
-                print(self.mapPosition.region?.center)
-            }
-            
             await self.searchAtLocation(mapCenter)
         } catch {
             print("error decoding results" + error.localizedDescription)
@@ -100,6 +101,26 @@ public class StopMapViewModel {
         } catch {
             print("error decoding results")
             self.isSearching = false
+        }
+    }
+    
+    public func searchStopPoints(_ query: String? = nil) {
+        let searchQuery = query ?? self.searchText
+        guard searchQuery.count >= 3 else {
+            return
+        }
+        
+        self.isSearchResultsLoading = true
+        Task {
+            do {
+                let results = try await StopPointService.Search(searchQuery)
+                
+                self.searchResults = results
+                self.isSearchResultsLoading = false
+            } catch {
+                print("Error decoding search results")
+                self.isSearchResultsLoading = false
+            }
         }
     }
     
