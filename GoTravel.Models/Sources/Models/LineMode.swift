@@ -21,10 +21,14 @@ public struct LineMode: Codable {
     /// The branding of this line mode, mainly colour and logo information
     public let branding: LineModeBranding
     
-    public init(lineModeName: String, lines: [Line], primaryAreaName: String, branding: LineModeBranding) {
+    /// Flagged information for this line mode
+    public let flags: [String]
+    
+    public init(lineModeName: String, lines: [Line], primaryAreaName: String, branding: LineModeBranding, flags: [String]) {
         self.lineModeName = lineModeName
         self.lines = lines
         self.primaryAreaName = primaryAreaName
         self.branding = branding
+        self.flags = flags
     }
 }
