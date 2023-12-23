@@ -31,13 +31,22 @@ public struct MapSheetSearchBar: View {
 
 public struct MapSheetSearchResults: View {
     
+    @Binding public var isNearby: Bool
     @Binding public var searchResults: [StopPoint]
     
     public var body: some View {
         ScrollView {
             VStack {
+                if isNearby {
+                    Text(Strings.Map.SearchSheetNearby)
+                        .font(.title.bold())
+                        .fontDesign(.rounded)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                }
                 ForEach(searchResults, id: \.stopPoint.stopPointId) { result in
                     MapSheetSearchResultItem(item: result)
+                        .id(result.stopPoint.stopPointId)
                 }
                 Spacer()
             }
@@ -113,7 +122,7 @@ public struct MapSheetSearchResultItem: View {
                 let distance = item.stopPoint.stopPointCoordinate.coordinates.distance(to: coordinate)
                 
                 if distance < 321.869 { //0.2 miles
-                    self.distanceTo = Double(Int(distance / 1760))
+                    self.distanceTo = Double(distance * 0.9144)
                     self.distanceIsYards = true
                 } else {
                     self.distanceTo = distance / 1690

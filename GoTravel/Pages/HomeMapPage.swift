@@ -67,11 +67,12 @@ public struct HomeMapPage: View {
                     }
                 }
         }) {
-            MapSheetSearchResults(searchResults: $viewModel.searchResults)
+            MapSheetSearchResults(isNearby: $viewModel.searchSheetShowNearby, searchResults: viewModel.searchSheetShowNearby ? $viewModel.stopPoints : $viewModel.searchResults)
         }
         .customAnimation(.spring)
         .onChange(of: self.viewModel.searchText, { _, newValue in
             self.searchTextPublisher.send(newValue)
+            viewModel.searchSheetShowNearby = newValue.trimmingCharacters(in: .whitespacesAndNewlines).count < 3
         })
         .onReceive(searchTextPublisher.debounce(for: .seconds(0.5), scheduler: DispatchQueue.main), perform: { val in
             self.viewModel.searchStopPoints(val)

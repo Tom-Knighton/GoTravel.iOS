@@ -236,6 +236,16 @@
         }
       }
     },
+    "Map:SearchSheet:Nearby" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nearby:"
+          }
+        }
+      }
+    },
     "Map:SearchSheet:Search" : {
       "localizations" : {
         "en" : {

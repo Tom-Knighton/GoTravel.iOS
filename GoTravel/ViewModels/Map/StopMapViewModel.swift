@@ -42,6 +42,7 @@ public class StopMapViewModel {
     public var searchText: String = ""
     public var searchResults: [StopPoint] = []
     public var isSearchResultsLoading: Bool = false
+    public var searchSheetShowNearby: Bool = true
     
     public init() {
         self.mapPosition = MapCameraPosition.userLocation(fallback: .automatic)
@@ -105,7 +106,7 @@ public class StopMapViewModel {
     }
     
     public func searchStopPoints(_ query: String? = nil) {
-        let searchQuery = query ?? self.searchText
+        let searchQuery = query?.trimmingCharacters(in: .whitespacesAndNewlines) ?? self.searchText.trimmingCharacters(in: .whitespacesAndNewlines)
         guard searchQuery.count >= 3 else {
             return
         }

@@ -25,6 +25,7 @@ public struct Strings {
         public static let LineModeFilterOthers: LocalizedStringKey = "Map:LineModeFilters:Others"
         
         public static let SearchSheetSearch: LocalizedStringKey = "Map:SearchSheet:Search"
+        public static let SearchSheetNearby: LocalizedStringKey = "Map:SearchSheet:Nearby"
         
         public static func BusStopIndication(_ indication: String) -> LocalizedStringKey {
             LocalizedStringKey("Map:SearchSheet:BusStopIndication:\(indication)")
