@@ -33,27 +33,33 @@ public struct MapSheetSearchResults: View {
     
     @Binding public var isNearby: Bool
     @Binding public var searchResults: [StopPoint]
+    @Binding public var scrollToId: String?
     
     public var body: some View {
-        ScrollView {
-            VStack {
-                if isNearby {
-                    Text(Strings.Map.SearchSheetNearby)
-                        .font(.title.bold())
-                        .fontDesign(.rounded)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
+        ScrollViewReader { reader in
+            ScrollView {
+                VStack {
+                    if isNearby {
+                        Text(Strings.Map.SearchSheetNearby)
+                            .font(.title.bold())
+                            .fontDesign(.rounded)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                    }
+                    ForEach(searchResults, id: \.stopPoint.stopPointId) { result in
+                        MapSheetSearchResultItem(item: result)
+                            .id(result.stopPoint.stopPointId)
+                    }
                 }
-                ForEach(searchResults, id: \.stopPoint.stopPointId) { result in
-                    MapSheetSearchResultItem(item: result)
-                        .id(result.stopPoint.stopPointId)
-                }
-                Spacer()
+                .padding(.horizontal, 12)
             }
-            .padding(.horizontal, 12)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .onChange(of: self.scrollToId) { _, newValue in
+                if let newValue {
+                    reader.scrollTo(newValue, anchor: .top)
+                }
+            }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        
     }
 }
 
@@ -140,15 +146,15 @@ public struct MapSheetSearchResultItem: View {
     
     
     private func getLineModesToDisplay() -> [LineMode] {
-        let lineModesToDisplay = self.item.stopPoint.lineModes.filter { !$0.hasFlag("IsBusLike") }
+        let lineModesToDisplay = self.item.stopPoint.lineModes
         
         return lineModesToDisplay
     }
     
-    private func getBusLinesToDisplay() -> [String] {
-        let busLines = self.item.stopPoint.lineModes.filter { $0.hasFlag("IsBusLike") }
+    private func getModesDisplayedIndividually() -> [LineMode] {
+        let invidualLineModes = self.item.stopPoint.lineModes.filter { $0.hasFlag("LLV_DisplaysLines") }
         
-        return busLines.flatMap { $0.lines.compactMap { $0.lineName } }
+        return invidualLineModes
     }
     
     @ViewBuilder
@@ -167,20 +173,30 @@ public struct MapSheetSearchResultItem: View {
              }
         }
         
-        let bus = getBusLinesToDisplay()
-        if !bus.isEmpty {
-            if !normalModes.isEmpty {
-                Divider()
-            }
-            ForEach(bus, id: \.self) { busLine in
-                Text(busLine)
-                    .font(.footnote)
-                    .padding(.vertical, 4)
-                    .padding(.horizontal, 8)
-                    .background(.red)
-                    .clipShape(.rect(cornerRadius: 10))
-                    .shadow(radius: 3)
-                    .accessibilityLabel(Strings.Accessibility.MapLineRoute(busLine))
+        individualModeLines()
+    }
+    
+    @ViewBuilder
+    private func individualModeLines() -> some View {
+        let individualModes = getModesDisplayedIndividually()
+        ForEach(individualModes, id: \.lineModeName) { mode in
+            Divider()
+            ForEach(mode.lines, id: \.lineName) { line in
+                Group {
+                    if mode.hasFlag("LLV_DisplaysLineNames") {
+                        Text(line.lineName)
+                            .padding(.vertical, 4)
+                            .padding(.horizontal, 8)
+                            .font(.footnote)
+                    } else {
+                        Rectangle()
+                            .frame(width: 20, height: 20)
+                    }
+                }
+                .background(Color(hex: line.linePrimaryColour) ?? Color(hex: mode.branding.lineModeBackgroundColour) ?? .red)
+                .clipShape(.rect(cornerRadius: 5))
+                .shadow(radius: 3)
+                .accessibilityLabel(Strings.Accessibility.MapLineRoute(line.lineName))
             }
         }
     }

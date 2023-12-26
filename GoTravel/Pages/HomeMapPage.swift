@@ -25,6 +25,9 @@ public struct HomeMapPage: View {
                 ForEach(viewModel.stopPoints, id: \.stopPoint.stopPointId) { stopPoint in
                     Annotation(coordinate: stopPoint.stopPoint.stopPointCoordinate.coordinates, anchor: .bottom) {
                         StopPointMarkerView(stopPoint: stopPoint)
+                            .onTapGesture {
+                                self.viewModel.scrollSearchResults(to: stopPoint.stopPoint.stopPointId)
+                            }
                     } label: {
                         Text(stopPoint.stopPoint.stopPointName)
                     }
@@ -37,7 +40,8 @@ public struct HomeMapPage: View {
                         .stroke(.blue, lineWidth: 1)
                 }
             }
-            .ignoresSafeArea(.keyboard, edges: [.bottom])
+            .ignoresSafeArea(.keyboard)
+            .ignoresSafeArea(.container)
             .mapControlVisibility(.hidden)
             .mapStyle(.standard(pointsOfInterest: .excludingAll, showsTraffic: true))
             .onMapCameraChange { context in
@@ -55,6 +59,7 @@ public struct HomeMapPage: View {
             
             noLocationBanner()
         }
+        .safeAreaPadding([.bottom], 70)
         .sheet(isPresented: $viewModel.filterSheetOpen) {
             LineModeFilterView()
                 .environment(filterViewModel)
@@ -67,7 +72,7 @@ public struct HomeMapPage: View {
                     }
                 }
         }) {
-            MapSheetSearchResults(isNearby: $viewModel.searchSheetShowNearby, searchResults: viewModel.searchSheetShowNearby ? $viewModel.stopPoints : $viewModel.searchResults)
+            MapSheetSearchResults(isNearby: $viewModel.searchSheetShowNearby, searchResults: viewModel.searchSheetShowNearby ? $viewModel.stopPoints : $viewModel.searchResults, scrollToId: $viewModel.scrollToId)
         }
         .customAnimation(.spring)
         .onChange(of: self.viewModel.searchText, { _, newValue in

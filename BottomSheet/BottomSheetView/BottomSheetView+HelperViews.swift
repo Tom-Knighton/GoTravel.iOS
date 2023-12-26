@@ -56,7 +56,7 @@ internal extension BottomSheetView {
         // and currently not dragging
         .frame(
             width: self.width(with: geometry),
-            height: self.bottomSheetPosition.isDynamic && self.translation == 0 ? nil : self.height(with: geometry),
+            height: self.bottomSheetPosition.isDynamic && self.translation == 0 ? nil : self.height(with: geometry) + 1,
             alignment: self.isIPadFloatingOrMac ? .bottom : .top
         )
         // Clip BottomSheet for transition to work correctly for iPad and Mac
@@ -78,6 +78,7 @@ internal extension BottomSheetView {
         .transition(.move(
             edge: self.isIPadFloatingOrMac ? .top : .bottom
         ))
+        .offset(y: 5)
     }
     
     func dragIndicator(with geometry: GeometryProxy) -> some View {

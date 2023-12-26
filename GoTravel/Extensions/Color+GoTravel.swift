@@ -20,14 +20,18 @@ extension Color {
         )
     }
     
-    init?(hex: String, alpha: Double = 1) {
-        var hexString = hex.hasPrefix("#") ? String(hex.dropFirst()) : hex
-        
-        guard hex.count == 6 else {
+    init?(hex: String?, alpha: Double = 1) {
+        guard let hex else {
             return nil
         }
         
-        guard let hexValue = UInt(hex, radix: 16) else {
+        var hexString = hex.hasPrefix("#") ? String(hex.dropFirst()) : hex
+        
+        guard hexString.count == 6 else {
+            return nil
+        }
+        
+        guard let hexValue = UInt(hexString, radix: 16) else {
             return nil
         }
         

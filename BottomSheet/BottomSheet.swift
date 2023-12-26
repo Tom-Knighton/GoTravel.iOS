@@ -28,6 +28,7 @@ public struct BottomSheet<HContent: View, MContent: View, V: View>: View {
             self.view
                 .accessibilitySortPriority(0)
                 .accessibilityHidden(bottomSheetPosition != switchablePositions[0])
+                .ignoresSafeArea(.keyboard)
             BottomSheetView(
                 bottomSheetPosition: self.$bottomSheetPosition,
                 headerContent: self.headerContent,
@@ -35,7 +36,6 @@ public struct BottomSheet<HContent: View, MContent: View, V: View>: View {
                 switchablePositions: self.switchablePositions,
                 configuration: self.configuration
             )
-            .ignoresSafeArea(.keyboard)
             .accessibilitySortPriority(1)
             
         }

@@ -60,7 +60,6 @@ internal struct BottomSheetView<HContent: View, MContent: View>: View {
                     self.bottomSheet(with: geometry)
                 }
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
             // Animate value changes
 #if !os(macOS)
             .animation(
@@ -103,12 +102,13 @@ internal struct BottomSheetView<HContent: View, MContent: View>: View {
                 value: self.configuration
             )
         }
+        .ignoresSafeArea(.keyboard)
         // Make the GeometryReader ignore specific safe area (for transition to work)
         // On iPhone and iPad not floating ignore bottom safe area, because the BottomSheet moves to the bottom edge
         // On iPad floating and Mac ignore top safe area, because the BottomSheet moves to the top edge
-        .ignoresSafeAreaCompatible(
-            .container,
-            edges: self.isIPadFloatingOrMac ? .top : .bottom
-        )
+//        .ignoresSafeAreaCompatible(
+//            .container,
+//            edges: self.isIPadFloatingOrMac ? .top : .bottom
+//        )
     }
 }

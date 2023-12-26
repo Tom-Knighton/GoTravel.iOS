@@ -37,12 +37,13 @@ public class StopMapViewModel {
     public var filterSheetOpen: Bool = false
     
     //MARK: Search Sheet
-    public var sheetPosition: BottomSheetPosition = .relativeBottom(0.2)
-    public var sheetPositions: [BottomSheetPosition] = [.relativeBottom(0.2), .relative(0.4), .relativeTop(1)]
+    public var sheetPosition: BottomSheetPosition = .relativeBottom(0.1)
+    public var sheetPositions: [BottomSheetPosition] = [.relativeBottom(0.1), .relative(0.4), .relativeTop(1)]
     public var searchText: String = ""
     public var searchResults: [StopPoint] = []
     public var isSearchResultsLoading: Bool = false
     public var searchSheetShowNearby: Bool = true
+    public var scrollToId: String? = nil
     
     public init() {
         self.mapPosition = MapCameraPosition.userLocation(fallback: .automatic)
@@ -122,6 +123,13 @@ public class StopMapViewModel {
                 print("Error decoding search results")
                 self.isSearchResultsLoading = false
             }
+        }
+    }
+    
+    public func scrollSearchResults(to stopPointId: String) {
+        self.sheetPosition = self.sheetPositions[1]
+        withAnimation {
+            self.scrollToId = stopPointId
         }
     }
     
