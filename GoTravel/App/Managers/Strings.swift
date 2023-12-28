@@ -10,12 +10,12 @@ import SwiftUI
 public struct Strings {
     
     public struct Navigation {
-        public static let MapTab: LocalizedStringKey = "MapTab"
+        public static let MapTab: LocalizedStringKey = "Navigation:MapTab"
     }
     
     public struct Map {
-        public static let LocationDisabled: LocalizedStringKey = "LocationDisabled"
-        public static let EnableLocationStopPoints: LocalizedStringKey = "StopPointsEnableLocation"
+        public static let LocationDisabled: LocalizedStringKey = "Map:LocationDisabled"
+        public static let EnableLocationStopPoints: LocalizedStringKey = "Map:StopPointsEnableLocation"
         public static let HintSearchHere: LocalizedStringKey = "Map:Hint:SearchHere"
         public static let HintSearchHereText: LocalizedStringKey = "Map:Hint:SearchHereText"
         
@@ -68,6 +68,10 @@ public struct Strings {
         
         public static func MapFilterHides(_ lineMode: String) -> LocalizedStringKey {
             LocalizedStringKey("Accessibility:Map:FilterHides:\(lineMode)")
+        }
+        
+        public static func FilterSheetAreaLabel(_ area: String) -> LocalizedStringKey {
+            LocalizedStringKey("Accessibility:Map:FilterLineModesForArea:\(area)")
         }
     }
 }

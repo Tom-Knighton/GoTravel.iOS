@@ -34,6 +34,16 @@
         }
       }
     },
+    "Accessibility:Map:FilterLineModesForArea:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Line modes for the %@ area. Tap to expand or hide."
+          }
+        }
+      }
+    },
     "Accessibility:Map:FilterReEnables:%@" : {
       "localizations" : {
         "en" : {
@@ -134,27 +144,6 @@
         }
       }
     },
-    "Line modes for the %@ area. %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Line modes for the %1$@ area. %2$@"
-          }
-        }
-      }
-    },
-    "LocationDisabled" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Location Disabled"
-          }
-        }
-      }
-    },
     "Map:Distance:%@:%@" : {
       "localizations" : {
         "en" : {
@@ -226,6 +215,16 @@
         }
       }
     },
+    "Map:LocationDisabled" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Location Disabled"
+          }
+        }
+      }
+    },
     "Map:SearchSheet:BusStopIndication:%@" : {
       "localizations" : {
         "en" : {
@@ -256,24 +255,22 @@
         }
       }
     },
-    "MapTab" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Map"
-          }
-        }
-      }
-    },
-    "StopPointsEnableLocation" : {
-      "extractionState" : "manual",
+    "Map:StopPointsEnableLocation" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Want to know what stops are around you now? Grant Go London access to your location in Settings "
+          }
+        }
+      }
+    },
+    "Navigation:MapTab" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Map"
           }
         }
       }

@@ -94,7 +94,7 @@ public struct LineModeFilterAreaView: View {
             .tint(.primary)
             .accessibilityFocused($isFocused)
             .accessibilityAddTraits(.isHeader)
-            .accessibilityLabel("Line modes for the \(areaName) area. \(isNearby ? "" : "Tap to \(showSection ? "collapse" : "expand")")")
+            .accessibilityLabel(Strings.Accessibility.FilterSheetAreaLabel(areaName))
             .if(self.isNearby) { view in
                 view
                     .accessibilityRemoveTraits(.isButton)
