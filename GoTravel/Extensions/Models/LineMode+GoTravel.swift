@@ -10,28 +10,13 @@ import GoTravel_Models
 
 extension LineMode {
     
-    /// The primary branding colour for this line mode
-    var lineModeColour: Color {
-        switch self.lineModeName {
-        case "Elizabeth Line":
-            return .init(hex: 0x6950A1)
-        case "London Overground":
-            return .init(hex: 0xEE7C0E)
-        case "National Rail":
-            return .red
-        case "DLR":
-            return .init(hex: 0x00A4A7)
-        case "Bus":
-            return .init(hex: 0xEE2E24)
-        case "Tube":
-            return .init(hex: 0x0009AB)
-            
-        
-        default:
-            return .red
-        }
+    /// Whether or not the line mode contains the specified flag
+    /// - Parameter flagName: The name/key of the flag
+    func hasFlag(_ flagName: String) -> Bool {
+        self.flags.contains(where: { $0 == flagName })
     }
     
+    //TODO: Work out how to deal with n.... amount of line modes we don't know about
     var lineModeImportance: Int {
         switch self.lineModeName {
         case "Bus":

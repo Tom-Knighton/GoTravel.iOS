@@ -9,5 +9,5 @@ import Foundation
 
 /// Represents a stop point at which trains stop
 public class TrainStopPoint: StopPointBase {
-    
+
 }

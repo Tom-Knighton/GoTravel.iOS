@@ -32,4 +32,22 @@ public struct StopPointService {
         
         return result
     }
+    
+    /// Returns Stop Points with names or codes similar to a search query
+    /// - Parameters:
+    ///   - query: The query to search for. Performs a 'LIKE %{query}%' style operation, so no regex required
+    ///   - maxResults: The max number of results to return
+    ///   - hiddenLineModes: Any line modes that should not be returned in results
+    public static func Search(_ query: String, maxResults: Int = 25, hiddenLineModes: [String]? = nil) async throws -> [StopPoint] {
+        var queryItems: [URLQueryItem] = [.init(name: "maxResults", value: "\(maxResults)")]
+        
+        if let hiddenLineModes {
+            hiddenLineModes.forEach { queryItems.append(.init(name: "hiddenLineModes", value: $0)) }
+        }
+        
+        let request = APIRequest(path: "StopPoint/Search/\(query)", queryItems: queryItems, body: nil)
+        let result: [StopPoint] = try await client.perform(request)
+        
+        return result
+    }
 }

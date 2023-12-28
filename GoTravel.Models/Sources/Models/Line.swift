@@ -11,4 +11,7 @@ public struct Line: Codable {
     
     /// The friendly name of the line, i.e. Central Line
     public let lineName: String
+    
+    /// If present, the branding colour hex for this line, i.e. #ff0000
+    public let linePrimaryColour: String?
 }

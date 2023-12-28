@@ -11,6 +11,47 @@
 		E2000C1B2AC82799003D01A9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2000C1A2AC82799003D01A9 /* LocationManager.swift */; };
 		E2438F1E2B25D82B00BBF345 /* Accessibility+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */; };
 		E2438F202B26195100BBF345 /* AccessibilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */; };
+		E25572082B33B28200988348 /* MapSearchSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572072B33B28200988348 /* MapSearchSheetView.swift */; };
+		E255723E2B33BAB900988348 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E255720F2B33BAB900988348 /* Media.xcassets */; };
+		E255723F2B33BAB900988348 /* BottomSheet+Resizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572112B33BAB900988348 /* BottomSheet+Resizable.swift */; };
+		E25572402B33BAB900988348 /* BottomSheet+AccountingForKeyboardHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572122B33BAB900988348 /* BottomSheet+AccountingForKeyboardHeight.swift */; };
+		E25572412B33BAB900988348 /* BottomSheet+AppleScrollBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572132B33BAB900988348 /* BottomSheet+AppleScrollBehavior.swift */; };
+		E25572422B33BAB900988348 /* BottomSheet+DragIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572142B33BAB900988348 /* BottomSheet+DragIndicator.swift */; };
+		E25572432B33BAB900988348 /* BottomSheet+FloatingIPadSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572152B33BAB900988348 /* BottomSheet+FloatingIPadSheet.swift */; };
+		E25572442B33BAB900988348 /* BottomSheet+Threshold.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572162B33BAB900988348 /* BottomSheet+Threshold.swift */; };
+		E25572452B33BAB900988348 /* BottomSheet+TapToDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572172B33BAB900988348 /* BottomSheet+TapToDismiss.swift */; };
+		E25572462B33BAB900988348 /* BottomSheet+ContentDrag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572182B33BAB900988348 /* BottomSheet+ContentDrag.swift */; };
+		E25572472B33BAB900988348 /* BottomSheet+CustomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572192B33BAB900988348 /* BottomSheet+CustomAnimation.swift */; };
+		E25572482B33BAB900988348 /* BottomSheet+DragGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255721A2B33BAB900988348 /* BottomSheet+DragGesture.swift */; };
+		E25572492B33BAB900988348 /* BottomSheet+FlickThrough.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255721B2B33BAB900988348 /* BottomSheet+FlickThrough.swift */; };
+		E255724A2B33BAB900988348 /* BottomSheet+OnDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255721C2B33BAB900988348 /* BottomSheet+OnDismiss.swift */; };
+		E255724B2B33BAB900988348 /* BottomSheet+SwipeToDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255721D2B33BAB900988348 /* BottomSheet+SwipeToDismiss.swift */; };
+		E255724C2B33BAB900988348 /* BottomSheet+BackgroundBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255721E2B33BAB900988348 /* BottomSheet+BackgroundBlur.swift */; };
+		E255724D2B33BAB900988348 /* BottomSheet+CustomBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255721F2B33BAB900988348 /* BottomSheet+CustomBackground.swift */; };
+		E255724E2B33BAB900988348 /* BottomSheet+SheetWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572202B33BAB900988348 /* BottomSheet+SheetWidth.swift */; };
+		E255724F2B33BAB900988348 /* BottomSheet+CustomBackground+iOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572212B33BAB900988348 /* BottomSheet+CustomBackground+iOS15.swift */; };
+		E25572502B33BAB900988348 /* BottomSheet+CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572222B33BAB900988348 /* BottomSheet+CloseButton.swift */; };
+		E25572512B33BAB900988348 /* BottomSheetWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572242B33BAB900988348 /* BottomSheetWidth.swift */; };
+		E25572522B33BAB900988348 /* BottomSheetPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572252B33BAB900988348 /* BottomSheetPosition.swift */; };
+		E25572532B33BAB900988348 /* BottomSheetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572262B33BAB900988348 /* BottomSheetConfiguration.swift */; };
+		E25572542B33BAB900988348 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572272B33BAB900988348 /* BottomSheet.swift */; };
+		E25572552B33BAB900988348 /* BottomSheetView+Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572292B33BAB900988348 /* BottomSheetView+Calculations.swift */; };
+		E25572562B33BAB900988348 /* BottomSheetView+HelperViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255722A2B33BAB900988348 /* BottomSheetView+HelperViews.swift */; };
+		E25572572B33BAB900988348 /* BottomSheetView+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255722B2B33BAB900988348 /* BottomSheetView+Gestures.swift */; };
+		E25572582B33BAB900988348 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255722C2B33BAB900988348 /* BottomSheetView.swift */; };
+		E25572592B33BAB900988348 /* BottomSheetView+KeyboardHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255722D2B33BAB900988348 /* BottomSheetView+KeyboardHeight.swift */; };
+		E255725A2B33BAB900988348 /* BottomSheetView+DragIndicatorAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255722E2B33BAB900988348 /* BottomSheetView+DragIndicatorAction.swift */; };
+		E255725B2B33BAB900988348 /* BottomSheetView+SwitchPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255722F2B33BAB900988348 /* BottomSheetView+SwitchPosition.swift */; };
+		E255725C2B33BAB900988348 /* DragGestureExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572322B33BAB900988348 /* DragGestureExtension.swift */; };
+		E255725D2B33BAB900988348 /* UIScrollViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572332B33BAB900988348 /* UIScrollViewWrapper.swift */; };
+		E255725E2B33BAB900988348 /* TimerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572342B33BAB900988348 /* TimerAnimation.swift */; };
+		E255725F2B33BAB900988348 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572362B33BAB900988348 /* UIApplicationExtension.swift */; };
+		E25572602B33BAB900988348 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572372B33BAB900988348 /* BundleExtension.swift */; };
+		E25572612B33BAB900988348 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572382B33BAB900988348 /* ColorExtension.swift */; };
+		E25572622B33BAB900988348 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255723A2B33BAB900988348 /* VisualEffectView.swift */; };
+		E25572632B33BAB900988348 /* RoundedCornerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255723C2B33BAB900988348 /* RoundedCornerViewModifier.swift */; };
+		E25572642B33BAB900988348 /* IgnoresSafeAreaCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255723D2B33BAB900988348 /* IgnoresSafeAreaCompatible.swift */; };
+		E26988762B35D2E10097B8EF /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = E26988752B35D2E10097B8EF /* WrappingHStack */; };
 		E273078B2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift */; };
 		E273078F2AD20A4E0060FF99 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273078E2AD20A4E0060FF99 /* Strings.swift */; };
 		E280F6552B13ADC100563D7E /* String+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280F6542B13ADC100563D7E /* String+GoTravel.swift */; };
@@ -59,6 +100,46 @@
 		E2000C1F2AC82C97003D01A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Accessibility+GoTravel.swift"; sourceTree = "<group>"; };
 		E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityHelper.swift; sourceTree = "<group>"; };
+		E25572072B33B28200988348 /* MapSearchSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchSheetView.swift; sourceTree = "<group>"; };
+		E255720F2B33BAB900988348 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		E25572112B33BAB900988348 /* BottomSheet+Resizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+Resizable.swift"; sourceTree = "<group>"; };
+		E25572122B33BAB900988348 /* BottomSheet+AccountingForKeyboardHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+AccountingForKeyboardHeight.swift"; sourceTree = "<group>"; };
+		E25572132B33BAB900988348 /* BottomSheet+AppleScrollBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+AppleScrollBehavior.swift"; sourceTree = "<group>"; };
+		E25572142B33BAB900988348 /* BottomSheet+DragIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+DragIndicator.swift"; sourceTree = "<group>"; };
+		E25572152B33BAB900988348 /* BottomSheet+FloatingIPadSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+FloatingIPadSheet.swift"; sourceTree = "<group>"; };
+		E25572162B33BAB900988348 /* BottomSheet+Threshold.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+Threshold.swift"; sourceTree = "<group>"; };
+		E25572172B33BAB900988348 /* BottomSheet+TapToDismiss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+TapToDismiss.swift"; sourceTree = "<group>"; };
+		E25572182B33BAB900988348 /* BottomSheet+ContentDrag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+ContentDrag.swift"; sourceTree = "<group>"; };
+		E25572192B33BAB900988348 /* BottomSheet+CustomAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+CustomAnimation.swift"; sourceTree = "<group>"; };
+		E255721A2B33BAB900988348 /* BottomSheet+DragGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+DragGesture.swift"; sourceTree = "<group>"; };
+		E255721B2B33BAB900988348 /* BottomSheet+FlickThrough.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+FlickThrough.swift"; sourceTree = "<group>"; };
+		E255721C2B33BAB900988348 /* BottomSheet+OnDismiss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+OnDismiss.swift"; sourceTree = "<group>"; };
+		E255721D2B33BAB900988348 /* BottomSheet+SwipeToDismiss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+SwipeToDismiss.swift"; sourceTree = "<group>"; };
+		E255721E2B33BAB900988348 /* BottomSheet+BackgroundBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+BackgroundBlur.swift"; sourceTree = "<group>"; };
+		E255721F2B33BAB900988348 /* BottomSheet+CustomBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+CustomBackground.swift"; sourceTree = "<group>"; };
+		E25572202B33BAB900988348 /* BottomSheet+SheetWidth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+SheetWidth.swift"; sourceTree = "<group>"; };
+		E25572212B33BAB900988348 /* BottomSheet+CustomBackground+iOS15.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+CustomBackground+iOS15.swift"; sourceTree = "<group>"; };
+		E25572222B33BAB900988348 /* BottomSheet+CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheet+CloseButton.swift"; sourceTree = "<group>"; };
+		E25572242B33BAB900988348 /* BottomSheetWidth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetWidth.swift; sourceTree = "<group>"; };
+		E25572252B33BAB900988348 /* BottomSheetPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetPosition.swift; sourceTree = "<group>"; };
+		E25572262B33BAB900988348 /* BottomSheetConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetConfiguration.swift; sourceTree = "<group>"; };
+		E25572272B33BAB900988348 /* BottomSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
+		E25572292B33BAB900988348 /* BottomSheetView+Calculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheetView+Calculations.swift"; sourceTree = "<group>"; };
+		E255722A2B33BAB900988348 /* BottomSheetView+HelperViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheetView+HelperViews.swift"; sourceTree = "<group>"; };
+		E255722B2B33BAB900988348 /* BottomSheetView+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheetView+Gestures.swift"; sourceTree = "<group>"; };
+		E255722C2B33BAB900988348 /* BottomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		E255722D2B33BAB900988348 /* BottomSheetView+KeyboardHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheetView+KeyboardHeight.swift"; sourceTree = "<group>"; };
+		E255722E2B33BAB900988348 /* BottomSheetView+DragIndicatorAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheetView+DragIndicatorAction.swift"; sourceTree = "<group>"; };
+		E255722F2B33BAB900988348 /* BottomSheetView+SwitchPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BottomSheetView+SwitchPosition.swift"; sourceTree = "<group>"; };
+		E25572322B33BAB900988348 /* DragGestureExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragGestureExtension.swift; sourceTree = "<group>"; };
+		E25572332B33BAB900988348 /* UIScrollViewWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewWrapper.swift; sourceTree = "<group>"; };
+		E25572342B33BAB900988348 /* TimerAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerAnimation.swift; sourceTree = "<group>"; };
+		E25572362B33BAB900988348 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		E25572372B33BAB900988348 /* BundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
+		E25572382B33BAB900988348 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		E255723A2B33BAB900988348 /* VisualEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
+		E255723C2B33BAB900988348 /* RoundedCornerViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornerViewModifier.swift; sourceTree = "<group>"; };
+		E255723D2B33BAB900988348 /* IgnoresSafeAreaCompatible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IgnoresSafeAreaCompatible.swift; sourceTree = "<group>"; };
 		E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+GoTravel.swift"; sourceTree = "<group>"; };
 		E273078E2AD20A4E0060FF99 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		E280F6542B13ADC100563D7E /* String+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GoTravel.swift"; sourceTree = "<group>"; };
@@ -94,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E26988762B35D2E10097B8EF /* WrappingHStack in Frameworks */,
 				E28DC2B02B1F62B900E2FECE /* GoTravel.CoreData in Frameworks */,
 				E28DC2B32B1FE44900E2FECE /* GoTravel.Models in Frameworks */,
 				E28DC2B62B1FE5DE00E2FECE /* GoTravel.API in Frameworks */,
@@ -126,10 +208,128 @@
 		E2000C1C2AC8299B003D01A9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E26988702B35D18F0097B8EF /* Misc */,
 				E2FA5C392AF823FA00DCE810 /* Tips */,
 				E2CFBA9F2AC89EB700662DC1 /* Map */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E255720E2B33BAB900988348 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				E255720F2B33BAB900988348 /* Media.xcassets */,
+				E25572102B33BAB900988348 /* BottomSheet+ViewModifiers */,
+				E25572232B33BAB900988348 /* Models */,
+				E25572272B33BAB900988348 /* BottomSheet.swift */,
+				E25572282B33BAB900988348 /* BottomSheetView */,
+				E25572302B33BAB900988348 /* Helper */,
+			);
+			path = BottomSheet;
+			sourceTree = "<group>";
+		};
+		E25572102B33BAB900988348 /* BottomSheet+ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				E25572112B33BAB900988348 /* BottomSheet+Resizable.swift */,
+				E25572122B33BAB900988348 /* BottomSheet+AccountingForKeyboardHeight.swift */,
+				E25572132B33BAB900988348 /* BottomSheet+AppleScrollBehavior.swift */,
+				E25572142B33BAB900988348 /* BottomSheet+DragIndicator.swift */,
+				E25572152B33BAB900988348 /* BottomSheet+FloatingIPadSheet.swift */,
+				E25572162B33BAB900988348 /* BottomSheet+Threshold.swift */,
+				E25572172B33BAB900988348 /* BottomSheet+TapToDismiss.swift */,
+				E25572182B33BAB900988348 /* BottomSheet+ContentDrag.swift */,
+				E25572192B33BAB900988348 /* BottomSheet+CustomAnimation.swift */,
+				E255721A2B33BAB900988348 /* BottomSheet+DragGesture.swift */,
+				E255721B2B33BAB900988348 /* BottomSheet+FlickThrough.swift */,
+				E255721C2B33BAB900988348 /* BottomSheet+OnDismiss.swift */,
+				E255721D2B33BAB900988348 /* BottomSheet+SwipeToDismiss.swift */,
+				E255721E2B33BAB900988348 /* BottomSheet+BackgroundBlur.swift */,
+				E255721F2B33BAB900988348 /* BottomSheet+CustomBackground.swift */,
+				E25572202B33BAB900988348 /* BottomSheet+SheetWidth.swift */,
+				E25572212B33BAB900988348 /* BottomSheet+CustomBackground+iOS15.swift */,
+				E25572222B33BAB900988348 /* BottomSheet+CloseButton.swift */,
+			);
+			path = "BottomSheet+ViewModifiers";
+			sourceTree = "<group>";
+		};
+		E25572232B33BAB900988348 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E25572242B33BAB900988348 /* BottomSheetWidth.swift */,
+				E25572252B33BAB900988348 /* BottomSheetPosition.swift */,
+				E25572262B33BAB900988348 /* BottomSheetConfiguration.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E25572282B33BAB900988348 /* BottomSheetView */ = {
+			isa = PBXGroup;
+			children = (
+				E25572292B33BAB900988348 /* BottomSheetView+Calculations.swift */,
+				E255722A2B33BAB900988348 /* BottomSheetView+HelperViews.swift */,
+				E255722B2B33BAB900988348 /* BottomSheetView+Gestures.swift */,
+				E255722C2B33BAB900988348 /* BottomSheetView.swift */,
+				E255722D2B33BAB900988348 /* BottomSheetView+KeyboardHeight.swift */,
+				E255722E2B33BAB900988348 /* BottomSheetView+DragIndicatorAction.swift */,
+				E255722F2B33BAB900988348 /* BottomSheetView+SwitchPosition.swift */,
+			);
+			path = BottomSheetView;
+			sourceTree = "<group>";
+		};
+		E25572302B33BAB900988348 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E25572312B33BAB900988348 /* AppleScrollBehaviourScrollView */,
+				E25572352B33BAB900988348 /* Extensions */,
+				E25572392B33BAB900988348 /* Views */,
+				E255723B2B33BAB900988348 /* ViewModifiers */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		E25572312B33BAB900988348 /* AppleScrollBehaviourScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				E25572322B33BAB900988348 /* DragGestureExtension.swift */,
+				E25572332B33BAB900988348 /* UIScrollViewWrapper.swift */,
+				E25572342B33BAB900988348 /* TimerAnimation.swift */,
+			);
+			path = AppleScrollBehaviourScrollView;
+			sourceTree = "<group>";
+		};
+		E25572352B33BAB900988348 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E25572362B33BAB900988348 /* UIApplicationExtension.swift */,
+				E25572372B33BAB900988348 /* BundleExtension.swift */,
+				E25572382B33BAB900988348 /* ColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E25572392B33BAB900988348 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E255723A2B33BAB900988348 /* VisualEffectView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E255723B2B33BAB900988348 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				E255723C2B33BAB900988348 /* RoundedCornerViewModifier.swift */,
+				E255723D2B33BAB900988348 /* IgnoresSafeAreaCompatible.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		E26988702B35D18F0097B8EF /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 		E27307892AD1FC920060FF99 /* Extensions */ = {
@@ -150,6 +350,7 @@
 		E283D3752AC23316008ECF81 = {
 			isa = PBXGroup;
 			children = (
+				E255720E2B33BAB900988348 /* BottomSheet */,
 				E283D3802AC23316008ECF81 /* GoTravel */,
 				E28DC2B42B1FE45F00E2FECE /* GoTravel.API */,
 				E28DC2B12B1FE42B00E2FECE /* GoTravel.Models */,
@@ -250,6 +451,7 @@
 				E2BF5D702AD35A8E00261261 /* StopPointMarkerView.swift */,
 				E28DC2B72B1FE6D500E2FECE /* LineModeFilterView.swift */,
 				E28DC2B92B1FE73700E2FECE /* MapControlButtonStyle.swift */,
+				E25572072B33B28200988348 /* MapSearchSheetView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -283,6 +485,7 @@
 				E28DC2AF2B1F62B900E2FECE /* GoTravel.CoreData */,
 				E28DC2B22B1FE44900E2FECE /* GoTravel.Models */,
 				E28DC2B52B1FE5DE00E2FECE /* GoTravel.API */,
+				E26988752B35D2E10097B8EF /* WrappingHStack */,
 			);
 			productName = GoLondon;
 			productReference = E283D37E2AC23316008ECF81 /* GoTravel.app */;
@@ -313,6 +516,7 @@
 			);
 			mainGroup = E283D3752AC23316008ECF81;
 			packageReferences = (
+				E26988742B35D2E10097B8EF /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 			);
 			productRefGroup = E283D37F2AC23316008ECF81 /* Products */;
 			projectDirPath = "";
@@ -330,6 +534,7 @@
 			files = (
 				E283D3892AC23318008ECF81 /* Preview Assets.xcassets in Resources */,
 				E283D3862AC23318008ECF81 /* Assets.xcassets in Resources */,
+				E255723E2B33BAB900988348 /* Media.xcassets in Resources */,
 				E2F9415F2AD30A3F0047EA04 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,31 +546,70 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E255724B2B33BAB900988348 /* BottomSheet+SwipeToDismiss.swift in Sources */,
+				E255724F2B33BAB900988348 /* BottomSheet+CustomBackground+iOS15.swift in Sources */,
 				E2438F202B26195100BBF345 /* AccessibilityHelper.swift in Sources */,
+				E25572642B33BAB900988348 /* IgnoresSafeAreaCompatible.swift in Sources */,
+				E25572532B33BAB900988348 /* BottomSheetConfiguration.swift in Sources */,
+				E255724C2B33BAB900988348 /* BottomSheet+BackgroundBlur.swift in Sources */,
+				E25572632B33BAB900988348 /* RoundedCornerViewModifier.swift in Sources */,
+				E25572602B33BAB900988348 /* BundleExtension.swift in Sources */,
 				E29848C12AC6FB83004A5BDC /* HomeMapPage.swift in Sources */,
+				E25572442B33BAB900988348 /* BottomSheet+Threshold.swift in Sources */,
 				E28DC2C52B210E5500E2FECE /* LineMode+Cache.swift in Sources */,
+				E25572472B33BAB900988348 /* BottomSheet+CustomAnimation.swift in Sources */,
 				E2000C182AC821D3003D01A9 /* StopMapViewModel.swift in Sources */,
 				E28DC2BF2B2107D900E2FECE /* LineModeFilterViewModel.swift in Sources */,
+				E25572612B33BAB900988348 /* ColorExtension.swift in Sources */,
+				E25572622B33BAB900988348 /* VisualEffectView.swift in Sources */,
+				E255725C2B33BAB900988348 /* DragGestureExtension.swift in Sources */,
+				E25572492B33BAB900988348 /* BottomSheet+FlickThrough.swift in Sources */,
 				E2BF5D732AD3629500261261 /* LineMode+GoTravel.swift in Sources */,
 				E2F9415D2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift in Sources */,
+				E25572562B33BAB900988348 /* BottomSheetView+HelperViews.swift in Sources */,
+				E25572552B33BAB900988348 /* BottomSheetView+Calculations.swift in Sources */,
+				E25572082B33B28200988348 /* MapSearchSheetView.swift in Sources */,
+				E25572572B33BAB900988348 /* BottomSheetView+Gestures.swift in Sources */,
 				E2438F1E2B25D82B00BBF345 /* Accessibility+GoTravel.swift in Sources */,
 				E273078F2AD20A4E0060FF99 /* Strings.swift in Sources */,
 				E2FA5C3B2AF8240500DCE810 /* SearchHereTip.swift in Sources */,
 				E2000C1B2AC82799003D01A9 /* LocationManager.swift in Sources */,
+				E255725E2B33BAB900988348 /* TimerAnimation.swift in Sources */,
 				E28DC2B82B1FE6D500E2FECE /* LineModeFilterView.swift in Sources */,
+				E25572422B33BAB900988348 /* BottomSheet+DragIndicator.swift in Sources */,
+				E255725A2B33BAB900988348 /* BottomSheetView+DragIndicatorAction.swift in Sources */,
+				E25572432B33BAB900988348 /* BottomSheet+FloatingIPadSheet.swift in Sources */,
 				E28DC2C12B210C1100E2FECE /* LineModeCache+GoTravel.swift in Sources */,
 				E2CFD9932AFA8233008A6726 /* AppData.swift in Sources */,
 				E2CFBAA12AC89EC200662DC1 /* LocationNeededBanner.swift in Sources */,
+				E255724E2B33BAB900988348 /* BottomSheet+SheetWidth.swift in Sources */,
+				E255725D2B33BAB900988348 /* UIScrollViewWrapper.swift in Sources */,
 				E283D3842AC23316008ECF81 /* ContentView.swift in Sources */,
+				E255724A2B33BAB900988348 /* BottomSheet+OnDismiss.swift in Sources */,
+				E25572402B33BAB900988348 /* BottomSheet+AccountingForKeyboardHeight.swift in Sources */,
+				E255725F2B33BAB900988348 /* UIApplicationExtension.swift in Sources */,
 				E2BF5D772AD3641100261261 /* StopPoint+GoTravel.swift in Sources */,
 				E283D3822AC23316008ECF81 /* GoLondonApp.swift in Sources */,
+				E255723F2B33BAB900988348 /* BottomSheet+Resizable.swift in Sources */,
+				E25572502B33BAB900988348 /* BottomSheet+CloseButton.swift in Sources */,
 				E28DC2BA2B1FE73700E2FECE /* MapControlButtonStyle.swift in Sources */,
+				E25572542B33BAB900988348 /* BottomSheet.swift in Sources */,
+				E255725B2B33BAB900988348 /* BottomSheetView+SwitchPosition.swift in Sources */,
 				E2BF5D712AD35A8E00261261 /* StopPointMarkerView.swift in Sources */,
 				E28DC2BC2B1FE7CA00E2FECE /* SwiftUI+GoTravel.swift in Sources */,
+				E255724D2B33BAB900988348 /* BottomSheet+CustomBackground.swift in Sources */,
 				E280F6552B13ADC100563D7E /* String+GoTravel.swift in Sources */,
+				E25572522B33BAB900988348 /* BottomSheetPosition.swift in Sources */,
+				E25572592B33BAB900988348 /* BottomSheetView+KeyboardHeight.swift in Sources */,
+				E25572462B33BAB900988348 /* BottomSheet+ContentDrag.swift in Sources */,
 				E273078B2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift in Sources */,
+				E25572582B33BAB900988348 /* BottomSheetView.swift in Sources */,
+				E25572512B33BAB900988348 /* BottomSheetWidth.swift in Sources */,
 				E2F9415B2AD2C2A10047EA04 /* GlobalViewModel.swift in Sources */,
 				E2BF5D752AD3634700261261 /* Color+GoTravel.swift in Sources */,
+				E25572412B33BAB900988348 /* BottomSheet+AppleScrollBehavior.swift in Sources */,
+				E25572482B33BAB900988348 /* BottomSheet+DragGesture.swift in Sources */,
+				E25572452B33BAB900988348 /* BottomSheet+TapToDismiss.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,7 +836,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		E26988742B35D2E10097B8EF /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ksemianov/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		E26988752B35D2E10097B8EF /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E26988742B35D2E10097B8EF /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
 		E28DC2AF2B1F62B900E2FECE /* GoTravel.CoreData */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GoTravel.CoreData;

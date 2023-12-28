@@ -8,6 +8,15 @@
         "revision" : "f0afe204b4266337066a436becab62fdd2b32378",
         "version" : "2.7.0"
       }
+    },
+    {
+      "identity" : "wrappinghstack",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ksemianov/WrappingHStack",
+      "state" : {
+        "revision" : "3300f68b6bf5f8a75ee7ca8a40f136a558053d10",
+        "version" : "0.2.0"
+      }
     }
   ],
   "version" : 2

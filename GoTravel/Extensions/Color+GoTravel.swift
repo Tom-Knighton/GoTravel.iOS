@@ -19,5 +19,23 @@ extension Color {
             opacity: alpha
         )
     }
+    
+    init?(hex: String?, alpha: Double = 1) {
+        guard let hex else {
+            return nil
+        }
+        
+        var hexString = hex.hasPrefix("#") ? String(hex.dropFirst()) : hex
+        
+        guard hexString.count == 6 else {
+            return nil
+        }
+        
+        guard let hexValue = UInt(hexString, radix: 16) else {
+            return nil
+        }
+        
+        self.init(hex: hexValue, alpha: alpha)
+    }
 }
 

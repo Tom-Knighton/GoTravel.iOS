@@ -78,4 +78,14 @@ public class StopPointBase: Decodable {
     
     /// The line modes and their lines operating at this stop point
     public let lineModes: [LineMode]
+    
+    public init(stopPointId: String, stopPointName: String, stopPointCoordinate: Point, stopPointHub: String?, stopPointParentId: String?, children: [StopPointBase], lineModes: [LineMode]) {
+        self.stopPointId = stopPointId
+        self.stopPointName = stopPointName
+        self.stopPointCoordinate = stopPointCoordinate
+        self.stopPointHub = stopPointHub
+        self.stopPointParentId = stopPointParentId
+        self.children = children
+        self.lineModes = lineModes
+    }
 }

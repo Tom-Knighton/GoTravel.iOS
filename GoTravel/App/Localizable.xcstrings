@@ -1,12 +1,55 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%@ %@ stops on the map" : {
+    "•" : {
+
+    },
+    "Accessibility:Map:BikesRemainingText:%lld" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ %2$@ stops on the map"
+            "value" : "%lld Bikes Available"
+          }
+        }
+      }
+    },
+    "Accessibility:Map:EBikesRemainingText:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld E-Bikes Available"
+          }
+        }
+      }
+    },
+    "Accessibility:Map:FilterHides:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hides all %@ stops on the map"
+          }
+        }
+      }
+    },
+    "Accessibility:Map:FilterLineModesForArea:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Line modes for the %@ area. Tap to expand or hide."
+          }
+        }
+      }
+    },
+    "Accessibility:Map:FilterReEnables:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Re-enables %@ stops on the map"
           }
         }
       }
@@ -27,6 +70,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Line Mode Filters"
+          }
+        }
+      }
+    },
+    "Accessibility:Map:LineRoute:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The %@ Line"
           }
         }
       }
@@ -91,23 +144,12 @@
         }
       }
     },
-    "Line modes for the %@ area. %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Line modes for the %1$@ area. %2$@"
-          }
-        }
-      }
-    },
-    "LocationDisabled" : {
-      "extractionState" : "manual",
+    "Map:Distance:%@:%@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Location Disabled"
+            "value" : "%1$@ %2$@"
           }
         }
       }
@@ -173,24 +215,62 @@
         }
       }
     },
-    "MapTab" : {
-      "extractionState" : "manual",
+    "Map:LocationDisabled" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Map"
+            "value" : "Location Disabled"
           }
         }
       }
     },
-    "StopPointsEnableLocation" : {
-      "extractionState" : "manual",
+    "Map:SearchSheet:BusStopIndication:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(Stop %@)"
+          }
+        }
+      }
+    },
+    "Map:SearchSheet:Nearby" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nearby:"
+          }
+        }
+      }
+    },
+    "Map:SearchSheet:Search" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for stops..."
+          }
+        }
+      }
+    },
+    "Map:StopPointsEnableLocation" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Want to know what stops are around you now? Grant Go London access to your location in Settings "
+          }
+        }
+      }
+    },
+    "Navigation:MapTab" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Map"
           }
         }
       }
