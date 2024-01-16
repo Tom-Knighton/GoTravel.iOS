@@ -128,7 +128,7 @@ public class StopMapViewModel {
     
     public func scrollSearchResults(to stopPointId: String) {
         self.sheetPosition = self.sheetPositions[1]
-        withAnimation {
+        withAnimation(.spring()) {
             self.scrollToId = stopPointId
         }
     }

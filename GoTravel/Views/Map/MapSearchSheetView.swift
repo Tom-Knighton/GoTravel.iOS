@@ -38,7 +38,7 @@ public struct MapSheetSearchResults: View {
     public var body: some View {
         ScrollViewReader { reader in
             ScrollView {
-                VStack {
+                LazyVStack {
                     if isNearby {
                         Text(Strings.Map.SearchSheetNearby)
                             .font(.title.bold())
@@ -47,7 +47,7 @@ public struct MapSheetSearchResults: View {
                         
                     }
                     ForEach(searchResults, id: \.stopPoint.stopPointId) { result in
-                        MapSheetSearchResultItem(item: result)
+                        MapSheetSearchResultItem(item: result, isSelected: self.scrollToId == result.stopPoint.stopPointId)
                             .id(result.stopPoint.stopPointId)
                     }
                 }
@@ -56,7 +56,9 @@ public struct MapSheetSearchResults: View {
             }
             .onChange(of: self.scrollToId) { _, newValue in
                 if let newValue {
-                    reader.scrollTo(newValue, anchor: .top)
+                    withAnimation {
+                        reader.scrollTo(newValue, anchor: .top)
+                    }
                 }
             }
         }
@@ -67,16 +69,19 @@ public struct MapSheetSearchResults: View {
 public struct MapSheetSearchResultItem: View {
     
     public let item: StopPoint
-    
+    private let isSelected: Bool
+
     @State private var distanceTo: Double? = nil
     @State private var city: String? = nil
     @State private var distanceIsYards: Bool = false
     
+
     private let isBusLikeFlag: String = "isBusLike"
     
-    init(item: StopPoint) {
+    
+    init(item: StopPoint, isSelected: Bool) {
         self.item = item
-
+        self.isSelected = isSelected
     }
     
     public var body: some View {
@@ -121,7 +126,11 @@ public struct MapSheetSearchResultItem: View {
         .frame(maxWidth: .infinity)
         .padding()
         .background(.regularMaterial)
+        .if(isSelected, content: { view in
+            view.background(Color.yellow)
+        })
         .clipShape(.rect(cornerRadius: 16))
+        .shadow(radius: 3)
         .accessibilityElement(children: .contain)
         .accessibilityLabel(item.stopPoint.stopPointName)
         .task {
@@ -252,7 +261,7 @@ public struct MapSheetSearchResultItem: View {
         }
     }
 }
-
-#Preview {
-    MapSheetSearchResultItem(item: StopPoint.train(TrainStopPoint(stopPointId: "001", stopPointName: "Bow Church", stopPointCoordinate: .init(CLLocationCoordinate2D(latitude: 51.524172, longitude: -0.039732)), stopPointHub: nil, stopPointParentId: nil, children: [], lineModes: [.init(lineModeName: "Line Mode 1", lines: [], primaryAreaName: "UK", branding: .init(lineModeLogoUrl: "https://cdn.tomk.online/cdn/GoTravelBranding/dlr.png", lineModeBackgroundColour: "#000000", lineModePrimaryColour: "#ffffff", lineModeSecondaryColour: nil), flags: ["isBusLike"]),.init(lineModeName: "Line Mode 2", lines: [], primaryAreaName: "UK", branding: .init(lineModeLogoUrl: "https://cdn.tomk.online/cdn/GoTravelBranding/dlr.png", lineModeBackgroundColour: "#000000", lineModePrimaryColour: "#ffffff", lineModeSecondaryColour: nil), flags: [])])))
-}
+//
+//#Preview {
+//    MapSheetSearchResultItem(item: StopPoint.train(TrainStopPoint(stopPointId: "001", stopPointName: "Bow Church", stopPointCoordinate: .init(CLLocationCoordinate2D(latitude: 51.524172, longitude: -0.039732)), stopPointHub: nil, stopPointParentId: nil, children: [], lineModes: [.init(lineModeName: "Line Mode 1", lines: [], primaryAreaName: "UK", branding: .init(lineModeLogoUrl: "https://cdn.tomk.online/cdn/GoTravelBranding/dlr.png", lineModeBackgroundColour: "#000000", lineModePrimaryColour: "#ffffff", lineModeSecondaryColour: nil), flags: ["isBusLike"]),.init(lineModeName: "Line Mode 2", lines: [], primaryAreaName: "UK", branding: .init(lineModeLogoUrl: "https://cdn.tomk.online/cdn/GoTravelBranding/dlr.png", lineModeBackgroundColour: "#000000", lineModePrimaryColour: "#ffffff", lineModeSecondaryColour: nil), flags: [])])))
+//}
