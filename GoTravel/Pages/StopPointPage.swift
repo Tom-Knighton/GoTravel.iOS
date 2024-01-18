@@ -6,12 +6,86 @@
 //
 
 import SwiftUI
+import GoTravel_Models
+import MapKit
 
 public struct StopPointPage: View {
+    
+    @State private var viewModel = StopPointViewModel()
+    private let stopId: String
+    
+    
+    public init(stopId: String) {
+        self.stopId = stopId
+    }
     
     public var body: some View {
         ZStack {
             Color.layer1.ignoresSafeArea()
+            ScrollView {
+                if let stopPoint = viewModel.stopPoint, !self.viewModel.isLoading {
+                    content(stopPoint)
+                } else {
+                    ContentUnavailableView("No Stop", systemImage: "xmark")
+                }
+            }
         }
+        .navigationTitle(getNavTitle())
+        .navigationBarTitleDisplayMode(.large)
+        .task {
+            await viewModel.load(self.stopId)
+        }
+    }
+    
+    @ViewBuilder func content(_ stopPoint: StopPoint) -> some View {
+        VStack {
+            Spacer().frame(height: 16)
+            LineModesView(stop: stopPoint)
+            Spacer().frame(height: 16)
+            
+            MapPreview(stopPoint)
+            Button(action: {}) {
+                Text("Go Now")
+                    .fontDesign(.rounded)
+                    .bold()
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            
+            Spacer()
+        }
+        .padding(.horizontal, 16)
+    }
+    
+    @ViewBuilder
+    private func MapPreview(_ stopPoint: StopPoint) -> some View {
+        let coordinate = stopPoint.stopPoint.stopPointCoordinate.coordinates
+        Map(initialPosition: .camera(.init(centerCoordinate: .init(latitude: coordinate.latitude, longitude: coordinate.longitude), distance: 2000)), interactionModes: []) {
+            
+            Annotation(coordinate: coordinate, anchor: .bottom) {
+                StopPointMarkerView(stopPoint: stopPoint)
+            } label: {
+                Text(stopPoint.stopPoint.stopPointName)
+            }
+        }
+        .mapControlVisibility(.hidden)
+        .mapStyle(.standard(pointsOfInterest: .excludingAll, showsTraffic: true))
+        .frame(height: 150)
+        .clipShape(.rect(cornerRadius: 10))
+        .shadow(radius: 3)
+    }
+    
+    private func getNavTitle() -> String {
+        guard let stop = self.viewModel.stopPoint else {
+            return "Loading..."
+        }
+        
+        return stop.stopPoint.stopPointName
+    }
+}
+
+#Preview {
+    NavigationStack {
+        StopPointPage(stopId: "HUBSRA")
     }
 }

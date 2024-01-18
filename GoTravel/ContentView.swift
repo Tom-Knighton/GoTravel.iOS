@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoTravel_Models
 
 struct ContentView: View {
     
@@ -17,12 +18,16 @@ struct ContentView: View {
         @Bindable var globalVM = globalVM
         
         TabView(selection: $globalVM.tabIndex) {
-            HomeMapPage()
-                .tag(0)
-                .tabItem {
-                    Label(Strings.Navigation.MapTab, systemImage: Icons.map)
-                }
+            NavigationStack(path: $globalVM.mapPath) {
+                HomeMapPage()  
+                    .navigationDestination(for: StopPointNavModel.self) { nav in
+                        StopPointPage(stopId: nav.stopPointId)
+                    }
+            }
+            .tag(0)
+            .tabItem {
+                Label(Strings.Navigation.MapTab, systemImage: Icons.map)
+            }
         }
-        
     }
 }

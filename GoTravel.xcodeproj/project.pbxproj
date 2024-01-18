@@ -76,6 +76,9 @@
 		E2CFBAA12AC89EC200662DC1 /* LocationNeededBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFBAA02AC89EC200662DC1 /* LocationNeededBanner.swift */; };
 		E2CFD9932AFA8233008A6726 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFD9922AFA8233008A6726 /* AppData.swift */; };
 		E2E5119F2B57043A003BE56E /* StopPointPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E5119E2B57043A003BE56E /* StopPointPage.swift */; };
+		E2E511A22B572933003BE56E /* StopPointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E511A12B572933003BE56E /* StopPointViewModel.swift */; };
+		E2E511A52B59ADDB003BE56E /* LineModesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E511A42B59ADDB003BE56E /* LineModesView.swift */; };
+		E2E511A72B59EB53003BE56E /* StopArrivalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E511A62B59EB53003BE56E /* StopArrivalsView.swift */; };
 		E2F9415B2AD2C2A10047EA04 /* GlobalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9415A2AD2C2A10047EA04 /* GlobalViewModel.swift */; };
 		E2F9415D2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9415C2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift */; };
 		E2F9415F2AD30A3F0047EA04 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E2F9415E2AD30A3F0047EA04 /* Localizable.xcstrings */; };
@@ -166,6 +169,9 @@
 		E2CFBAA02AC89EC200662DC1 /* LocationNeededBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNeededBanner.swift; sourceTree = "<group>"; };
 		E2CFD9922AFA8233008A6726 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		E2E5119E2B57043A003BE56E /* StopPointPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointPage.swift; sourceTree = "<group>"; };
+		E2E511A12B572933003BE56E /* StopPointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointViewModel.swift; sourceTree = "<group>"; };
+		E2E511A42B59ADDB003BE56E /* LineModesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineModesView.swift; sourceTree = "<group>"; };
+		E2E511A62B59EB53003BE56E /* StopArrivalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopArrivalsView.swift; sourceTree = "<group>"; };
 		E2F9415A2AD2C2A10047EA04 /* GlobalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewModel.swift; sourceTree = "<group>"; };
 		E2F9415C2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationPath+GoTravel.swift"; sourceTree = "<group>"; };
 		E2F9415E2AD30A3F0047EA04 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -190,6 +196,7 @@
 		E2000C162AC8217E003D01A9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				E2E511A02B572918003BE56E /* Stop */,
 				E28DC2BD2B2107CC00E2FECE /* Map */,
 				E2F9415A2AD2C2A10047EA04 /* GlobalViewModel.swift */,
 			);
@@ -210,6 +217,7 @@
 		E2000C1C2AC8299B003D01A9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E2E511A32B59ADC1003BE56E /* Stop */,
 				E26988702B35D18F0097B8EF /* Misc */,
 				E2FA5C392AF823FA00DCE810 /* Tips */,
 				E2CFBA9F2AC89EB700662DC1 /* Map */,
@@ -459,6 +467,23 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		E2E511A02B572918003BE56E /* Stop */ = {
+			isa = PBXGroup;
+			children = (
+				E2E511A12B572933003BE56E /* StopPointViewModel.swift */,
+			);
+			path = Stop;
+			sourceTree = "<group>";
+		};
+		E2E511A32B59ADC1003BE56E /* Stop */ = {
+			isa = PBXGroup;
+			children = (
+				E2E511A42B59ADDB003BE56E /* LineModesView.swift */,
+				E2E511A62B59EB53003BE56E /* StopArrivalsView.swift */,
+			);
+			path = Stop;
+			sourceTree = "<group>";
+		};
 		E2FA5C392AF823FA00DCE810 /* Tips */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,6 +596,7 @@
 				E2F9415D2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift in Sources */,
 				E25572562B33BAB900988348 /* BottomSheetView+HelperViews.swift in Sources */,
 				E25572552B33BAB900988348 /* BottomSheetView+Calculations.swift in Sources */,
+				E2E511A72B59EB53003BE56E /* StopArrivalsView.swift in Sources */,
 				E25572082B33B28200988348 /* MapSearchSheetView.swift in Sources */,
 				E25572572B33BAB900988348 /* BottomSheetView+Gestures.swift in Sources */,
 				E2438F1E2B25D82B00BBF345 /* Accessibility+GoTravel.swift in Sources */,
@@ -594,6 +620,7 @@
 				E255725F2B33BAB900988348 /* UIApplicationExtension.swift in Sources */,
 				E2BF5D772AD3641100261261 /* StopPoint+GoTravel.swift in Sources */,
 				E283D3822AC23316008ECF81 /* GoLondonApp.swift in Sources */,
+				E2E511A22B572933003BE56E /* StopPointViewModel.swift in Sources */,
 				E255723F2B33BAB900988348 /* BottomSheet+Resizable.swift in Sources */,
 				E25572502B33BAB900988348 /* BottomSheet+CloseButton.swift in Sources */,
 				E28DC2BA2B1FE73700E2FECE /* MapControlButtonStyle.swift in Sources */,
@@ -612,6 +639,7 @@
 				E2F9415B2AD2C2A10047EA04 /* GlobalViewModel.swift in Sources */,
 				E2BF5D752AD3634700261261 /* Color+GoTravel.swift in Sources */,
 				E25572412B33BAB900988348 /* BottomSheet+AppleScrollBehavior.swift in Sources */,
+				E2E511A52B59ADDB003BE56E /* LineModesView.swift in Sources */,
 				E25572482B33BAB900988348 /* BottomSheet+DragGesture.swift in Sources */,
 				E25572452B33BAB900988348 /* BottomSheet+TapToDismiss.swift in Sources */,
 			);

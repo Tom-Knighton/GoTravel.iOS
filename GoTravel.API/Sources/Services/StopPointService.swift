@@ -50,4 +50,16 @@ public struct StopPointService {
         
         return result
     }
+    
+    
+    /// Returns the stop point by it's id or hub id
+    /// - Parameters:
+    ///   - id: The id of the stop point
+    ///   - getHub: Whether or not to return the hub or not
+    public static func Get(_ id: String, getHub: Bool = false) async throws -> StopPoint {
+        let request = APIRequest(path: "StopPoint/\(id)", queryItems: [], body: nil)
+        let result: StopPoint = try await client.perform(request)
+        
+        return result
+    }
 }
