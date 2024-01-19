@@ -32,12 +32,12 @@ extension StopPointPlatformArrivals {
     /// Returns either the friendly platform name or just the entire original name from API if unable to determine
     func friendlyPlatformName() -> String {
         let parts = self.platformName.split(separator: "-")
-        let platformPart = parts.first(where: { $0.trimmingCharacters(in: .whitespacesAndNewlines).starts(with: "Platform" )})
+        let platformPart = parts.first(where: { $0.trimmingCharacters(in: .whitespacesAndNewlines).contains("Platform" )})
 
         if let platformPart {
             return String(platformPart).trimmingCharacters(in: .whitespacesAndNewlines)
         } else {
-            return self.platformName
+            return "Platform " + self.platformName
         }
     }
 }

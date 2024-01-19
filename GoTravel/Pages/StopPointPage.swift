@@ -21,7 +21,7 @@ public struct StopPointPage: View {
     
     public var body: some View {
         ZStack {
-//            Color.layer1.ignoresSafeArea()
+            Color.layer1.ignoresSafeArea()
             
             if viewModel.isLoading {
                 if let stopPoint = viewModel.stopPoint {

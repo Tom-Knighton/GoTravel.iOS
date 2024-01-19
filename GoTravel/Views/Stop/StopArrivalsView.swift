@@ -74,6 +74,10 @@ public struct StopArrivalsView: View {
                         .fontDesign(.rounded)
                     Text(platform.friendlyPlatformName())
                         .fontDesign(.rounded)
+                } else {
+                    Text(platform.friendlyPlatformName())
+                        .bold()
+                        .fontDesign(.rounded)
                 }
             }
             Spacer()
