@@ -34,6 +34,7 @@ public struct StopPointPage: View {
         .navigationBarTitleDisplayMode(.large)
         .task {
             await viewModel.load(self.stopId)
+            await viewModel.loadArrivals()
         }
     }
     
@@ -51,6 +52,9 @@ public struct StopPointPage: View {
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
+            
+            StopArrivalsView()
+                .environment(viewModel)
             
             Spacer()
         }

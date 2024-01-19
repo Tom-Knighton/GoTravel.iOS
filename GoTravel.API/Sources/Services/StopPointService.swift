@@ -62,4 +62,19 @@ public struct StopPointService {
         
         return result
     }
+    
+    /// Returns upcoming arrivals/departures for a specified stop
+    /// - Parameters:
+    ///   - id: The id of the stop point to get arrivals for
+    ///   - includeChildrenAndHubs: Whether or not to include arrivals for the entire HUB the stop belongs to, as well as children of this stop
+    public static func Arrivals(_ id: String, includeChildrenAndHubs: Bool = false) async throws -> StopPointArrivals {
+        var queryItems: [URLQueryItem] = []
+        queryItems.append(.init(name: "includeChildrenAndHubs", value: includeChildrenAndHubs ? "true" : "false"))
+
+        
+        let request = APIRequest(path: "StopPoint/\(id)/Arrivals", queryItems: queryItems, body: nil)
+        let result: StopPointArrivals = try await client.perform(request)
+        
+        return result
+    }
 }

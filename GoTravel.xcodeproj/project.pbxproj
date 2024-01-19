@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E2000C182AC821D3003D01A9 /* StopMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2000C172AC821D3003D01A9 /* StopMapViewModel.swift */; };
 		E2000C1B2AC82799003D01A9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2000C1A2AC82799003D01A9 /* LocationManager.swift */; };
+		E22DBC3D2B5B227800276034 /* PlatformArrivals+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22DBC3C2B5B227800276034 /* PlatformArrivals+GoTravel.swift */; };
 		E2438F1E2B25D82B00BBF345 /* Accessibility+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */; };
 		E2438F202B26195100BBF345 /* AccessibilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */; };
 		E25572082B33B28200988348 /* MapSearchSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572072B33B28200988348 /* MapSearchSheetView.swift */; };
@@ -79,6 +80,7 @@
 		E2E511A22B572933003BE56E /* StopPointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E511A12B572933003BE56E /* StopPointViewModel.swift */; };
 		E2E511A52B59ADDB003BE56E /* LineModesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E511A42B59ADDB003BE56E /* LineModesView.swift */; };
 		E2E511A72B59EB53003BE56E /* StopArrivalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E511A62B59EB53003BE56E /* StopArrivalsView.swift */; };
+		E2E511A92B59EF78003BE56E /* Date+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E511A82B59EF78003BE56E /* Date+GoTravel.swift */; };
 		E2F9415B2AD2C2A10047EA04 /* GlobalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9415A2AD2C2A10047EA04 /* GlobalViewModel.swift */; };
 		E2F9415D2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9415C2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift */; };
 		E2F9415F2AD30A3F0047EA04 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E2F9415E2AD30A3F0047EA04 /* Localizable.xcstrings */; };
@@ -102,6 +104,7 @@
 		E2000C172AC821D3003D01A9 /* StopMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopMapViewModel.swift; sourceTree = "<group>"; };
 		E2000C1A2AC82799003D01A9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E2000C1F2AC82C97003D01A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E22DBC3C2B5B227800276034 /* PlatformArrivals+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlatformArrivals+GoTravel.swift"; sourceTree = "<group>"; };
 		E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Accessibility+GoTravel.swift"; sourceTree = "<group>"; };
 		E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityHelper.swift; sourceTree = "<group>"; };
 		E25572072B33B28200988348 /* MapSearchSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchSheetView.swift; sourceTree = "<group>"; };
@@ -172,6 +175,7 @@
 		E2E511A12B572933003BE56E /* StopPointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointViewModel.swift; sourceTree = "<group>"; };
 		E2E511A42B59ADDB003BE56E /* LineModesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineModesView.swift; sourceTree = "<group>"; };
 		E2E511A62B59EB53003BE56E /* StopArrivalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopArrivalsView.swift; sourceTree = "<group>"; };
+		E2E511A82B59EF78003BE56E /* Date+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+GoTravel.swift"; sourceTree = "<group>"; };
 		E2F9415A2AD2C2A10047EA04 /* GlobalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewModel.swift; sourceTree = "<group>"; };
 		E2F9415C2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationPath+GoTravel.swift"; sourceTree = "<group>"; };
 		E2F9415E2AD30A3F0047EA04 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -353,6 +357,7 @@
 				E280F6542B13ADC100563D7E /* String+GoTravel.swift */,
 				E28DC2BB2B1FE7CA00E2FECE /* SwiftUI+GoTravel.swift */,
 				E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */,
+				E2E511A82B59EF78003BE56E /* Date+GoTravel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -442,6 +447,7 @@
 				E2BF5D762AD3641100261261 /* StopPoint+GoTravel.swift */,
 				E2BF5D722AD3629500261261 /* LineMode+GoTravel.swift */,
 				E28DC2C42B210E5500E2FECE /* LineMode+Cache.swift */,
+				E22DBC3C2B5B227800276034 /* PlatformArrivals+GoTravel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -618,6 +624,7 @@
 				E255724A2B33BAB900988348 /* BottomSheet+OnDismiss.swift in Sources */,
 				E25572402B33BAB900988348 /* BottomSheet+AccountingForKeyboardHeight.swift in Sources */,
 				E255725F2B33BAB900988348 /* UIApplicationExtension.swift in Sources */,
+				E2E511A92B59EF78003BE56E /* Date+GoTravel.swift in Sources */,
 				E2BF5D772AD3641100261261 /* StopPoint+GoTravel.swift in Sources */,
 				E283D3822AC23316008ECF81 /* GoLondonApp.swift in Sources */,
 				E2E511A22B572933003BE56E /* StopPointViewModel.swift in Sources */,
@@ -641,6 +648,7 @@
 				E25572412B33BAB900988348 /* BottomSheet+AppleScrollBehavior.swift in Sources */,
 				E2E511A52B59ADDB003BE56E /* LineModesView.swift in Sources */,
 				E25572482B33BAB900988348 /* BottomSheet+DragGesture.swift in Sources */,
+				E22DBC3D2B5B227800276034 /* PlatformArrivals+GoTravel.swift in Sources */,
 				E25572452B33BAB900988348 /* BottomSheet+TapToDismiss.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

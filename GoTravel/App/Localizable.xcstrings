@@ -124,6 +124,9 @@
         }
       }
     },
+    "Check Station Boards" : {
+
+    },
     "Errors:NoLineModesFromAPI" : {
       "localizations" : {
         "en" : {
@@ -143,6 +146,12 @@
           }
         }
       }
+    },
+    "Go Now" : {
+
+    },
+    "Live Times:" : {
+
     },
     "Map:Distance:%@:%@" : {
       "localizations" : {
