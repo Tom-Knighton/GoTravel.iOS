@@ -21,17 +21,23 @@ public struct StopPointPage: View {
     
     public var body: some View {
         ZStack {
-            Color.layer1.ignoresSafeArea()
-            ScrollView {
-                if let stopPoint = viewModel.stopPoint, !self.viewModel.isLoading {
-                    content(stopPoint)
+//            Color.layer1.ignoresSafeArea()
+            
+            if viewModel.isLoading {
+                if let stopPoint = viewModel.stopPoint {
+                    ScrollView {
+                        content(stopPoint)
+                    }
                 } else {
                     ContentUnavailableView("No Stop", systemImage: "xmark")
                 }
+            } else {
+                ProgressView()
             }
         }
         .navigationTitle(getNavTitle())
         .navigationBarTitleDisplayMode(.large)
+        .toolbarBackground(.automatic, for: .navigationBar)
         .task {
             await viewModel.load(self.stopId)
             await viewModel.loadArrivals()

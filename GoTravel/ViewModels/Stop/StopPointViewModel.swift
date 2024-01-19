@@ -23,6 +23,7 @@ public class StopPointViewModel {
     public var arrivalsLastRefresh: Date?
     public var loadingArrivals: Bool = false
     
+    
     public func load(_ stopId: String) async {
         self.isLoading = true
         
