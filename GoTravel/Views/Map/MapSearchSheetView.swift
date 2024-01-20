@@ -31,6 +31,8 @@ public struct MapSheetSearchBar: View {
 
 public struct MapSheetSearchResults: View {
     
+    @Environment(GlobalViewModel.self) private var globalVM
+    
     @Binding public var isNearby: Bool
     @Binding public var searchResults: [StopPoint]
     @Binding public var scrollToId: String?
@@ -49,6 +51,9 @@ public struct MapSheetSearchResults: View {
                     ForEach(searchResults, id: \.stopPoint.stopPointId) { result in
                         MapSheetSearchResultItem(item: result, isSelected: self.scrollToId == result.stopPoint.stopPointId)
                             .id(result.stopPoint.stopPointId)
+                            .onTapGesture {
+                                self.globalVM.addToCurrentNavStack(StopPointNavModel(stopPointId: result.stopPoint.stopPointId))
+                            }
                     }
                 }
                 .padding(.horizontal, 12)
