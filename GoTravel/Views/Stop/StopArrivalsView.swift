@@ -81,8 +81,22 @@ public struct StopArrivalsView: View {
                 }
             }
             Spacer()
-            VStack {
-                
+            VStack(alignment: .trailing) {
+                if let firstArrival = platform.firstArrivalString() {
+                    Text(firstArrival)
+                        .fontWeight(.bold)
+                        .fontDesign(.rounded)
+                    
+                    if let otherArrivals = platform.nextArrivalsString() {
+                        Text(otherArrivals)
+                            .fontWeight(.light)
+                            .fontDesign(.rounded)
+                    }
+                } else {
+                    Text("Check Station Boards")
+                        .fontWeight(.light)
+                        .fontDesign(.rounded)
+                }
             }
         }
     }

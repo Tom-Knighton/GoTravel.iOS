@@ -55,13 +55,11 @@ public class StopPointViewModel {
         
         do {
             let arrivals = try await StopPointService.Arrivals(stop.stopPointId, includeChildrenAndHubs: true)
-            print(arrivals.modeArrivals.count)
             arrivals.modeArrivals.forEach { mode in
                 mode.lineArrivals.forEach { line in
                     let existingLineIndex = self.arrivalLines.firstIndex(where: { $0.lineId == line.lineId })
                     if let existingLineIndex {
                         self.arrivalLines[existingLineIndex].platforms = line.platforms
-                        print("replacing arrivals w/ \(line.platforms.compactMap { $0.arrivalDepartures.count })")
                     }
                 }
             }

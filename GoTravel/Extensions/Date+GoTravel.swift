@@ -17,10 +17,8 @@ extension Date {
     
     public func timeUntil(_ until: Date, unit: TimeUntiUnit = .seconds)  -> Double {
         
-        
-        
         let timeUntil = until.timeIntervalSinceReferenceDate / unit.rawValue
-        let current = until.timeIntervalSinceReferenceDate / unit.rawValue
+        let current = Date().timeIntervalSinceReferenceDate / unit.rawValue
         
         return Double(timeUntil - current)
     }

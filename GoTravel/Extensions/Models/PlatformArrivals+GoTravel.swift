@@ -40,4 +40,56 @@ extension StopPointPlatformArrivals {
             return "Platform " + self.platformName
         }
     }
+    
+    func firstArrivalString() -> String? {
+        if let arrival = self.arrivalDepartures.first, let date = arrival.bestDate() {
+            let friendly = friendlyDueString(date)
+            if friendly != "Due" {
+                return friendly + " mins"
+            }
+            return friendly
+        }
+        
+        return nil
+    }
+    
+    func nextArrivalsString() -> String? {
+        let upcomingArrivals = self.arrivalDepartures.dropFirst().prefix(3).filter { $0.bestDate() != nil }
+        guard upcomingArrivals.count > 0 else {
+            return nil
+        }
+        
+        var arrivalStrings: [String] = []
+        
+        for arrival in upcomingArrivals {
+            if let date = arrival.bestDate() {
+                arrivalStrings.append(friendlyDueString(date))
+            }
+        }
+        
+        var result = "then " + arrivalStrings.joined(separator: ", ")
+        if arrivalStrings.last != "Due" {
+            result += " mins"
+        }
+        
+        return result
+    }
+
+    
+    public func friendlyDueString(_ date: Date) -> String {
+        let mins = Date().timeUntil(date, unit: .minutes)
+        print(mins)
+        if mins <= 1.1 {
+            return "Due"
+        }
+        
+        return String(describing: Int(mins.rounded()))
+    }
+}
+
+extension ArrivalDeparture {
+    
+    func bestDate() -> Date? {
+        return self.predictedDeparture ?? self.scheduledDeparture ?? self.predictedArrival ?? self.scheduledArrival
+    }
 }
