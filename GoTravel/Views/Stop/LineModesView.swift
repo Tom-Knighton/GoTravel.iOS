@@ -122,7 +122,6 @@ public struct LineModesView: View {
     
     private func getModesDisplayedIndividually() -> [LineMode] {
         let individualLineModes = self.stop.stopPoint.lineModes.filter { $0.hasFlag("LLV_DisplaysLines") }
-        print(individualLineModes.compactMap { $0.lineModeName })
         return individualLineModes
     }
 }

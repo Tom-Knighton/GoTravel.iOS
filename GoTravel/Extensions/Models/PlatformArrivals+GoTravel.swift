@@ -23,7 +23,7 @@ extension StopPointPlatformArrivals {
             }
         } else {
             //TODO: log
-            print("ERROR: Invalid platform name components?")
+            print("ERROR: Invalid platform name components? \(platformName)")
         }
         
         return platform
@@ -78,7 +78,6 @@ extension StopPointPlatformArrivals {
     
     public func friendlyDueString(_ date: Date) -> String {
         let mins = Date().timeUntil(date, unit: .minutes)
-        print(mins)
         if mins <= 1.1 {
             return "Due"
         }

@@ -23,7 +23,7 @@ public struct StopPointPage: View {
         ZStack {
             Color.layer1.ignoresSafeArea()
             
-            if viewModel.isLoading {
+            if !viewModel.isLoading {
                 if let stopPoint = viewModel.stopPoint {
                     ScrollView {
                         content(stopPoint)
@@ -59,6 +59,7 @@ public struct StopPointPage: View {
             }
             .buttonStyle(.borderedProminent)
             
+            Spacer().frame(height: 16)
             StopArrivalsView()
                 .environment(viewModel)
             

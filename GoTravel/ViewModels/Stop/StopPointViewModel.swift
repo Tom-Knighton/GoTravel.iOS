@@ -28,13 +28,17 @@ public class StopPointViewModel {
         self.isLoading = true
         
         do {
-            self.stopPoint = try await StopPointService.Get(stopId, getHub: true)
-            self.setupArrivalData()
-            self.isLoading = false
+            let stop = try await StopPointService.Get(stopId, getHub: true)
+            await MainActor.run {
+                self.stopPoint = stop
+                self.isLoading = false
+                self.setupArrivalData()
+            }
         }
         catch {
             self.isLoading = false
             self.didLoadError = true
+            print("ERROR SETTING STOP PPINT")
         }
     }
     
@@ -47,31 +51,36 @@ public class StopPointViewModel {
         self.loadingArrivals = true
         
         // Shouldn't request if last request time was < 5 seconds ago, but fake it:
-        if let last = self.arrivalsLastRefresh, last.timeUntil(Date()) < 5 {
+        if let last = self.arrivalsLastRefresh, last.timeUntil(Date(), unit: .seconds) < 5 {
             try? await Task.sleep(nanoseconds: 1_500_000_000)
-            self.loadingArrivals = false
+            await MainActor.run {
+                self.loadingArrivals = false
+            }
             return
         }
         
         do {
             let arrivals = try await StopPointService.Arrivals(stop.stopPointId, includeChildrenAndHubs: true)
-            arrivals.modeArrivals.forEach { mode in
-                mode.lineArrivals.forEach { line in
-                    let existingLineIndex = self.arrivalLines.firstIndex(where: { $0.lineId == line.lineId })
-                    if let existingLineIndex {
-                        self.arrivalLines[existingLineIndex].platforms = line.platforms
+            await MainActor.run {
+                arrivals.modeArrivals.forEach { mode in
+                    mode.lineArrivals.forEach { line in
+                        let existingLineIndex = self.arrivalLines.firstIndex(where: { $0.lineId == line.lineId })
+                        if let existingLineIndex {
+                            self.arrivalLines[existingLineIndex].platforms = line.platforms
+                        }
                     }
                 }
             }
-            
         }
         catch {
             //TODO: Error message
             print("error setting arrivals " + error.localizedDescription)
         }
         
-        
-        self.loadingArrivals = false
+        await MainActor.run {
+            self.arrivalsLastRefresh = Date()
+            self.loadingArrivals = false
+        }
     }
     
     

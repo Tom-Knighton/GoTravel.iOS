@@ -19,8 +19,26 @@ public struct StopArrivalsView: View {
                     .font(.title3.bold())
                     .fontDesign(.rounded)
                 Spacer()
+                
+                if viewModel.loadingArrivals {
+                    ProgressView()
+                        .frame(width: 26, height: 26)
+                } else {
+                    GaugeTimerView(countTo: 30) {
+                        Task {
+                            await self.viewModel.loadArrivals()
+                        }
+                    }
+                    .frame(width: 26, height: 26)
+                    .onTapGesture {
+                        Task {
+                            await self.viewModel.loadArrivals()
+                        }
+                    }
+                }
+                
             }
-            
+            Spacer().frame(height: 16)
             ForEach(viewModel.arrivalLines, id: \.lineId) { line in
                 LineArrivals(for: line)
                     .padding(.bottom, 8)
