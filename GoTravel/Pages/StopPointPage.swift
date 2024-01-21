@@ -51,6 +51,9 @@ public struct StopPointPage: View {
             Spacer().frame(height: 16)
             
             MapPreview(stopPoint)
+                .accessibilityLabel(Strings.Accessibility.MapShowsStopLabel)
+                .accessibilityElement(children: .combine)
+            
             Button(action: {}) {
                 Text(Strings.StopPage.GetDirectionsButton)
                     .fontDesign(.rounded)
@@ -58,6 +61,7 @@ public struct StopPointPage: View {
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
+            .accessibilityHint(Strings.Accessibility.OpensJourneyForStopLabel)
             
             Spacer().frame(height: 16)
             StopArrivalsView()

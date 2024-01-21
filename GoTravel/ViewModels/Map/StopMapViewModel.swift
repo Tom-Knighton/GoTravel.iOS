@@ -88,6 +88,7 @@ public class StopMapViewModel {
         }
     }
     
+    @MainActor
     public func searchAtLocation(_ coordinate: CLLocationCoordinate2D) async {
         do {
             let hiddenLineModes = getHiddenLineModeNames()

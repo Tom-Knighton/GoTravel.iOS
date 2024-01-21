@@ -23,10 +23,12 @@ public struct StopArrivalsView: View {
                 if viewModel.loadingArrivals {
                     ProgressView()
                         .frame(width: 26, height: 26)
+                        .accessibilityHidden()
                 } else {
                     GaugeTimerView(countTo: 30) {
                         Task {
                             await self.viewModel.loadArrivals()
+                            AccessibilityHelper.postMessage(Strings.Accessibility.StopArrivalsUpdatedMessage.toString(), messageType: .screenChanged)
                         }
                     }
                     .frame(width: 26, height: 26)
@@ -35,9 +37,13 @@ public struct StopArrivalsView: View {
                             await self.viewModel.loadArrivals()
                         }
                     }
+                    .accessibilityHidden()
                 }
                 
             }
+            .accessibilityLabel(Strings.Accessibility.StopArrivalsLabel)
+            .accessibilityHint(Strings.Accessibility.StopArrivalsHint)
+            
             Spacer().frame(height: 16)
             ForEach(viewModel.arrivalLines, id: \.lineId) { line in
                 LineArrivals(for: line)
@@ -60,6 +66,7 @@ public struct StopArrivalsView: View {
             .padding(.horizontal, 8)
             .padding(.vertical, 8)
             .background(colourForLine(line.lineId))
+            .accessibilityLabel(Strings.Accessibility.LineArrivalsLabel(line.lineName ?? line.lineMode))
             
             if self.viewModel.loadingArrivals {
                 ProgressView()
@@ -84,11 +91,18 @@ public struct StopArrivalsView: View {
     
     @ViewBuilder
     private func PlatformView(for platform: StopPointPlatformArrivals, isBusLike: Bool) -> some View {
+        let towards = platform.friendlyTowards()
+        let direction = platform.friendlyDirection()
+        let platformName = platform.friendlyPlatformName()
+        
+        let firstArrival = platform.firstArrivalString()
+        let nextArrivals = platform.nextArrivalsString()
+        
         HStack {
             VStack(alignment: .leading) {
                 
                 if isBusLike {
-                    if let towards = platform.friendlyTowards() {
+                    if let towards {
                         Text(Strings.StopPage.Towards)
                             .bold()
                             .fontDesign(.rounded)
@@ -96,27 +110,28 @@ public struct StopArrivalsView: View {
                             .bold()
                             .fontDesign(.rounded)
                     }
-                } else if let direction = platform.friendlyDirection() {
+                } else if let direction {
                     Text(direction)
                         .bold()
                         .fontDesign(.rounded)
-                    Text(platform.friendlyPlatformName())
+                    Text(platformName)
                         .fontDesign(.rounded)
                 } else {
-                    Text(platform.friendlyPlatformName())
+                    Text(platformName)
                         .bold()
                         .fontDesign(.rounded)
                 }
             }
             Spacer()
+
             VStack(alignment: .trailing) {
-                if let firstArrival = platform.firstArrivalString() {
+                if let firstArrival {
                     Text(firstArrival)
                         .fontWeight(.bold)
                         .fontDesign(.rounded)
                     
-                    if let otherArrivals = platform.nextArrivalsString() {
-                        Text(otherArrivals)
+                    if let nextArrivals {
+                        Text(nextArrivals)
                             .fontWeight(.light)
                             .fontDesign(.rounded)
                     }
@@ -127,6 +142,10 @@ public struct StopArrivalsView: View {
                 }
             }
         }
+        .accessibilityElement(children: .ignore)
+        .accessibilityElement()
+        .accessibilityAddTraits(.isStaticText)
+        .accessibilityLabel(getPlatformAccessibilityLabel(name: isBusLike ? nil : platformName, directionString: isBusLike ? towards : direction, first: firstArrival, nextString: nextArrivals))
     }
     
     private func colourForLine(_ lineId: String) -> Color {
@@ -146,6 +165,25 @@ public struct StopArrivalsView: View {
         }
         
         return .red
+    }
+    
+    private func getPlatformAccessibilityLabel(name: String?, directionString: String? = nil, first: String? = nil, nextString: String? = nil) -> String {
+        var label = ""
+        if let name {
+            label += name
+        }
+        if let directionString {
+            label += " - " + directionString
+        }
+        
+        if let first {
+            label += Strings.Accessibility.StopNextArrivalIs.toString() + " " + first
+            if let nextString {
+                label += ", " + nextString
+            }
+        }
+                
+        return label
     }
 }
 

@@ -127,6 +127,76 @@
         }
       }
     },
+    "Accessibility:StopPage:ArrivalsUpdatedMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrivals/Departures updated"
+          }
+        }
+      }
+    },
+    "Accessibility:StopPage:LineArrivals:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrivals/Departures for %@"
+          }
+        }
+      }
+    },
+    "Accessibility:StopPage:MapShowsStopLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Map showing location of stop"
+          }
+        }
+      }
+    },
+    "Accessibility:StopPage:NextArrivalIs" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next arrival/departure is"
+          }
+        }
+      }
+    },
+    "Accessibility:StopPage:OpensJourneyForStopLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opens the journey planning screen for a journey to this stop"
+          }
+        }
+      }
+    },
+    "Accessibility:StopPage:UpcomingArrivalsHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refreshes every 30 seconds"
+          }
+        }
+      }
+    },
+    "Accessibility:StopPage:UpcomingArrivalsLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upcoming arrivals/departures here"
+          }
+        }
+      }
+    },
     "Errors:NoLineModesFromAPI" : {
       "localizations" : {
         "en" : {

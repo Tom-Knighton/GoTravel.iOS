@@ -70,6 +70,13 @@ public struct Strings {
         public static let MapLabelFilterSheet: LocalizedStringKey = "Accessibility:Map:FilterSheetLabel"
         public static let MapHintFilterSheet: LocalizedStringKey = "Accessibility:Map:FilterSheetHint"
         
+        public static let MapShowsStopLabel: LocalizedStringKey = "Accessibility:StopPage:MapShowsStopLabel"
+        public static let OpensJourneyForStopLabel: LocalizedStringKey = "Accessibility:StopPage:OpensJourneyForStopLabel"
+        public static let StopArrivalsLabel: LocalizedStringKey = "Accessibility:StopPage:UpcomingArrivalsLabel"
+        public static let StopArrivalsHint: LocalizedStringKey = "Accessibility:StopPage:UpcomingArrivalsHint"
+        public static let StopArrivalsUpdatedMessage: LocalizedStringKey = "Accessibility:StopPage:ArrivalsUpdatedMessage"
+        public static let StopNextArrivalIs: LocalizedStringKey = "Accessibility:StopPage:NextArrivalIs"
+        
         public static func MapBikesRemaining(_ bikes: Int) -> LocalizedStringKey {
             return "Accessibility:Map:BikesRemainingText:\(bikes)"
         }
@@ -92,6 +99,10 @@ public struct Strings {
         
         public static func FilterSheetAreaLabel(_ area: String) -> LocalizedStringKey {
             LocalizedStringKey("Accessibility:Map:FilterLineModesForArea:\(area)")
+        }
+        
+        public static func LineArrivalsLabel(_ lineName: String) -> LocalizedStringKey {
+            LocalizedStringKey("Accessibility:StopPage:LineArrivals:\(lineName)")
         }
     }
 }
