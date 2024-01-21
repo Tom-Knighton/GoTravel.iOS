@@ -41,6 +41,25 @@ extension StopPointPlatformArrivals {
         }
     }
     
+    /// Returns a friendly 'towards' string based on the arrivals here
+    func friendlyTowards() -> String? {
+        let towards = self.arrivalDepartures.compactMap { $0.destinationName }
+        
+        if towards.count > 0 {
+            if towards.count == 2 {
+                return String(Set(towards).joined(separator: " and "))
+            } else if towards.count > 2 {
+                let distinct = Array(Set(towards))
+                let last = distinct.last
+                return String(distinct.dropLast().joined(separator: ", ")) + (last != nil ? ", and " + (last ?? "...") : "")
+            } else {
+                return towards.first
+            }
+        }
+        
+        return nil
+    }
+    
     func firstArrivalString() -> String? {
         if let arrival = self.arrivalDepartures.first, let date = arrival.bestDate() {
             let friendly = friendlyDueString(date)
@@ -61,7 +80,7 @@ extension StopPointPlatformArrivals {
         
         var arrivalStrings: [String] = []
         
-        for arrival in upcomingArrivals {
+        for arrival in upcomingArrivals.sorted(by: { ($0.bestDate() ?? Date()) < ($1.bestDate() ?? Date())}) {
             if let date = arrival.bestDate() {
                 arrivalStrings.append(friendlyDueString(date))
             }

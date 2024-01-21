@@ -68,7 +68,7 @@ public struct StopArrivalsView: View {
                     Text("Check Station Boards")
                 } else {
                     ForEach(line.platforms, id: \.platformName) { platform in
-                        PlatformView(for: platform)
+                        PlatformView(for: platform, isBusLike: viewModel.hasBusLikeArrivals(for: line.lineMode))
                             .padding(.horizontal, 8)
                         Divider()
                     }
@@ -83,10 +83,20 @@ public struct StopArrivalsView: View {
     }
     
     @ViewBuilder
-    private func PlatformView(for platform: StopPointPlatformArrivals) -> some View {
+    private func PlatformView(for platform: StopPointPlatformArrivals, isBusLike: Bool) -> some View {
         HStack {
             VStack(alignment: .leading) {
-                if let direction = platform.friendlyDirection() {
+                
+                if isBusLike {
+                    if let towards = platform.friendlyTowards() {
+                        Text("Towards: \n")
+                            .bold()
+                            .fontDesign(.rounded) +
+                        Text(towards)
+                            .bold()
+                            .fontDesign(.rounded)
+                    }
+                } else if let direction = platform.friendlyDirection() {
                     Text(direction)
                         .bold()
                         .fontDesign(.rounded)

@@ -83,6 +83,12 @@ public class StopPointViewModel {
         }
     }
     
+    public func hasBusLikeArrivals(for lineMode: String) -> Bool {
+        
+        let lineMode = self.stopPoint?.stopPoint.lineModes.first(where: { $0.lineModeName == lineMode })
+        return lineMode?.hasFlag("Arrivals_IsBusLike") ?? false
+    }
+    
     
     private func setupArrivalData() {
         

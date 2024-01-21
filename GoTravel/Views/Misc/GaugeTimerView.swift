@@ -48,7 +48,10 @@ public struct GaugeTimerView: View {
                     .animation(.spring, value: self.counter)
             }
             .onReceive(self.timer, perform: { _ in
-                guard self.counter + 1 <= self.countTo else { return }
+                guard self.counter + 1 <= self.countTo else { 
+                    self.counter = self.countTo
+                    return
+                }
                 
                 self.counter += 1
                 if self.counter == self.countTo {

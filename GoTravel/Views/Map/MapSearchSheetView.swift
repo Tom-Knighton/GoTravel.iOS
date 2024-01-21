@@ -80,10 +80,6 @@ public struct MapSheetSearchResultItem: View {
     @State private var city: String? = nil
     @State private var distanceIsYards: Bool = false
     
-
-    private let isBusLikeFlag: String = "isBusLike"
-    
-    
     init(item: StopPoint, isSelected: Bool) {
         self.item = item
         self.isSelected = isSelected
@@ -93,13 +89,17 @@ public struct MapSheetSearchResultItem: View {
         VStack(alignment: .leading) {
 
             HStack(spacing: 2) {
-                Text(item.stopPoint.stopPointName)
-                    .bold()
                 if case .bus(let busStopPoint) = item {
                     if let indication = busStopPoint.busStopLetter ?? busStopPoint.busStopIndicator {
+                        Text(item.stopPoint.stopPointName)
+                            .bold() +
+                        Text(" ") +
                         Text(Strings.Map.BusStopIndication(indication))
                             .bold()
                     }
+                } else {
+                    Text(item.stopPoint.stopPointName)
+                        .bold()
                 }
                 Spacer()
             }
@@ -157,7 +157,3 @@ public struct MapSheetSearchResultItem: View {
     
     
 }
-//
-//#Preview {
-//    MapSheetSearchResultItem(item: StopPoint.train(TrainStopPoint(stopPointId: "001", stopPointName: "Bow Church", stopPointCoordinate: .init(CLLocationCoordinate2D(latitude: 51.524172, longitude: -0.039732)), stopPointHub: nil, stopPointParentId: nil, children: [], lineModes: [.init(lineModeName: "Line Mode 1", lines: [], primaryAreaName: "UK", branding: .init(lineModeLogoUrl: "https://cdn.tomk.online/cdn/GoTravelBranding/dlr.png", lineModeBackgroundColour: "#000000", lineModePrimaryColour: "#ffffff", lineModeSecondaryColour: nil), flags: ["isBusLike"]),.init(lineModeName: "Line Mode 2", lines: [], primaryAreaName: "UK", branding: .init(lineModeLogoUrl: "https://cdn.tomk.online/cdn/GoTravelBranding/dlr.png", lineModeBackgroundColour: "#000000", lineModePrimaryColour: "#ffffff", lineModeSecondaryColour: nil), flags: [])])))
-//}
