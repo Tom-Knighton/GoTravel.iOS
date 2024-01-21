@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    " " : {
+
+    },
     "•" : {
 
     },
@@ -124,6 +127,76 @@
         }
       }
     },
+    "Accessibility:StopPage:ArrivalsUpdatedMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrivals/Departures updated"
+          }
+        }
+      }
+    },
+    "Accessibility:StopPage:LineArrivals:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrivals/Departures for %@"
+          }
+        }
+      }
+    },
+    "Accessibility:StopPage:MapShowsStopLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Map showing location of stop"
+          }
+        }
+      }
+    },
+    "Accessibility:StopPage:NextArrivalIs" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next arrival/departure is"
+          }
+        }
+      }
+    },
+    "Accessibility:StopPage:OpensJourneyForStopLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opens the journey planning screen for a journey to this stop"
+          }
+        }
+      }
+    },
+    "Accessibility:StopPage:UpcomingArrivalsHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refreshes every 30 seconds"
+          }
+        }
+      }
+    },
+    "Accessibility:StopPage:UpcomingArrivalsLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upcoming arrivals/departures here"
+          }
+        }
+      }
+    },
     "Errors:NoLineModesFromAPI" : {
       "localizations" : {
         "en" : {
@@ -140,6 +213,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "We couldn't find any Line Modes :( Please try again later."
+          }
+        }
+      }
+    },
+    "Errors:StopFailedLoading" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to load :( Please try again."
           }
         }
       }
@@ -265,12 +349,130 @@
         }
       }
     },
+    "Misc:And" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "and"
+          }
+        }
+      }
+    },
+    "Misc:Loading..." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading..."
+          }
+        }
+      }
+    },
+    "Misc:OxfordComma" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", and "
+          }
+        }
+      }
+    },
+    "Misc:ThenLower" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "then"
+          }
+        }
+      }
+    },
     "Navigation:MapTab" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Map"
+          }
+        }
+      }
+    },
+    "StopPage:Arrivals:CheckBoards" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check Station/Stop Boards"
+          }
+        }
+      }
+    },
+    "StopPage:Arrivals:Due" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Due"
+          }
+        }
+      }
+    },
+    "StopPage:Arrivals:LiveTimes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Live Times:"
+          }
+        }
+      }
+    },
+    "StopPage:Arrivals:Mins" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "mins"
+          }
+        }
+      }
+    },
+    "StopPage:Arrivals:Towards" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Towards:"
+          }
+        }
+      }
+    },
+    "StopPage:GetDirectionsButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go Now"
+          }
+        }
+      }
+    },
+    "StopPage:Platform" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Platform"
           }
         }
       }

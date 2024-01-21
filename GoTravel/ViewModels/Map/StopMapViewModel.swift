@@ -88,16 +88,18 @@ public class StopMapViewModel {
         }
     }
     
+    @MainActor
     public func searchAtLocation(_ coordinate: CLLocationCoordinate2D) async {
         do {
             let hiddenLineModes = getHiddenLineModeNames()
             self.isSearching = true
             let result = try await StopPointService.SearchAround(lat: coordinate.latitude, lon: coordinate.longitude, radius: searchDistance, hiddenLineModes: hiddenLineModes)
-            self.stopPoints = result
-            self.searchedLocation = coordinate
-            self.isSearching = false
-            
+           
             await MainActor.run {
+                self.stopPoints = result
+                self.searchedLocation = coordinate
+                self.isSearching = false
+                
                 AccessibilityHelper.postMessage("Stop points on map refreshed", messageType: .screenChanged)
             }
         } catch {
@@ -117,8 +119,10 @@ public class StopMapViewModel {
             do {
                 let results = try await StopPointService.Search(searchQuery)
                 
-                self.searchResults = results
-                self.isSearchResultsLoading = false
+                await MainActor.run {
+                    self.searchResults = results
+                    self.isSearchResultsLoading = false
+                }            
             } catch {
                 print("Error decoding search results")
                 self.isSearchResultsLoading = false
@@ -128,7 +132,7 @@ public class StopMapViewModel {
     
     public func scrollSearchResults(to stopPointId: String) {
         self.sheetPosition = self.sheetPositions[1]
-        withAnimation {
+        withAnimation(.spring()) {
             self.scrollToId = stopPointId
         }
     }

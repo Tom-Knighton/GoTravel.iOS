@@ -9,6 +9,9 @@ import Foundation
 
 public struct Line: Codable {
     
+    /// The unique id of the line
+    public let lineId: String
+    
     /// The friendly name of the line, i.e. Central Line
     public let lineName: String
     

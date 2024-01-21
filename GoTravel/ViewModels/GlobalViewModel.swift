@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Observation
+import GoTravel_Models
 
 @Observable
 public class GlobalViewModel {
@@ -15,7 +16,7 @@ public class GlobalViewModel {
     public static let shared = GlobalViewModel()
     
     /// The navigation path used for the 'map' tab
-    public var mapPath = NavigationPath()
+    public var mapPath = NavigationPath([StopPointNavModel(stopPointId: "HUBSRA")])
     
     /// The current index of the selected tab at the root of the app
     public var tabIndex: Int = 0

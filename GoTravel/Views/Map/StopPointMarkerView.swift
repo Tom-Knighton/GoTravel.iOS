@@ -20,7 +20,6 @@ public struct StopPointMarkerView: View {
                     .foregroundStyle(Color(hex: stopPoint.stopPoint.mostImportantLineMode?.branding.lineModePrimaryColour ?? "") ?? .red)
                 circleContent()
                     .bold()
-                    .shadow(radius: 3)
                     .frame(width: 20, height: 20)
             }
             
