@@ -15,7 +15,7 @@ public struct StopArrivalsView: View {
     public var body: some View {
         VStack {
             HStack {
-                Text("Live Times:")
+                Text(Strings.StopPage.LiveTimes)
                     .font(.title3.bold())
                     .fontDesign(.rounded)
                 Spacer()
@@ -65,7 +65,7 @@ public struct StopArrivalsView: View {
                 ProgressView()
             } else {
                 if line.platforms.isEmpty {
-                    Text("Check Station Boards")
+                    Text(Strings.StopPage.CheckBoards)
                 } else {
                     ForEach(line.platforms, id: \.platformName) { platform in
                         PlatformView(for: platform, isBusLike: viewModel.hasBusLikeArrivals(for: line.lineMode))
@@ -89,9 +89,9 @@ public struct StopArrivalsView: View {
                 
                 if isBusLike {
                     if let towards = platform.friendlyTowards() {
-                        Text("Towards: \n")
+                        Text(Strings.StopPage.Towards)
                             .bold()
-                            .fontDesign(.rounded) +
+                            .fontDesign(.rounded)
                         Text(towards)
                             .bold()
                             .fontDesign(.rounded)
@@ -121,7 +121,7 @@ public struct StopArrivalsView: View {
                             .fontDesign(.rounded)
                     }
                 } else {
-                    Text("Check Station Boards")
+                    Text(Strings.StopPage.CheckBoards)
                         .fontWeight(.light)
                         .fontDesign(.rounded)
                 }

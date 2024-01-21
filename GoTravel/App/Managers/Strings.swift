@@ -36,9 +36,29 @@ public struct Strings {
         }
     }
     
+    public struct StopPage {
+        public static let GetDirectionsButton: LocalizedStringKey = "StopPage:GetDirectionsButton"
+        public static let Platform: LocalizedStringKey = "StopPage:Platform"
+        public static let Due: LocalizedStringKey = "StopPage:Arrivals:Due"
+        public static let Mins: LocalizedStringKey = "StopPage:Arrivals:Mins"
+        
+        public static let LiveTimes: LocalizedStringKey = "StopPage:Arrivals:LiveTimes"
+        public static let CheckBoards: LocalizedStringKey = "StopPage:Arrivals:CheckBoards"
+        public static let Towards: LocalizedStringKey = "StopPage:Arrivals:Towards"
+        
+    }
+    
+    public struct Misc {
+        public static let Loading: LocalizedStringKey = "Misc:Loading..."
+        public static let And: LocalizedStringKey = "Misc:And"
+        public static let OxfordComma: LocalizedStringKey = "Misc:OxfordComma"
+        public static let ThenLower: LocalizedStringKey = "Misc:ThenLower"
+    }
+    
     public struct Errors {
         public static let NoLineModesAPI: LocalizedStringKey = "Errors:NoLineModesFromAPI"
         public static let NoLineModesAPIDescription: LocalizedStringKey = "Errors:NoLineModesFromAPI:Description"
+        public static let StopFailedLoad: LocalizedStringKey = "Errors:StopFailedLoading"
     }
     
     public struct Accessibility {

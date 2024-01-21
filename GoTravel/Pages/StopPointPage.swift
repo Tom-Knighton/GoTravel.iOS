@@ -29,7 +29,7 @@ public struct StopPointPage: View {
                         content(stopPoint)
                     }
                 } else {
-                    ContentUnavailableView("No Stop", systemImage: "xmark")
+                    ContentUnavailableView(Strings.Errors.StopFailedLoad, systemImage: Icons.cross_circle_fill)
                 }
             } else {
                 ProgressView()
@@ -52,7 +52,7 @@ public struct StopPointPage: View {
             
             MapPreview(stopPoint)
             Button(action: {}) {
-                Text("Go Now")
+                Text(Strings.StopPage.GetDirectionsButton)
                     .fontDesign(.rounded)
                     .bold()
                     .frame(maxWidth: .infinity)
@@ -88,7 +88,7 @@ public struct StopPointPage: View {
     
     private func getNavTitle() -> String {
         guard let stop = self.viewModel.stopPoint else {
-            return "Loading..."
+            return Strings.Misc.Loading.toString()
         }
         
         return stop.stopPoint.stopPointName

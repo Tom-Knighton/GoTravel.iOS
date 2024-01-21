@@ -5,7 +5,7 @@
 //  Created by Tom Knighton on 19/01/2024.
 //
 
-import Foundation
+import SwiftUI
 import GoTravel_Models
 
 extension StopPointPlatformArrivals {
@@ -37,7 +37,7 @@ extension StopPointPlatformArrivals {
         if let platformPart {
             return String(platformPart).trimmingCharacters(in: .whitespacesAndNewlines)
         } else {
-            return "Platform " + self.platformName
+            return Strings.StopPage.Platform.toString() + " " + self.platformName
         }
     }
     
@@ -47,11 +47,11 @@ extension StopPointPlatformArrivals {
         
         if towards.count > 0 {
             if towards.count == 2 {
-                return String(Set(towards).joined(separator: " and "))
+                return String(Set(towards).joined(separator: Strings.Misc.And.toString()))
             } else if towards.count > 2 {
                 let distinct = Array(Set(towards))
                 let last = distinct.last
-                return String(distinct.dropLast().joined(separator: ", ")) + (last != nil ? ", and " + (last ?? "...") : "")
+                return String(distinct.dropLast().joined(separator: ", ")) + (last != nil ? Strings.Misc.OxfordComma.toString() + (last ?? "...") : "")
             } else {
                 return towards.first
             }
@@ -63,8 +63,8 @@ extension StopPointPlatformArrivals {
     func firstArrivalString() -> String? {
         if let arrival = self.arrivalDepartures.first, let date = arrival.bestDate() {
             let friendly = friendlyDueString(date)
-            if friendly != "Due" {
-                return friendly + " mins"
+            if friendly != Strings.StopPage.Due.toString() {
+                return friendly + " " + Strings.StopPage.Mins.toString()
             }
             return friendly
         }
@@ -86,9 +86,9 @@ extension StopPointPlatformArrivals {
             }
         }
         
-        var result = "then " + arrivalStrings.joined(separator: ", ")
-        if arrivalStrings.last != "Due" {
-            result += " mins"
+        var result = Strings.Misc.ThenLower.toString() + " " + arrivalStrings.joined(separator: ", ")
+        if arrivalStrings.last != Strings.StopPage.Due.toString() {
+            return result + " " + Strings.StopPage.Mins.toString()
         }
         
         return result
@@ -98,7 +98,7 @@ extension StopPointPlatformArrivals {
     public func friendlyDueString(_ date: Date) -> String {
         let mins = Date().timeUntil(date, unit: .minutes)
         if mins <= 1.1 {
-            return "Due"
+            return Strings.StopPage.Due.toString()
         }
         
         return String(describing: Int(mins.rounded()))
