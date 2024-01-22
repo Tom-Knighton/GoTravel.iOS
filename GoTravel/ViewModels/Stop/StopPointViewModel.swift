@@ -23,6 +23,9 @@ public class StopPointViewModel {
     public var arrivalsLastRefresh: Date?
     public var loadingArrivals: Bool = false
     
+    //MARK: Information
+    public var information: StopPointInfo? = nil
+    
     
     public func load(_ stopId: String) async {
         self.isLoading = true
@@ -80,6 +83,21 @@ public class StopPointViewModel {
         await MainActor.run {
             self.arrivalsLastRefresh = Date()
             self.loadingArrivals = false
+        }
+    }
+    
+    public func loadInfo() async {
+        guard !isLoading, let stop = self.stopPoint?.stopPoint else {
+            return
+        }
+        
+        do {
+            let info = try await StopPointService.Info(stop.stopPointId)
+            await MainActor.run {
+                self.information = info
+            }
+        } catch {
+            print("error setting info " + error.localizedDescription)
         }
     }
     

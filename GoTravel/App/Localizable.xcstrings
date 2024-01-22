@@ -197,6 +197,12 @@
         }
       }
     },
+    "Accessible" : {
+
+    },
+    "Address" : {
+
+    },
     "Errors:NoLineModesFromAPI" : {
       "localizations" : {
         "en" : {
@@ -227,6 +233,12 @@
           }
         }
       }
+    },
+    "Free" : {
+
+    },
+    "Information:" : {
+
     },
     "Map:Distance:%@:%@" : {
       "localizations" : {
@@ -476,6 +488,12 @@
           }
         }
       }
+    },
+    "Toilets" : {
+
+    },
+    "Wi-Fi" : {
+
     }
   },
   "version" : "1.0"
