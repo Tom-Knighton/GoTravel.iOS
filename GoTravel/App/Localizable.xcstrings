@@ -197,12 +197,6 @@
         }
       }
     },
-    "Accessible" : {
-
-    },
-    "Address" : {
-
-    },
     "Errors:NoLineModesFromAPI" : {
       "localizations" : {
         "en" : {
@@ -233,12 +227,6 @@
           }
         }
       }
-    },
-    "Free" : {
-
-    },
-    "Information:" : {
-
     },
     "Map:Distance:%@:%@" : {
       "localizations" : {
@@ -478,6 +466,66 @@
         }
       }
     },
+    "StopPage:Information" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Information:"
+          }
+        }
+      }
+    },
+    "StopPage:Information:Accessible" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accessible"
+          }
+        }
+      }
+    },
+    "StopPage:Information:Address" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Address"
+          }
+        }
+      }
+    },
+    "StopPage:Information:Free" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Free"
+          }
+        }
+      }
+    },
+    "StopPage:Information:Toilets" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toilets"
+          }
+        }
+      }
+    },
+    "StopPage:Information:WiFi" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi"
+          }
+        }
+      }
+    },
     "StopPage:Platform" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -488,12 +536,6 @@
           }
         }
       }
-    },
-    "Toilets" : {
-
-    },
-    "Wi-Fi" : {
-
     }
   },
   "version" : "1.0"

@@ -25,29 +25,29 @@ public struct StopPointInfoView: View {
     
     public var body: some View {
         VStack(alignment: .leading) {
-            Text("Information:")
+            Text(Strings.StopPage.Information)
                 .font(.title3.bold())
                 .fontDesign(.rounded)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             HStack {
                 InfoCard {
-                    Text("Wi-Fi")
+                    Text(Strings.StopPage.WiFi)
                         .bold()
                         .fontDesign(.rounded)
                     
-                    Image(systemName: info.hasWifi ? "checkmark" : "xmark")
+                    Image(systemName: info.hasWifi ? Icons.check : Icons.cross)
                         .bold()
                         .foregroundStyle(info.hasWifi ? .green : .red)
                 }     
                 
                 if !hideAccessible {
                     InfoCard {
-                        Text("Accessible")
+                        Text(Strings.StopPage.Accessible)
                             .bold()
                             .fontDesign(.rounded)
                         
-                        Image(systemName: info.hasWifi ? "checkmark" : "xmark")
+                        Image(systemName: info.hasWifi ? Icons.check : Icons.cross)
                             .bold()
                             .foregroundStyle(info.hasWifi ? .green : .red)
                     }
@@ -55,7 +55,7 @@ public struct StopPointInfoView: View {
                 
                 if let address = self.addressString {
                     InfoCard {
-                        Text("Address")
+                        Text(Strings.StopPage.Address)
                             .bold()
                             .fontDesign(.rounded)
                         
@@ -70,19 +70,19 @@ public struct StopPointInfoView: View {
                     HStack {
                         Grid(alignment: .leading, horizontalSpacing: 12) {
                             GridRow {
-                                Text("Toilets")
+                                Text(Strings.StopPage.Toilets)
                                     .fontDesign(.rounded)
                                     .bold()
-                                Text("Free")
+                                Text(Strings.StopPage.Free)
                                     .fontDesign(.rounded)
                                     .bold()
-                                Image(systemName: "figure.roll")
+                                Image(systemName: Icons.accessible)
                                     .fontDesign(.rounded)
                                     .bold()
-                                Image(systemName: "figure.and.child.holdinghands")
+                                Image(systemName: Icons.family)
                                     .fontDesign(.rounded)
                                     .bold()
-                                Image(systemName: "info")
+                                Image(systemName: Icons.info)
                                     .fontDesign(.rounded)
                                     .bold()
                             }
@@ -93,21 +93,21 @@ public struct StopPointInfoView: View {
                                         .fontDesign(.rounded)
                                         .bold()
                                     
-                                    Image(systemName: toilet.free ? "checkmark" : "xmark")
+                                    Image(systemName: toilet.free ? Icons.check : Icons.cross)
                                         .foregroundStyle(toilet.free ? .green : .red)
                                         .bold()
                                     
-                                    Image(systemName: toilet.accessible ? "checkmark" : "xmark")
+                                    Image(systemName: toilet.accessible ? Icons.check : Icons.cross)
                                         .foregroundStyle(toilet.accessible ? .green : .red)
                                         .bold()
                                     
-                                    Image(systemName: toilet.hasBabyGate ? "checkmark" : "xmark")
+                                    Image(systemName: toilet.hasBabyGate ? Icons.check : Icons.cross)
                                         .foregroundStyle(toilet.hasBabyGate ? .green : .red)
                                         .bold()
                                     
                                     if let info = toilet.info, info.count >= 2 {
                                         Button(action: {}) {
-                                            Image(systemName: "info.circle")
+                                            Image(systemName: Icons.info_circle)
                                         }
                                     }
                                 }

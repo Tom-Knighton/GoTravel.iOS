@@ -46,6 +46,13 @@ public struct Strings {
         public static let CheckBoards: LocalizedStringKey = "StopPage:Arrivals:CheckBoards"
         public static let Towards: LocalizedStringKey = "StopPage:Arrivals:Towards"
         
+        public static let Information: LocalizedStringResource = "StopPage:Information"
+        public static let WiFi: LocalizedStringKey = "StopPage:Information:WiFi"
+        public static let Accessible: LocalizedStringKey = "StopPage:Information:Accessible"
+        public static let Address: LocalizedStringKey = "StopPage:Information:Address"
+        public static let Toilets: LocalizedStringKey = "StopPage:Information:Toilets"
+        public static let Free: LocalizedStringKey = "StopPage:Information:Free"
+        
     }
     
     public struct Misc {
@@ -114,6 +121,10 @@ public struct Icons {
     public static let arrow_down: String = "arrow.down"
     public static let location_slash = "location.slash"
     public static let cross_circle_fill = "xmark.circle.fill"
+    public static let cross = "xmark"
+    public static let check = "checkmark"
+    public static let accessible = "figure.roll"
+    public static let family = "figure.and.child.holdinghands"
     public static let map = "map"
     public static let map_circle = "map.circle.fill"
     public static let bike = "bicycle"
@@ -124,4 +135,6 @@ public struct Icons {
     public static let location = "location"
     public static let location_magnifyingglass = "location.magnifyingglass"
     public static let filter = "line.3.horizontal.decrease.circle"
+    public static let info = "info"
+    public static let info_circle = "info.circle"
 }
