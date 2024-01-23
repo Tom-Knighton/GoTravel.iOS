@@ -77,4 +77,19 @@ public struct StopPointService {
         
         return result
     }
+    
+    /// Returns info on the specific stop
+    /// - Parameters:
+    ///   - id: The id of the stop to get info for
+    ///   - useParentOrHub: Whether or not to use the stop's parent or hub to collect info
+    public static func Info(_ id: String, useParentOrHub: Bool = false) async throws -> StopPointInfo {
+        var queryItems: [URLQueryItem] = []
+        queryItems.append(.init(name: "useParentOrHub", value: useParentOrHub ? "true" : "false"))
+
+        
+        let request = APIRequest(path: "StopPoint/\(id)/Info", queryItems: queryItems, body: nil)
+        let result: StopPointInfo = try await client.perform(request)
+        
+        return result
+    }
 }

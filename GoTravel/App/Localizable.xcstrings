@@ -5,7 +5,14 @@
 
     },
     "•" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "."
+          }
+        }
+      }
     },
     "Accessibility:Map:BikesRemainingText:%lld" : {
       "localizations" : {
@@ -173,6 +180,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Opens the journey planning screen for a journey to this stop"
+          }
+        }
+      }
+    },
+    "Accessibility:StopPage:RefreshArrivalsLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refresh arrival/departures"
+          }
+        }
+      }
+    },
+    "Accessibility:StopPage:ToiletLabel:%@:%@:%@:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ toilets: %2$@, %3$@ and %4$@ have baby changing facilities."
           }
         }
       }
@@ -371,6 +398,16 @@
         }
       }
     },
+    "Misc:Ok" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        }
+      }
+    },
     "Misc:OxfordComma" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -399,6 +436,56 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Map"
+          }
+        }
+      }
+    },
+    "StopPage:Accessibility:HasWifiLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This stop has Wi-Fi available."
+          }
+        }
+      }
+    },
+    "StopPage:Accessibility:InfoLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Information"
+          }
+        }
+      }
+    },
+    "StopPage:Accessibility:NoViaLiftLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This stop is not accessible via lift"
+          }
+        }
+      }
+    },
+    "StopPage:Accessibility:NoWifiLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This stop does not have Wi-Fi available"
+          }
+        }
+      }
+    },
+    "StopPage:Accessibility:ViaLiftLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This stop is accessible via lifts"
           }
         }
       }
@@ -466,6 +553,66 @@
         }
       }
     },
+    "StopPage:Information" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Information:"
+          }
+        }
+      }
+    },
+    "StopPage:Information:Accessible" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accessible"
+          }
+        }
+      }
+    },
+    "StopPage:Information:Address" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Address"
+          }
+        }
+      }
+    },
+    "StopPage:Information:Free" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Free"
+          }
+        }
+      }
+    },
+    "StopPage:Information:Toilets" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toilets"
+          }
+        }
+      }
+    },
+    "StopPage:Information:WiFi" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi"
+          }
+        }
+      }
+    },
     "StopPage:Platform" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -473,6 +620,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Platform"
+          }
+        }
+      }
+    },
+    "StopPage:Toilet:AlertTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Information"
           }
         }
       }

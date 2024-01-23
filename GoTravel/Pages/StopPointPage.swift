@@ -41,6 +41,7 @@ public struct StopPointPage: View {
         .task {
             await viewModel.load(self.stopId)
             await viewModel.loadArrivals()
+            await viewModel.loadInfo()
         }
     }
     
@@ -66,6 +67,11 @@ public struct StopPointPage: View {
             Spacer().frame(height: 16)
             StopArrivalsView()
                 .environment(viewModel)
+            
+            Spacer().frame(height: 16)
+            if let info = viewModel.information {
+                StopPointInfoView(info: info, coords: stopPoint.stopPoint.stopPointCoordinate.coordinates, hideAccessible: stopPoint.stopPoint is BusStopPoint)
+            }
             
             Spacer()
         }

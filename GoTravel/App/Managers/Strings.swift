@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoTravel_Models
 
 public struct Strings {
     
@@ -46,6 +47,24 @@ public struct Strings {
         public static let CheckBoards: LocalizedStringKey = "StopPage:Arrivals:CheckBoards"
         public static let Towards: LocalizedStringKey = "StopPage:Arrivals:Towards"
         
+        public static let Information: LocalizedStringResource = "StopPage:Information"
+        public static let WiFi: LocalizedStringKey = "StopPage:Information:WiFi"
+        public static let Accessible: LocalizedStringKey = "StopPage:Information:Accessible"
+        public static let Address: LocalizedStringKey = "StopPage:Information:Address"
+        public static let Toilets: LocalizedStringKey = "StopPage:Information:Toilets"
+        public static let Free: LocalizedStringKey = "StopPage:Information:Free"
+        public static let StopToiletInfoAlertTitle: LocalizedStringKey = "StopPage:Toilet:AlertTitle"
+        
+        public struct Accessibility {
+            public static let InfoLabel: LocalizedStringKey = "StopPage:Accessibility:InfoLabel"
+            
+            public static let HasWifiLabel: LocalizedStringKey = "StopPage:Accessibility:HasWifiLabel"
+            public static let NoWifiLabel: LocalizedStringKey = "StopPage:Accessibility:NoWifiLabel"
+            public static let ViaLiftLabel: LocalizedStringKey = "StopPage:Accessibility:ViaLiftLabel"
+            public static let NoViaLiftLabel: LocalizedStringKey = "StopPage:Accessibility:NoViaLiftLabel"
+            
+        }
+
     }
     
     public struct Misc {
@@ -53,6 +72,7 @@ public struct Strings {
         public static let And: LocalizedStringKey = "Misc:And"
         public static let OxfordComma: LocalizedStringKey = "Misc:OxfordComma"
         public static let ThenLower: LocalizedStringKey = "Misc:ThenLower"
+        public static let Ok: LocalizedStringKey = "Misc:Ok"
     }
     
     public struct Errors {
@@ -76,6 +96,7 @@ public struct Strings {
         public static let StopArrivalsHint: LocalizedStringKey = "Accessibility:StopPage:UpcomingArrivalsHint"
         public static let StopArrivalsUpdatedMessage: LocalizedStringKey = "Accessibility:StopPage:ArrivalsUpdatedMessage"
         public static let StopNextArrivalIs: LocalizedStringKey = "Accessibility:StopPage:NextArrivalIs"
+        public static let StopManualRefreshLabel: LocalizedStringKey = "Accessibility:StopPage:RefreshArrivalsLabel"
         
         public static func MapBikesRemaining(_ bikes: Int) -> LocalizedStringKey {
             return "Accessibility:Map:BikesRemainingText:\(bikes)"
@@ -104,6 +125,14 @@ public struct Strings {
         public static func LineArrivalsLabel(_ lineName: String) -> LocalizedStringKey {
             LocalizedStringKey("Accessibility:StopPage:LineArrivals:\(lineName)")
         }
+        
+        public static func ToiletInfoRowLabel(_ info: StopPointToiletInfo) -> LocalizedStringKey {
+            let type = info.type
+            let accessibleString = info.accessible ? "are disability-friendly" : "are not disability-friendly"
+            let babyString = info.hasBabyGate ? "does" : "does not"
+            let freeString = info.free ? "are free to enter" : "are not free to enter"
+            return LocalizedStringKey("Accessibility:StopPage:ToiletLabel:\(type):\(freeString):\(accessibleString):\(babyString)")
+        }
     }
 }
 
@@ -112,8 +141,13 @@ public struct Icons {
     public static let arrow_right: String = "arrow.right"
     public static let arrow_up: String = "arrow.up"
     public static let arrow_down: String = "arrow.down"
+    public static let arrow_clockwise: String = "arrow.clockwise"
     public static let location_slash = "location.slash"
     public static let cross_circle_fill = "xmark.circle.fill"
+    public static let cross = "xmark"
+    public static let check = "checkmark"
+    public static let accessible = "figure.roll"
+    public static let family = "figure.and.child.holdinghands"
     public static let map = "map"
     public static let map_circle = "map.circle.fill"
     public static let bike = "bicycle"
@@ -124,4 +158,6 @@ public struct Icons {
     public static let location = "location"
     public static let location_magnifyingglass = "location.magnifyingglass"
     public static let filter = "line.3.horizontal.decrease.circle"
+    public static let info = "info"
+    public static let info_circle = "info.circle"
 }

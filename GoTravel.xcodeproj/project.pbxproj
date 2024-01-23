@@ -54,6 +54,7 @@
 		E25572632B33BAB900988348 /* RoundedCornerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255723C2B33BAB900988348 /* RoundedCornerViewModifier.swift */; };
 		E25572642B33BAB900988348 /* IgnoresSafeAreaCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255723D2B33BAB900988348 /* IgnoresSafeAreaCompatible.swift */; };
 		E26988762B35D2E10097B8EF /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = E26988752B35D2E10097B8EF /* WrappingHStack */; };
+		E269C7682B5DE6DC00C78BCE /* StopPointInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269C7672B5DE6DC00C78BCE /* StopPointInfoView.swift */; };
 		E273078B2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift */; };
 		E273078F2AD20A4E0060FF99 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273078E2AD20A4E0060FF99 /* Strings.swift */; };
 		E280F6552B13ADC100563D7E /* String+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280F6542B13ADC100563D7E /* String+GoTravel.swift */; };
@@ -149,6 +150,7 @@
 		E255723A2B33BAB900988348 /* VisualEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		E255723C2B33BAB900988348 /* RoundedCornerViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornerViewModifier.swift; sourceTree = "<group>"; };
 		E255723D2B33BAB900988348 /* IgnoresSafeAreaCompatible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IgnoresSafeAreaCompatible.swift; sourceTree = "<group>"; };
+		E269C7672B5DE6DC00C78BCE /* StopPointInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointInfoView.swift; sourceTree = "<group>"; };
 		E273078A2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+GoTravel.swift"; sourceTree = "<group>"; };
 		E273078E2AD20A4E0060FF99 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		E280F6542B13ADC100563D7E /* String+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GoTravel.swift"; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 			children = (
 				E2E511A42B59ADDB003BE56E /* LineModesView.swift */,
 				E2E511A62B59EB53003BE56E /* StopArrivalsView.swift */,
+				E269C7672B5DE6DC00C78BCE /* StopPointInfoView.swift */,
 			);
 			path = Stop;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				E25572512B33BAB900988348 /* BottomSheetWidth.swift in Sources */,
 				E2F9415B2AD2C2A10047EA04 /* GlobalViewModel.swift in Sources */,
 				E2BF5D752AD3634700261261 /* Color+GoTravel.swift in Sources */,
+				E269C7682B5DE6DC00C78BCE /* StopPointInfoView.swift in Sources */,
 				E25572412B33BAB900988348 /* BottomSheet+AppleScrollBehavior.swift in Sources */,
 				E2E511A52B59ADDB003BE56E /* LineModesView.swift in Sources */,
 				E25572482B33BAB900988348 /* BottomSheet+DragGesture.swift in Sources */,
