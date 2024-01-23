@@ -11,6 +11,7 @@ import GoTravel_Models
 public struct StopArrivalsView: View {
     
     @Environment(StopPointViewModel.self) private var viewModel
+    @Environment(\.accessibilityVoiceOverEnabled) private var voiceOverOn
     
     public var body: some View {
         VStack {
@@ -25,19 +26,25 @@ public struct StopArrivalsView: View {
                         .frame(width: 26, height: 26)
                         .accessibilityHidden()
                 } else {
-                    GaugeTimerView(countTo: 30) {
-                        Task {
-                            await self.viewModel.loadArrivals()
-                            AccessibilityHelper.postMessage(Strings.Accessibility.StopArrivalsUpdatedMessage.toString(), messageType: .screenChanged)
+                    if voiceOverOn {
+                        Button(action: { Task { await self.viewModel.loadArrivals() } }) {
+                            Image(systemName: Icons.arrow_clockwise)
+                        }
+                        .accessibilityLabel(Strings.Accessibility.StopManualRefreshLabel)
+                    } else {
+                        GaugeTimerView(countTo: 30) {
+                            Task {
+                                await self.viewModel.loadArrivals()
+                                AccessibilityHelper.postMessage(Strings.Accessibility.StopArrivalsUpdatedMessage.toString(), messageType: .screenChanged)
+                            }
+                        }
+                        .frame(width: 26, height: 26)
+                        .onTapGesture {
+                            Task {
+                                await self.viewModel.loadArrivals()
+                            }
                         }
                     }
-                    .frame(width: 26, height: 26)
-                    .onTapGesture {
-                        Task {
-                            await self.viewModel.loadArrivals()
-                        }
-                    }
-                    .accessibilityHidden()
                 }
                 
             }

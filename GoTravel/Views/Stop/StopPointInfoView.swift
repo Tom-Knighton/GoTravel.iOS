@@ -13,6 +13,9 @@ public struct StopPointInfoView: View {
     
     @State private var addressString: String?
     
+    @State private var showToiletInfoAlert: Bool = false
+    @State private var toiletInfoString: String?
+    
     private var info: StopPointInfo
     private var coordinates: CLLocationCoordinate2D?
     private var hideAccessible: Bool
@@ -29,6 +32,8 @@ public struct StopPointInfoView: View {
                 .font(.title3.bold())
                 .fontDesign(.rounded)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .accessibilityAddTraits(.isHeader)
+                .accessibilityHint(Strings.StopPage.Accessibility.InfoLabel)
             
             HStack {
                 InfoCard {
@@ -40,17 +45,24 @@ public struct StopPointInfoView: View {
                         .bold()
                         .foregroundStyle(info.hasWifi ? .green : .red)
                 }     
+                .accessibilityElement(children: .ignore)
+                .accessibilityElement()
+                .accessibilityLabel(info.hasWifi ? Strings.StopPage.Accessibility.HasWifiLabel : Strings.StopPage.Accessibility.NoWifiLabel)
                 
                 if !hideAccessible {
+                    let viaLift = info.accessibleInfo?.viaLift ?? false
                     InfoCard {
                         Text(Strings.StopPage.Accessible)
                             .bold()
                             .fontDesign(.rounded)
                         
-                        Image(systemName: info.hasWifi ? Icons.check : Icons.cross)
+                        Image(systemName: viaLift ? Icons.check : Icons.cross)
                             .bold()
-                            .foregroundStyle(info.hasWifi ? .green : .red)
+                            .foregroundStyle(viaLift ? .green : .red)
                     }
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityElement()
+                    .accessibilityLabel(viaLift ? Strings.StopPage.Accessibility.ViaLiftLabel : Strings.StopPage.Accessibility.NoViaLiftLabel)
                 }
                 
                 if let address = self.addressString {
@@ -61,7 +73,11 @@ public struct StopPointInfoView: View {
                         
                         Text(address)
                             .fontDesign(.rounded)
+                            .accessibilityHidden()
                     }
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityElement()
+                    .accessibilityLabel(Strings.StopPage.Address.toString() + ": " + address)
                 }
             }
             
@@ -86,6 +102,8 @@ public struct StopPointInfoView: View {
                                     .fontDesign(.rounded)
                                     .bold()
                             }
+                            .accessibilityHidden()
+                            
                             Divider()
                             ForEach(info.toiletsInfo, id: \.type) { toilet in
                                 GridRow {
@@ -96,21 +114,33 @@ public struct StopPointInfoView: View {
                                     Image(systemName: toilet.free ? Icons.check : Icons.cross)
                                         .foregroundStyle(toilet.free ? .green : .red)
                                         .bold()
+                                        .accessibilityHidden()
                                     
                                     Image(systemName: toilet.accessible ? Icons.check : Icons.cross)
                                         .foregroundStyle(toilet.accessible ? .green : .red)
                                         .bold()
-                                    
+                                        .accessibilityHidden()
+
                                     Image(systemName: toilet.hasBabyGate ? Icons.check : Icons.cross)
                                         .foregroundStyle(toilet.hasBabyGate ? .green : .red)
                                         .bold()
-                                    
+                                        .accessibilityHidden()
+
                                     if let info = toilet.info, info.count >= 2 {
-                                        Button(action: {}) {
+                                        Button(action: {
+                                            self.toiletInfoString = info
+                                            self.showToiletInfoAlert = true
+                                        }) {
                                             Image(systemName: Icons.info_circle)
+                                                .resizable()
+                                                .frame(width: 25, height: 25)
                                         }
+                                        .accessibilityHidden()
                                     }
                                 }
+                                .accessibilityLabel(Strings.Accessibility.ToiletInfoRowLabel(toilet))
+                                .accessibilityHint(toilet.info ?? "")
+                                .frame(minHeight: 30)
                             }
                         }
                         Spacer()
@@ -118,6 +148,11 @@ public struct StopPointInfoView: View {
                 }
             }
         }
+        .alert(Strings.StopPage.StopToiletInfoAlertTitle, isPresented: $showToiletInfoAlert, presenting: toiletInfoString, actions: { _ in
+            Button(Strings.Misc.Ok, action: {})
+        }, message: { info in
+            Text(info)
+        })
         .onChange(of: self.coordinates, initial: true, { _, val in
             if let val {
                 Task.detached {
