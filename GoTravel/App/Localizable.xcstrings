@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     " " : {
 
     },
@@ -255,6 +258,21 @@
         }
       }
     },
+    "From:" : {
+
+    },
+    "JourneyPage:Search:ChooseEnd" : {
+
+    },
+    "JourneyPage:Search:ChooseStart" : {
+
+    },
+    "JourneyPage:Search:ChooseVia" : {
+
+    },
+    "Journeys" : {
+
+    },
     "Map:Distance:%@:%@" : {
       "localizations" : {
         "en" : {
@@ -430,6 +448,9 @@
         }
       }
     },
+    "My Current Location" : {
+
+    },
     "Navigation:MapTab" : {
       "localizations" : {
         "en" : {
@@ -439,6 +460,12 @@
           }
         }
       }
+    },
+    "Plan a trip:" : {
+
+    },
+    "Plan Journey" : {
+
     },
     "StopPage:Accessibility:HasWifiLabel" : {
       "localizations" : {

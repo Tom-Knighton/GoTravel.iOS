@@ -67,6 +67,12 @@ public struct Strings {
 
     }
     
+    public struct JourneyPage {
+        public static let ChooseStart: LocalizedStringKey = "JourneyPage:Search:ChooseStart"
+        public static let ChooseEnd: LocalizedStringKey = "JourneyPage:Search:ChooseEnd"
+        public static let ChooseVia: LocalizedStringKey = "JourneyPage:Search:ChooseVia"
+    }
+    
     public struct Misc {
         public static let Loading: LocalizedStringKey = "Misc:Loading..."
         public static let And: LocalizedStringKey = "Misc:And"
