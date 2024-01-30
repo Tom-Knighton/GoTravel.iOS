@@ -157,6 +157,14 @@ private struct SearchLocView: View {
                     TextField("", text: $text, prompt: Text("From:"))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .focused($isFocused)
+                    
+                    if self.text.count > 0 {
+                        Button(action: { self.text = "" }) {
+                            Image(systemName: "xmark.circle.fill")
+                        }
+                        .tint(.primary)
+                    }
+                    
                 }
                 .padding(.horizontal, 8)
                 .frame(maxWidth: .infinity, minHeight: 50)
@@ -209,7 +217,7 @@ private struct SearchLocView: View {
                     Text("My Current Location")
                         .bold()
                         .fontDesign(.rounded)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(maxWidth: .infinity, minHeight: 40, alignment: .leading)
                 }
             }
             .buttonStyle(.borderedProminent)

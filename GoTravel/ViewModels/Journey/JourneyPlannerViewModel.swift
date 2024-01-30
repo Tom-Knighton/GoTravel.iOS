@@ -26,6 +26,11 @@ public class JourneyPlannerViewModel {
     /// Performs a search for stops based on an input query and fills `searchResults` with the results
     func searchStops(_ search: String) async {
         
+        if search.count == 0 {
+            self.searchResults = []
+            return
+        }
+        
         guard search.trimmingCharacters(in: .whitespacesAndNewlines).count >= 3 else {
             return
         }
