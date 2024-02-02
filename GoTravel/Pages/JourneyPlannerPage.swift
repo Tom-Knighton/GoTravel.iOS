@@ -14,7 +14,8 @@ import Combine
 public struct JourneyPlannerPage: View {
     
     @State private var viewModel = JourneyPlannerViewModel()
-    @State private var showSearchSheetType: JourneyPlannerSearchSheetType? = nil
+    @State private var showSearchSheetType: JourneyStopSearchType? = nil
+    @State private var showTimeSheet: Bool = false
 
     public var body: some View {
         ZStack {
@@ -29,8 +30,8 @@ public struct JourneyPlannerPage: View {
                 
                 HStack {
                     VStack {
-                        LocationField(promptText: "From:", imageName: "location.magnifyingglass", type: .from)
-                        LocationField(promptText: "To:", imageName: "location.magnifyingglass", type: .to)
+                        LocationField(promptText: "From:", imageName: "location.magnifyingglass", type: .from, point: viewModel.from)
+                        LocationField(promptText: "To:", imageName: "location.magnifyingglass", type: .to, point: viewModel.to)
                     }
                     
                     VStack {
@@ -65,7 +66,7 @@ public struct JourneyPlannerPage: View {
                 
                 if viewModel.showViaField {
                     HStack {
-                        LocationField(promptText: "Via:", imageName: "location.magnifyingglass", type: .via)
+                        LocationField(promptText: "Via:", imageName: "location.magnifyingglass", type: .via, point: viewModel.via)
                         Button(action: { withAnimation { viewModel.showViaField = false } }) {
                             Image(systemName: "minus")
                                 .fontWeight(.bold)
@@ -81,6 +82,19 @@ public struct JourneyPlannerPage: View {
                 }
                 
                 
+                HStack {
+                    Button(action: { self.showTimeSheet = true }) {
+                        HStack {
+                            Image(systemName: "clock.fill")
+                            Text(getTimeToDisplay())
+                                .fontWeight(.bold)
+                                .fontDesign(.rounded)
+                                .frame(maxWidth: .infinity)
+                        }
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(Color.layer2)
+                }
                 HStack {
                     Button(action: {}) {
                         Text("Plan Journey")
@@ -106,22 +120,43 @@ public struct JourneyPlannerPage: View {
             }
         }
         .sheet(item: $showSearchSheetType) { type in
-            SearchLocView(type: type)
-                .environment(viewModel)
+            SearchLocView(type: type, onSelection: { point in
+                switch type {
+                case .from:
+                    self.viewModel.from = point
+                    break
+                case .to:
+                    self.viewModel.to = point
+                    break
+                case .via:
+                    self.viewModel.via = point
+                }
+                self.showSearchSheetType = nil
+                viewModel.searchResults = []
+            })
+            .environment(viewModel)
+        }
+        .sheet(isPresented: $showTimeSheet) {
+            JourneyTimeSelectSheet()
+                .environment(self.viewModel)
+                .presentationDetents([.fraction(0.45)])
+                .presentationBackgroundInteraction(.disabled)
         }
     }
     
     
     @ViewBuilder
-    private func LocationField(promptText: String, imageName: String, type: JourneyPlannerSearchSheetType) -> some View {
+    private func LocationField(promptText: String, imageName: String, type: JourneyStopSearchType, point: JourneyRequestPoint? = nil) -> some View {
+        
+        let hasValue = (point?.displayName.count ?? 0) > 0
         HStack {
             Button(action: {}) {
                 Image(systemName: imageName)
                     .shadow(radius: 3)
             }
-            Text(promptText)
+            Text(point?.displayName ?? promptText)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundStyle(.gray)
+                .foregroundStyle(hasValue ? Color.primary : Color.gray)
         }
         .padding(.horizontal, 8)
         .frame(maxWidth: .infinity, minHeight: 50)
@@ -132,16 +167,130 @@ public struct JourneyPlannerPage: View {
             self.showSearchSheetType = type
         }
     }
+    
+    private func getTimeToDisplay() -> String {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        switch self.viewModel.journeyTime {
+        case .now:
+            return "Now"
+        case .arriveAt(let date):
+            return "Arrive by \(formatter.string(from: date)) \(getDayToDisplay(date))"
+        case .leaveAt(let date):
+            return "Leave at \(formatter.string(from: date)) \(getDayToDisplay(date))"
+        }
+    }
+    
+    private func getDayToDisplay(_ date: Date) -> String {
+        let calendar = Calendar.current
+        
+        if calendar.isDateInToday(date) {
+            return ""
+        } else if calendar.isDateInTomorrow(date) {
+            return "tomorrow"
+        } else {
+            let formatter = DateFormatter()
+            formatter.timeStyle = .none
+            formatter.dateStyle = .medium
+            
+            let day = date.formatted(Date.FormatStyle().day(.twoDigits))
+            let month = date.formatted(Date.FormatStyle().month(.abbreviated))
+            
+            return day + " " + month
+        }
+    }
+}
+
+private struct JourneyTimeSelectSheet: View {
+    
+    @Environment(JourneyPlannerViewModel.self) private var viewModel
+    @State private var pickerMode: Int = 0
+    @State private var selectedDate: Date = Date()
+    
+    public var body: some View {
+        ZStack {
+            Color.layer3.ignoresSafeArea()
+            VStack {
+                Spacer().frame(height: 16)
+                Picker("", selection: $pickerMode) {
+                    Text("Now").tag(0)
+                    Text("Leave at").tag(1)
+                    Text("Arrive by").tag(2)
+                }
+                .pickerStyle(.segmented)
+                
+                Spacer()
+                
+                if let maxDate = maxDate() {
+                    DatePicker(selection: $selectedDate, in: Date()...maxDate) {
+                        Text("Date")
+                    }
+                    .datePickerStyle(.wheel)
+                } else {
+                    DatePicker(selection: $selectedDate, in: Date()...) {
+                        Text("Date")
+                    }
+                    .datePickerStyle(.wheel)
+                }
+                
+                Spacer()
+            }
+            .padding(.horizontal, 12)
+            .labelsHidden()
+        }
+        .onChange(of: self.pickerMode, { oldValue, newValue in
+            switch newValue {
+            case 0:
+                self.viewModel.journeyTime = .now
+                break
+            case 1:
+                self.viewModel.journeyTime = .leaveAt(self.selectedDate)
+                break
+            case 2:
+                self.viewModel.journeyTime = .arriveAt(self.selectedDate)
+                break
+            default:
+                self.viewModel.journeyTime = .now
+            }
+        })
+        .onChange(of: self.selectedDate) { oldValue, newValue in
+            switch self.pickerMode {
+            case 0:
+                self.viewModel.journeyTime = .now
+                break
+            case 1:
+                self.viewModel.journeyTime = .leaveAt(newValue)
+                break
+            case 2:
+                self.viewModel.journeyTime = .arriveAt(newValue)
+                break
+            default:
+                self.viewModel.journeyTime = .now
+            }
+        }
+    }
+    
+    private func maxDate() -> Date? {
+        let calendar = Calendar.current
+        return calendar.date(byAdding: .month, value: 1, to: Date())
+    }
 }
 
 private struct SearchLocView: View {
     
-    public var type: JourneyPlannerSearchSheetType
+    private var type: JourneyStopSearchType
+    private var onSelected: (_:JourneyRequestPoint) -> Void
     
     @Environment(JourneyPlannerViewModel.self) private var vm
     @State private var text: String = ""
     @FocusState private var isFocused: Bool
     let searchTextPublisher = PassthroughSubject<String, Never>()
+    
+    public init(type: JourneyStopSearchType, onSelection: @escaping (_:JourneyRequestPoint) -> Void) {
+        self.type = type
+        self.onSelected = onSelection
+    }
 
     var body: some View {
         ZStack {
@@ -177,6 +326,9 @@ private struct SearchLocView: View {
                 LazyVStack {
                     ForEach(vm.searchResults, id: \.stopPoint.stopPointId) { stop in
                         MapSheetSearchResultItem(item: stop, isSelected: false)
+                            .onTapGesture {
+                                self.onSelected(JourneyRequestPoint(displayName: stop.stopPoint.stopPointName, coordinate: stop.stopPoint.stopPointCoordinate.coordinates))
+                            }
                     }
                 }
                 
@@ -228,7 +380,8 @@ private struct SearchLocView: View {
 
 
 #Preview {
-    SearchLocView(type: .from)
-        .environment(GlobalViewModel())
-        .environment(JourneyPlannerViewModel())
+    NavigationStack {
+        JourneyPlannerPage()
+            .environment(GlobalViewModel())
+    }
 }

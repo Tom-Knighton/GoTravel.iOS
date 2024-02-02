@@ -13,10 +13,11 @@ import GoTravel_API
 public class JourneyPlannerViewModel {
     
     // MARK: Journey details
-    public var from: String = ""
-    public var to: String = ""
-    public var via: String = ""
+    public var from: JourneyRequestPoint? = nil
+    public var to: JourneyRequestPoint? = nil
+    public var via: JourneyRequestPoint? = nil
     public var showViaField: Bool = false
+    public var journeyTime: JourneyRequestTime = .now
     
     //MARK: Search Sheet
     public var isSearching: Bool = false
@@ -43,15 +44,3 @@ public class JourneyPlannerViewModel {
         }
     }
 }
-
-
-public enum JourneyPlannerSearchSheetType: Int, Identifiable {
-    case from = 0
-    case to = 1
-    case via = 2
-    
-    public var id: Self {
-        return self
-    }
-}
-

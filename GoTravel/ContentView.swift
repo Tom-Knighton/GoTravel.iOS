@@ -19,12 +19,23 @@ struct ContentView: View {
         
         TabView(selection: $globalVM.tabIndex) {
             NavigationStack(path: $globalVM.mapPath) {
-                JourneyPlannerPage()  
+                HomeMapPage()
                     .navigationDestination(for: StopPointNavModel.self) { nav in
                         StopPointPage(stopId: nav.stopPointId)
                     }
             }
             .tag(0)
+            .tabItem {
+                Label(Strings.Navigation.MapTab, systemImage: Icons.map)
+            }
+            
+            NavigationStack(path: $globalVM.journeyPath) {
+                JourneyPlannerPage()
+                    .navigationDestination(for: StopPointNavModel.self) { nav in
+                        StopPointPage(stopId: nav.stopPointId)
+                    }
+            }
+            .tag(1)
             .tabItem {
                 Label(Strings.Navigation.MapTab, systemImage: Icons.map)
             }

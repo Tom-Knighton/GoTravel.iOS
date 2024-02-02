@@ -227,6 +227,12 @@
         }
       }
     },
+    "Arrive by" : {
+
+    },
+    "Date" : {
+
+    },
     "Errors:NoLineModesFromAPI" : {
       "localizations" : {
         "en" : {
@@ -271,6 +277,9 @@
 
     },
     "Journeys" : {
+
+    },
+    "Leave at" : {
 
     },
     "Map:Distance:%@:%@" : {
@@ -460,6 +469,9 @@
           }
         }
       }
+    },
+    "Now" : {
+
     },
     "Plan a trip:" : {
 
