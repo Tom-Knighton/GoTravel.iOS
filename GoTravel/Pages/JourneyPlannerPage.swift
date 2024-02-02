@@ -324,12 +324,24 @@ private struct SearchLocView: View {
                 
                 CurrentLocationButton()
                 
-                LazyVStack {
-                    ForEach(vm.searchResults, id: \.stopPoint.stopPointId) { stop in
-                        MapSheetSearchResultItem(item: stop, isSelected: false)
-                            .onTapGesture {
-                                self.onSelected(JourneyRequestPoint(displayName: stop.stopPoint.stopPointName, coordinate: stop.stopPoint.stopPointCoordinate.coordinates))
+                
+                if self.text.count == 0 {
+                    ContentUnavailableView(getSearchTitle(), systemImage: Icons.location_magnifyingglass, description: Text(getSearchDescription()))
+                } else {
+                    if vm.isSearching {
+                        ContentUnavailableView(Strings.JourneyPage.Searching, systemImage: Icons.location_magnifyingglass)
+                    } else {
+                        if vm.searchResults.isEmpty {
+                            ContentUnavailableView(Strings.JourneyPage.SearchNoResultsTitle, systemImage: Icons.mapPinSlashed, description: Text(Strings.JourneyPage.SearchNoResultsDescription))
+                        }
+                        LazyVStack {
+                            ForEach(vm.searchResults, id: \.stopPoint.stopPointId) { stop in
+                                MapSheetSearchResultItem(item: stop, isSelected: false)
+                                    .onTapGesture {
+                                        self.onSelected(JourneyRequestPoint(displayName: stop.stopPoint.stopPointName, coordinate: stop.stopPoint.stopPointCoordinate.coordinates))
+                                    }
                             }
+                        }
                     }
                 }
                 
@@ -342,6 +354,9 @@ private struct SearchLocView: View {
         }
         .onChange(of: self.text, { _, newValue in
             self.searchTextPublisher.send(newValue)
+            if newValue.count > 0 {
+                self.vm.isSearching = true
+            }
         })
         .onReceive(searchTextPublisher.debounce(for: .seconds(0.5), scheduler: DispatchQueue.main), perform: { val in
             Task {
@@ -358,6 +373,28 @@ private struct SearchLocView: View {
             return Strings.JourneyPage.ChooseEnd
         case .via:
             return Strings.JourneyPage.ChooseVia
+        }
+    }
+    
+    private func getSearchTitle() -> LocalizedStringKey {
+        switch type {
+        case .from:
+            return Strings.JourneyPage.SearchBeginTitle
+        case .to:
+            return Strings.JourneyPage.SearchEndTitle
+        case .via:
+            return Strings.JourneyPage.SearchViaTitle
+        }
+    }
+    
+    private func getSearchDescription() -> LocalizedStringKey {
+        switch type {
+        case .from:
+            return Strings.JourneyPage.SearchBeginDescription
+        case .to:
+            return Strings.JourneyPage.SearchEndDescription
+        case .via:
+            return Strings.JourneyPage.SearchViaDescription
         }
     }
     
@@ -382,7 +419,10 @@ private struct SearchLocView: View {
 
 #Preview {
     NavigationStack {
-        JourneyPlannerPage()
-            .environment(GlobalViewModel())
+        SearchLocView(type: .from, onSelection: { _ in
+            
+        })
+        .environment(JourneyPlannerViewModel())
+        .environment(GlobalViewModel())
     }
 }

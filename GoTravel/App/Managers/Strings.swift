@@ -71,6 +71,17 @@ public struct Strings {
         public static let ChooseStart: LocalizedStringKey = "JourneyPage:Search:ChooseStart"
         public static let ChooseEnd: LocalizedStringKey = "JourneyPage:Search:ChooseEnd"
         public static let ChooseVia: LocalizedStringKey = "JourneyPage:Search:ChooseVia"
+        
+        public static let Searching: LocalizedStringKey = "JourneyPage:Searching"
+        public static let SearchNoResultsTitle: LocalizedStringKey = "JourneyPage:Search:NoResultsTitle"
+        public static let SearchNoResultsDescription: LocalizedStringKey = "JourneyPage:Search:NoResultsDescription"
+        
+        public static let SearchBeginTitle: LocalizedStringKey = "JourneyPage:Search:BeginJourneyTitle"
+        public static let SearchBeginDescription: LocalizedStringKey = "JourneyPage:Search:BeginJourneyDescription"
+        public static let SearchEndTitle: LocalizedStringKey = "JourneyPage:Search:EndJourneyTitle"
+        public static let SearchEndDescription: LocalizedStringKey = "JourneyPage:Search:EndJourneyDescription"
+        public static let SearchViaTitle: LocalizedStringKey = "JourneyPage:Search:ViaJourneyTitle"
+        public static let SearchViaDescription: LocalizedStringKey = "JourneyPage:Search:ViaJourneyDescription"
     }
     
     public struct Misc {
@@ -156,6 +167,7 @@ public struct Icons {
     public static let family = "figure.and.child.holdinghands"
     public static let map = "map"
     public static let map_circle = "map.circle.fill"
+    public static let mapPinSlashed = "mappin.slash"
     public static let bike = "bicycle"
     public static let bike_circle = "bicycle.circle"
     public static let bike_circle_fill = "bicycle.circle.fill"
