@@ -94,6 +94,7 @@ public struct JourneyPlannerPage: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .tint(Color.layer2)
+                    .foregroundStyle(.primary)
                 }
                 HStack {
                     Button(action: {}) {
