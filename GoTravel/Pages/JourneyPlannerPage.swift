@@ -6,10 +6,7 @@
 //
 
 import SwiftUI
-import GoTravel_Models
-import GoTravel_API
-import Turf
-import Combine
+import GoTravel_Models 
 
 public struct JourneyPlannerPage: View {
     
@@ -102,6 +99,7 @@ public struct JourneyPlannerPage: View {
                             .fontWeight(.bold)
                             .fontDesign(.rounded)
                             .frame(maxWidth: .infinity)
+                            .padding(.vertical, 4)
                     }
                     .buttonStyle(.borderedProminent)
                 }
@@ -121,7 +119,7 @@ public struct JourneyPlannerPage: View {
             }
         }
         .sheet(item: $showSearchSheetType) { type in
-            SearchLocView(type: type, onSelection: { point in
+            JourneyLocationSearchSheet(type: type, onSelection: { point in
                 switch type {
                 case .from:
                     self.viewModel.from = point
@@ -203,226 +201,11 @@ public struct JourneyPlannerPage: View {
     }
 }
 
-private struct JourneyTimeSelectSheet: View {
-    
-    @Environment(JourneyPlannerViewModel.self) private var viewModel
-    @State private var pickerMode: Int = 0
-    @State private var selectedDate: Date = Date()
-    
-    public var body: some View {
-        ZStack {
-            Color.layer3.ignoresSafeArea()
-            VStack {
-                Spacer().frame(height: 16)
-                Picker("", selection: $pickerMode) {
-                    Text("Now").tag(0)
-                    Text("Leave at").tag(1)
-                    Text("Arrive by").tag(2)
-                }
-                .pickerStyle(.segmented)
-                
-                Spacer()
-                
-                if let maxDate = maxDate() {
-                    DatePicker(selection: $selectedDate, in: Date()...maxDate) {
-                        Text("Date")
-                    }
-                    .datePickerStyle(.wheel)
-                } else {
-                    DatePicker(selection: $selectedDate, in: Date()...) {
-                        Text("Date")
-                    }
-                    .datePickerStyle(.wheel)
-                }
-                
-                Spacer()
-            }
-            .padding(.horizontal, 12)
-            .labelsHidden()
-        }
-        .onChange(of: self.pickerMode, { oldValue, newValue in
-            switch newValue {
-            case 0:
-                self.viewModel.journeyTime = .now
-                break
-            case 1:
-                self.viewModel.journeyTime = .leaveAt(self.selectedDate)
-                break
-            case 2:
-                self.viewModel.journeyTime = .arriveAt(self.selectedDate)
-                break
-            default:
-                self.viewModel.journeyTime = .now
-            }
-        })
-        .onChange(of: self.selectedDate) { oldValue, newValue in
-            switch self.pickerMode {
-            case 0:
-                self.viewModel.journeyTime = .now
-                break
-            case 1:
-                self.viewModel.journeyTime = .leaveAt(newValue)
-                break
-            case 2:
-                self.viewModel.journeyTime = .arriveAt(newValue)
-                break
-            default:
-                self.viewModel.journeyTime = .now
-            }
-        }
-    }
-    
-    private func maxDate() -> Date? {
-        let calendar = Calendar.current
-        return calendar.date(byAdding: .month, value: 1, to: Date())
-    }
-}
-
-private struct SearchLocView: View {
-    
-    private var type: JourneyStopSearchType
-    private var onSelected: (_:JourneyRequestPoint) -> Void
-    
-    @Environment(JourneyPlannerViewModel.self) private var vm
-    @State private var text: String = ""
-    @FocusState private var isFocused: Bool
-    let searchTextPublisher = PassthroughSubject<String, Never>()
-    
-    public init(type: JourneyStopSearchType, onSelection: @escaping (_:JourneyRequestPoint) -> Void) {
-        self.type = type
-        self.onSelected = onSelection
-    }
-
-    var body: some View {
-        ZStack {
-            Color.layer1.ignoresSafeArea()
-            ScrollView {
-                Spacer().frame(height: 8)
-                Text(getTitle())
-                    .font(.title3.bold())
-                    .fontDesign(.rounded)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
-                HStack {
-                    TextField("", text: $text, prompt: Text("From:"))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .focused($isFocused)
-                    
-                    if self.text.count > 0 {
-                        Button(action: { self.text = "" }) {
-                            Image(systemName: "xmark.circle.fill")
-                        }
-                        .tint(.primary)
-                    }
-                    
-                }
-                .padding(.horizontal, 8)
-                .frame(maxWidth: .infinity, minHeight: 50)
-                .background(Color.layer2)
-                .clipShape(.rect(cornerRadius: 10))
-                .shadow(radius: 3)
-                
-                CurrentLocationButton()
-                
-                
-                if self.text.count == 0 {
-                    ContentUnavailableView(getSearchTitle(), systemImage: Icons.location_magnifyingglass, description: Text(getSearchDescription()))
-                } else {
-                    if vm.isSearching {
-                        ContentUnavailableView(Strings.JourneyPage.Searching, systemImage: Icons.location_magnifyingglass)
-                    } else {
-                        if vm.searchResults.isEmpty {
-                            ContentUnavailableView(Strings.JourneyPage.SearchNoResultsTitle, systemImage: Icons.mapPinSlashed, description: Text(Strings.JourneyPage.SearchNoResultsDescription))
-                        }
-                        LazyVStack {
-                            ForEach(vm.searchResults, id: \.stopPoint.stopPointId) { stop in
-                                MapSheetSearchResultItem(item: stop, isSelected: false)
-                                    .onTapGesture {
-                                        self.onSelected(JourneyRequestPoint(displayName: stop.stopPoint.stopPointName, coordinate: stop.stopPoint.stopPointCoordinate.coordinates))
-                                    }
-                            }
-                        }
-                    }
-                }
-                
-                Spacer()
-            }
-            .contentMargins(16)
-        }
-        .onAppear {
-            self.isFocused = true
-        }
-        .onChange(of: self.text, { _, newValue in
-            self.searchTextPublisher.send(newValue)
-            if newValue.count > 0 {
-                self.vm.isSearching = true
-            }
-        })
-        .onReceive(searchTextPublisher.debounce(for: .seconds(0.5), scheduler: DispatchQueue.main), perform: { val in
-            Task {
-                await self.vm.searchStops(val)
-            }
-        })
-    }
-    
-    private func getTitle() -> LocalizedStringKey {
-        switch type {
-        case .from:
-            return Strings.JourneyPage.ChooseStart
-        case .to:
-            return Strings.JourneyPage.ChooseEnd
-        case .via:
-            return Strings.JourneyPage.ChooseVia
-        }
-    }
-    
-    private func getSearchTitle() -> LocalizedStringKey {
-        switch type {
-        case .from:
-            return Strings.JourneyPage.SearchBeginTitle
-        case .to:
-            return Strings.JourneyPage.SearchEndTitle
-        case .via:
-            return Strings.JourneyPage.SearchViaTitle
-        }
-    }
-    
-    private func getSearchDescription() -> LocalizedStringKey {
-        switch type {
-        case .from:
-            return Strings.JourneyPage.SearchBeginDescription
-        case .to:
-            return Strings.JourneyPage.SearchEndDescription
-        case .via:
-            return Strings.JourneyPage.SearchViaDescription
-        }
-    }
-    
-    @ViewBuilder
-    private func CurrentLocationButton() -> some View {
-        HStack {
-            Button(action: {}) {
-                HStack {
-                    Image(systemName: "location.fill")
-                    Text("My Current Location")
-                        .bold()
-                        .fontDesign(.rounded)
-                        .frame(maxWidth: .infinity, minHeight: 40, alignment: .leading)
-                }
-            }
-            .buttonStyle(.borderedProminent)
-        }
-        
-    }
-}
-
-
 #Preview {
     NavigationStack {
-        SearchLocView(type: .from, onSelection: { _ in
-            
-        })
+        JourneyPlannerPage()
         .environment(JourneyPlannerViewModel())
         .environment(GlobalViewModel())
+        .environment(LocationManager())
     }
 }

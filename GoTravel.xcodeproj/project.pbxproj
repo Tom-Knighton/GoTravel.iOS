@@ -12,6 +12,9 @@
 		E22DBC3D2B5B227800276034 /* PlatformArrivals+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22DBC3C2B5B227800276034 /* PlatformArrivals+GoTravel.swift */; };
 		E22DBC3F2B5BEA8100276034 /* GaugeTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22DBC3E2B5BEA8100276034 /* GaugeTimerView.swift */; };
 		E23027AD2B69775D00DC1D54 /* JourneyPlannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027AC2B69775D00DC1D54 /* JourneyPlannerViewModel.swift */; };
+		E23027AF2B6D41D400DC1D54 /* JourneyTimeSelectSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027AE2B6D41D400DC1D54 /* JourneyTimeSelectSheet.swift */; };
+		E23027B12B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B02B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift */; };
+		E23027B32B6D445200DC1D54 /* JourneyResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B22B6D445200DC1D54 /* JourneyResultsView.swift */; };
 		E2438F1E2B25D82B00BBF345 /* Accessibility+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */; };
 		E2438F202B26195100BBF345 /* AccessibilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */; };
 		E25572082B33B28200988348 /* MapSearchSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572072B33B28200988348 /* MapSearchSheetView.swift */; };
@@ -111,6 +114,9 @@
 		E22DBC3C2B5B227800276034 /* PlatformArrivals+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlatformArrivals+GoTravel.swift"; sourceTree = "<group>"; };
 		E22DBC3E2B5BEA8100276034 /* GaugeTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeTimerView.swift; sourceTree = "<group>"; };
 		E23027AC2B69775D00DC1D54 /* JourneyPlannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerViewModel.swift; sourceTree = "<group>"; };
+		E23027AE2B6D41D400DC1D54 /* JourneyTimeSelectSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyTimeSelectSheet.swift; sourceTree = "<group>"; };
+		E23027B02B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyLocationSearchSheet.swift; sourceTree = "<group>"; };
+		E23027B22B6D445200DC1D54 /* JourneyResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyResultsView.swift; sourceTree = "<group>"; };
 		E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Accessibility+GoTravel.swift"; sourceTree = "<group>"; };
 		E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityHelper.swift; sourceTree = "<group>"; };
 		E25572072B33B28200988348 /* MapSearchSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchSheetView.swift; sourceTree = "<group>"; };
@@ -360,6 +366,9 @@
 		E26905EC2B66D22800CC1271 /* Journey */ = {
 			isa = PBXGroup;
 			children = (
+				E23027AE2B6D41D400DC1D54 /* JourneyTimeSelectSheet.swift */,
+				E23027B02B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift */,
+				E23027B22B6D445200DC1D54 /* JourneyResultsView.swift */,
 			);
 			path = Journey;
 			sourceTree = "<group>";
@@ -618,6 +627,7 @@
 				E25572602B33BAB900988348 /* BundleExtension.swift in Sources */,
 				E29848C12AC6FB83004A5BDC /* HomeMapPage.swift in Sources */,
 				E25572442B33BAB900988348 /* BottomSheet+Threshold.swift in Sources */,
+				E23027B12B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift in Sources */,
 				E28DC2C52B210E5500E2FECE /* LineMode+Cache.swift in Sources */,
 				E25572472B33BAB900988348 /* BottomSheet+CustomAnimation.swift in Sources */,
 				E23027AD2B69775D00DC1D54 /* JourneyPlannerViewModel.swift in Sources */,
@@ -631,6 +641,7 @@
 				E2F9415D2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift in Sources */,
 				E25572562B33BAB900988348 /* BottomSheetView+HelperViews.swift in Sources */,
 				E25572552B33BAB900988348 /* BottomSheetView+Calculations.swift in Sources */,
+				E23027B32B6D445200DC1D54 /* JourneyResultsView.swift in Sources */,
 				E2E511A72B59EB53003BE56E /* StopArrivalsView.swift in Sources */,
 				E25572082B33B28200988348 /* MapSearchSheetView.swift in Sources */,
 				E25572572B33BAB900988348 /* BottomSheetView+Gestures.swift in Sources */,
@@ -657,6 +668,7 @@
 				E2E511A92B59EF78003BE56E /* Date+GoTravel.swift in Sources */,
 				E2BF5D772AD3641100261261 /* StopPoint+GoTravel.swift in Sources */,
 				E283D3822AC23316008ECF81 /* GoLondonApp.swift in Sources */,
+				E23027AF2B6D41D400DC1D54 /* JourneyTimeSelectSheet.swift in Sources */,
 				E2E511A22B572933003BE56E /* StopPointViewModel.swift in Sources */,
 				E255723F2B33BAB900988348 /* BottomSheet+Resizable.swift in Sources */,
 				E25572502B33BAB900988348 /* BottomSheet+CloseButton.swift in Sources */,

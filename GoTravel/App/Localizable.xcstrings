@@ -267,6 +267,12 @@
     "From:" : {
 
     },
+    "JourneyPage:Search:BeginJourneyDescription" : {
+
+    },
+    "JourneyPage:Search:BeginJourneyTitle" : {
+
+    },
     "JourneyPage:Search:ChooseEnd" : {
 
     },
@@ -274,6 +280,27 @@
 
     },
     "JourneyPage:Search:ChooseVia" : {
+
+    },
+    "JourneyPage:Search:EndJourneyDescription" : {
+
+    },
+    "JourneyPage:Search:EndJourneyTitle" : {
+
+    },
+    "JourneyPage:Search:NoResultsDescription" : {
+
+    },
+    "JourneyPage:Search:NoResultsTitle" : {
+
+    },
+    "JourneyPage:Search:ViaJourneyDescription" : {
+
+    },
+    "JourneyPage:Search:ViaJourneyTitle" : {
+
+    },
+    "JourneyPage:Searching" : {
 
     },
     "Journeys" : {

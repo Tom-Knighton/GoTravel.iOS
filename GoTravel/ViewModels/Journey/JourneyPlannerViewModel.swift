@@ -23,6 +23,10 @@ public class JourneyPlannerViewModel {
     public var isSearching: Bool = false
     public var searchResults: [StopPoint] = []
     
+    //MARK: Journeys
+    public var isSearchingJourneys: Bool = false
+    public var journeyOptions: [Journey] = []
+    
     
     /// Performs a search for stops based on an input query and fills `searchResults` with the results
     func searchStops(_ search: String) async {
