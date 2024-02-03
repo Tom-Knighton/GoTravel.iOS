@@ -27,6 +27,14 @@ public class JourneyPlannerViewModel {
     public var isSearchingJourneys: Bool = false
     public var journeyResult: JourneyOptionsResult? = nil
     
+    /// Swaps the stops in From/To, even if they are empty
+    func swapStops() {
+        let oldFrom = self.from
+        let oldTo = self.to
+        
+        self.from = oldTo
+        self.to = oldFrom
+    }
     
     /// Performs a search for stops based on an input query and fills `searchResults` with the results
     func searchStops(_ search: String) async {
@@ -48,6 +56,7 @@ public class JourneyPlannerViewModel {
         }
     }
     
+    /// If preconditions are met, plan a journey and store results in `journeyResult`
     func planJourney() async {
         guard let from, let to else {
             return

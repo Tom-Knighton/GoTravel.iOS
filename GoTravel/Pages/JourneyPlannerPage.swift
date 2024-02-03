@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import GoTravel_Models 
+import GoTravel_Models
+import DotLottie
 
 public struct JourneyPlannerPage: View {
     
@@ -31,7 +32,7 @@ public struct JourneyPlannerPage: View {
                         }
                         
                         VStack {
-                            Button(action: {}) {
+                            Button(action: { viewModel.swapStops() }) {
                                 Image(systemName: "arrow.up.arrow.down")
                                     .resizable()
                                     .frame(width: 15, height: 15)
@@ -110,7 +111,12 @@ public struct JourneyPlannerPage: View {
                     Spacer()
                     
                     if viewModel.isSearchingJourneys {
-                        ContentUnavailableView("Searching", systemImage: Icons.location_magnifyingglass,  description: Text("Searching for possible journeys"))
+                        Text("Searching...")
+                            .font(.title2.bold())
+                            .fontDesign(.rounded)
+                        DotLottieAnimation(fileName: "BusLoading", config: AnimationConfig(autoplay: true, loop: true))
+                            .view()
+                            .frame(width: 100, height: 200)
                     }
                     if let result = viewModel.journeyResult {
                         JourneyResultsView(result: result)

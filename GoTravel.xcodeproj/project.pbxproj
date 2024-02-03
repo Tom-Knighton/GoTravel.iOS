@@ -89,6 +89,8 @@
 		E2E511A52B59ADDB003BE56E /* LineModesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E511A42B59ADDB003BE56E /* LineModesView.swift */; };
 		E2E511A72B59EB53003BE56E /* StopArrivalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E511A62B59EB53003BE56E /* StopArrivalsView.swift */; };
 		E2E511A92B59EF78003BE56E /* Date+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E511A82B59EF78003BE56E /* Date+GoTravel.swift */; };
+		E2E673982B6E90D900361118 /* BusLoading.lottie in Resources */ = {isa = PBXBuildFile; fileRef = E2E673972B6E90D900361118 /* BusLoading.lottie */; };
+		E2E6739B2B6E910100361118 /* DotLottie in Frameworks */ = {isa = PBXBuildFile; productRef = E2E6739A2B6E910100361118 /* DotLottie */; };
 		E2F9415B2AD2C2A10047EA04 /* GlobalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9415A2AD2C2A10047EA04 /* GlobalViewModel.swift */; };
 		E2F9415D2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9415C2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift */; };
 		E2F9415F2AD30A3F0047EA04 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E2F9415E2AD30A3F0047EA04 /* Localizable.xcstrings */; };
@@ -192,6 +194,7 @@
 		E2E511A42B59ADDB003BE56E /* LineModesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineModesView.swift; sourceTree = "<group>"; };
 		E2E511A62B59EB53003BE56E /* StopArrivalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopArrivalsView.swift; sourceTree = "<group>"; };
 		E2E511A82B59EF78003BE56E /* Date+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+GoTravel.swift"; sourceTree = "<group>"; };
+		E2E673972B6E90D900361118 /* BusLoading.lottie */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusLoading.lottie; sourceTree = "<group>"; };
 		E2F9415A2AD2C2A10047EA04 /* GlobalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewModel.swift; sourceTree = "<group>"; };
 		E2F9415C2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationPath+GoTravel.swift"; sourceTree = "<group>"; };
 		E2F9415E2AD30A3F0047EA04 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -207,6 +210,7 @@
 				E28DC2B02B1F62B900E2FECE /* GoTravel.CoreData in Frameworks */,
 				E28DC2B32B1FE44900E2FECE /* GoTravel.Models in Frameworks */,
 				E28DC2B62B1FE5DE00E2FECE /* GoTravel.API in Frameworks */,
+				E2E6739B2B6E910100361118 /* DotLottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +449,7 @@
 		E283D38F2AC233A7008ECF81 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				E2E673952B6E90BE00361118 /* Assets */,
 				E2000C192AC8278C003D01A9 /* Managers */,
 				E283D3872AC23318008ECF81 /* Preview Content */,
 				E283D3852AC23318008ECF81 /* Assets.xcassets */,
@@ -530,6 +535,22 @@
 			path = Stop;
 			sourceTree = "<group>";
 		};
+		E2E673952B6E90BE00361118 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E2E673962B6E90C200361118 /* Lottie */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E2E673962B6E90C200361118 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				E2E673972B6E90D900361118 /* BusLoading.lottie */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		E2FA5C392AF823FA00DCE810 /* Tips */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,6 +581,7 @@
 				E28DC2B22B1FE44900E2FECE /* GoTravel.Models */,
 				E28DC2B52B1FE5DE00E2FECE /* GoTravel.API */,
 				E26988752B35D2E10097B8EF /* WrappingHStack */,
+				E2E6739A2B6E910100361118 /* DotLottie */,
 			);
 			productName = GoLondon;
 			productReference = E283D37E2AC23316008ECF81 /* GoTravel.app */;
@@ -591,6 +613,7 @@
 			mainGroup = E283D3752AC23316008ECF81;
 			packageReferences = (
 				E26988742B35D2E10097B8EF /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+				E2E673992B6E910100361118 /* XCRemoteSwiftPackageReference "dotlottie-ios" */,
 			);
 			productRefGroup = E283D37F2AC23316008ECF81 /* Products */;
 			projectDirPath = "";
@@ -606,6 +629,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2E673982B6E90D900361118 /* BusLoading.lottie in Resources */,
 				E283D3892AC23318008ECF81 /* Preview Assets.xcassets in Resources */,
 				E283D3862AC23318008ECF81 /* Assets.xcassets in Resources */,
 				E255723E2B33BAB900988348 /* Media.xcassets in Resources */,
@@ -933,6 +957,14 @@
 				minimumVersion = 0.2.0;
 			};
 		};
+		E2E673992B6E910100361118 /* XCRemoteSwiftPackageReference "dotlottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LottieFiles/dotlottie-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -952,6 +984,11 @@
 		E28DC2B52B1FE5DE00E2FECE /* GoTravel.API */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GoTravel.API;
+		};
+		E2E6739A2B6E910100361118 /* DotLottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2E673992B6E910100361118 /* XCRemoteSwiftPackageReference "dotlottie-ios" */;
+			productName = DotLottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
