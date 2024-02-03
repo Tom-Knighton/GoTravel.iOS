@@ -20,20 +20,20 @@ public struct JourneyPlannerPage: View {
             Color.layer1.ignoresSafeArea()
             ScrollView {
                 VStack {
-                    Text("Plan a trip:")
+                    Text(Strings.JourneyPage.PlanATrip)
                         .font(.title3.bold())
                         .fontDesign(.rounded)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     HStack {
                         VStack {
-                            LocationField(promptText: "From:", imageName: "location.magnifyingglass", type: .from, point: viewModel.from)
-                            LocationField(promptText: "To:", imageName: "location.magnifyingglass", type: .to, point: viewModel.to)
+                            LocationField(promptText: Strings.JourneyPage.FromPrompt, imageName: Icons.location_magnifyingglass, type: .from, point: viewModel.from)
+                            LocationField(promptText: Strings.JourneyPage.ToPrompt, imageName: Icons.location_magnifyingglass, type: .to, point: viewModel.to)
                         }
                         
                         VStack {
                             Button(action: { viewModel.swapStops() }) {
-                                Image(systemName: "arrow.up.arrow.down")
+                                Image(systemName: Icons.arrowUpAndDown)
                                     .resizable()
                                     .frame(width: 15, height: 15)
                                     .fontWeight(.bold)
@@ -45,7 +45,7 @@ public struct JourneyPlannerPage: View {
                             
                             if !viewModel.showViaField {
                                 Button(action: { withAnimation { viewModel.showViaField = true } }) {
-                                    Image(systemName: "plus")
+                                    Image(systemName: Icons.add)
                                         .resizable()
                                         .frame(width: 15, height: 15)
                                         .fontWeight(.bold)
@@ -63,9 +63,9 @@ public struct JourneyPlannerPage: View {
                     
                     if viewModel.showViaField {
                         HStack {
-                            LocationField(promptText: "Via:", imageName: "location.magnifyingglass", type: .via, point: viewModel.via)
+                            LocationField(promptText: Strings.JourneyPage.ViaPrompt, imageName: Icons.location_magnifyingglass, type: .via, point: viewModel.via)
                             Button(action: { withAnimation { viewModel.showViaField = false } }) {
-                                Image(systemName: "minus")
+                                Image(systemName: Icons.minus)
                                     .fontWeight(.bold)
                                     .fontDesign(.rounded)
                                     .foregroundStyle(.white)
@@ -82,7 +82,7 @@ public struct JourneyPlannerPage: View {
                     HStack {
                         Button(action: { self.showTimeSheet = true }) {
                             HStack {
-                                Image(systemName: "clock.fill")
+                                Image(systemName: Icons.clockFilled)
                                 Text(getTimeToDisplay())
                                     .fontWeight(.bold)
                                     .fontDesign(.rounded)
@@ -99,7 +99,7 @@ public struct JourneyPlannerPage: View {
                                 await self.viewModel.planJourney()
                             }
                         }) {
-                            Text("Plan Journey")
+                            Text(Strings.JourneyPage.PlanJourneyButton)
                                 .fontWeight(.bold)
                                 .fontDesign(.rounded)
                                 .frame(maxWidth: .infinity)
@@ -111,10 +111,10 @@ public struct JourneyPlannerPage: View {
                     Spacer()
                     
                     if viewModel.isSearchingJourneys {
-                        Text("Searching...")
+                        Text(Strings.Misc.Searching)
                             .font(.title2.bold())
                             .fontDesign(.rounded)
-                        DotLottieAnimation(fileName: "BusLoading", config: AnimationConfig(autoplay: true, loop: true))
+                        DotLottieAnimation(fileName: Strings.Assets.BusLoading, config: AnimationConfig(autoplay: true, loop: true))
                             .view()
                             .frame(width: 100, height: 200)
                     }
@@ -126,17 +126,17 @@ public struct JourneyPlannerPage: View {
                 .padding(.horizontal, 16)
             }
         }
-        .navigationTitle("Journeys")
+        .navigationTitle(Strings.JourneyPage.Title)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button(action: {}) {
-                    Image(systemName: "line.3.horizontal.decrease.circle")
+                    Image(systemName: Icons.filter)
                         .fontWeight(.bold)
                         .fontDesign(.rounded)
                 }
             }
         }
-        .sheet(item: $showSearchSheetType) { type in
+        .sheet(item: $showSearchSheetType, onDismiss: { viewModel.searchResults = [] }) { type in
             JourneyLocationSearchSheet(type: type, onSelection: { point in
                 switch type {
                 case .from:
@@ -149,7 +149,6 @@ public struct JourneyPlannerPage: View {
                     self.viewModel.via = point
                 }
                 self.showSearchSheetType = nil
-                viewModel.searchResults = []
             })
             .environment(viewModel)
         }
@@ -163,7 +162,7 @@ public struct JourneyPlannerPage: View {
     
     
     @ViewBuilder
-    private func LocationField(promptText: String, imageName: String, type: JourneyStopSearchType, point: JourneyRequestPoint? = nil) -> some View {
+    private func LocationField(promptText: LocalizedStringKey, imageName: String, type: JourneyStopSearchType, point: JourneyRequestPoint? = nil) -> some View {
         
         let hasValue = (point?.displayName.count ?? 0) > 0
         HStack {
@@ -171,7 +170,7 @@ public struct JourneyPlannerPage: View {
                 Image(systemName: imageName)
                     .shadow(radius: 3)
             }
-            Text(point?.displayName ?? promptText)
+            Text(point?.displayName ?? promptText.toString())
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundStyle(hasValue ? Color.primary : Color.gray)
         }
@@ -185,17 +184,17 @@ public struct JourneyPlannerPage: View {
         }
     }
     
-    private func getTimeToDisplay() -> String {
+    private func getTimeToDisplay() -> LocalizedStringKey {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
         switch self.viewModel.journeyTime {
         case .now:
-            return "Now"
+            return Strings.JourneyPage.Now
         case .arriveAt(let date):
-            return "Arrive by \(formatter.string(from: date)) \(getDayToDisplay(date))"
+            return Strings.JourneyPage.ArriveBy("\(formatter.string(from: date)) \(getDayToDisplay(date))")
         case .leaveAt(let date):
-            return "Leave at \(formatter.string(from: date)) \(getDayToDisplay(date))"
+            return Strings.JourneyPage.LeaveAt("\(formatter.string(from: date)) \(getDayToDisplay(date))")
         }
     }
     
@@ -205,7 +204,7 @@ public struct JourneyPlannerPage: View {
         if calendar.isDateInToday(date) {
             return ""
         } else if calendar.isDateInTomorrow(date) {
-            return "tomorrow"
+            return Strings.JourneyPage.Tomorrow.toString()
         } else {
             let formatter = DateFormatter()
             formatter.timeStyle = .none

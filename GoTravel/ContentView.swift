@@ -37,7 +37,7 @@ struct ContentView: View {
             }
             .tag(1)
             .tabItem {
-                Label(Strings.Navigation.MapTab, systemImage: Icons.map)
+                Label(Strings.Navigation.JourneyTab, systemImage: Icons.map)
             }
         }
     }

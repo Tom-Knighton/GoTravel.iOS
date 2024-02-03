@@ -37,13 +37,13 @@ public struct JourneyLocationSearchSheet: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
                 HStack {
-                    TextField("", text: $text, prompt: Text("From:"))
+                    TextField("", text: $text, prompt: Text(getPrompt()))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .focused($isFocused)
                     
                     if self.text.count > 0 {
                         Button(action: { self.text = "" }) {
-                            Image(systemName: "xmark.circle.fill")
+                            Image(systemName: Icons.cross_circle_fill)
                         }
                         .tint(.primary)
                     }
@@ -133,15 +133,26 @@ public struct JourneyLocationSearchSheet: View {
         }
     }
     
+    private func getPrompt() -> LocalizedStringKey {
+        switch type {
+        case .from:
+            return Strings.JourneyPage.FromPrompt
+        case .to:
+            return Strings.JourneyPage.ToPrompt
+        case .via:
+            return Strings.JourneyPage.ViaPrompt
+        }
+    }
+    
     @ViewBuilder
     private func CurrentLocationButton(_ location: CLLocationCoordinate2D) -> some View {
         HStack {
             Button(action: {
-                self.onSelected(JourneyRequestPoint(displayName: "My Location", coordinate: location))
+                self.onSelected(JourneyRequestPoint(displayName: Strings.JourneyPage.MyLocation.toString(), coordinate: location))
             }) {
                 HStack {
-                    Image(systemName: "location.fill")
-                    Text("My Current Location")
+                    Image(systemName: Icons.locationFill)
+                    Text(Strings.JourneyPage.MyLocation)
                         .bold()
                         .fontDesign(.rounded)
                         .frame(maxWidth: .infinity, minHeight: 40, alignment: .leading)

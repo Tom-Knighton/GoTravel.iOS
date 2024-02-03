@@ -12,6 +12,7 @@ public struct Strings {
     
     public struct Navigation {
         public static let MapTab: LocalizedStringKey = "Navigation:MapTab"
+        public static let JourneyTab: LocalizedStringKey = "Navigation:JourneyTab"
     }
     
     public struct Map {
@@ -68,6 +69,16 @@ public struct Strings {
     }
     
     public struct JourneyPage {
+        
+        public static let Title: LocalizedStringKey = "JourneyPage:Title"
+        public static let PlanATrip: LocalizedStringKey = "JourneyPage:PlanATrip"
+        
+        public static let FromPrompt: LocalizedStringKey = "JourneyPage:FromPrompt"
+        public static let ToPrompt: LocalizedStringKey = "JourneyPage:ToPrompt"
+        public static let ViaPrompt: LocalizedStringKey = "JourneyPage:ViaPrompt"
+        
+        public static let PlanJourneyButton: LocalizedStringKey = "JourneyPage:PlanButton"
+        
         public static let ChooseStart: LocalizedStringKey = "JourneyPage:Search:ChooseStart"
         public static let ChooseEnd: LocalizedStringKey = "JourneyPage:Search:ChooseEnd"
         public static let ChooseVia: LocalizedStringKey = "JourneyPage:Search:ChooseVia"
@@ -82,20 +93,57 @@ public struct Strings {
         public static let SearchEndDescription: LocalizedStringKey = "JourneyPage:Search:EndJourneyDescription"
         public static let SearchViaTitle: LocalizedStringKey = "JourneyPage:Search:ViaJourneyTitle"
         public static let SearchViaDescription: LocalizedStringKey = "JourneyPage:Search:ViaJourneyDescription"
+        
+        public static let ReplacementBus: LocalizedStringKey = "JourneyPage:ReplacementBus"
+        
+        public static let FastestJourney: LocalizedStringKey = "JourneyPage:FastestJourney"
+        public static let Journey: LocalizedStringKey = "JourneyPage:Journey"
+        public static let Cycle: LocalizedStringKey = "JourneyPage:Cycle"
+        public static let WalkIfCan: LocalizedStringKey = "JourneyPage:WalkIfCan"
+        
+        public static let Now: LocalizedStringKey = "JourneyPage:Now"
+        public static let Tomorrow: LocalizedStringKey = "JourneyPage:Tomorrow"
+        
+        public static let ArriveBy: LocalizedStringKey = "JourneyPage:ArriveBy"
+        public static func ArriveBy(_ value: String) -> LocalizedStringKey {
+            LocalizedStringKey("JourneyPage:ArriveBy:\(value)")
+        }
+        
+        public static let LeaveAt: LocalizedStringKey = "JourneyPage:LeaveAt"
+        public static func LeaveAt(_ value: String) -> LocalizedStringKey {
+            LocalizedStringKey("JourneyPage:LeaveAt:\(value)")
+        }
+        
+        public static let MyLocation: LocalizedStringKey = "JourneyPage:MyLocation"
+        
+        public static func Mins(_ mins: Int) -> LocalizedStringKey {
+            LocalizedStringKey("JourneyPage:Mins:\(mins)")
+        }
+        
+        public static let LeaveNow: LocalizedStringKey = "JourneyPage:LeaveNow"
+        public static func LeaveWithin(_ mins: Int) ->  LocalizedStringKey {
+            LocalizedStringKey("JourneyPage:LeaveWithin:\(mins)")
+        }
     }
     
     public struct Misc {
+        public static let Searching: LocalizedStringKey = "Misc:Searching..."
         public static let Loading: LocalizedStringKey = "Misc:Loading..."
         public static let And: LocalizedStringKey = "Misc:And"
         public static let OxfordComma: LocalizedStringKey = "Misc:OxfordComma"
         public static let ThenLower: LocalizedStringKey = "Misc:ThenLower"
         public static let Ok: LocalizedStringKey = "Misc:Ok"
+        public static let Results: LocalizedStringKey = "Misc:Results"
     }
     
     public struct Errors {
         public static let NoLineModesAPI: LocalizedStringKey = "Errors:NoLineModesFromAPI"
         public static let NoLineModesAPIDescription: LocalizedStringKey = "Errors:NoLineModesFromAPI:Description"
         public static let StopFailedLoad: LocalizedStringKey = "Errors:StopFailedLoading"
+    }
+    
+    public struct Assets {
+        public static let BusLoading = "BusLoading"
     }
     
     public struct Accessibility {
@@ -158,8 +206,10 @@ public struct Icons {
     public static let arrow_right: String = "arrow.right"
     public static let arrow_up: String = "arrow.up"
     public static let arrow_down: String = "arrow.down"
+    public static let arrowUpAndDown: String = "arrow.up.arrow.down"
     public static let arrow_clockwise: String = "arrow.clockwise"
     public static let location_slash = "location.slash"
+    public static let locationFill = "location.fill"
     public static let cross_circle_fill = "xmark.circle.fill"
     public static let cross = "xmark"
     public static let check = "checkmark"
@@ -178,4 +228,8 @@ public struct Icons {
     public static let filter = "line.3.horizontal.decrease.circle"
     public static let info = "info"
     public static let info_circle = "info.circle"
+    public static let add = "plus"
+    public static let minus = "minus"
+    public static let clockFilled = "clock.fill"
+    public static let walk = "figure.walk"
 }

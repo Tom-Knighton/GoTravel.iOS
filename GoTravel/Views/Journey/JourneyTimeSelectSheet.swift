@@ -19,9 +19,9 @@ public struct JourneyTimeSelectSheet: View {
             VStack {
                 Spacer().frame(height: 16)
                 Picker("", selection: $pickerMode) {
-                    Text("Now").tag(0)
-                    Text("Leave at").tag(1)
-                    Text("Arrive by").tag(2)
+                    Text(Strings.JourneyPage.Now).tag(0)
+                    Text(Strings.JourneyPage.LeaveAt).tag(1)
+                    Text(Strings.JourneyPage.ArriveBy).tag(2)
                 }
                 .pickerStyle(.segmented)
                 
@@ -29,12 +29,12 @@ public struct JourneyTimeSelectSheet: View {
                 
                 if let maxDate = maxDate() {
                     DatePicker(selection: $selectedDate, in: Date()...maxDate) {
-                        Text("Date")
+                        Text("")
                     }
                     .datePickerStyle(.wheel)
                 } else {
                     DatePicker(selection: $selectedDate, in: Date()...) {
-                        Text("Date")
+                        Text("")
                     }
                     .datePickerStyle(.wheel)
                 }

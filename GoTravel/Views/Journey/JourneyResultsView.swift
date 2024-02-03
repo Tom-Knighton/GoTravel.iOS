@@ -18,7 +18,7 @@ public struct JourneyResultsView: View {
             let ordered = result.journeyOptions.sorted(by: { $0.endJourneyAt < $1.endJourneyAt })
             let fastest = getFastestModeJourneyIndex(ordered)
             
-            Text("Results:")
+            Text(Strings.Misc.Results)
                 .font(.title3.bold())
                 .fontDesign(.rounded)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -58,10 +58,7 @@ public struct JourneyOptionCard: View {
             HStack {
                 modeListView()
                 Spacer()
-                Text(String(describing: journey.totalDuration))
-                    .bold()
-                    .fontDesign(.rounded) +
-                Text(" mins")
+                Text(Strings.JourneyPage.Mins(journey.totalDuration))
                     .bold()
                     .fontDesign(.rounded)
             }
@@ -88,15 +85,26 @@ public struct JourneyOptionCard: View {
     private func hintForMode(_ modeId: String, leg: JourneyLeg) -> some View {
         if modeId == "walking" {
             HStack(spacing: 1) {
-                Image(systemName: "figure.walk")
+                Image(systemName: Icons.walk)
                 Text(String(describing: leg.legDuration))
             }
         }
         else if modeId == "cycle" {
             HStack(spacing: 1) {
-                Image(systemName: "bicycle")
+                Image(systemName: Icons.bike)
                 Text(String(describing: leg.legDuration))
             }
+        }
+        else if modeId.contains("replacement-bus") {
+            Text(Strings.JourneyPage.ReplacementBus)
+                .bold()
+                .fontDesign(.rounded)
+                .foregroundStyle(.white)
+                .padding(.vertical, 4)
+                .padding(.horizontal, 8)
+                .font(.footnote)
+                .background(.red)
+                .clipShape(.rect(cornerRadius: 5))
         }
         else {
             if let mode = lineModes.first(where: { $0.lineModeId == modeId }) {
@@ -129,40 +137,40 @@ public struct JourneyOptionCard: View {
         }
     }
     
-    private func headerString() -> String {
+    private func headerString() -> LocalizedStringKey {
         if isModeFastest {
-            return "Fastest Journey"
+            return Strings.JourneyPage.FastestJourney
         }
         
         let modes = Set(journey.journeyLegs.compactMap { $0.legDetails.modeId })
         
         if modes.count == 2 && modes.contains("walking") && modes.contains("cycle") {
-            return "Journey"
+            return Strings.JourneyPage.Journey
         }
         if modes.count == 1 && modes.contains("cycle") {
-            return "Cycle"
+            return Strings.JourneyPage.Cycle
         }
         if modes.count == 1 && modes.contains("walking") {
-            return "Walk if possible"
+            return Strings.JourneyPage.WalkIfCan
         }
     
         
-        return "Journey"
+        return Strings.JourneyPage.Journey
     }
     
-    private func leaveAtString() -> String {
+    private func leaveAtString() -> LocalizedStringKey {
         let minsUntilLeave = Date().timeUntil(journey.beginJourneyAt, unit: .minutes)
         if minsUntilLeave <= 1 {
-            return "Leave now"
+            return Strings.JourneyPage.LeaveNow
         }
         if minsUntilLeave <= 5 {
-            return "Leave within \(Int(minsUntilLeave)) mins"
+            return Strings.JourneyPage.LeaveWithin(Int(minsUntilLeave))
         }
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         
-        return "Leave at " + dateFormatter.string(from: journey.beginJourneyAt)
+        return Strings.JourneyPage.LeaveAt(dateFormatter.string(from: journey.beginJourneyAt))
     }
 }
 
