@@ -9,6 +9,9 @@ import Foundation
 
 public struct LineMode: Codable {
     
+    /// The unique id of the line
+    public let lineModeId: String
+    
     /// The friendly name of the line mode, i.e. Tube, Elizabeth Line
     public let lineModeName: String
     
@@ -24,7 +27,8 @@ public struct LineMode: Codable {
     /// Flagged information for this line mode
     public let flags: [String]
     
-    public init(lineModeName: String, lines: [Line], primaryAreaName: String, branding: LineModeBranding, flags: [String]) {
+    public init(lineModeId: String, lineModeName: String, lines: [Line], primaryAreaName: String, branding: LineModeBranding, flags: [String]) {
+        self.lineModeId = lineModeId
         self.lineModeName = lineModeName
         self.lines = lines
         self.primaryAreaName = primaryAreaName

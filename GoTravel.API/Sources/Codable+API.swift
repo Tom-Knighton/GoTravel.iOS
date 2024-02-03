@@ -21,7 +21,7 @@ extension Encodable {
     }
 }
 
-extension Data {
+public extension Data {
     func decode<T: Decodable>(to type: T.Type, dateFormat: String? = "yyyy-MM-dd'T'HH:mm:ss'Z'") throws -> T {
         let decoder = JSONDecoder()
         let formatter = DateFormatter()

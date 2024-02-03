@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents a journey that can be taken
-public struct Journey {
+public struct Journey: Codable {
     
     /// The time the journey starts
     public let beginJourneyAt: Date

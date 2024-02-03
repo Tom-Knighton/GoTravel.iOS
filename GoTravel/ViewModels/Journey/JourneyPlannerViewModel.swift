@@ -25,7 +25,7 @@ public class JourneyPlannerViewModel {
     
     //MARK: Journeys
     public var isSearchingJourneys: Bool = false
-    public var journeyOptions: [Journey] = []
+    public var journeyResult: JourneyOptionsResult? = nil
     
     
     /// Performs a search for stops based on an input query and fills `searchResults` with the results
@@ -46,5 +46,48 @@ public class JourneyPlannerViewModel {
             self.searchResults = results?.reversed() ?? []
             self.isSearching = false
         }
+    }
+    
+    func planJourney() async {
+        guard let from, let to else {
+            return
+        }
+        
+        self.isSearchingJourneys = true
+        
+        let startPoint = JourneyRequestLocation(coordinate: from.coordinate)
+        let endPoint = JourneyRequestLocation(coordinate: to.coordinate)
+        var viaPoint: JourneyRequestLocation? = nil
+        if let via {
+            viaPoint = JourneyRequestLocation(coordinate: via.coordinate)
+        }
+        
+        var time: Date? = nil
+        var timeIsDeparture = false
+        switch self.journeyTime {
+        case .arriveAt(let date):
+            time = date
+        case .leaveAt(let date):
+            time = date
+            timeIsDeparture = true
+        default:
+            time = nil
+        }
+    
+        
+        do {
+            let request = JourneyRequest(startPoint: startPoint, endPoint: endPoint, viaLocation: viaPoint, journeyTime: time, journeyTimeIsDeparture: timeIsDeparture, preferenceMode: nil, accessibilityPreferences: nil)
+            let response = try await JourneyService.JourneyOptions(request)
+            await MainActor.run {
+                self.journeyResult = response
+            }
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+        
+        
+        
+        self.isSearchingJourneys = false
     }
 }

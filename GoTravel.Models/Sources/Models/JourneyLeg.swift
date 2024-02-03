@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents a 'step' of a journey, i.e. travelling from one place to another by a specified mode
-public struct JourneyLeg {
+public struct JourneyLeg: Codable {
     
     /// The time this leg begins
     public let beginLegAt: Date

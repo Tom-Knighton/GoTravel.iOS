@@ -17,35 +17,22 @@ public struct JourneyPlannerPage: View {
     public var body: some View {
         ZStack {
             Color.layer1.ignoresSafeArea()
-            
             ScrollView {
-                
-                Text("Plan a trip:")
-                    .font(.title3.bold())
-                    .fontDesign(.rounded)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
-                HStack {
-                    VStack {
-                        LocationField(promptText: "From:", imageName: "location.magnifyingglass", type: .from, point: viewModel.from)
-                        LocationField(promptText: "To:", imageName: "location.magnifyingglass", type: .to, point: viewModel.to)
-                    }
+                VStack {
+                    Text("Plan a trip:")
+                        .font(.title3.bold())
+                        .fontDesign(.rounded)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    VStack {
-                        Button(action: {}) {
-                            Image(systemName: "arrow.up.arrow.down")
-                                .resizable()
-                                .frame(width: 15, height: 15)
-                                .fontWeight(.bold)
-                                .fontDesign(.rounded)
-                                .foregroundStyle(.white)
-                                .clipShape(.rect(cornerRadius: 10))
+                    HStack {
+                        VStack {
+                            LocationField(promptText: "From:", imageName: "location.magnifyingglass", type: .from, point: viewModel.from)
+                            LocationField(promptText: "To:", imageName: "location.magnifyingglass", type: .to, point: viewModel.to)
                         }
-                        .buttonStyle(.borderedProminent)
                         
-                        if !viewModel.showViaField {
-                            Button(action: { withAnimation { viewModel.showViaField = true } }) {
-                                Image(systemName: "plus")
+                        VStack {
+                            Button(action: {}) {
+                                Image(systemName: "arrow.up.arrow.down")
                                     .resizable()
                                     .frame(width: 15, height: 15)
                                     .fontWeight(.bold)
@@ -54,59 +41,84 @@ public struct JourneyPlannerPage: View {
                                     .clipShape(.rect(cornerRadius: 10))
                             }
                             .buttonStyle(.borderedProminent)
-                            .transition(.slide.combined(with: .opacity))
+                            
+                            if !viewModel.showViaField {
+                                Button(action: { withAnimation { viewModel.showViaField = true } }) {
+                                    Image(systemName: "plus")
+                                        .resizable()
+                                        .frame(width: 15, height: 15)
+                                        .fontWeight(.bold)
+                                        .fontDesign(.rounded)
+                                        .foregroundStyle(.white)
+                                        .clipShape(.rect(cornerRadius: 10))
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .transition(.slide.combined(with: .opacity))
+                            }
+                            
                         }
-                        
-                    }
-                    .frame(width: 40)
-                }
-                
-                if viewModel.showViaField {
-                    HStack {
-                        LocationField(promptText: "Via:", imageName: "location.magnifyingglass", type: .via, point: viewModel.via)
-                        Button(action: { withAnimation { viewModel.showViaField = false } }) {
-                            Image(systemName: "minus")
-                                .fontWeight(.bold)
-                                .fontDesign(.rounded)
-                                .foregroundStyle(.white)
-                                .clipShape(.rect(cornerRadius: 10))
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .tint(Color.red)
-                        .transition(.slide.combined(with: .opacity))
                         .frame(width: 40)
                     }
-                }
-                
-                
-                HStack {
-                    Button(action: { self.showTimeSheet = true }) {
+                    
+                    if viewModel.showViaField {
                         HStack {
-                            Image(systemName: "clock.fill")
-                            Text(getTimeToDisplay())
+                            LocationField(promptText: "Via:", imageName: "location.magnifyingglass", type: .via, point: viewModel.via)
+                            Button(action: { withAnimation { viewModel.showViaField = false } }) {
+                                Image(systemName: "minus")
+                                    .fontWeight(.bold)
+                                    .fontDesign(.rounded)
+                                    .foregroundStyle(.white)
+                                    .clipShape(.rect(cornerRadius: 10))
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .tint(Color.red)
+                            .transition(.slide.combined(with: .opacity))
+                            .frame(width: 40)
+                        }
+                    }
+                    
+                    
+                    HStack {
+                        Button(action: { self.showTimeSheet = true }) {
+                            HStack {
+                                Image(systemName: "clock.fill")
+                                Text(getTimeToDisplay())
+                                    .fontWeight(.bold)
+                                    .fontDesign(.rounded)
+                                    .frame(maxWidth: .infinity)
+                            }
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(Color.layer2)
+                        .foregroundStyle(.primary)
+                    }
+                    HStack {
+                        Button(action: {
+                            Task {
+                                await self.viewModel.planJourney()
+                            }
+                        }) {
+                            Text("Plan Journey")
                                 .fontWeight(.bold)
                                 .fontDesign(.rounded)
                                 .frame(maxWidth: .infinity)
+                                .padding(.vertical, 4)
                         }
+                        .buttonStyle(.borderedProminent)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(Color.layer2)
-                    .foregroundStyle(.primary)
-                }
-                HStack {
-                    Button(action: {}) {
-                        Text("Plan Journey")
-                            .fontWeight(.bold)
-                            .fontDesign(.rounded)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 4)
+                    
+                    Spacer()
+                    
+                    if viewModel.isSearchingJourneys {
+                        ContentUnavailableView("Searching", systemImage: Icons.location_magnifyingglass,  description: Text("Searching for possible journeys"))
                     }
-                    .buttonStyle(.borderedProminent)
+                    if let result = viewModel.journeyResult {
+                        JourneyResultsView(result: result)
+                    }
+                    
                 }
-                
-                Spacer()
+                .padding(.horizontal, 16)
             }
-            .contentMargins(16)
         }
         .navigationTitle("Journeys")
         .toolbar {

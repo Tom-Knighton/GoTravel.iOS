@@ -8,7 +8,7 @@
 import Foundation
 
 /// A specific step/instruction in a journey leg
-public struct JourneyLegStep {
+public struct JourneyLegStep: Codable {
     
     /// A summary of this step i.e. 'Continue along...'
     public let summary: String

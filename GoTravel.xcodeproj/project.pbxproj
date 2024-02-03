@@ -15,6 +15,7 @@
 		E23027AF2B6D41D400DC1D54 /* JourneyTimeSelectSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027AE2B6D41D400DC1D54 /* JourneyTimeSelectSheet.swift */; };
 		E23027B12B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B02B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift */; };
 		E23027B32B6D445200DC1D54 /* JourneyResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B22B6D445200DC1D54 /* JourneyResultsView.swift */; };
+		E23027B52B6D534C00DC1D54 /* Journey+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B42B6D534C00DC1D54 /* Journey+GoTravel.swift */; };
 		E2438F1E2B25D82B00BBF345 /* Accessibility+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */; };
 		E2438F202B26195100BBF345 /* AccessibilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */; };
 		E25572082B33B28200988348 /* MapSearchSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572072B33B28200988348 /* MapSearchSheetView.swift */; };
@@ -117,6 +118,7 @@
 		E23027AE2B6D41D400DC1D54 /* JourneyTimeSelectSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyTimeSelectSheet.swift; sourceTree = "<group>"; };
 		E23027B02B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyLocationSearchSheet.swift; sourceTree = "<group>"; };
 		E23027B22B6D445200DC1D54 /* JourneyResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyResultsView.swift; sourceTree = "<group>"; };
+		E23027B42B6D534C00DC1D54 /* Journey+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journey+GoTravel.swift"; sourceTree = "<group>"; };
 		E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Accessibility+GoTravel.swift"; sourceTree = "<group>"; };
 		E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityHelper.swift; sourceTree = "<group>"; };
 		E25572072B33B28200988348 /* MapSearchSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchSheetView.swift; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 				E2BF5D722AD3629500261261 /* LineMode+GoTravel.swift */,
 				E28DC2C42B210E5500E2FECE /* LineMode+Cache.swift */,
 				E22DBC3C2B5B227800276034 /* PlatformArrivals+GoTravel.swift */,
+				E23027B42B6D534C00DC1D54 /* Journey+GoTravel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -689,6 +692,7 @@
 				E2BF5D752AD3634700261261 /* Color+GoTravel.swift in Sources */,
 				E269C7682B5DE6DC00C78BCE /* StopPointInfoView.swift in Sources */,
 				E25572412B33BAB900988348 /* BottomSheet+AppleScrollBehavior.swift in Sources */,
+				E23027B52B6D534C00DC1D54 /* Journey+GoTravel.swift in Sources */,
 				E2E511A52B59ADDB003BE56E /* LineModesView.swift in Sources */,
 				E25572482B33BAB900988348 /* BottomSheet+DragGesture.swift in Sources */,
 				E22DBC3D2B5B227800276034 /* PlatformArrivals+GoTravel.swift in Sources */,

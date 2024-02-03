@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents a series of journey options for a requested journey, and the line modes used in those journeys
-public struct JourneyOptionsResult {
+public struct JourneyOptionsResult: Codable {
     
     /// All the line modes and relevant lines from the possible journey options
     public let lineModes: [LineMode]

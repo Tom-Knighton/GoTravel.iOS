@@ -8,7 +8,7 @@
 import Foundation
 
 /// Details about a specific leg of a journey option
-public struct JourneyLegDetails {
+public struct JourneyLegDetails: Codable {
     
     /// The summary of the leg, i.e. 'Bus to Stop X'
     public let summary: String

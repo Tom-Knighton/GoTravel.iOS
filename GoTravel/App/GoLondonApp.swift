@@ -24,7 +24,10 @@ struct GoTravelApp: App {
 
         
         appData.appSessions += 1
-        print(appData.appSessions)
+        
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithDefaultBackground()
+        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
     }
     
     var body: some Scene {
