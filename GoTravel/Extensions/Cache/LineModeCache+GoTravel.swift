@@ -12,7 +12,7 @@ import GoTravel_CoreData
 extension LineModeCache {
     
     convenience init(lineMode: LineMode) {
-        self.init(lineMode: lineMode.lineModeName, primaryAreaName: lineMode.primaryAreaName, branding: .init(branding: lineMode.branding), flags: lineMode.flags)
+        self.init(lineModeId: lineMode.lineModeId, lineMode: lineMode.lineModeName, primaryAreaName: lineMode.primaryAreaName, branding: .init(branding: lineMode.branding), flags: lineMode.flags)
     }
     
     public func toLineMode() -> LineMode {

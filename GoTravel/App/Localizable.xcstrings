@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     " " : {
 
     },
@@ -255,6 +258,516 @@
         }
       }
     },
+    "Journey:Accessibility:EmptyFromLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "From location"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:EmptyToLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To Location"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:EmptyViaLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Via Location"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:FromHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose where to begin your journey"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:HideViaHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hides the optional 'via' field from the view"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:HideViaLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hide Via Field"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:JourneyModesLabel:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Travel by %@"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:JourneyOptionLabel:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Journey Option %lld"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:LocationsUpdatesMsg" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search results updated"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:PlanHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plans a journey with the options selected"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:PlanTripHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan a trip using the options below"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:ShowViaHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shows the optional 'via' field from the view, and won't take it into account when planning a journey"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:ShowViaLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shows Via Field"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:SwapHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Swaps the from and to locations in the view"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:SwapLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Swap journey locations"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:TimeHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opens a sheet to change the time the journey should start from"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:ToHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose where to end your journey"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:ViaHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optionally choose where to travel through on your journey"
+          }
+        }
+      }
+    },
+    "JourneyPage:ArriveBy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrive by:"
+          }
+        }
+      }
+    },
+    "JourneyPage:ArriveBy:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrive by %@"
+          }
+        }
+      }
+    },
+    "JourneyPage:Cycle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cycle"
+          }
+        }
+      }
+    },
+    "JourneyPage:FastestJourney" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fastest Journey"
+          }
+        }
+      }
+    },
+    "JourneyPage:FromPrompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "From:"
+          }
+        }
+      }
+    },
+    "JourneyPage:Journey" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Journey"
+          }
+        }
+      }
+    },
+    "JourneyPage:LeaveAt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leave at:"
+          }
+        }
+      }
+    },
+    "JourneyPage:LeaveAt:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leave at %@"
+          }
+        }
+      }
+    },
+    "JourneyPage:LeaveNow" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leave Now"
+          }
+        }
+      }
+    },
+    "JourneyPage:LeaveWithin:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leave within %lld mins"
+          }
+        }
+      }
+    },
+    "JourneyPage:Mins:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld mins"
+          }
+        }
+      }
+    },
+    "JourneyPage:MyLocation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Location"
+          }
+        }
+      }
+    },
+    "JourneyPage:Now" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Now"
+          }
+        }
+      }
+    },
+    "JourneyPage:PlanATrip" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan a trip:"
+          }
+        }
+      }
+    },
+    "JourneyPage:PlanButton" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan Journey"
+          }
+        }
+      }
+    },
+    "JourneyPage:ReplacementBus" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Replacement Bus"
+          }
+        }
+      }
+    },
+    "JourneyPage:Search:BeginJourneyDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for stops"
+          }
+        }
+      }
+    },
+    "JourneyPage:Search:BeginJourneyTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose where to start your journey"
+          }
+        }
+      }
+    },
+    "JourneyPage:Search:ChooseEnd" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Journey End:"
+          }
+        }
+      }
+    },
+    "JourneyPage:Search:ChooseStart" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Journey Start:"
+          }
+        }
+      }
+    },
+    "JourneyPage:Search:ChooseVia" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Via:"
+          }
+        }
+      }
+    },
+    "JourneyPage:Search:EndJourneyDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a stop above"
+          }
+        }
+      }
+    },
+    "JourneyPage:Search:EndJourneyTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose where to end your journey"
+          }
+        }
+      }
+    },
+    "JourneyPage:Search:NoResultsDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We couldn't find any stops by that name :("
+          }
+        }
+      }
+    },
+    "JourneyPage:Search:NoResultsTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No results"
+          }
+        }
+      }
+    },
+    "JourneyPage:Search:ViaJourneyDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for a stop to travel through on your journey"
+          }
+        }
+      }
+    },
+    "JourneyPage:Search:ViaJourneyTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose where to travel through"
+          }
+        }
+      }
+    },
+    "JourneyPage:Searching" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Searching for stops..."
+          }
+        }
+      }
+    },
+    "JourneyPage:Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Journeys"
+          }
+        }
+      }
+    },
+    "JourneyPage:Tomorrow" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tomorrow"
+          }
+        }
+      }
+    },
+    "JourneyPage:ToPrompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To:"
+          }
+        }
+      }
+    },
+    "JourneyPage:ViaPrompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Via:"
+          }
+        }
+      }
+    },
+    "JourneyPage:WalkIfCan" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Walk if possible"
+          }
+        }
+      }
+    },
     "Map:Distance:%@:%@" : {
       "localizations" : {
         "en" : {
@@ -419,6 +932,36 @@
         }
       }
     },
+    "Misc:Results" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Results:"
+          }
+        }
+      }
+    },
+    "Misc:Searching..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Searching..."
+          }
+        }
+      }
+    },
+    "Misc:TapSeeMore" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to see more information"
+          }
+        }
+      }
+    },
     "Misc:ThenLower" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -426,6 +969,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "then"
+          }
+        }
+      }
+    },
+    "Navigation:JourneyTab" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Journey"
           }
         }
       }

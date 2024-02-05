@@ -12,6 +12,7 @@ public struct Strings {
     
     public struct Navigation {
         public static let MapTab: LocalizedStringKey = "Navigation:MapTab"
+        public static let JourneyTab: LocalizedStringKey = "Navigation:JourneyTab"
     }
     
     public struct Map {
@@ -67,18 +68,125 @@ public struct Strings {
 
     }
     
+    public struct JourneyPage {
+        
+        public static let Title: LocalizedStringKey = "JourneyPage:Title"
+        public static let PlanATrip: LocalizedStringKey = "JourneyPage:PlanATrip"
+        
+        public static let FromPrompt: LocalizedStringKey = "JourneyPage:FromPrompt"
+        public static let ToPrompt: LocalizedStringKey = "JourneyPage:ToPrompt"
+        public static let ViaPrompt: LocalizedStringKey = "JourneyPage:ViaPrompt"
+        
+        public static let PlanJourneyButton: LocalizedStringKey = "JourneyPage:PlanButton"
+        
+        public static let ChooseStart: LocalizedStringKey = "JourneyPage:Search:ChooseStart"
+        public static let ChooseEnd: LocalizedStringKey = "JourneyPage:Search:ChooseEnd"
+        public static let ChooseVia: LocalizedStringKey = "JourneyPage:Search:ChooseVia"
+        
+        public static let Searching: LocalizedStringKey = "JourneyPage:Searching"
+        public static let SearchNoResultsTitle: LocalizedStringKey = "JourneyPage:Search:NoResultsTitle"
+        public static let SearchNoResultsDescription: LocalizedStringKey = "JourneyPage:Search:NoResultsDescription"
+        
+        public static let SearchBeginTitle: LocalizedStringKey = "JourneyPage:Search:BeginJourneyTitle"
+        public static let SearchBeginDescription: LocalizedStringKey = "JourneyPage:Search:BeginJourneyDescription"
+        public static let SearchEndTitle: LocalizedStringKey = "JourneyPage:Search:EndJourneyTitle"
+        public static let SearchEndDescription: LocalizedStringKey = "JourneyPage:Search:EndJourneyDescription"
+        public static let SearchViaTitle: LocalizedStringKey = "JourneyPage:Search:ViaJourneyTitle"
+        public static let SearchViaDescription: LocalizedStringKey = "JourneyPage:Search:ViaJourneyDescription"
+        
+        public static let ReplacementBus: LocalizedStringKey = "JourneyPage:ReplacementBus"
+        
+        public static let FastestJourney: LocalizedStringKey = "JourneyPage:FastestJourney"
+        public static let Journey: LocalizedStringKey = "JourneyPage:Journey"
+        public static let Cycle: LocalizedStringKey = "JourneyPage:Cycle"
+        public static let WalkIfCan: LocalizedStringKey = "JourneyPage:WalkIfCan"
+        
+        public static let Now: LocalizedStringKey = "JourneyPage:Now"
+        public static let Tomorrow: LocalizedStringKey = "JourneyPage:Tomorrow"
+        
+        public static let ArriveBy: LocalizedStringKey = "JourneyPage:ArriveBy"
+        public static func ArriveBy(_ value: String) -> LocalizedStringKey {
+            LocalizedStringKey("JourneyPage:ArriveBy:\(value)")
+        }
+        
+        public static let LeaveAt: LocalizedStringKey = "JourneyPage:LeaveAt"
+        public static func LeaveAt(_ value: String) -> LocalizedStringKey {
+            LocalizedStringKey("JourneyPage:LeaveAt:\(value)")
+        }
+        
+        public static let MyLocation: LocalizedStringKey = "JourneyPage:MyLocation"
+        
+        public static func Mins(_ mins: Int) -> LocalizedStringKey {
+            LocalizedStringKey("JourneyPage:Mins:\(mins)")
+        }
+        
+        public static let LeaveNow: LocalizedStringKey = "JourneyPage:LeaveNow"
+        public static func LeaveWithin(_ mins: Int) ->  LocalizedStringKey {
+            LocalizedStringKey("JourneyPage:LeaveWithin:\(mins)")
+        }
+        
+        public struct Accessibility {
+            
+            public static let EmptyFromLabel: LocalizedStringKey = "Journey:Accessibility:EmptyFromLabel"
+            public static let FromHint: LocalizedStringKey = "Journey:Accessibility:FromHint"
+            public static let EmptyToLabel: LocalizedStringKey = "Journey:Accessibility:EmptyToLabel"
+            public static let ToHint: LocalizedStringKey = "Journey:Accessibility:ToHint"
+            public static let EmptyViaLabel: LocalizedStringKey = "Journey:Accessibility:EmptyViaLabel"
+            public static let ViaHint: LocalizedStringKey = "Journey:Accessibility:ViaHint"
+            
+            public static func ToLabel(_ value: String) -> LocalizedStringKey {
+                .init("Journey:Accessibility:ToLabel:\(value)")
+            }
+            public static func FromLabel(_ value: String) -> LocalizedStringKey {
+                .init("Journey:Accessibility:FromLabel:\(value)")
+            }
+            public static func ViaLabel(_ value: String) -> LocalizedStringKey {
+                .init("Journey:Accessibility:ViaLabel:\(value)")
+            }
+            
+            public static let PlanTripHint: LocalizedStringKey = "Journey:Accessibility:PlanTripHint"
+            
+            public static let SwapLabel: LocalizedStringKey = "Journey:Accessibility:SwapLabel"
+            public static let SwapHint: LocalizedStringKey = "Journey:Accessibility:SwapHint"
+            public static let ShowViaLabel: LocalizedStringKey = "Journey:Accessibility:ShowViaLabel"
+            public static let ShowViaHint: LocalizedStringKey = "Journey:Accessibility:ShowViaHint"
+            public static let HideViaLabel: LocalizedStringKey = "Journey:Accessibility:HideViaLabel"
+            public static let HideViaHint: LocalizedStringKey = "Journey:Accessibility:HideViaHint"
+            
+            public static let TimeHint: LocalizedStringKey = "Journey:Accessibility:TimeHint"
+            public static let PlanHint: LocalizedStringKey = "Journey:Accessibility:PlanHint"
+            
+            public static let LocationsUpdatedMsg: LocalizedStringKey = "Journey:Accessibility:LocationsUpdatesMsg"
+            
+            public static func JourneyOptionLabel(_ option: Int) -> LocalizedStringKey {
+                LocalizedStringKey("Journey:Accessibility:JourneyOptionLabel:\(option)")
+            }
+            
+            public static func JourneyModesLabel(_ modes: String) -> LocalizedStringKey {
+                LocalizedStringKey("Journey:Accessibility:JourneyModesLabel:\(modes)")
+            }
+        }
+    }
+    
     public struct Misc {
+        public static let Searching: LocalizedStringKey = "Misc:Searching..."
         public static let Loading: LocalizedStringKey = "Misc:Loading..."
         public static let And: LocalizedStringKey = "Misc:And"
         public static let OxfordComma: LocalizedStringKey = "Misc:OxfordComma"
         public static let ThenLower: LocalizedStringKey = "Misc:ThenLower"
         public static let Ok: LocalizedStringKey = "Misc:Ok"
+        public static let Results: LocalizedStringKey = "Misc:Results"
+        public static let TapToSeeMore: LocalizedStringKey = "Misc:TapSeeMore"
     }
     
     public struct Errors {
         public static let NoLineModesAPI: LocalizedStringKey = "Errors:NoLineModesFromAPI"
         public static let NoLineModesAPIDescription: LocalizedStringKey = "Errors:NoLineModesFromAPI:Description"
         public static let StopFailedLoad: LocalizedStringKey = "Errors:StopFailedLoading"
+    }
+    
+    public struct Assets {
+        public static let BusLoading = "BusLoading"
     }
     
     public struct Accessibility {
@@ -141,8 +249,11 @@ public struct Icons {
     public static let arrow_right: String = "arrow.right"
     public static let arrow_up: String = "arrow.up"
     public static let arrow_down: String = "arrow.down"
+    public static let arrowUpAndDown: String = "arrow.up.arrow.down"
     public static let arrow_clockwise: String = "arrow.clockwise"
+    public static let arrowRightCircle = "arrow.triangle.turn.up.right.circle.fill"
     public static let location_slash = "location.slash"
+    public static let locationFill = "location.fill"
     public static let cross_circle_fill = "xmark.circle.fill"
     public static let cross = "xmark"
     public static let check = "checkmark"
@@ -150,6 +261,7 @@ public struct Icons {
     public static let family = "figure.and.child.holdinghands"
     public static let map = "map"
     public static let map_circle = "map.circle.fill"
+    public static let mapPinSlashed = "mappin.slash"
     public static let bike = "bicycle"
     public static let bike_circle = "bicycle.circle"
     public static let bike_circle_fill = "bicycle.circle.fill"
@@ -160,4 +272,9 @@ public struct Icons {
     public static let filter = "line.3.horizontal.decrease.circle"
     public static let info = "info"
     public static let info_circle = "info.circle"
+    public static let add = "plus"
+    public static let minus = "minus"
+    public static let clockFilled = "clock.fill"
+    public static let walk = "figure.walk"
+    public static let signPostFilled = "signpost.right.and.left.fill"
 }

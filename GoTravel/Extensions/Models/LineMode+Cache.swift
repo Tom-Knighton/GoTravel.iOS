@@ -12,7 +12,7 @@ import GoTravel_CoreData
 extension LineMode {
     
     public init(cache: LineModeCache) {
-        self.init(lineModeName: cache.lineMode, lines: [], primaryAreaName: cache.primaryAreaName, branding: .init(cache: cache.branding), flags: cache.flags)
+        self.init(lineModeId: cache.lineModeId, lineModeName: cache.lineMode, lines: [], primaryAreaName: cache.primaryAreaName, branding: .init(cache: cache.branding), flags: cache.flags)
     }
 }
 

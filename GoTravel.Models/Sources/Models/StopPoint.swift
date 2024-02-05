@@ -27,6 +27,18 @@ public enum StopPoint: Decodable {
     enum CodingKeys: String, CodingKey {
         case stopPointType
     }
+    
+    public init(from stop: StopPointBase) throws {
+        if let train = stop as? TrainStopPoint {
+            self = .train(train)
+        } else if let bus = stop as? BusStopPoint {
+            self = .bus(bus)
+        } else if let bike = stop as? BikeStopPoint {
+            self = .bike(bike)
+        }
+        
+        throw DecodingError.typeMismatch(StopPoint.self, .init(codingPath: [CodingKeys.stopPointType], debugDescription: "Invalid stop point type"))
+    }
         
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)

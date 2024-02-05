@@ -56,8 +56,6 @@ public struct MapSheetSearchResults: View {
                             }
                     }
                 }
-                .padding(.horizontal, 12)
-                .padding(.bottom, 12)
             }
             .onChange(of: self.scrollToId) { _, newValue in
                 if let newValue {
