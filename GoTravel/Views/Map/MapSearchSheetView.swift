@@ -57,6 +57,7 @@ public struct MapSheetSearchResults: View {
                     }
                 }
             }
+            .contentMargins(16)
             .onChange(of: self.scrollToId) { _, newValue in
                 if let newValue {
                     withAnimation {
