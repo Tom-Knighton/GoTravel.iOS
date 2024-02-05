@@ -11,10 +11,27 @@ import DotLottie
 
 public struct JourneyPlannerPage: View {
     
-    @State private var viewModel = JourneyPlannerViewModel()
+    @State private var viewModel: JourneyPlannerViewModel
     @State private var showSearchSheetType: JourneyStopSearchType? = nil
     @State private var showTimeSheet: Bool = false
     @State private var showOptionsSheet: Bool = false
+    
+    
+    init(preSetDestination: JourneyRequestPoint? = nil) {
+        let viewModel = JourneyPlannerViewModel()
+        if let preSetDestination {
+            viewModel.to = preSetDestination
+            
+            if let location = LocationManager.shared.manager.location {
+                viewModel.from = .init(displayName: Strings.JourneyPage.MyLocation.toString(), coordinate: location.coordinate)
+                Task {
+                    await viewModel.planJourney()
+                }
+            }
+        }
+        
+        self._viewModel = State(wrappedValue: viewModel)
+    }
 
     public var body: some View {
         ZStack {

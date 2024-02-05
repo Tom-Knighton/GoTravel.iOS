@@ -23,6 +23,9 @@ struct ContentView: View {
                     .navigationDestination(for: StopPointNavModel.self) { nav in
                         StopPointPage(stopId: nav.stopPointId)
                     }
+                    .navigationDestination(for: QuickJourneyNavModel.self) { nav in
+                        JourneyPlannerPage(preSetDestination: nav.destination)
+                    }
             }
             .tag(0)
             .tabItem {
@@ -33,6 +36,9 @@ struct ContentView: View {
                 JourneyPlannerPage()
                     .navigationDestination(for: StopPointNavModel.self) { nav in
                         StopPointPage(stopId: nav.stopPointId)
+                    }
+                    .navigationDestination(for: QuickJourneyNavModel.self) { nav in
+                        JourneyPlannerPage(preSetDestination: nav.destination)
                     }
             }
             .tag(1)

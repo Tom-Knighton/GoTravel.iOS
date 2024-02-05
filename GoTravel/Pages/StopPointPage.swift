@@ -55,7 +55,7 @@ public struct StopPointPage: View {
                 .accessibilityLabel(Strings.Accessibility.MapShowsStopLabel)
                 .accessibilityElement(children: .combine)
             
-            Button(action: {}) {
+            Button(action: { GlobalViewModel.shared.addToCurrentNavStack(QuickJourneyNavModel(destination: .init(displayName: stopPoint.stopPoint.stopPointName, coordinate: stopPoint.stopPoint.stopPointCoordinate.coordinates))) }) {
                 Text(Strings.StopPage.GetDirectionsButton)
                     .fontDesign(.rounded)
                     .bold()
