@@ -53,6 +53,7 @@ public class JourneyPlannerViewModel {
         await MainActor.run {
             self.searchResults = results?.reversed() ?? []
             self.isSearching = false
+//            AccessibilityHelper.postMessage(Strings.JourneyPage.Accessibility.LocationsUpdatedMsg.toString(), messageType: .announcement)
         }
     }
     

@@ -258,6 +258,186 @@
         }
       }
     },
+    "Journey:Accessibility:EmptyFromLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "From location"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:EmptyToLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To Location"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:EmptyViaLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Via Location"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:FromHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose where to begin your journey"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:HideViaHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hides the optional 'via' field from the view"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:HideViaLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hide Via Field"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:JourneyModesLabel:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Travel by %@"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:JourneyOptionLabel:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Journey Option %lld"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:LocationsUpdatesMsg" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search results updated"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:PlanHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plans a journey with the options selected"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:PlanTripHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan a trip using the options below"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:ShowViaHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shows the optional 'via' field from the view, and won't take it into account when planning a journey"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:ShowViaLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shows Via Field"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:SwapHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Swaps the from and to locations in the view"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:SwapLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Swap journey locations"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:TimeHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opens a sheet to change the time the journey should start from"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:ToHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose where to end your journey"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:ViaHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optionally choose where to travel through on your journey"
+          }
+        }
+      }
+    },
     "JourneyPage:ArriveBy" : {
       "localizations" : {
         "en" : {
@@ -353,7 +533,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Leave within %lld"
+            "value" : "Leave within %lld mins"
           }
         }
       }
@@ -768,6 +948,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Searching..."
+          }
+        }
+      }
+    },
+    "Misc:TapSeeMore" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to see more information"
           }
         }
       }

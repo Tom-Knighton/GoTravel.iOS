@@ -124,6 +124,48 @@ public struct Strings {
         public static func LeaveWithin(_ mins: Int) ->  LocalizedStringKey {
             LocalizedStringKey("JourneyPage:LeaveWithin:\(mins)")
         }
+        
+        public struct Accessibility {
+            
+            public static let EmptyFromLabel: LocalizedStringKey = "Journey:Accessibility:EmptyFromLabel"
+            public static let FromHint: LocalizedStringKey = "Journey:Accessibility:FromHint"
+            public static let EmptyToLabel: LocalizedStringKey = "Journey:Accessibility:EmptyToLabel"
+            public static let ToHint: LocalizedStringKey = "Journey:Accessibility:ToHint"
+            public static let EmptyViaLabel: LocalizedStringKey = "Journey:Accessibility:EmptyViaLabel"
+            public static let ViaHint: LocalizedStringKey = "Journey:Accessibility:ViaHint"
+            
+            public static func ToLabel(_ value: String) -> LocalizedStringKey {
+                .init("Journey:Accessibility:ToLabel:\(value)")
+            }
+            public static func FromLabel(_ value: String) -> LocalizedStringKey {
+                .init("Journey:Accessibility:FromLabel:\(value)")
+            }
+            public static func ViaLabel(_ value: String) -> LocalizedStringKey {
+                .init("Journey:Accessibility:ViaLabel:\(value)")
+            }
+            
+            public static let PlanTripHint: LocalizedStringKey = "Journey:Accessibility:PlanTripHint"
+            
+            public static let SwapLabel: LocalizedStringKey = "Journey:Accessibility:SwapLabel"
+            public static let SwapHint: LocalizedStringKey = "Journey:Accessibility:SwapHint"
+            public static let ShowViaLabel: LocalizedStringKey = "Journey:Accessibility:ShowViaLabel"
+            public static let ShowViaHint: LocalizedStringKey = "Journey:Accessibility:ShowViaHint"
+            public static let HideViaLabel: LocalizedStringKey = "Journey:Accessibility:HideViaLabel"
+            public static let HideViaHint: LocalizedStringKey = "Journey:Accessibility:HideViaHint"
+            
+            public static let TimeHint: LocalizedStringKey = "Journey:Accessibility:TimeHint"
+            public static let PlanHint: LocalizedStringKey = "Journey:Accessibility:PlanHint"
+            
+            public static let LocationsUpdatedMsg: LocalizedStringKey = "Journey:Accessibility:LocationsUpdatesMsg"
+            
+            public static func JourneyOptionLabel(_ option: Int) -> LocalizedStringKey {
+                LocalizedStringKey("Journey:Accessibility:JourneyOptionLabel:\(option)")
+            }
+            
+            public static func JourneyModesLabel(_ modes: String) -> LocalizedStringKey {
+                LocalizedStringKey("Journey:Accessibility:JourneyModesLabel:\(modes)")
+            }
+        }
     }
     
     public struct Misc {
@@ -134,6 +176,7 @@ public struct Strings {
         public static let ThenLower: LocalizedStringKey = "Misc:ThenLower"
         public static let Ok: LocalizedStringKey = "Misc:Ok"
         public static let Results: LocalizedStringKey = "Misc:Results"
+        public static let TapToSeeMore: LocalizedStringKey = "Misc:TapSeeMore"
     }
     
     public struct Errors {
@@ -208,6 +251,7 @@ public struct Icons {
     public static let arrow_down: String = "arrow.down"
     public static let arrowUpAndDown: String = "arrow.up.arrow.down"
     public static let arrow_clockwise: String = "arrow.clockwise"
+    public static let arrowRightCircle = "arrow.triangle.turn.up.right.circle.fill"
     public static let location_slash = "location.slash"
     public static let locationFill = "location.fill"
     public static let cross_circle_fill = "xmark.circle.fill"
@@ -232,4 +276,5 @@ public struct Icons {
     public static let minus = "minus"
     public static let clockFilled = "clock.fill"
     public static let walk = "figure.walk"
+    public static let signPostFilled = "signpost.right.and.left.fill"
 }

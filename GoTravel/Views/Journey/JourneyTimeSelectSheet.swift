@@ -9,7 +9,9 @@ import SwiftUI
 
 public struct JourneyTimeSelectSheet: View {
     
+    @Environment(\.dismiss) private var dismiss
     @Environment(JourneyPlannerViewModel.self) private var viewModel
+    @Environment(\.accessibilityVoiceOverEnabled) private var voiceOverEnabled
     @State private var pickerMode: Int = 0
     @State private var selectedDate: Date = Date()
     
@@ -17,6 +19,17 @@ public struct JourneyTimeSelectSheet: View {
         ZStack {
             Color.layer3.ignoresSafeArea()
             VStack {
+                
+                if voiceOverEnabled {
+                    Spacer().frame(height: 16)
+                    HStack {
+                        Spacer()
+                        Button(action: { self.dismiss() }) {
+                            ExitButtonView()
+                        }
+                    }
+                }
+                
                 Spacer().frame(height: 16)
                 Picker("", selection: $pickerMode) {
                     Text(Strings.JourneyPage.Now).tag(0)

@@ -17,6 +17,8 @@ public struct JourneyLocationSearchSheet: View {
     
     @Environment(LocationManager.self) private var location
     @Environment(JourneyPlannerViewModel.self) private var vm
+    @Environment(\.accessibilityVoiceOverEnabled) private var voiceOverEnabled
+    @Environment(\.dismiss) private var dismiss
     @State private var text: String = ""
     @FocusState private var isFocused: Bool
     let searchTextPublisher = PassthroughSubject<String, Never>()
@@ -30,6 +32,15 @@ public struct JourneyLocationSearchSheet: View {
         ZStack {
             Color.layer1.ignoresSafeArea()
             ScrollView {
+                if voiceOverEnabled {
+                    Spacer().frame(height: 16)
+                    HStack {
+                        Spacer()
+                        Button(action: { self.dismiss() }) {
+                            ExitButtonView()
+                        }
+                    }
+                }
                 Spacer().frame(height: 8)
                 Text(getTitle())
                     .font(.title3.bold())
@@ -60,7 +71,7 @@ public struct JourneyLocationSearchSheet: View {
                 }
                 
                 
-                if self.text.count == 0 {
+                if self.text.count < 3 {
                     ContentUnavailableView(getSearchTitle(), systemImage: Icons.location_magnifyingglass, description: Text(getSearchDescription()))
                 } else {
                     if vm.isSearching {
@@ -89,7 +100,7 @@ public struct JourneyLocationSearchSheet: View {
         }
         .onChange(of: self.text, { _, newValue in
             self.searchTextPublisher.send(newValue)
-            if newValue.count > 0 {
+            if newValue.count > 3 {
                 self.vm.isSearching = true
             }
         })

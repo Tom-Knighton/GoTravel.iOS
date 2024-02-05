@@ -24,11 +24,19 @@ public struct JourneyPlannerPage: View {
                         .font(.title3.bold())
                         .fontDesign(.rounded)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .accessibilityAddTraits(.isHeader)
+                        .accessibilityHint(Strings.JourneyPage.Accessibility.PlanTripHint)
                     
                     HStack {
                         VStack {
-                            LocationField(promptText: Strings.JourneyPage.FromPrompt, imageName: Icons.location_magnifyingglass, type: .from, point: viewModel.from)
-                            LocationField(promptText: Strings.JourneyPage.ToPrompt, imageName: Icons.location_magnifyingglass, type: .to, point: viewModel.to)
+                            SearchLocationField(promptText: Strings.JourneyPage.FromPrompt, imageName: Icons.location_magnifyingglass, type: .from, point: viewModel.from)
+                                .onTapGesture {
+                                    self.showSearchSheetType = .from
+                                }
+                            SearchLocationField(promptText: Strings.JourneyPage.ToPrompt, imageName: Icons.location_magnifyingglass, type: .to, point: viewModel.to)
+                                .onTapGesture {
+                                    self.showSearchSheetType = .to
+                                }
                         }
                         
                         VStack {
@@ -42,6 +50,8 @@ public struct JourneyPlannerPage: View {
                                     .clipShape(.rect(cornerRadius: 10))
                             }
                             .buttonStyle(.borderedProminent)
+                            .accessibilityLabel(Strings.JourneyPage.Accessibility.SwapLabel)
+                            .accessibilityHint(Strings.JourneyPage.Accessibility.SwapHint)
                             
                             if !viewModel.showViaField {
                                 Button(action: { withAnimation { viewModel.showViaField = true } }) {
@@ -55,6 +65,8 @@ public struct JourneyPlannerPage: View {
                                 }
                                 .buttonStyle(.borderedProminent)
                                 .transition(.slide.combined(with: .opacity))
+                                .accessibilityLabel(Strings.JourneyPage.Accessibility.ShowViaLabel)
+                                .accessibilityHint(Strings.JourneyPage.Accessibility.ShowViaHint)
                             }
                             
                         }
@@ -63,7 +75,10 @@ public struct JourneyPlannerPage: View {
                     
                     if viewModel.showViaField {
                         HStack {
-                            LocationField(promptText: Strings.JourneyPage.ViaPrompt, imageName: Icons.location_magnifyingglass, type: .via, point: viewModel.via)
+                            SearchLocationField(promptText: Strings.JourneyPage.ViaPrompt, imageName: Icons.location_magnifyingglass, type: .via, point: viewModel.via)
+                                .onTapGesture {
+                                    self.showSearchSheetType = .via
+                                }
                             Button(action: { withAnimation { viewModel.showViaField = false } }) {
                                 Image(systemName: Icons.minus)
                                     .fontWeight(.bold)
@@ -75,6 +90,8 @@ public struct JourneyPlannerPage: View {
                             .tint(Color.red)
                             .transition(.slide.combined(with: .opacity))
                             .frame(width: 40)
+                            .accessibilityLabel(Strings.JourneyPage.Accessibility.HideViaLabel)
+                            .accessibilityLabel(Strings.JourneyPage.Accessibility.HideViaHint)
                         }
                     }
                     
@@ -92,6 +109,8 @@ public struct JourneyPlannerPage: View {
                         .buttonStyle(.borderedProminent)
                         .tint(Color.layer2)
                         .foregroundStyle(.primary)
+                        .accessibilityLabel(getTimeToDisplay())
+                        .accessibilityHint(Strings.JourneyPage.Accessibility.TimeHint)
                     }
                     HStack {
                         Button(action: {
@@ -106,6 +125,7 @@ public struct JourneyPlannerPage: View {
                                 .padding(.vertical, 4)
                         }
                         .buttonStyle(.borderedProminent)
+                        .accessibilityHint(Strings.JourneyPage.Accessibility.PlanHint)
                     }
                     
                     Spacer()
@@ -116,7 +136,8 @@ public struct JourneyPlannerPage: View {
                             .fontDesign(.rounded)
                         DotLottieAnimation(fileName: Strings.Assets.BusLoading, config: AnimationConfig(autoplay: true, loop: true))
                             .view()
-                            .frame(width: 100, height: 200)
+                            .frame(width: 200, height: 100)
+                            .accessibilityHidden()
                     }
                     if let result = viewModel.journeyResult {
                         JourneyResultsView(result: result)
@@ -159,31 +180,7 @@ public struct JourneyPlannerPage: View {
                 .presentationBackgroundInteraction(.disabled)
         }
     }
-    
-    
-    @ViewBuilder
-    private func LocationField(promptText: LocalizedStringKey, imageName: String, type: JourneyStopSearchType, point: JourneyRequestPoint? = nil) -> some View {
-        
-        let hasValue = (point?.displayName.count ?? 0) > 0
-        HStack {
-            Button(action: {}) {
-                Image(systemName: imageName)
-                    .shadow(radius: 3)
-            }
-            Text(point?.displayName ?? promptText.toString())
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundStyle(hasValue ? Color.primary : Color.gray)
-        }
-        .padding(.horizontal, 8)
-        .frame(maxWidth: .infinity, minHeight: 50)
-        .background(Color.layer2)
-        .clipShape(.rect(cornerRadius: 10))
-        .shadow(radius: 3)
-        .onTapGesture {
-            self.showSearchSheetType = type
-        }
-    }
-    
+
     private func getTimeToDisplay() -> LocalizedStringKey {
         
         let formatter = DateFormatter()
@@ -214,6 +211,60 @@ public struct JourneyPlannerPage: View {
             let month = date.formatted(Date.FormatStyle().month(.abbreviated))
             
             return day + " " + month
+        }
+    }
+}
+
+private struct SearchLocationField: View {
+    
+    public var promptText: LocalizedStringKey
+    public var imageName: String
+    public var type: JourneyStopSearchType
+    public var point: JourneyRequestPoint?
+    
+    var body: some View {
+        let hasValue = (point?.displayName.count ?? 0) > 0
+        HStack {
+            Button(action: {}) {
+                Image(systemName: imageName)
+                    .shadow(radius: 3)
+            }
+            .accessibilityHidden()
+            Text(point?.displayName ?? promptText.toString())
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundStyle(hasValue ? Color.primary : Color.gray)
+        }
+        .padding(.horizontal, 8)
+        .frame(maxWidth: .infinity, minHeight: 50)
+        .background(Color.layer2)
+        .clipShape(.rect(cornerRadius: 10))
+        .shadow(radius: 3)
+        .accessibilityElement(children: .ignore)
+        .accessibilityElement()
+        .accessibilityLabel(getAccessibilityLabel())
+        .accessibilityHint(getAccessibilityHint())
+        .accessibilityAddTraits(.isSearchField)
+    }
+    
+    private func getAccessibilityLabel() -> LocalizedStringKey {
+        switch type {
+        case .from:
+            return point?.displayName == nil ? Strings.JourneyPage.Accessibility.EmptyFromLabel : Strings.JourneyPage.Accessibility.FromLabel(point?.displayName ?? "")
+        case .to:
+            return point?.displayName == nil ? Strings.JourneyPage.Accessibility.EmptyToLabel : Strings.JourneyPage.Accessibility.ToLabel(point?.displayName ?? "")
+        case .via:
+            return point?.displayName == nil ? Strings.JourneyPage.Accessibility.EmptyViaLabel : Strings.JourneyPage.Accessibility.ViaLabel(point?.displayName ?? "")
+        }
+    }
+    
+    private func getAccessibilityHint() -> LocalizedStringKey {
+        switch type {
+        case .from:
+            return Strings.JourneyPage.Accessibility.FromHint
+        case .to:
+            return Strings.JourneyPage.Accessibility.ToHint
+        case .via:
+            return Strings.JourneyPage.Accessibility.ViaHint
         }
     }
 }

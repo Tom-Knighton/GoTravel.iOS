@@ -24,8 +24,8 @@ public struct JourneyResultsView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             ForEach(Array(ordered.enumerated()), id: \.element.id) { index, journey in
                 let isFastestMode = index == fastest
-                JourneyOptionCard(journey: journey, lineModes: result.lineModes, isModeFastest: isFastestMode, isFastestOverall: index == 0)
-                    .padding(.vertical, 4)
+                JourneyOptionCard(journey: journey, lineModes: result.lineModes, isModeFastest: isFastestMode, isFastestOverall: index == 0, index: index)
+                    .padding(.vertical, 4)                    
             }
         }
     }
@@ -36,6 +36,8 @@ public struct JourneyResultsView: View {
         
         return fastest
     }
+    
+    
 }
 
 public struct JourneyOptionCard: View {
@@ -44,6 +46,7 @@ public struct JourneyOptionCard: View {
     let lineModes: [LineMode]
     var isModeFastest: Bool = false
     var isFastestOverall: Bool = false
+    var index: Int
     
     public var body: some View {
         VStack {
@@ -51,9 +54,12 @@ public struct JourneyOptionCard: View {
                 .bold()
                 .fontDesign(.rounded)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .accessibilityLabel(Strings.JourneyPage.Accessibility.JourneyOptionLabel(index + 1))
+                .accessibilityHint(Strings.Misc.TapToSeeMore)
             Text(leaveAtString())
                 .fontDesign(.rounded)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                
             
             HStack {
                 modeListView()
@@ -61,6 +67,7 @@ public struct JourneyOptionCard: View {
                 Text(Strings.JourneyPage.Mins(journey.totalDuration))
                     .bold()
                     .fontDesign(.rounded)
+                    .accessibilityHint(Strings.Misc.TapToSeeMore)
             }
         }
         .padding()
@@ -79,6 +86,9 @@ public struct JourneyOptionCard: View {
                 hintForMode(leg.legDetails.modeId, leg: leg)
             }
         }
+        .accessibilityElement()
+        .accessibilityLabel(modesAccessibilityLabel())
+        .accessibilityHint(Strings.Misc.TapToSeeMore)
     }
     
     @ViewBuilder
@@ -171,6 +181,26 @@ public struct JourneyOptionCard: View {
         dateFormatter.dateFormat = "HH:mm"
         
         return Strings.JourneyPage.LeaveAt(dateFormatter.string(from: journey.beginJourneyAt))
+    }
+    
+    private func modesAccessibilityLabel() -> LocalizedStringKey {
+        
+        
+        let modeIds = journey.journeyLegs.compactMap { $0.legDetails.modeId }
+        var modeNames: [String] = []
+        for id in modeIds {
+            if id == "walking" {
+                modeNames.append("walking")
+            } else if id == "cycle" {
+                modeNames.append("cycle")
+            } else if id.contains("replacement-bus") {
+                modeNames.append("a replacement bus service")
+            } else if let mode = self.lineModes.first(where: { $0.lineModeId == id }) {
+                modeNames.append(mode.lineModeName)
+            }
+        }
+        let modeMessage = modeNames.joined(separator: ", then ")
+        return Strings.JourneyPage.Accessibility.JourneyModesLabel(modeMessage)
     }
 }
 
