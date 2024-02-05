@@ -125,6 +125,22 @@ public struct Strings {
             LocalizedStringKey("JourneyPage:LeaveWithin:\(mins)")
         }
         
+        public static let JourneyOptions: LocalizedStringKey = "JourneyPage:Options"
+        public static let JourneyPreferencesHead: LocalizedStringKey = "JourneyPage:PreferencesHead"
+        public static let JourneyAccessHead: LocalizedStringKey = "JourneyPage:AccessHead"
+        public static let StepFreePlatform: LocalizedStringKey = "JourneyPage:StepFreePlatform"
+        public static let StepFreeVehicle: LocalizedStringKey = "JourneyPage:StepFreeVehicle"
+        public static let FastJourneys: LocalizedStringKey = "JourneyPage:FastJourney"
+        public static let FewChanges: LocalizedStringKey = "JourneyPage:FewChanges"
+        public static let LeastWalk: LocalizedStringKey = "JourneyPage:LeastWalk"
+        
+        public static let OptionsNoAccessibilityDescription: LocalizedStringKey = "JourneyPage:Options:NoAccessibilityDesc"
+        public static let OptionsPlatformAccessibilityDescription: LocalizedStringKey = "JourneyPage:Options:PlatformAccessibilityDesc"
+        public static let OptionsVehicleAccessibilityDescription: LocalizedStringKey = "JourneyPage:Options:VehicleAccessibilityDesc"
+        public static let OptionsFastestDescription: LocalizedStringKey = "JourneyPage:Options:FastestDesc"
+        public static let OptionsFewChangesDescription: LocalizedStringKey = "JourneyPage:Options:FewChangesDesc"
+        public static let OptionsFewWalkingDescription: LocalizedStringKey = "JourneyPage:Options:FewWalkDesc"
+        
         public struct Accessibility {
             
             public static let EmptyFromLabel: LocalizedStringKey = "Journey:Accessibility:EmptyFromLabel"
@@ -177,6 +193,7 @@ public struct Strings {
         public static let Ok: LocalizedStringKey = "Misc:Ok"
         public static let Results: LocalizedStringKey = "Misc:Results"
         public static let TapToSeeMore: LocalizedStringKey = "Misc:TapSeeMore"
+        public static let WithSelection: LocalizedStringKey = "Misc:WithSelection"
     }
     
     public struct Errors {

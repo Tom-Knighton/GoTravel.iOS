@@ -23,6 +23,10 @@ public class JourneyPlannerViewModel {
     public var isSearching: Bool = false
     public var searchResults: [StopPoint] = []
     
+    //MARK: Journey options
+    public var journeyPreferenceMode: JourneyRequestPreferenceMode = .leastTime
+    public var journeyAccessibilityPreference: [JourneyRequestAccessibilityPreference] = []
+    
     //MARK: Journeys
     public var isSearchingJourneys: Bool = false
     public var journeyResult: JourneyOptionsResult? = nil
@@ -53,9 +57,30 @@ public class JourneyPlannerViewModel {
         await MainActor.run {
             self.searchResults = results?.reversed() ?? []
             self.isSearching = false
-//            AccessibilityHelper.postMessage(Strings.JourneyPage.Accessibility.LocationsUpdatedMsg.toString(), messageType: .announcement)
+            AccessibilityHelper.postMessage(Strings.JourneyPage.Accessibility.LocationsUpdatedMsg.toString(), messageType: .announcement)
         }
     }
+    
+    func toggleJourneyPreference(_ preference: JourneyRequestPreferenceMode) {
+        withAnimation {
+            self.journeyPreferenceMode = preference
+        }
+    }
+    
+    func setJourneyAccessibilityPreference(_ preference: JourneyRequestAccessibilityPreference, to: Bool) {
+        withAnimation {
+            if !to && self.journeyAccessibilityPreference.contains(preference) {
+                self.journeyAccessibilityPreference.removeAll(where: { $0 == preference })
+                return
+            }
+            
+            if to && !self.journeyAccessibilityPreference.contains(preference) {
+                self.journeyAccessibilityPreference.append(preference)
+                return
+            }
+        }
+    }
+    
     
     /// If preconditions are met, plan a journey and store results in `journeyResult`
     func planJourney() async {
@@ -86,7 +111,7 @@ public class JourneyPlannerViewModel {
     
         
         do {
-            let request = JourneyRequest(startPoint: startPoint, endPoint: endPoint, viaLocation: viaPoint, journeyTime: time, journeyTimeIsDeparture: timeIsDeparture, preferenceMode: nil, accessibilityPreferences: nil)
+            let request = JourneyRequest(startPoint: startPoint, endPoint: endPoint, viaLocation: viaPoint, journeyTime: time, journeyTimeIsDeparture: timeIsDeparture, preferenceMode: self.journeyPreferenceMode, accessibilityPreferences: self.journeyAccessibilityPreference)
             let response = try await JourneyService.JourneyOptions(request)
             await MainActor.run {
                 self.journeyResult = response

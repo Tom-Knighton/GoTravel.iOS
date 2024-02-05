@@ -14,6 +14,7 @@ public struct JourneyPlannerPage: View {
     @State private var viewModel = JourneyPlannerViewModel()
     @State private var showSearchSheetType: JourneyStopSearchType? = nil
     @State private var showTimeSheet: Bool = false
+    @State private var showOptionsSheet: Bool = false
 
     public var body: some View {
         ZStack {
@@ -150,7 +151,7 @@ public struct JourneyPlannerPage: View {
         .navigationTitle(Strings.JourneyPage.Title)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button(action: {}) {
+                Button(action: { self.showOptionsSheet = true }) {
                     Image(systemName: Icons.filter)
                         .fontWeight(.bold)
                         .fontDesign(.rounded)
@@ -178,6 +179,10 @@ public struct JourneyPlannerPage: View {
                 .environment(self.viewModel)
                 .presentationDetents([.fraction(0.45)])
                 .presentationBackgroundInteraction(.disabled)
+        }
+        .sheet(isPresented: $showOptionsSheet) {
+            JourneyOptionsSheet()
+                .environment(self.viewModel)
         }
     }
 
