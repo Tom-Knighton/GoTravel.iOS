@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import DefaultCodable
 
 public struct LineMode: Codable {
     
@@ -16,16 +17,19 @@ public struct LineMode: Codable {
     public let lineModeName: String
     
     /// The lines that operate under this line mode
-    public let lines: [Line]
+    @Default<Empty>
+    public var lines: [Line]
     
     /// The primary area this line mode operates under, i.e. London, Manchester or UK
-    public let primaryAreaName: String
+    @Default<Empty>
+    public var primaryAreaName: String
     
     /// The branding of this line mode, mainly colour and logo information
     public let branding: LineModeBranding
     
     /// Flagged information for this line mode
-    public let flags: [String]
+    @Default<Empty>
+    public var flags: [String]
     
     public init(lineModeId: String, lineModeName: String, lines: [Line], primaryAreaName: String, branding: LineModeBranding, flags: [String]) {
         self.lineModeId = lineModeId

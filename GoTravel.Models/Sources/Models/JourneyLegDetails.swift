@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Turf
 
 /// Details about a specific leg of a journey option
 public struct JourneyLegDetails: Codable {
@@ -16,20 +17,24 @@ public struct JourneyLegDetails: Codable {
     /// A more detailed summary of the leg may be present in some legs, i.e. 'Line X *towards* Y'. It may also be the same as `summary`
     public let detailedSummary: String?
     
-    /// The id of the line mode this leg uses
-    public let modeId: String
+    /// The line mode to use this leg. This may be a fake mode i.e. 'walking' or 'cycle', or the real mode with the relevant lines
+    public let lineMode: LineMode
     
-    /// The different ids of lines that could be taken. This could be none, if walking for instance, or more than one in the case of i.e. buses where multiple lines go along the same route part
-    public let lineIds: [String]
+    /// A Turf.js line string of the route this leg will take
+    public let lineString: LineString
+    
+    /// An array of the minimal stop point data this leg travels through if any
+    public let stopPoints: [JourneyStopPoint]
     
     /// Some specific steps for this leg, usually present in more manual modes like walking or cycling
     public let legSteps: [JourneyLegStep]
     
-    public init(summary: String, detailedSummary: String, modeId: String, lineIds: [String], legSteps: [JourneyLegStep]) {
+    public init(summary: String, detailedSummary: String, lineMode: LineMode, lineString: LineString, stops: [JourneyStopPoint], legSteps: [JourneyLegStep]) {
         self.summary = summary
         self.detailedSummary = detailedSummary
-        self.modeId = modeId
-        self.lineIds = lineIds
+        self.lineMode = lineMode
+        self.lineString = lineString
         self.legSteps = legSteps
+        self.stopPoints = stops
     }
 }

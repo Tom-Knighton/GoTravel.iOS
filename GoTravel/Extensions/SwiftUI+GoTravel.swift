@@ -23,3 +23,9 @@ extension View {
         }
     }
 }
+
+extension Int: Identifiable {
+    public var id: Int {
+        return self
+    }
+}

@@ -100,9 +100,16 @@ public struct Strings {
         public static let Journey: LocalizedStringKey = "JourneyPage:Journey"
         public static let Cycle: LocalizedStringKey = "JourneyPage:Cycle"
         public static let WalkIfCan: LocalizedStringKey = "JourneyPage:WalkIfCan"
+        public static let Walk: LocalizedStringKey = "JourneyPage:Walk"
         
         public static let Now: LocalizedStringKey = "JourneyPage:Now"
         public static let Tomorrow: LocalizedStringKey = "JourneyPage:Tomorrow"
+        
+        public static let Destination: LocalizedStringKey = "JourneyPage:Destination"
+        
+        public static func Stops(_ num: Int) -> LocalizedStringKey  {
+            LocalizedStringKey("JourneyPage:Stops:\(num)")
+        }
         
         public static let ArriveBy: LocalizedStringKey = "JourneyPage:ArriveBy"
         public static func ArriveBy(_ value: String) -> LocalizedStringKey {
@@ -140,6 +147,8 @@ public struct Strings {
         public static let OptionsFastestDescription: LocalizedStringKey = "JourneyPage:Options:FastestDesc"
         public static let OptionsFewChangesDescription: LocalizedStringKey = "JourneyPage:Options:FewChangesDesc"
         public static let OptionsFewWalkingDescription: LocalizedStringKey = "JourneyPage:Options:FewWalkDesc"
+        
+        public static let ViewRoute: LocalizedStringKey = "JourneyPage:ViewRoute"
         
         public struct Accessibility {
             
@@ -193,7 +202,6 @@ public struct Strings {
         public static let Ok: LocalizedStringKey = "Misc:Ok"
         public static let Results: LocalizedStringKey = "Misc:Results"
         public static let TapToSeeMore: LocalizedStringKey = "Misc:TapSeeMore"
-        public static let WithSelection: LocalizedStringKey = "Misc:WithSelection"
     }
     
     public struct Errors {
@@ -268,10 +276,13 @@ public struct Icons {
     public static let arrow_down: String = "arrow.down"
     public static let arrowUpAndDown: String = "arrow.up.arrow.down"
     public static let arrow_clockwise: String = "arrow.clockwise"
+    public static let arrowExpandCircleFill = "arrow.up.left.and.arrow.down.right.circle.fill"
     public static let arrowRightCircle = "arrow.triangle.turn.up.right.circle.fill"
     public static let location_slash = "location.slash"
     public static let locationFill = "location.fill"
     public static let cross_circle_fill = "xmark.circle.fill"
+    public static let circleInCircle = "circle.circle"
+    public static let circleInCircleFilled = "circle.circle.fill"
     public static let cross = "xmark"
     public static let check = "checkmark"
     public static let accessible = "figure.roll"
@@ -290,7 +301,9 @@ public struct Icons {
     public static let info = "info"
     public static let info_circle = "info.circle"
     public static let add = "plus"
+    public static let addCircle = "plus.circle"
     public static let minus = "minus"
+    public static let minusCircle = "minus.circle"
     public static let clockFilled = "clock.fill"
     public static let walk = "figure.walk"
     public static let signPostFilled = "signpost.right.and.left.fill"

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Line: Codable {
+public struct Line: Codable, Equatable {
     
     /// The unique id of the line
     public let lineId: String
@@ -17,4 +17,12 @@ public struct Line: Codable {
     
     /// If present, the branding colour hex for this line, i.e. #ff0000
     public let linePrimaryColour: String?
+    
+    
+    
+    public init(lineId: String, lineName: String, linePrimaryColour: String?) {
+        self.lineId = lineId
+        self.lineName = lineName
+        self.linePrimaryColour = linePrimaryColour
+    }
 }

@@ -478,6 +478,16 @@
         }
       }
     },
+    "JourneyPage:Destination" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Destination"
+          }
+        }
+      }
+    },
     "JourneyPage:FastestJourney" : {
       "localizations" : {
         "en" : {
@@ -571,9 +581,21 @@
     "JourneyPage:LeaveWithin:%lld" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Leave within %lld mins"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Leave within %lld min"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Leave within %lld mins"
+                }
+              }
+            }
           }
         }
       }
@@ -581,9 +603,21 @@
     "JourneyPage:Mins:%lld" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld mins"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld min"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld mins"
+                }
+              }
+            }
           }
         }
       }
@@ -858,6 +892,28 @@
         }
       }
     },
+    "JourneyPage:Stops:%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld stop"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld stops"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "JourneyPage:Title" : {
       "localizations" : {
         "en" : {
@@ -894,6 +950,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Via:"
+          }
+        }
+      }
+    },
+    "JourneyPage:ViewRoute" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View Route"
+          }
+        }
+      }
+    },
+    "JourneyPage:Walk" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Walk"
           }
         }
       }
@@ -1112,9 +1188,6 @@
           }
         }
       }
-    },
-    "Misc:WithSelection" : {
-
     },
     "Navigation:JourneyTab" : {
       "localizations" : {
