@@ -201,7 +201,7 @@ public struct JourneyOptionCard: View {
     }
 }
 
-
+#if DEBUG
 #Preview {
     
     @State var vm = JourneyPlannerViewModel()
@@ -214,3 +214,4 @@ public struct JourneyOptionCard: View {
             .padding(.horizontal, 16)
     }
 }
+#endif

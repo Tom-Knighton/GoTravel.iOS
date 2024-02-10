@@ -385,9 +385,11 @@ private struct JourneyLegExpansionView: View {
     }
 }
 
+#if DEBUG
 #Preview {
         
     return NavigationStack {
         JourneyDetailPage(PreviewDataJourney.PreviewJourneyResponse().journeyOptions[0])
     }
 }
+#endif

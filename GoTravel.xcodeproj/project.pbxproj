@@ -17,6 +17,7 @@
 		E23027B12B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B02B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift */; };
 		E23027B32B6D445200DC1D54 /* JourneyResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B22B6D445200DC1D54 /* JourneyResultsView.swift */; };
 		E23027B52B6D534C00DC1D54 /* Journey+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B42B6D534C00DC1D54 /* Journey+GoTravel.swift */; };
+		E238EF6F2B781CE600DC8E84 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E238EF6E2B781CE600DC8E84 /* Lottie */; };
 		E2438F1E2B25D82B00BBF345 /* Accessibility+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */; };
 		E2438F202B26195100BBF345 /* AccessibilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */; };
 		E25572082B33B28200988348 /* MapSearchSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572072B33B28200988348 /* MapSearchSheetView.swift */; };
@@ -94,7 +95,6 @@
 		E2E511A72B59EB53003BE56E /* StopArrivalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E511A62B59EB53003BE56E /* StopArrivalsView.swift */; };
 		E2E511A92B59EF78003BE56E /* Date+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E511A82B59EF78003BE56E /* Date+GoTravel.swift */; };
 		E2E673982B6E90D900361118 /* BusLoading.lottie in Resources */ = {isa = PBXBuildFile; fileRef = E2E673972B6E90D900361118 /* BusLoading.lottie */; };
-		E2E6739B2B6E910100361118 /* DotLottie in Frameworks */ = {isa = PBXBuildFile; productRef = E2E6739A2B6E910100361118 /* DotLottie */; };
 		E2E6739D2B6FC14700361118 /* ExitButtonVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E6739C2B6FC14700361118 /* ExitButtonVIew.swift */; };
 		E2E6739F2B71321300361118 /* JourneyOptionsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E6739E2B71321300361118 /* JourneyOptionsSheet.swift */; };
 		E2E673A12B71376200361118 /* RadioToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E673A02B71376100361118 /* RadioToggleStyle.swift */; };
@@ -222,11 +222,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E238EF6F2B781CE600DC8E84 /* Lottie in Frameworks */,
 				E26988762B35D2E10097B8EF /* WrappingHStack in Frameworks */,
 				E28DC2B02B1F62B900E2FECE /* GoTravel.CoreData in Frameworks */,
 				E28DC2B32B1FE44900E2FECE /* GoTravel.Models in Frameworks */,
 				E28DC2B62B1FE5DE00E2FECE /* GoTravel.API in Frameworks */,
-				E2E6739B2B6E910100361118 /* DotLottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,7 +613,7 @@
 				E28DC2B22B1FE44900E2FECE /* GoTravel.Models */,
 				E28DC2B52B1FE5DE00E2FECE /* GoTravel.API */,
 				E26988752B35D2E10097B8EF /* WrappingHStack */,
-				E2E6739A2B6E910100361118 /* DotLottie */,
+				E238EF6E2B781CE600DC8E84 /* Lottie */,
 			);
 			productName = GoLondon;
 			productReference = E283D37E2AC23316008ECF81 /* GoTravel.app */;
@@ -645,7 +645,7 @@
 			mainGroup = E283D3752AC23316008ECF81;
 			packageReferences = (
 				E26988742B35D2E10097B8EF /* XCRemoteSwiftPackageReference "WrappingHStack" */,
-				E2E673992B6E910100361118 /* XCRemoteSwiftPackageReference "dotlottie-ios" */,
+				E238EF6D2B781CE600DC8E84 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = E283D37F2AC23316008ECF81 /* Products */;
 			projectDirPath = "";
@@ -989,6 +989,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E238EF6D2B781CE600DC8E84 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.0;
+			};
+		};
 		E26988742B35D2E10097B8EF /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ksemianov/WrappingHStack";
@@ -997,17 +1005,14 @@
 				minimumVersion = 0.2.0;
 			};
 		};
-		E2E673992B6E910100361118 /* XCRemoteSwiftPackageReference "dotlottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/LottieFiles/dotlottie-ios";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E238EF6E2B781CE600DC8E84 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E238EF6D2B781CE600DC8E84 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		E26988752B35D2E10097B8EF /* WrappingHStack */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E26988742B35D2E10097B8EF /* XCRemoteSwiftPackageReference "WrappingHStack" */;
@@ -1024,11 +1029,6 @@
 		E28DC2B52B1FE5DE00E2FECE /* GoTravel.API */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GoTravel.API;
-		};
-		E2E6739A2B6E910100361118 /* DotLottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E2E673992B6E910100361118 /* XCRemoteSwiftPackageReference "dotlottie-ios" */;
-			productName = DotLottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

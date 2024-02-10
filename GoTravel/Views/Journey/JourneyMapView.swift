@@ -224,6 +224,8 @@ public struct JourneyMapView: View {
     }
 }
 
+#if DEBUG
 #Preview {
     JourneyMapView(journey: PreviewDataJourney.PreviewJourneyResponse().journeyOptions.first!)
 }
+#endif

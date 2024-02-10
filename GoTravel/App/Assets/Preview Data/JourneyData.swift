@@ -8,6 +8,7 @@
 import Foundation
 import GoTravel_Models
 
+#if DEBUG
 public struct PreviewDataJourney {
     
     public static func PreviewJourneyResponse() -> JourneyOptionsResult {
@@ -5622,3 +5623,4 @@ public struct PreviewDataJourney {
     """
     
 }
+#endif
