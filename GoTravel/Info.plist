@@ -4,5 +4,7 @@
 <dict>
 	<key>GTAPI_BASE_URL</key>
 	<string>$(GTAPI_BASE_URL)</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 </dict>
 </plist>

@@ -10,12 +10,12 @@
       }
     },
     {
-      "identity" : "dotlottie-ios",
+      "identity" : "lottie-ios",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/LottieFiles/dotlottie-ios",
+      "location" : "https://github.com/airbnb/lottie-ios.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "2034e7c0d2e414276c7cb5cbfa373cf376f4bdcf"
+        "revision" : "f522990668c2f9132323a2e68d924c7dcb9130b4",
+        "version" : "4.4.0"
       }
     },
     {

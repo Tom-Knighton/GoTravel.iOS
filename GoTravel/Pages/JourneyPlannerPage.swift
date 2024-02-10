@@ -7,7 +7,7 @@
 
 import SwiftUI
 import GoTravel_Models
-import DotLottie
+import Lottie
 
 public struct JourneyPlannerPage: View {
     
@@ -152,10 +152,13 @@ public struct JourneyPlannerPage: View {
                         Text(Strings.Misc.Searching)
                             .font(.title2.bold())
                             .fontDesign(.rounded)
-                        DotLottieAnimation(fileName: Strings.Assets.BusLoading, config: AnimationConfig(autoplay: true, loop: true))
-                            .view()
-                            .frame(width: 200, height: 100)
-                            .accessibilityHidden()
+                        
+                        LottieView {
+                            try await DotLottieFile.named(Strings.Assets.BusLoading)
+                        }
+                        .looping()
+                        .frame(width: 200, height: 100)
+                        .accessibilityHidden()
                     }
                     if let result = viewModel.journeyResult {
                         JourneyResultsView(result: result)
