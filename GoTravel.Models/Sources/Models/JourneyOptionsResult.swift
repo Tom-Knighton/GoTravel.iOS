@@ -9,15 +9,11 @@ import Foundation
 
 /// Represents a series of journey options for a requested journey, and the line modes used in those journeys
 public struct JourneyOptionsResult: Codable {
-    
-    /// All the line modes and relevant lines from the possible journey options
-    public let lineModes: [LineMode]
-    
+        
     /// The possible journey options that can be taken
     public let journeyOptions: [Journey]
     
-    public init(lineModes: [LineMode], journeyOptions: [Journey]) {
-        self.lineModes = lineModes
+    public init(journeyOptions: [Journey]) {
         self.journeyOptions = journeyOptions
     }
 }

@@ -86,7 +86,7 @@ extension StopPointPlatformArrivals {
             }
         }
         
-        var result = Strings.Misc.ThenLower.toString() + " " + arrivalStrings.joined(separator: ", ")
+        let result = Strings.Misc.ThenLower.toString() + " " + arrivalStrings.joined(separator: ", ")
         if arrivalStrings.last != Strings.StopPage.Due.toString() {
             return result + " " + Strings.StopPage.Mins.toString()
         }

@@ -19,31 +19,30 @@ public struct JourneyLeg: Codable {
     /// The total duration, in minutes, of this leg of the journey
     public let legDuration: Int
     
-    /// If starting at a StopPoint, the id of the stop this leg starts at
-    public let startAtStopId: String?
     
-    /// If ending at a StopPoint, the id of the stop this leg ends at
-    public let endAtStopId: String?
+    /// The friendly name of the stop this leg starts at
+    public let startAtName: String?
     
-    /// If starting at a StopPoint, the friendly name of the stop this leg starts at
-    public let startAtStopName: String?
-    
-    
-    /// If ending at a StopPoint, the friendly name of the stop this leg ends at
-    public let endAtStopName: String?
-    
+    /// The friendly name of the stop this leg ends at
+    public let endAtName: String?
     
     /// The details of this leg. Includes information on the line mode, any specific instructions and steps
     public let legDetails: JourneyLegDetails
     
-    public init(beginLegAt: Date, endLegAt: Date, legDuration: Int, startAtStopId: String?, endAtStopId: String?, startAtStopName: String?, endAtStopName: String?, legDetails: JourneyLegDetails) {
+    /// If the leg starts at a stop point, this is the name and id of that point
+    public let startAtStop: JourneyStopPoint?
+    
+    /// If the leg ends at a stop point, this is the name and id of that point
+    public let endAtStop: JourneyStopPoint?
+    
+    public init(beginLegAt: Date, endLegAt: Date, legDuration: Int, startAtStop: JourneyStopPoint?, endAtStop: JourneyStopPoint?, startAtName: String?, endAtName: String?, legDetails: JourneyLegDetails) {
         self.beginLegAt = beginLegAt
         self.endLegAt = endLegAt
         self.legDuration = legDuration
-        self.startAtStopId = startAtStopId
-        self.endAtStopId = endAtStopId
-        self.startAtStopName = startAtStopName
-        self.endAtStopName = endAtStopName
+        self.startAtStop = startAtStop
+        self.endAtStop = endAtStop
+        self.startAtName = startAtName
+        self.endAtName = endAtName
         self.legDetails = legDetails
     }
 }

@@ -348,6 +348,28 @@
         }
       }
     },
+    "Journey:Accessibility:ModeInstructionLabel:%@:%@:%@:%@:%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Leave at %1$@, take the %2$@ %3$@ line to %4$@, %5$lld min"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Leave at %1$@, take the %2$@ %3$@ line to %4$@, %5$lld mins"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "Journey:Accessibility:PlanHint" : {
       "localizations" : {
         "en" : {
@@ -438,6 +460,38 @@
         }
       }
     },
+    "Journey:Accessibility:ViewRouteLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to view route on a map"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:WalkInstructionLabel:%@:%@:%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Leave at %1$@, walk to %2$@, %3$lld min"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Leave at %1$@, walk to %2$@, %3$lld min"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "JourneyPage:AccessHead" : {
       "localizations" : {
         "en" : {
@@ -474,6 +528,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cycle"
+          }
+        }
+      }
+    },
+    "JourneyPage:Destination" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Destination"
           }
         }
       }
@@ -571,9 +635,21 @@
     "JourneyPage:LeaveWithin:%lld" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Leave within %lld mins"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Leave within %lld min"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Leave within %lld mins"
+                }
+              }
+            }
           }
         }
       }
@@ -581,9 +657,21 @@
     "JourneyPage:Mins:%lld" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld mins"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld min"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld mins"
+                }
+              }
+            }
           }
         }
       }
@@ -858,6 +946,28 @@
         }
       }
     },
+    "JourneyPage:Stops:%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld stop"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld stops"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "JourneyPage:Title" : {
       "localizations" : {
         "en" : {
@@ -894,6 +1004,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Via:"
+          }
+        }
+      }
+    },
+    "JourneyPage:ViewRoute" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View Route"
+          }
+        }
+      }
+    },
+    "JourneyPage:Walk" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Walk"
           }
         }
       }
@@ -1102,6 +1232,16 @@
         }
       }
     },
+    "Misc:TapToExpand" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to expand"
+          }
+        }
+      }
+    },
     "Misc:ThenLower" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1112,9 +1252,6 @@
           }
         }
       }
-    },
-    "Misc:WithSelection" : {
-
     },
     "Navigation:JourneyTab" : {
       "localizations" : {

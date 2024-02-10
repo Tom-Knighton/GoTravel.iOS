@@ -54,7 +54,7 @@ public actor APIClient {
         }
         
         do {
-            let response = try! data.decode(to: T.self)
+            let response = try data.decode(to: T.self)
             return response
         } catch {
             throw error
