@@ -181,6 +181,8 @@ public struct Strings {
             public static let TimeHint: LocalizedStringKey = "Journey:Accessibility:TimeHint"
             public static let PlanHint: LocalizedStringKey = "Journey:Accessibility:PlanHint"
             
+            public static let ViewRouteLabel: LocalizedStringKey = "Journey:Accessibility:ViewRouteLabel"
+            
             public static let LocationsUpdatedMsg: LocalizedStringKey = "Journey:Accessibility:LocationsUpdatesMsg"
             
             public static func JourneyOptionLabel(_ option: Int) -> LocalizedStringKey {
@@ -189,6 +191,14 @@ public struct Strings {
             
             public static func JourneyModesLabel(_ modes: String) -> LocalizedStringKey {
                 LocalizedStringKey("Journey:Accessibility:JourneyModesLabel:\(modes)")
+            }
+            
+            public static func LegWalkInstruction(_ time: String, destination: String, duration: Int) -> LocalizedStringKey {
+                LocalizedStringKey("Journey:Accessibility:WalkInstructionLabel:\(time):\(destination):\(duration)")
+            }
+            
+            public static func LegModeInstruction(_ time: String, mode: String, line: String, destination: String, duration: Int) -> LocalizedStringKey {
+                LocalizedStringKey("Journey:Accessibility:ModeInstructionLabel:\(time):\(mode):\(line):\(destination):\(duration)")
             }
         }
     }
@@ -202,6 +212,7 @@ public struct Strings {
         public static let Ok: LocalizedStringKey = "Misc:Ok"
         public static let Results: LocalizedStringKey = "Misc:Results"
         public static let TapToSeeMore: LocalizedStringKey = "Misc:TapSeeMore"
+        public static let TapToExpand: LocalizedStringKey = "Misc:TapToExpand"
     }
     
     public struct Errors {

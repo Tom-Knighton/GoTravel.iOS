@@ -15,6 +15,7 @@ public struct JourneyDetailPage: View {
     let journey: Journey
     let hint: LocalizedStringKey
     
+    @Environment(\.accessibilityVoiceOverEnabled) private var voiceOver
     @State private var showFullMap: Bool = false
     @State private var viewFullIndex: Int? = nil
     
@@ -43,26 +44,28 @@ public struct JourneyDetailPage: View {
                     
                     Spacer().frame(height: 8)
                     
-                    Button(action: { self.showFullMap = true; }) {
-                        ZStack {
-                            JourneyMapView(journey: journey, miniView: true)
-                            HStack {
-                                Spacer()
-                                VStack {
-                                    Spacer().frame(height: 8)
-                                    Button(action:{ self.showFullMap = true }) {
-                                        Image(systemName: Icons.arrowExpandCircleFill)
-                                            .imageScale(.large)
-                                    }
+                    if !voiceOver {
+                        Button(action: { self.showFullMap = true; }) {
+                            ZStack {
+                                JourneyMapView(journey: journey, miniView: true)
+                                HStack {
                                     Spacer()
+                                    VStack {
+                                        Spacer().frame(height: 8)
+                                        Button(action:{ self.showFullMap = true }) {
+                                            Image(systemName: Icons.arrowExpandCircleFill)
+                                                .imageScale(.large)
+                                        }
+                                        Spacer()
+                                    }
+                                    Spacer().frame(width: 8)
                                 }
-                                Spacer().frame(width: 8)
                             }
                         }
+                        .frame(height: 200)
+                        .clipShape(.rect(cornerRadius: 10))
+                        .shadow(radius: 3)
                     }
-                    .frame(height: 200)
-                    .clipShape(.rect(cornerRadius: 10))
-                    .shadow(radius: 3)
                     
                     Spacer().frame(height: 16)
                 }
@@ -158,6 +161,7 @@ public struct JourneyDetailPage: View {
                         .frame(width: 2)
                 }
             }
+            .accessibilityHidden()
             
             let isFirstLeg = journey.journeyLegs.first?.beginLegAt == leg.beginLegAt
             LegInstructionView(leg, isFirst: isFirstLeg)
@@ -171,16 +175,21 @@ public struct JourneyDetailPage: View {
         VStack(alignment: .leading) {
             switch leg.legDetails.lineMode.lineModeId {
             case "walking":
-                if let startAtStop = leg.startAtStop {
-                    Text(startAtStop.stopPointName)
+                VStack(alignment: .leading) {
+                    if let startAtStop = leg.startAtStop {
+                        Text(startAtStop.stopPointName)
+                            .bold()
+                    }
+                    Text(Strings.JourneyPage.Walk)
                         .bold()
+                    if isFirst {
+                        Text(Strings.JourneyPage.LeaveAt(leg.beginLegAt.formatted(date: .omitted, time: .shortened)))
+                    }
+                    Text(Strings.JourneyPage.Mins(leg.legDuration))
                 }
-                Text(Strings.JourneyPage.Walk)
-                    .bold()
-                if isFirst {
-                    Text(Strings.JourneyPage.LeaveAt(leg.beginLegAt.formatted(date: .omitted, time: .shortened)))
-                }
-                Text(Strings.JourneyPage.Mins(leg.legDuration))
+                .accessibilityElement(children: .ignore)
+                .accessibilityElement()
+                .accessibilityLabel(Strings.JourneyPage.Accessibility.LegWalkInstruction(leg.beginLegAt.formatted(date: .omitted, time: .shortened), destination: leg.endAtName ?? "", duration: leg.legDuration))
                 
                 Button(action: {
                     self.viewFullIndex = journey.journeyLegs.firstIndex(where: { $0.beginLegAt == leg.beginLegAt })
@@ -194,42 +203,64 @@ public struct JourneyDetailPage: View {
                     .background(Color.layer2)
                     .clipShape(.rect(cornerRadius: 10))
                     .shadow(radius: 3)
+                    .accessibilityHidden()
                 }
+                .accessibilityLabel(Strings.JourneyPage.Accessibility.ViewRouteLabel)
                 
             case "cycle":
-                Text(Strings.JourneyPage.Cycle)
-                    .bold()
-                if isFirst {
-                    Text(Strings.JourneyPage.LeaveAt(leg.beginLegAt.formatted(date: .omitted, time: .shortened)))
-                }
-                Text(Strings.JourneyPage.Mins(leg.legDuration))
-                HStack {
-                    Text(Strings.JourneyPage.ViewRoute)
-                    Image(systemName: Icons.add)
-                }
-                .padding(.vertical, 6)
-                .padding(.horizontal, 12)
-                .background(Color.layer2)
-                .clipShape(.rect(cornerRadius: 10))
-                .shadow(radius: 3)
-            default:
-                Text(leg.startAtName ?? "")
-                    .bold()
-               
-                WrappingHStack(alignment: .leading) {
-                    ForEach(leg.legDetails.lineMode.lines, id: \.lineId) { line in
-                        Text(line.lineName)
-                            .font(.subheadline.bold())
-                            .padding(.horizontal, 8)
-                            .background(brandingColour(leg))
-                            .clipShape(.rect(cornerRadius: 4))
-                            .foregroundStyle(.white)
+                VStack(alignment: .leading) {
+                    Text(Strings.JourneyPage.Cycle)
+                        .bold()
+                    if isFirst {
+                        Text(Strings.JourneyPage.LeaveAt(leg.beginLegAt.formatted(date: .omitted, time: .shortened)))
                     }
+                    Text(Strings.JourneyPage.Mins(leg.legDuration))
                 }
-                Text(leg.beginLegAt.formatted(date: .omitted, time: .shortened))
-                    .font(.subheadline)
-                JourneyLegExpansionView(leg: leg)
+                .accessibilityElement(children: .ignore)
+                .accessibilityElement()
+                .accessibilityLabel(Strings.JourneyPage.Accessibility.LegModeInstruction(leg.beginLegAt.formatted(date: .omitted, time: .shortened), mode: leg.legDetails.lineMode.lineModeName, line: leg.legDetails.lineMode.lines.first?.lineName ?? "", destination: leg.endAtName ?? "", duration: leg.legDuration))
                 
+                Button(action: {
+                    self.viewFullIndex = journey.journeyLegs.firstIndex(where: { $0.beginLegAt == leg.beginLegAt })
+                }) {
+                    HStack {
+                        Text(Strings.JourneyPage.ViewRoute)
+                        Image(systemName: Icons.map)
+                    }
+                    .padding(.vertical, 6)
+                    .padding(.horizontal, 12)
+                    .background(Color.layer2)
+                    .clipShape(.rect(cornerRadius: 10))
+                    .shadow(radius: 3)
+                    .accessibilityHidden()
+                }
+                .accessibilityLabel(Strings.JourneyPage.Accessibility.ViewRouteLabel)
+
+            default:
+                
+                VStack(alignment: .leading) {
+                    Text(leg.startAtName ?? "")
+                        .bold()
+                   
+                    WrappingHStack(alignment: .leading) {
+                        ForEach(leg.legDetails.lineMode.lines, id: \.lineId) { line in
+                            Text(line.lineName)
+                                .font(.subheadline.bold())
+                                .padding(.horizontal, 8)
+                                .background(brandingColour(leg))
+                                .clipShape(.rect(cornerRadius: 4))
+                                .foregroundStyle(.white)
+                        }
+                    }
+                    Text(leg.beginLegAt.formatted(date: .omitted, time: .shortened))
+                        .font(.subheadline)
+                }
+                .accessibilityElement(children: .ignore)
+                .accessibilityElement()
+                .accessibilityLabel(Strings.JourneyPage.Accessibility.LegModeInstruction(leg.beginLegAt.formatted(date: .omitted, time: .shortened), mode: leg.legDetails.lineMode.lineModeName, line: leg.legDetails.lineMode.lines.first?.lineName ?? "", destination: leg.endAtName ?? "", duration: leg.legDuration))
+                
+               
+                JourneyLegExpansionView(leg: leg)
             }
         }
     }
@@ -241,6 +272,7 @@ public struct JourneyDetailPage: View {
                 Image(systemName: Icons.circleInCircleFilled)
                     .imageScale(.large)
             }
+            .accessibilityHidden()
             
             VStack {
                 Text(Strings.JourneyPage.Destination)
@@ -292,6 +324,7 @@ private struct JourneyLegExpansionView: View {
                     } else {
                         Text(Strings.JourneyPage.Stops(1))
                             .bold()
+                            .accessibilityRemoveTraits(.isButton)
                     }
                     
                     Text(Strings.JourneyPage.Mins(leg.legDuration))
@@ -300,6 +333,7 @@ private struct JourneyLegExpansionView: View {
                 .tint(.primary)
                 .contentShape(.rect)
             }
+            .accessibilityHint(Strings.Misc.TapToExpand)
             
             if stopCounts() > 1 && isExpanded {
                 VStack(alignment: .leading) {

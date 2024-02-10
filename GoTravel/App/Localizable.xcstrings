@@ -348,6 +348,28 @@
         }
       }
     },
+    "Journey:Accessibility:ModeInstructionLabel:%@:%@:%@:%@:%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Leave at %1$@, take the %2$@ %3$@ line to %4$@, %5$lld min"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Leave at %1$@, take the %2$@ %3$@ line to %4$@, %5$lld mins"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "Journey:Accessibility:PlanHint" : {
       "localizations" : {
         "en" : {
@@ -434,6 +456,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Optionally choose where to travel through on your journey"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:ViewRouteLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to view route on a map"
+          }
+        }
+      }
+    },
+    "Journey:Accessibility:WalkInstructionLabel:%@:%@:%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Leave at %1$@, walk to %2$@, %3$lld min"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Leave at %1$@, walk to %2$@, %3$lld min"
+                }
+              }
+            }
           }
         }
       }
@@ -1174,6 +1228,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tap to see more information"
+          }
+        }
+      }
+    },
+    "Misc:TapToExpand" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to expand"
           }
         }
       }
