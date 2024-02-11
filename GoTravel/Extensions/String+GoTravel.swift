@@ -10,7 +10,11 @@ import SwiftUI
 
 extension String: Error {}
 
-extension LocalizedStringKey {
+extension LocalizedStringKey: Hashable {
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.toString())
+    }
     
     /// Uses Mirroring/Reflection to grab the value of a LocalizedStringKey
     func toString() -> String {
@@ -30,5 +34,27 @@ extension LocalizedStringKey {
         }
         
         return ""
+    }
+}
+
+extension String {
+    
+    public func isEmail() -> Bool {
+        let trimmed = self.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        guard let dataDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) else {
+            return false
+        }
+        
+        let range = NSMakeRange(0, NSString(string: trimmed).length)
+        let allMatches = dataDetector.matches(in: trimmed,
+                                              options: [],
+                                              range: range)
+
+        if allMatches.count == 1 && allMatches.first?.url?.absoluteString.contains("mailto:") == true
+        {
+            return true
+        }
+        return false
     }
 }

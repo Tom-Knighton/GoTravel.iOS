@@ -18,6 +18,13 @@
 		E23027B32B6D445200DC1D54 /* JourneyResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B22B6D445200DC1D54 /* JourneyResultsView.swift */; };
 		E23027B52B6D534C00DC1D54 /* Journey+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B42B6D534C00DC1D54 /* Journey+GoTravel.swift */; };
 		E238EF6F2B781CE600DC8E84 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E238EF6E2B781CE600DC8E84 /* Lottie */; };
+		E238EF722B782DEA00DC8E84 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238EF712B782DEA00DC8E84 /* LoginView.swift */; };
+		E238EF752B782EB100DC8E84 /* ColorfulX in Frameworks */ = {isa = PBXBuildFile; productRef = E238EF742B782EB100DC8E84 /* ColorfulX */; };
+		E238EF772B78349100DC8E84 /* AuthPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238EF762B78349100DC8E84 /* AuthPage.swift */; };
+		E238EF7A2B78FA6600DC8E84 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238EF792B78FA6600DC8E84 /* SignUpView.swift */; };
+		E238EF7C2B79011500DC8E84 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238EF7B2B79011500DC8E84 /* AuthTextField.swift */; };
+		E238EF7F2B79330C00DC8E84 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238EF7E2B79330C00DC8E84 /* SignInViewModel.swift */; };
+		E238EF812B79331600DC8E84 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238EF802B79331600DC8E84 /* SignupViewModel.swift */; };
 		E2438F1E2B25D82B00BBF345 /* Accessibility+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */; };
 		E2438F202B26195100BBF345 /* AccessibilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */; };
 		E25572082B33B28200988348 /* MapSearchSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572072B33B28200988348 /* MapSearchSheetView.swift */; };
@@ -99,6 +106,7 @@
 		E2E6739F2B71321300361118 /* JourneyOptionsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E6739E2B71321300361118 /* JourneyOptionsSheet.swift */; };
 		E2E673A12B71376200361118 /* RadioToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E673A02B71376100361118 /* RadioToggleStyle.swift */; };
 		E2E673A32B72D86500361118 /* JourneyDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E673A22B72D86500361118 /* JourneyDetailPage.swift */; };
+		E2EAF2432B7969C900CB5CA4 /* PostSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EAF2422B7969C800CB5CA4 /* PostSignupView.swift */; };
 		E2F9415B2AD2C2A10047EA04 /* GlobalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9415A2AD2C2A10047EA04 /* GlobalViewModel.swift */; };
 		E2F9415D2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9415C2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift */; };
 		E2F9415F2AD30A3F0047EA04 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E2F9415E2AD30A3F0047EA04 /* Localizable.xcstrings */; };
@@ -130,6 +138,13 @@
 		E23027B02B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyLocationSearchSheet.swift; sourceTree = "<group>"; };
 		E23027B22B6D445200DC1D54 /* JourneyResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyResultsView.swift; sourceTree = "<group>"; };
 		E23027B42B6D534C00DC1D54 /* Journey+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journey+GoTravel.swift"; sourceTree = "<group>"; };
+		E238EF712B782DEA00DC8E84 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E238EF762B78349100DC8E84 /* AuthPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPage.swift; sourceTree = "<group>"; };
+		E238EF782B78380C00DC8E84 /* GoTravel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoTravel.entitlements; sourceTree = "<group>"; };
+		E238EF792B78FA6600DC8E84 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		E238EF7B2B79011500DC8E84 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
+		E238EF7E2B79330C00DC8E84 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		E238EF802B79331600DC8E84 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Accessibility+GoTravel.swift"; sourceTree = "<group>"; };
 		E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityHelper.swift; sourceTree = "<group>"; };
 		E25572072B33B28200988348 /* MapSearchSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchSheetView.swift; sourceTree = "<group>"; };
@@ -211,6 +226,7 @@
 		E2E6739E2B71321300361118 /* JourneyOptionsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyOptionsSheet.swift; sourceTree = "<group>"; };
 		E2E673A02B71376100361118 /* RadioToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioToggleStyle.swift; sourceTree = "<group>"; };
 		E2E673A22B72D86500361118 /* JourneyDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyDetailPage.swift; sourceTree = "<group>"; };
+		E2EAF2422B7969C800CB5CA4 /* PostSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSignupView.swift; sourceTree = "<group>"; };
 		E2F9415A2AD2C2A10047EA04 /* GlobalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewModel.swift; sourceTree = "<group>"; };
 		E2F9415C2AD2C3A60047EA04 /* NavigationPath+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationPath+GoTravel.swift"; sourceTree = "<group>"; };
 		E2F9415E2AD30A3F0047EA04 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -223,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E238EF6F2B781CE600DC8E84 /* Lottie in Frameworks */,
+				E238EF752B782EB100DC8E84 /* ColorfulX in Frameworks */,
 				E26988762B35D2E10097B8EF /* WrappingHStack in Frameworks */,
 				E28DC2B02B1F62B900E2FECE /* GoTravel.CoreData in Frameworks */,
 				E28DC2B32B1FE44900E2FECE /* GoTravel.Models in Frameworks */,
@@ -236,6 +253,7 @@
 		E2000C162AC8217E003D01A9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				E238EF7D2B79330000DC8E84 /* Auth */,
 				E23027AB2B69775100DC1D54 /* Journey */,
 				E2E511A02B572918003BE56E /* Stop */,
 				E28DC2BD2B2107CC00E2FECE /* Map */,
@@ -258,6 +276,7 @@
 		E2000C1C2AC8299B003D01A9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E238EF702B782DDF00DC8E84 /* Auth */,
 				E26905EC2B66D22800CC1271 /* Journey */,
 				E2E511A32B59ADC1003BE56E /* Stop */,
 				E26988702B35D18F0097B8EF /* Misc */,
@@ -281,6 +300,25 @@
 				E23027AC2B69775D00DC1D54 /* JourneyPlannerViewModel.swift */,
 			);
 			path = Journey;
+			sourceTree = "<group>";
+		};
+		E238EF702B782DDF00DC8E84 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				E238EF712B782DEA00DC8E84 /* LoginView.swift */,
+				E238EF792B78FA6600DC8E84 /* SignUpView.swift */,
+				E2EAF2422B7969C800CB5CA4 /* PostSignupView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		E238EF7D2B79330000DC8E84 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				E238EF7E2B79330C00DC8E84 /* SignInViewModel.swift */,
+				E238EF802B79331600DC8E84 /* SignupViewModel.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		E255720E2B33BAB900988348 /* BottomSheet */ = {
@@ -412,6 +450,7 @@
 				E2E6739C2B6FC14700361118 /* ExitButtonVIew.swift */,
 				E2E673A02B71376100361118 /* RadioToggleStyle.swift */,
 				E26938902B76BCBF00738C6D /* SingleAxisGeoReader.swift */,
+				E238EF7B2B79011500DC8E84 /* AuthTextField.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -456,6 +495,7 @@
 		E283D3802AC23316008ECF81 /* GoTravel */ = {
 			isa = PBXGroup;
 			children = (
+				E238EF782B78380C00DC8E84 /* GoTravel.entitlements */,
 				E2000C1F2AC82C97003D01A9 /* Info.plist */,
 				E283D3832AC23316008ECF81 /* ContentView.swift */,
 				E283D38F2AC233A7008ECF81 /* App */,
@@ -528,6 +568,7 @@
 		E29848BF2AC6FB79004A5BDC /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				E238EF762B78349100DC8E84 /* AuthPage.swift */,
 				E29848C02AC6FB83004A5BDC /* HomeMapPage.swift */,
 				E2E5119E2B57043A003BE56E /* StopPointPage.swift */,
 				E26905EA2B669ED000CC1271 /* JourneyPlannerPage.swift */,
@@ -614,6 +655,7 @@
 				E28DC2B52B1FE5DE00E2FECE /* GoTravel.API */,
 				E26988752B35D2E10097B8EF /* WrappingHStack */,
 				E238EF6E2B781CE600DC8E84 /* Lottie */,
+				E238EF742B782EB100DC8E84 /* ColorfulX */,
 			);
 			productName = GoLondon;
 			productReference = E283D37E2AC23316008ECF81 /* GoTravel.app */;
@@ -646,6 +688,7 @@
 			packageReferences = (
 				E26988742B35D2E10097B8EF /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 				E238EF6D2B781CE600DC8E84 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				E238EF732B782EB100DC8E84 /* XCRemoteSwiftPackageReference "ColorfulX" */,
 			);
 			productRefGroup = E283D37F2AC23316008ECF81 /* Products */;
 			projectDirPath = "";
@@ -678,6 +721,7 @@
 			files = (
 				E255724B2B33BAB900988348 /* BottomSheet+SwipeToDismiss.swift in Sources */,
 				E255724F2B33BAB900988348 /* BottomSheet+CustomBackground+iOS15.swift in Sources */,
+				E2EAF2432B7969C900CB5CA4 /* PostSignupView.swift in Sources */,
 				E2438F202B26195100BBF345 /* AccessibilityHelper.swift in Sources */,
 				E25572642B33BAB900988348 /* IgnoresSafeAreaCompatible.swift in Sources */,
 				E25572532B33BAB900988348 /* BottomSheetConfiguration.swift in Sources */,
@@ -692,6 +736,7 @@
 				E28DC2C52B210E5500E2FECE /* LineMode+Cache.swift in Sources */,
 				E2E6739D2B6FC14700361118 /* ExitButtonVIew.swift in Sources */,
 				E25572472B33BAB900988348 /* BottomSheet+CustomAnimation.swift in Sources */,
+				E238EF772B78349100DC8E84 /* AuthPage.swift in Sources */,
 				E23027AD2B69775D00DC1D54 /* JourneyPlannerViewModel.swift in Sources */,
 				E269388F2B768CD900738C6D /* JourneyMapView.swift in Sources */,
 				E2000C182AC821D3003D01A9 /* StopMapViewModel.swift in Sources */,
@@ -706,6 +751,7 @@
 				E25572552B33BAB900988348 /* BottomSheetView+Calculations.swift in Sources */,
 				E23027B32B6D445200DC1D54 /* JourneyResultsView.swift in Sources */,
 				E26938932B76C2E400738C6D /* JourneyLeg+GoTravel.swift in Sources */,
+				E238EF722B782DEA00DC8E84 /* LoginView.swift in Sources */,
 				E2E511A72B59EB53003BE56E /* StopArrivalsView.swift in Sources */,
 				E25572082B33B28200988348 /* MapSearchSheetView.swift in Sources */,
 				E25572572B33BAB900988348 /* BottomSheetView+Gestures.swift in Sources */,
@@ -715,7 +761,9 @@
 				E2E5119F2B57043A003BE56E /* StopPointPage.swift in Sources */,
 				E2000C1B2AC82799003D01A9 /* LocationManager.swift in Sources */,
 				E255725E2B33BAB900988348 /* TimerAnimation.swift in Sources */,
+				E238EF7A2B78FA6600DC8E84 /* SignUpView.swift in Sources */,
 				E28DC2B82B1FE6D500E2FECE /* LineModeFilterView.swift in Sources */,
+				E238EF7F2B79330C00DC8E84 /* SignInViewModel.swift in Sources */,
 				E25572422B33BAB900988348 /* BottomSheet+DragIndicator.swift in Sources */,
 				E255725A2B33BAB900988348 /* BottomSheetView+DragIndicatorAction.swift in Sources */,
 				E25572432B33BAB900988348 /* BottomSheet+FloatingIPadSheet.swift in Sources */,
@@ -724,6 +772,7 @@
 				E2CFBAA12AC89EC200662DC1 /* LocationNeededBanner.swift in Sources */,
 				E255724E2B33BAB900988348 /* BottomSheet+SheetWidth.swift in Sources */,
 				E255725D2B33BAB900988348 /* UIScrollViewWrapper.swift in Sources */,
+				E238EF7C2B79011500DC8E84 /* AuthTextField.swift in Sources */,
 				E283D3842AC23316008ECF81 /* ContentView.swift in Sources */,
 				E255724A2B33BAB900988348 /* BottomSheet+OnDismiss.swift in Sources */,
 				E26905EB2B669ED000CC1271 /* JourneyPlannerPage.swift in Sources */,
@@ -749,6 +798,7 @@
 				E25572592B33BAB900988348 /* BottomSheetView+KeyboardHeight.swift in Sources */,
 				E25572462B33BAB900988348 /* BottomSheet+ContentDrag.swift in Sources */,
 				E273078B2AD1FCAD0060FF99 /* NotificationCenter+GoTravel.swift in Sources */,
+				E238EF812B79331600DC8E84 /* SignupViewModel.swift in Sources */,
 				E25572582B33BAB900988348 /* BottomSheetView.swift in Sources */,
 				E25572512B33BAB900988348 /* BottomSheetWidth.swift in Sources */,
 				E2F9415B2AD2C2A10047EA04 /* GlobalViewModel.swift in Sources */,
@@ -892,6 +942,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				AUTH0_BASE_URL = "https://tomk-online-dev.uk.auth0.com/";
+				CODE_SIGN_ENTITLEMENTS = GoTravel/GoTravel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GoTravel/App/Preview Content\"";
@@ -931,6 +983,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				AUTH0_BASE_URL = "https://tomk-online-prod.uk.auth0.com";
+				CODE_SIGN_ENTITLEMENTS = GoTravel/GoTravel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GoTravel/App/Preview Content\"";
@@ -997,6 +1051,14 @@
 				minimumVersion = 4.4.0;
 			};
 		};
+		E238EF732B782EB100DC8E84 /* XCRemoteSwiftPackageReference "ColorfulX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Lakr233/ColorfulX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.0;
+			};
+		};
 		E26988742B35D2E10097B8EF /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ksemianov/WrappingHStack";
@@ -1012,6 +1074,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E238EF6D2B781CE600DC8E84 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		E238EF742B782EB100DC8E84 /* ColorfulX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E238EF732B782EB100DC8E84 /* XCRemoteSwiftPackageReference "ColorfulX" */;
+			productName = ColorfulX;
 		};
 		E26988752B35D2E10097B8EF /* WrappingHStack */ = {
 			isa = XCSwiftPackageProductDependency;

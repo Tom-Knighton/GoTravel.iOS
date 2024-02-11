@@ -227,6 +227,21 @@
         }
       }
     },
+    "Already have an account? Sign In" : {
+
+    },
+    "Choose a Password" : {
+
+    },
+    "Choose a username" : {
+
+    },
+    "Confirm Password" : {
+
+    },
+    "Don't have an account? Sign Up" : {
+
+    },
     "Errors:NoLineModesFromAPI" : {
       "localizations" : {
         "en" : {
@@ -1038,6 +1053,15 @@
         }
       }
     },
+    "Just a few details to continue..." : {
+
+    },
+    "Log In" : {
+
+    },
+    "Login" : {
+
+    },
     "Map:Distance:%@:%@" : {
       "localizations" : {
         "en" : {
@@ -1253,6 +1277,15 @@
         }
       }
     },
+    "Must be an email" : {
+
+    },
+    "Must be between 3 and 25 characters" : {
+
+    },
+    "Must be more than 8 characters" : {
+
+    },
     "Navigation:JourneyTab" : {
       "localizations" : {
         "en" : {
@@ -1272,6 +1305,21 @@
           }
         }
       }
+    },
+    "Or" : {
+
+    },
+    "Password" : {
+
+    },
+    "Passwords must match" : {
+
+    },
+    "Please enter a valid email address" : {
+
+    },
+    "Sign Up" : {
+
     },
     "StopPage:Accessibility:HasWifiLabel" : {
       "localizations" : {
@@ -1466,6 +1514,21 @@
           }
         }
       }
+    },
+    "This email address already belongs to a user" : {
+
+    },
+    "This username is already taken" : {
+
+    },
+    "Username or email address" : {
+
+    },
+    "Your Email Address" : {
+
+    },
+    "Your password is not secure enough, it must contain a special character, capital letters, numbers and be over 8 characters" : {
+
     }
   },
   "version" : "1.0"
