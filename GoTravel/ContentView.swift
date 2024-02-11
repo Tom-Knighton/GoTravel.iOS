@@ -19,7 +19,7 @@ struct ContentView: View {
         
         TabView(selection: $globalVM.tabIndex) {
             NavigationStack(path: $globalVM.mapPath) {
-                AuthPage()
+                HomeMapPage()
                     .navigationDestination(for: StopPointNavModel.self) { nav in
                         StopPointPage(stopId: nav.stopPointId)
                     }
