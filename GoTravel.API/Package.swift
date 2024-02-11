@@ -15,11 +15,12 @@ let package = Package(
             targets: ["GoTravel.API"]),
     ],
     dependencies: [
-        .package(name: "GoTravel.Models", path: "../GoTravel.Models")
+        .package(name: "GoTravel.Models", path: "../GoTravel.Models"),
+        .package(url: "https://github.com/auth0/Auth0.swift", from: "2.5.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
-        .target( name: "GoTravel.API", dependencies: [.product(name: "GoTravel.Models", package: "GoTravel.Models")])
+        .target( name: "GoTravel.API", dependencies: [.product(name: "GoTravel.Models", package: "GoTravel.Models"), .product(name: "Auth0", package: "auth0.swift")])
     ]
 )
