@@ -43,6 +43,11 @@ public struct SignUpView: View {
                             TextField("Choose a username", text: $viewModel.usernameField)
                                 .textFieldStyle(AuthTextFieldStyle())
                                 .textContentType(.username)
+                                .textInputAutocapitalization(.never)
+                                .autocorrectionDisabled()
+                                .onChange(of: viewModel.usernameField) { _, newValue in
+                                    viewModel.usernameField = filterUsername(newValue)
+                                }
                         }, errors: self.viewModel.errors(for: "username"))
                        
                         ValidatedView({
@@ -50,6 +55,10 @@ public struct SignUpView: View {
                                 .textFieldStyle(AuthTextFieldStyle())
                                 .textContentType(.emailAddress)
                                 .keyboardType(.emailAddress)
+                                .autocorrectionDisabled()
+                                .onChange(of: viewModel.emailField) { _, newValue in
+                                    viewModel.emailField = filterEmail(newValue)
+                                }
                         }, errors: self.viewModel.errors(for: "email"))
                         
                         ValidatedView({
@@ -158,6 +167,36 @@ public struct SignUpView: View {
             Text("Something went wrong. Please try again.")
         }
 
+    }
+    
+    private func filterUsername(_ input: String) -> String {
+        
+        let max = 32
+        let allowedCharacters = CharacterSet
+            .lowercaseLetters
+            .union(.decimalDigits)
+            .union(.init(charactersIn: "-_"))
+        let filtered = input.reduce(into: "") { result, char in
+            if result.count < max {
+                let string = String(char)
+                if string.rangeOfCharacter(from: allowedCharacters) != nil {
+                    result.append(char)
+                }
+            }
+        }
+        
+        return filtered
+    }
+    
+    private func filterEmail(_ input: String) -> String {
+        let deniedCharacters = CharacterSet
+            .whitespacesAndNewlines
+        let filtered = input.filter { char in
+            let string = String(char)
+            return string.rangeOfCharacter(from: deniedCharacters) == nil
+        }
+        
+        return filtered
     }
 }
 
