@@ -77,7 +77,6 @@ public struct LoginView: View {
                     } onCompletion: { result in
                         switch result {
                         case .success(let authResults):
-                            print("Authorization successful.")
                             guard let credentials = authResults.credential as? ASAuthorizationAppleIDCredential,
                                   let authCode = credentials.authorizationCode,
                                   let authCodeString = String(data: authCode, encoding: .utf8),
@@ -88,7 +87,6 @@ public struct LoginView: View {
                                     print(authCodeString)
                                     print(identityString)
                                     let success = try await AuthClient.Authenticate(with: authCodeString)
-                                    print("Auth: \(success)")
                                 }
                                 catch {
                                     print(error.localizedDescription.debugDescription)
@@ -123,18 +121,10 @@ public struct LoginView: View {
         }
     }
     
-    @ViewBuilder
-    private func AuthField() -> some View {
-        ZStack {
-            
-        }
-    }
-    
     private func login() {
         Task {
             do {
                 let success = try await AuthClient.Authenticate(with: self.userField, password: self.passwordField)
-                print("Auth: \(success)")
             }
             catch {
                 print(error)

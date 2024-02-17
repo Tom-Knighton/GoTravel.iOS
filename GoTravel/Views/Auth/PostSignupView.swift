@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import PhotosUI
+import GoTravel_Models
 
 public struct PostSignupView: View {
     
-    
+    @Environment(GlobalViewModel.self) private var globalVM
+    @State private var viewModel = PostSignupViewModel()
     
     public var body: some View {
         ZStack {
@@ -27,17 +30,67 @@ public struct PostSignupView: View {
                 
                 Spacer()
                 
-                //TODO: Replace w/ image
-                Circle()
-                    .frame(width: 150, height: 150)
+                if let image = self.viewModel.userImage {
+                    PhotosPicker(selection: $viewModel.userChosenFile, matching: .images) {
+                        VStack {
+                            Image(uiImage: image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 150, height: 150)
+                                .clipShape(.circle)
+                                .contentShape(.circle)
+                            
+                            Text("Change Profile Image")
+                                .buttonStyle(.bordered)
+                        }
+                    }
+                }
+                else {
+                    AsyncImage(url: URL(string: globalVM.currentUser?.userPictureUrl ?? "")) { img in
+                        
+                        PhotosPicker(selection: $viewModel.userChosenFile, matching: .images) {
+                            VStack {
+                                img
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 150, height: 150)
+                                    .clipShape(.circle)
+                                    .contentShape(.circle)
+                                
+                                Text("Change Profile Image")
+                                    .buttonStyle(.bordered)
+                            }
+                        }
+                    } placeholder: {
+                        ProgressView()
+                    }
+                }
+                
+                if viewModel.needsUsernameSet() {
+                    Spacer().frame(height: 8)
+                    
+                    Text("Your username:")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    ValidatedView({
+                        TextField("Username", text: $viewModel.usernameText)
+                            .textFieldStyle(AuthTextFieldStyle())
+                    }, errors: [])
+                    
+                    Spacer().frame(height: 8)
+                }
                 
                 Spacer()
                 
                 Button(action: {}) {
-                    Text("Continue")
-                        .frame(maxWidth: .infinity)
+                    if viewModel.isLoading {
+                        ProgressView()
+                            .frame(maxWidth: .infinity)
+                    } else {
+                        Text("Continue")
+                            .frame(maxWidth: .infinity)
+                    }
                 }
-                .disabled(true)
+                .disabled(viewModel.isLoading)
                 .buttonStyle(.borderedProminent)
                 .bold()
                 .fontDesign(.rounded)
@@ -46,17 +99,32 @@ public struct PostSignupView: View {
             }
             .padding(.horizontal, 16)
         }
+        .onChange(of: viewModel.userChosenFile, initial: false) { _, newValue in
+            Task {
+                if let newValue, let data = try? await newValue.loadTransferable(type: Data.self) {
+                    if let image = UIImage(data: data) {
+                        viewModel.userImage = image
+                    }
+                }
+                viewModel.userChosenFile = nil
+            }
+        }
     }
 }
 
 #Preview {
-    VStack {
+    
+    let gvm = GlobalViewModel()
+    gvm.currentUser = CurrentUser(userId: "apple|", userName: "tomknighton_11213", userEmail: "tomknighton@icloud.com", userPictureUrl: "https://s.gravatar.com/avatar/5fb6ef12d27e312547e9b45d139a0a4f?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fto.png", dateCreated: Date())
+    
+    return VStack {
         
     }
     .sheet(isPresented: .constant(true)) {
         PostSignupView()
-            .presentationDetents([.medium])
+            .presentationDetents([.fraction(0.6)])
             .interactiveDismissDisabled()
             .presentationBackgroundInteraction(.disabled)
     }
+    .environment(gvm)
 }

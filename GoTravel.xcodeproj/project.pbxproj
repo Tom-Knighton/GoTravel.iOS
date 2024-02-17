@@ -17,6 +17,7 @@
 		E23027B12B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B02B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift */; };
 		E23027B32B6D445200DC1D54 /* JourneyResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B22B6D445200DC1D54 /* JourneyResultsView.swift */; };
 		E23027B52B6D534C00DC1D54 /* Journey+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B42B6D534C00DC1D54 /* Journey+GoTravel.swift */; };
+		E2311A772B7EA48800D7DCD4 /* PostSignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2311A762B7EA48800D7DCD4 /* PostSignupViewModel.swift */; };
 		E238EF6F2B781CE600DC8E84 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E238EF6E2B781CE600DC8E84 /* Lottie */; };
 		E238EF722B782DEA00DC8E84 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238EF712B782DEA00DC8E84 /* LoginView.swift */; };
 		E238EF752B782EB100DC8E84 /* ColorfulX in Frameworks */ = {isa = PBXBuildFile; productRef = E238EF742B782EB100DC8E84 /* ColorfulX */; };
@@ -138,6 +139,7 @@
 		E23027B02B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyLocationSearchSheet.swift; sourceTree = "<group>"; };
 		E23027B22B6D445200DC1D54 /* JourneyResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyResultsView.swift; sourceTree = "<group>"; };
 		E23027B42B6D534C00DC1D54 /* Journey+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journey+GoTravel.swift"; sourceTree = "<group>"; };
+		E2311A762B7EA48800D7DCD4 /* PostSignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSignupViewModel.swift; sourceTree = "<group>"; };
 		E238EF712B782DEA00DC8E84 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E238EF762B78349100DC8E84 /* AuthPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPage.swift; sourceTree = "<group>"; };
 		E238EF782B78380C00DC8E84 /* GoTravel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoTravel.entitlements; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 			children = (
 				E238EF7E2B79330C00DC8E84 /* SignInViewModel.swift */,
 				E238EF802B79331600DC8E84 /* SignupViewModel.swift */,
+				E2311A762B7EA48800D7DCD4 /* PostSignupViewModel.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -734,6 +737,7 @@
 				E26938912B76BCBF00738C6D /* SingleAxisGeoReader.swift in Sources */,
 				E23027B12B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift in Sources */,
 				E28DC2C52B210E5500E2FECE /* LineMode+Cache.swift in Sources */,
+				E2311A772B7EA48800D7DCD4 /* PostSignupViewModel.swift in Sources */,
 				E2E6739D2B6FC14700361118 /* ExitButtonVIew.swift in Sources */,
 				E25572472B33BAB900988348 /* BottomSheet+CustomAnimation.swift in Sources */,
 				E238EF772B78349100DC8E84 /* AuthPage.swift in Sources */,

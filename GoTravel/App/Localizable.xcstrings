@@ -230,6 +230,9 @@
     "Already have an account? Sign In" : {
 
     },
+    "Change Profile Image" : {
+
+    },
     "Choose a Password" : {
 
     },
@@ -239,7 +242,13 @@
     "Confirm Password" : {
 
     },
+    "Continue" : {
+
+    },
     "Don't have an account? Sign Up" : {
+
+    },
+    "Error" : {
 
     },
     "Errors:NoLineModesFromAPI" : {
@@ -1306,6 +1315,9 @@
         }
       }
     },
+    "Ok" : {
+
+    },
     "Or" : {
 
     },
@@ -1319,6 +1331,9 @@
 
     },
     "Sign Up" : {
+
+    },
+    "Something went wrong. Please try again." : {
 
     },
     "StopPage:Accessibility:HasWifiLabel" : {
@@ -1515,19 +1530,31 @@
         }
       }
     },
+    "Thank you for signing up, now you can choose how others will see you:" : {
+
+    },
     "This email address already belongs to a user" : {
 
     },
     "This username is already taken" : {
 
     },
+    "Username" : {
+
+    },
     "Username or email address" : {
+
+    },
+    "Woohoo!" : {
 
     },
     "Your Email Address" : {
 
     },
     "Your password is not secure enough, it must contain a special character, capital letters, numbers and be over 8 characters" : {
+
+    },
+    "Your username:" : {
 
     }
   },

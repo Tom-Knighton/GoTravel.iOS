@@ -39,6 +39,11 @@ public actor APIClient {
         apiRequest.httpMethod = request.method.rawValue
         apiRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
+        if let token = try? await AuthClient.GetToken() {
+            apiRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            print(token)
+        }
+        
         #if DEBUG
         print(url.absoluteString)
         #endif

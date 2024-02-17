@@ -126,11 +126,38 @@ public struct SignUpView: View {
             }
             .ignoresSafeArea(.keyboard)
 
+            if viewModel.isLoading {
+                ZStack {
+                    Color.black.opacity(0.7).ignoresSafeArea(.all)
+                    VStack {
+                        Spacer()
+                        ProgressView()
+                            .tint(.white)
+                        Spacer()
+                    }
+                        
+                }
+                .ignoresSafeArea(.all)
+            }
           
         }
         .onChange(of: self.scheme, initial: true) { _, value in
             self.bgColours = value == .dark ? ColorfulPreset.love.colors : ColorfulPreset.sunrise.colors
         }
+        .sheet(isPresented: $viewModel.showNextStep) {
+            PostSignupView()
+                .presentationDetents([.medium])
+                .interactiveDismissDisabled()
+                .presentationBackgroundInteraction(.disabled)
+        }
+        .alert("Error", isPresented: $viewModel.somethingWentWrong) {
+            Button(action: {}) {
+                Text("Ok")
+            }
+        } message: {
+            Text("Something went wrong. Please try again.")
+        }
+
     }
 }
 

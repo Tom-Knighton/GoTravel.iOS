@@ -15,6 +15,9 @@ public class GlobalViewModel {
     @ObservationIgnored
     public static let shared = GlobalViewModel()
     
+    /// If logged in, details on the current user
+    public var currentUser: CurrentUser?
+    
     /// The navigation path used for the 'map' tab
     public var mapPath = NavigationPath()
     
