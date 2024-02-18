@@ -13,6 +13,7 @@ public struct Strings {
     public struct Navigation {
         public static let MapTab: LocalizedStringKey = "Navigation:MapTab"
         public static let JourneyTab: LocalizedStringKey = "Navigation:JourneyTab"
+        public static let CommunityTab: LocalizedStringKey = "Navigation:CommunityTab"
     }
     
     public struct Map {
@@ -318,4 +319,5 @@ public struct Icons {
     public static let clockFilled = "clock.fill"
     public static let walk = "figure.walk"
     public static let signPostFilled = "signpost.right.and.left.fill"
+    public static let personOnBustFilled = "person.bust.fill"
 }

@@ -31,4 +31,32 @@ public struct UserService {
         return result
     }
     
+    /// Updates details for a specified user
+    public static func UpdateDetails(for username: String, to details: UpdateUserDetails) async throws -> Bool {
+        
+        let request = APIRequest(method: .put, path: "User/\(username)/updateDetails", queryItems: [], body: details.toJson())
+        let result: Bool = try await client.perform(request)
+        
+        return result
+    }
+    
+    /// Updates user profile pic url for a specified user
+    /// imageData should come from uiImage.jpegData
+    public static func UpdateProfilePic(for username: String, to imageData: Data) async throws -> Bool {
+        
+        let boundary = "Boundary-\(UUID().uuidString)"
+
+        var body = Data()
+        body.append("--\(boundary)\r\n".data(using: .utf8) ?? Data())
+        body.append("Content-Disposition: form-data; name=\"picture\"; filename=\"image.jpg\"\r\n".data(using: .utf8) ?? Data())
+        body.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8) ?? Data())
+        body.append(imageData)
+        body.append("\r\n".data(using: .utf8) ?? Data())
+        body.append("--\(boundary)--\r\n".data(using: .utf8) ?? Data())
+        
+        let request = APIRequest(method: .put, path: "User/\(username)/updateProfilePicture", queryItems: [], body: body, contentType: "multipart/form-data; boundary=\(boundary)")
+        let result: Bool = try await client.perform(request)
+        
+        return result
+    }
 }

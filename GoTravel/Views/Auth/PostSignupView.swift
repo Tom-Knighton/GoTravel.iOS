@@ -26,6 +26,7 @@ public struct PostSignupView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Text("Thank you for signing up, now you can choose how others will see you:")
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .fixedSize(horizontal: false, vertical: true)
                     .fontDesign(.rounded)
                 
                 Spacer()
@@ -74,6 +75,12 @@ public struct PostSignupView: View {
                     ValidatedView({
                         TextField("Username", text: $viewModel.usernameText)
                             .textFieldStyle(AuthTextFieldStyle())
+                            .textContentType(.username)
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
+                            .onChange(of: viewModel.usernameText) { _, newValue in
+                                viewModel.usernameText = filterUsername(newValue)
+                            }
                     }, errors: [])
                     
                     Spacer().frame(height: 8)
@@ -81,7 +88,7 @@ public struct PostSignupView: View {
                 
                 Spacer()
                 
-                Button(action: {}) {
+                Button(action: { viewModel.saveUser() }) {
                     if viewModel.isLoading {
                         ProgressView()
                             .frame(maxWidth: .infinity)
@@ -98,6 +105,20 @@ public struct PostSignupView: View {
                 Spacer().frame(height: 16)
             }
             .padding(.horizontal, 16)
+            
+            if viewModel.isLoading {
+                ZStack {
+                    Color.black.opacity(0.7).ignoresSafeArea(.all)
+                    VStack {
+                        Spacer()
+                        ProgressView()
+                            .tint(.white)
+                        Spacer()
+                    }
+                        
+                }
+                .ignoresSafeArea(.all)
+            }
         }
         .onChange(of: viewModel.userChosenFile, initial: false) { _, newValue in
             Task {
@@ -109,6 +130,25 @@ public struct PostSignupView: View {
                 viewModel.userChosenFile = nil
             }
         }
+    }
+    
+    private func filterUsername(_ input: String) -> String {
+        
+        let max = 25
+        let allowedCharacters = CharacterSet
+            .lowercaseLetters
+            .union(.decimalDigits)
+            .union(.init(charactersIn: "-_"))
+        let filtered = input.reduce(into: "") { result, char in
+            if result.count < max {
+                let string = String(char)
+                if string.rangeOfCharacter(from: allowedCharacters) != nil {
+                    result.append(char)
+                }
+            }
+        }
+        
+        return filtered
     }
 }
 

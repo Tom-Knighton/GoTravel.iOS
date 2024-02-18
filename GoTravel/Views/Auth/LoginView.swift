@@ -13,11 +13,9 @@ import GoTravel_API
 public struct LoginView: View {
     
     @Environment(\.colorScheme) private var scheme
+    @State private var viewModel = SignInViewModel()
     @State private var bgColours: [Color] = ColorfulPreset.sunrise.colors
-    
-    @State private var userField: String = ""
-    @State private var passwordField: String = ""
-    
+        
     private var goToSignup: () -> Void
     
     init(goToSignup: @escaping () -> Void) {
@@ -40,15 +38,25 @@ public struct LoginView: View {
                     .shadow(radius: 10)
                 
                 Spacer().frame(height: 50)
-                TextField("Username or email address", text: $userField)
-                    .textFieldStyle(AuthTextFieldStyle())
-                    .textContentType(.emailAddress)
+                
+                ValidatedView({
+                    TextField("Username or email address", text: $viewModel.userText)
+                        .textFieldStyle(AuthTextFieldStyle())
+                        .textContentType(.emailAddress)
+                        .keyboardType(.emailAddress)
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.never)
+                        .onChange(of: viewModel.userText) { _, newValue in
+                            viewModel.userText = filterUserText(newValue)
+                        }
+                }, errors: viewModel.error == nil ? nil : [viewModel.error ?? ""])
+              
                 Spacer().frame(height: 16)
-                SecureField("Password", text: $passwordField)
+                SecureField("Password", text: $viewModel.passwordText)
                     .textFieldStyle(AuthTextFieldStyle())
                     .textContentType(.password)
                                 
-                Button(action: { self.login() }) {
+                Button(action: { viewModel.SignIn() }) {
                     Text("Log In")
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 4)
@@ -75,26 +83,7 @@ public struct LoginView: View {
                     SignInWithAppleButton(.signIn) { request in
                         request.requestedScopes = [.fullName, .email, .init("openid"), .init("profile"), .init("offline_access")]
                     } onCompletion: { result in
-                        switch result {
-                        case .success(let authResults):
-                            guard let credentials = authResults.credential as? ASAuthorizationAppleIDCredential,
-                                  let authCode = credentials.authorizationCode,
-                                  let authCodeString = String(data: authCode, encoding: .utf8),
-                                  let identity = credentials.identityToken,
-                                  let identityString = String(data: identity, encoding: .utf8) else { return }
-                            Task {
-                                do {
-                                    print(authCodeString)
-                                    print(identityString)
-                                    let success = try await AuthClient.Authenticate(with: authCodeString)
-                                }
-                                catch {
-                                    print(error.localizedDescription.debugDescription)
-                                }
-                            }
-                        case .failure(let error):
-                            print("Authorization failed: " + error.localizedDescription)
-                      }
+                        viewModel.AppleAuthenticate(result)
                     }
                     .frame(height: 45)
                     .clipShape(.rect(cornerRadius: 10))
@@ -119,17 +108,24 @@ public struct LoginView: View {
         .onChange(of: self.scheme, initial: true) { _, value in
             self.bgColours = value == .dark ? ColorfulPreset.love.colors : ColorfulPreset.sunrise.colors
         }
+        .alert("Error", isPresented: $viewModel.somethingWentWrong) {
+            Button(action: {}) {
+                Text("Ok")
+            }
+        } message: {
+            Text("Something went wrong. Please try again.")
+        }
     }
     
-    private func login() {
-        Task {
-            do {
-                let success = try await AuthClient.Authenticate(with: self.userField, password: self.passwordField)
-            }
-            catch {
-                print(error)
-            }
+    private func filterUserText(_ input: String) -> String {
+        let deniedCharacters = CharacterSet
+            .whitespacesAndNewlines
+        let filtered = input.filter { char in
+            let string = String(char)
+            return string.rangeOfCharacter(from: deniedCharacters) == nil
         }
+        
+        return filtered
     }
 }
 

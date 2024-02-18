@@ -21,6 +21,7 @@ public struct APIRequest {
     let path: String
     let queryItems: [URLQueryItem]?
     let body: Data?
+    var contentType: String = "application/json"
 }
 
 public actor APIClient {
@@ -37,7 +38,7 @@ public actor APIClient {
         let url = baseUrl.appending(path: request.path).appending(queryItems: request.queryItems ?? [])
         var apiRequest = URLRequest(url: url)
         apiRequest.httpMethod = request.method.rawValue
-        apiRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        apiRequest.setValue(request.contentType, forHTTPHeaderField: "Content-Type")
         
         if let token = try? await AuthClient.GetToken() {
             apiRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
@@ -59,7 +60,7 @@ public actor APIClient {
         }
         
         do {
-            let response = try data.decode(to: T.self)
+            let response = try! data.decode(to: T.self)
             return response
         } catch {
             throw error

@@ -51,6 +51,23 @@ struct ContentView: View {
             .tabItem {
                 Label(Strings.Navigation.JourneyTab, systemImage: Icons.signPostFilled)
             }
+            
+            NavigationStack(path: $globalVM.communityPath) {
+                CommunityPage()
+                    .navigationDestination(for: StopPointNavModel.self) { nav in
+                        StopPointPage(stopId: nav.stopPointId)
+                    }
+                    .navigationDestination(for: QuickJourneyNavModel.self) { nav in
+                        JourneyPlannerPage(preSetDestination: nav.destination)
+                    }
+                    .navigationDestination(for: JourneyDetailNavModel.self) { nav in
+                        JourneyDetailPage(nav.journey)
+                    }
+            }
+            .tag(1)
+            .tabItem {
+                Label(Strings.Navigation.CommunityTab, systemImage: Icons.personOnBustFilled)
+            }
         }
     }
 }

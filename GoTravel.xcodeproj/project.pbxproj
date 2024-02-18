@@ -17,6 +17,8 @@
 		E23027B12B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B02B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift */; };
 		E23027B32B6D445200DC1D54 /* JourneyResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B22B6D445200DC1D54 /* JourneyResultsView.swift */; };
 		E23027B52B6D534C00DC1D54 /* Journey+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027B42B6D534C00DC1D54 /* Journey+GoTravel.swift */; };
+		E23094012B82261300C67D96 /* CommunityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23094002B82261300C67D96 /* CommunityPage.swift */; };
+		E23094042B8226A800C67D96 /* CommunityNotLoggedInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23094032B8226A800C67D96 /* CommunityNotLoggedInView.swift */; };
 		E2311A772B7EA48800D7DCD4 /* PostSignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2311A762B7EA48800D7DCD4 /* PostSignupViewModel.swift */; };
 		E238EF6F2B781CE600DC8E84 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E238EF6E2B781CE600DC8E84 /* Lottie */; };
 		E238EF722B782DEA00DC8E84 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238EF712B782DEA00DC8E84 /* LoginView.swift */; };
@@ -139,6 +141,8 @@
 		E23027B02B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyLocationSearchSheet.swift; sourceTree = "<group>"; };
 		E23027B22B6D445200DC1D54 /* JourneyResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyResultsView.swift; sourceTree = "<group>"; };
 		E23027B42B6D534C00DC1D54 /* Journey+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journey+GoTravel.swift"; sourceTree = "<group>"; };
+		E23094002B82261300C67D96 /* CommunityPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityPage.swift; sourceTree = "<group>"; };
+		E23094032B8226A800C67D96 /* CommunityNotLoggedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityNotLoggedInView.swift; sourceTree = "<group>"; };
 		E2311A762B7EA48800D7DCD4 /* PostSignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSignupViewModel.swift; sourceTree = "<group>"; };
 		E238EF712B782DEA00DC8E84 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E238EF762B78349100DC8E84 /* AuthPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPage.swift; sourceTree = "<group>"; };
@@ -278,6 +282,7 @@
 		E2000C1C2AC8299B003D01A9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E23094022B82269800C67D96 /* Community */,
 				E238EF702B782DDF00DC8E84 /* Auth */,
 				E26905EC2B66D22800CC1271 /* Journey */,
 				E2E511A32B59ADC1003BE56E /* Stop */,
@@ -302,6 +307,14 @@
 				E23027AC2B69775D00DC1D54 /* JourneyPlannerViewModel.swift */,
 			);
 			path = Journey;
+			sourceTree = "<group>";
+		};
+		E23094022B82269800C67D96 /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				E23094032B8226A800C67D96 /* CommunityNotLoggedInView.swift */,
+			);
+			path = Community;
 			sourceTree = "<group>";
 		};
 		E238EF702B782DDF00DC8E84 /* Auth */ = {
@@ -576,6 +589,7 @@
 				E2E5119E2B57043A003BE56E /* StopPointPage.swift */,
 				E26905EA2B669ED000CC1271 /* JourneyPlannerPage.swift */,
 				E2E673A22B72D86500361118 /* JourneyDetailPage.swift */,
+				E23094002B82261300C67D96 /* CommunityPage.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -741,6 +755,7 @@
 				E2E6739D2B6FC14700361118 /* ExitButtonVIew.swift in Sources */,
 				E25572472B33BAB900988348 /* BottomSheet+CustomAnimation.swift in Sources */,
 				E238EF772B78349100DC8E84 /* AuthPage.swift in Sources */,
+				E23094042B8226A800C67D96 /* CommunityNotLoggedInView.swift in Sources */,
 				E23027AD2B69775D00DC1D54 /* JourneyPlannerViewModel.swift in Sources */,
 				E269388F2B768CD900738C6D /* JourneyMapView.swift in Sources */,
 				E2000C182AC821D3003D01A9 /* StopMapViewModel.swift in Sources */,
@@ -811,6 +826,7 @@
 				E25572412B33BAB900988348 /* BottomSheet+AppleScrollBehavior.swift in Sources */,
 				E23027B52B6D534C00DC1D54 /* Journey+GoTravel.swift in Sources */,
 				E2E511A52B59ADDB003BE56E /* LineModesView.swift in Sources */,
+				E23094012B82261300C67D96 /* CommunityPage.swift in Sources */,
 				E25572482B33BAB900988348 /* BottomSheet+DragGesture.swift in Sources */,
 				E22DBC3D2B5B227800276034 /* PlatformArrivals+GoTravel.swift in Sources */,
 				E22DBC3F2B5BEA8100276034 /* GaugeTimerView.swift in Sources */,

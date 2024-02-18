@@ -171,7 +171,7 @@ public struct SignUpView: View {
     
     private func filterUsername(_ input: String) -> String {
         
-        let max = 32
+        let max = 25
         let allowedCharacters = CharacterSet
             .lowercaseLetters
             .union(.decimalDigits)
