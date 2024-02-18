@@ -11,6 +11,7 @@ import AuthenticationServices
 import SwiftUI
 import GoTravel_API
 import Auth0
+import GoTravel_Models
 
 @Observable
 public class SignupViewModel {
@@ -27,6 +28,8 @@ public class SignupViewModel {
         
     public var needsUsernameSet: Bool = false
     public var showNextStep: Bool = false
+    
+    public var tempUser: CurrentUser? = nil
         
     public struct SignUpValidError {
         let fieldId: String
@@ -48,7 +51,7 @@ public class SignupViewModel {
             Task {
                 do {
                     let _ = try await AuthClient.Authenticate(with: auth)
-                    GlobalViewModel.shared.currentUser = try await UserService.CurrentUser()
+                    self.tempUser = try await UserService.CurrentUser()
                     self.needsUsernameSet = true
                     self.showNextStep = true
                 }
@@ -98,7 +101,7 @@ public class SignupViewModel {
         Task {
             do {
                 let _ = try await AuthClient.SignUp(with: email, password: password, username: username)
-                GlobalViewModel.shared.currentUser = try await UserService.CurrentUser()
+                self.tempUser = try await UserService.CurrentUser()
                 self.isLoading = false
                 self.needsUsernameSet = false
                 self.showNextStep = true

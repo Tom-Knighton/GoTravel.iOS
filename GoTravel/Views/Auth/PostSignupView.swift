@@ -11,8 +11,9 @@ import GoTravel_Models
 
 public struct PostSignupView: View {
     
-    @Environment(GlobalViewModel.self) private var globalVM
     @State private var viewModel = PostSignupViewModel()
+    
+    public var tempUser: CurrentUser?
     
     public var body: some View {
         ZStack {
@@ -47,7 +48,7 @@ public struct PostSignupView: View {
                     }
                 }
                 else {
-                    AsyncImage(url: URL(string: globalVM.currentUser?.userPictureUrl ?? "")) { img in
+                    AsyncImage(url: URL(string: tempUser?.userPictureUrl ?? "")) { img in
                         
                         PhotosPicker(selection: $viewModel.userChosenFile, matching: .images) {
                             VStack {
@@ -120,6 +121,9 @@ public struct PostSignupView: View {
                 .ignoresSafeArea(.all)
             }
         }
+        .task {
+            self.viewModel.setup(with: tempUser)
+        }
         .onChange(of: viewModel.userChosenFile, initial: false) { _, newValue in
             Task {
                 if let newValue, let data = try? await newValue.loadTransferable(type: Data.self) {
@@ -161,7 +165,7 @@ public struct PostSignupView: View {
         
     }
     .sheet(isPresented: .constant(true)) {
-        PostSignupView()
+        PostSignupView(tempUser: gvm.currentUser!)
             .presentationDetents([.fraction(0.6)])
             .interactiveDismissDisabled()
             .presentationBackgroundInteraction(.disabled)

@@ -154,7 +154,7 @@ public struct SignUpView: View {
             self.bgColours = value == .dark ? ColorfulPreset.love.colors : ColorfulPreset.sunrise.colors
         }
         .sheet(isPresented: $viewModel.showNextStep) {
-            PostSignupView()
+            PostSignupView(tempUser: viewModel.tempUser)
                 .presentationDetents([.medium])
                 .interactiveDismissDisabled()
                 .presentationBackgroundInteraction(.disabled)

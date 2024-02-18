@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoTravel_API
 
 public struct CommunityPage: View {
     
@@ -15,10 +16,21 @@ public struct CommunityPage: View {
         ZStack {
             Color.layer1.ignoresSafeArea()
             
+            
             if let user = globalVm.currentUser {
-                Text("Hey \(user.userName)!")
+                VStack {
+                    Text("Hey \(user.userName)!")
+                    Button(action: { Task {
+                        try? await AuthClient.LogOut()
+                        GlobalViewModel.shared.currentUser = nil
+                    } }) {
+                        Text("Logout")
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
             } else {
-                Text("pls log in")
+                CommunityNotLoggedInView()
+                    .navigationTitle("Community")
             }
         }
     }

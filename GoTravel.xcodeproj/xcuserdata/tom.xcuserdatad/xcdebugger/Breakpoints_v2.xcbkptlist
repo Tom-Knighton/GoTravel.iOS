@@ -7,97 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "81E1609E-AC0B-4037-9D94-17237B17CE36"
+            uuid = "F54D31EA-CDD4-466F-B5EC-B9F458CA614C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GoTravel/ViewModels/Auth/SignupViewModel.swift"
+            filePath = "GoTravel/ViewModels/Auth/PostSignupViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "Signup()"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "saveUser()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "81E1609E-AC0B-4037-9D94-17237B17CE36 - 46efd31154c13097"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in GoTravel.SignupViewModel.Signup() -&gt; ()"
-                  moduleName = "GoTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tom/GTProjects/GoTravel.iOS/GoTravel/ViewModels/Auth/SignupViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "716">
-               </Location>
-               <Location
-                  uuid = "81E1609E-AC0B-4037-9D94-17237B17CE36 - bf5f962a812dd694"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(6) suspend resume partial function for closure #1 @Sendable () async -&gt; () in GoTravel.SignupViewModel.Signup() -&gt; ()"
-                  moduleName = "GoTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tom/GTProjects/GoTravel.iOS/GoTravel/ViewModels/Auth/SignupViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "736">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DE167D7C-173C-4FEB-9F11-98EC19ADF621"
+            uuid = "53029948-667F-4CDB-BFCF-1212D331F68B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GoTravel/ViewModels/Auth/SignupViewModel.swift"
+            filePath = "GoTravel/ViewModels/Auth/PostSignupViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "Signup()"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "saveUser()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DE167D7C-173C-4FEB-9F11-98EC19ADF621 - 46efd31154c12f08"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in GoTravel.SignupViewModel.Signup() -&gt; ()"
-                  moduleName = "GoTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tom/GTProjects/GoTravel.iOS/GoTravel/ViewModels/Auth/SignupViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "131"
-                  endingLineNumber = "131"
-                  offsetFromSymbolStart = "3512">
-               </Location>
-               <Location
-                  uuid = "DE167D7C-173C-4FEB-9F11-98EC19ADF621 - bf5f962a812dc90b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(6) suspend resume partial function for closure #1 @Sendable () async -&gt; () in GoTravel.SignupViewModel.Signup() -&gt; ()"
-                  moduleName = "GoTravel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tom/GTProjects/GoTravel.iOS/GoTravel/ViewModels/Auth/SignupViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "131"
-                  endingLineNumber = "131"
-                  offsetFromSymbolStart = "3532">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE349818-6977-4E20-B1C4-E13DE8476326"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoTravel/ViewModels/Auth/PostSignupViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "saveUser()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

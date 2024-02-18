@@ -64,7 +64,7 @@ struct ContentView: View {
                         JourneyDetailPage(nav.journey)
                     }
             }
-            .tag(1)
+            .tag(2)
             .tabItem {
                 Label(Strings.Navigation.CommunityTab, systemImage: Icons.personOnBustFilled)
             }

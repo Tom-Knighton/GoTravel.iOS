@@ -18,27 +18,33 @@ public class PostSignupViewModel {
     
     public var userChosenFile: PhotosPickerItem? = nil
     public var userImage: UIImage? = nil
-    public var usernameText: String = GlobalViewModel.shared.currentUser?.userName ?? ""
+    public var usernameText: String = ""
     public var fieldErrors: [PostSignUpValidError] = []
     public var isLoading: Bool = false
     public var somethingWentWrong: Bool = false
+    
+    public var tempUser: CurrentUser?
     
     public struct PostSignUpValidError {
         let fieldId: String
         let error: LocalizedStringKey
     }
     
+    public func setup(with user: CurrentUser?) {
+        self.tempUser = user
+    }
+    
     public func saveUser() {
         guard !isLoading else { return }
-        
-        guard let currentUser = GlobalViewModel.shared.currentUser else { return }
-        
+                
         self.isLoading = true
         self.fieldErrors = []
         
+        guard let tempUser else { return }
+        
         let username = usernameText.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        if username.count > 25 || username.count < 3 {
+        if needsUsernameSet() && (username.count > 25 || username.count < 3) {
             fieldErrors.append(.init(fieldId: "username", error: "Must be between 3 and 25 characters"))
         }
         
@@ -51,15 +57,15 @@ public class PostSignupViewModel {
             do {
                 if let userImage {
                     if let data = userImage.jpegData(compressionQuality: 0.7) {
-                        let profilePicSuccess = try await UserService.UpdateProfilePic(for: currentUser.userName, to: data)
+                        let profilePicSuccess = try await UserService.UpdateProfilePic(for: tempUser.userName, to: data)
                         if !profilePicSuccess {
                             throw "Failed to set profile picture"
                         }
                     }
                 }
                 
-                if username != currentUser.userName {
-                    let updateSuccess = try await UserService.UpdateDetails(for: currentUser.userName, to: .init(username: username))
+                if needsUsernameSet() && username != tempUser.userName {
+                    let updateSuccess = try await UserService.UpdateDetails(for: tempUser.userName, to: .init(username: username))
                     if !updateSuccess {
                         throw "Failed to update user"
                     }
@@ -74,7 +80,7 @@ public class PostSignupViewModel {
     }
     
     public func needsUsernameSet() -> Bool {
-        let isApple = GlobalViewModel.shared.currentUser?.userId.starts(with: "apple|") == true
+        let isApple = tempUser?.userId.starts(with: "apple|") == true
         
         return isApple
     }

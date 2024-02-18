@@ -17,6 +17,15 @@
         }
       }
     },
+    "207 pts" : {
+
+    },
+    "290 pts" : {
+
+    },
+    "300 pts" : {
+
+    },
     "Accessibility:Map:BikesRemainingText:%lld" : {
       "localizations" : {
         "en" : {
@@ -239,10 +248,25 @@
     "Choose a username" : {
 
     },
+    "Climb up the leaderboards and earn virtual points and prizes simply by travelling" : {
+
+    },
+    "Community" : {
+
+    },
+    "Compete" : {
+
+    },
+    "Compete with friends and travellers across the UK to use the most public transport!" : {
+
+    },
     "Confirm Password" : {
 
     },
     "Continue" : {
+
+    },
+    "David_1988" : {
 
     },
     "Don't have an account? Sign Up" : {
@@ -286,6 +310,12 @@
 
     },
     "Invalid username/email or password" : {
+
+    },
+    "Join the entire Go Travel community in special, time sensitive challenges across the UK" : {
+
+    },
+    "Join the Go Travel Community" : {
 
     },
     "Journey:Accessibility:EmptyFromLabel" : {
@@ -1077,6 +1107,9 @@
     "Login" : {
 
     },
+    "Logout" : {
+
+    },
     "Map:Distance:%@:%@" : {
       "localizations" : {
         "en" : {
@@ -1302,7 +1335,14 @@
 
     },
     "Navigation:CommunityTab" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Community"
+          }
+        }
+      }
     },
     "Navigation:JourneyTab" : {
       "localizations" : {
@@ -1339,13 +1379,16 @@
     "Please enter a valid email address" : {
 
     },
-    "pls log in" : {
-
-    },
     "Sign Up" : {
 
     },
     "Something went wrong. Please try again." : {
+
+    },
+    "Special Challenges" : {
+
+    },
+    "Start Now" : {
 
     },
     "StopPage:Accessibility:HasWifiLabel" : {
@@ -1554,6 +1597,15 @@
     "Too many attempts. Try again later." : {
 
     },
+    "Track" : {
+
+    },
+    "Track your journeys, and set travel goals to increase your public transport usage." : {
+
+    },
+    "TrailBlazer01!" : {
+
+    },
     "Username" : {
 
     },
@@ -1561,6 +1613,9 @@
 
     },
     "Woohoo!" : {
+
+    },
+    "You!" : {
 
     },
     "Your Email Address" : {

@@ -50,6 +50,10 @@ public actor AuthClient {
         return try await Authenticate(with: email, password: password)
     }
     
+    public static func LogOut() async throws {
+        try await CredentialsManager(authentication: auth).revoke()
+    }
+    
     public init() {
         
     }
