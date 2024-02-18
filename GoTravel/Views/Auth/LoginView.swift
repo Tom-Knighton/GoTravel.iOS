@@ -13,11 +13,9 @@ import GoTravel_API
 public struct LoginView: View {
     
     @Environment(\.colorScheme) private var scheme
+    @State private var viewModel = SignInViewModel()
     @State private var bgColours: [Color] = ColorfulPreset.sunrise.colors
-    
-    @State private var userField: String = ""
-    @State private var passwordField: String = ""
-    
+        
     private var goToSignup: () -> Void
     
     init(goToSignup: @escaping () -> Void) {
@@ -38,18 +36,29 @@ public struct LoginView: View {
                     .frame(width: 100, height: 100)
                     .clipShape(.rect(cornerRadius: 25))
                     .shadow(radius: 10)
+                    .accessibilityHidden()
                 
                 Spacer().frame(height: 50)
-                TextField("Username or email address", text: $userField)
-                    .textFieldStyle(AuthTextFieldStyle())
-                    .textContentType(.emailAddress)
+                
+                ValidatedView({
+                    TextField(Strings.Auth.UsernameOrEmail, text: $viewModel.userText)
+                        .textFieldStyle(AuthTextFieldStyle())
+                        .textContentType(.emailAddress)
+                        .keyboardType(.emailAddress)
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.never)
+                        .onChange(of: viewModel.userText) { _, newValue in
+                            viewModel.userText = filterUserText(newValue)
+                        }
+                }, errors: viewModel.error == nil ? nil : [viewModel.error ?? ""])
+              
                 Spacer().frame(height: 16)
-                SecureField("Password", text: $passwordField)
+                SecureField(Strings.Auth.Password, text: $viewModel.passwordText)
                     .textFieldStyle(AuthTextFieldStyle())
                     .textContentType(.password)
                                 
-                Button(action: { self.login() }) {
-                    Text("Log In")
+                Button(action: { viewModel.SignIn() }) {
+                    Text(Strings.Auth.Login)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 4)
                         .bold()
@@ -67,36 +76,17 @@ public struct LoginView: View {
                     HStack {
                         Spacer()
                         Image(systemName: Icons.minus)
-                        Text("Or")
+                        Text(Strings.Misc.Or)
                         Image(systemName: Icons.minus)
                         Spacer()
                     }
                     .ignoresSafeArea(.keyboard)
+                    .accessibilityHidden()
+                    
                     SignInWithAppleButton(.signIn) { request in
                         request.requestedScopes = [.fullName, .email, .init("openid"), .init("profile"), .init("offline_access")]
                     } onCompletion: { result in
-                        switch result {
-                        case .success(let authResults):
-                            print("Authorization successful.")
-                            guard let credentials = authResults.credential as? ASAuthorizationAppleIDCredential,
-                                  let authCode = credentials.authorizationCode,
-                                  let authCodeString = String(data: authCode, encoding: .utf8),
-                                  let identity = credentials.identityToken,
-                                  let identityString = String(data: identity, encoding: .utf8) else { return }
-                            Task {
-                                do {
-                                    print(authCodeString)
-                                    print(identityString)
-                                    let success = try await AuthClient.Authenticate(with: authCodeString)
-                                    print("Auth: \(success)")
-                                }
-                                catch {
-                                    print(error.localizedDescription.debugDescription)
-                                }
-                            }
-                        case .failure(let error):
-                            print("Authorization failed: " + error.localizedDescription)
-                      }
+                        viewModel.AppleAuthenticate(result)
                     }
                     .frame(height: 45)
                     .clipShape(.rect(cornerRadius: 10))
@@ -106,7 +96,7 @@ public struct LoginView: View {
                 Spacer().frame(height: 8)
                 
                 Button(action: { self.goToSignup() }) {
-                    Text("Don't have an account? Sign Up")
+                    Text(Strings.Auth.SignUpCTA)
                         .foregroundStyle(.black)
                         .frame(maxWidth: .infinity)
                 }
@@ -121,25 +111,24 @@ public struct LoginView: View {
         .onChange(of: self.scheme, initial: true) { _, value in
             self.bgColours = value == .dark ? ColorfulPreset.love.colors : ColorfulPreset.sunrise.colors
         }
-    }
-    
-    @ViewBuilder
-    private func AuthField() -> some View {
-        ZStack {
-            
+        .alert(Strings.Misc.Error, isPresented: $viewModel.somethingWentWrong) {
+            Button(action: {}) {
+                Text(Strings.Misc.Ok)
+            }
+        } message: {
+            Text(Strings.Errors.SomethingWrong)
         }
     }
     
-    private func login() {
-        Task {
-            do {
-                let success = try await AuthClient.Authenticate(with: self.userField, password: self.passwordField)
-                print("Auth: \(success)")
-            }
-            catch {
-                print(error)
-            }
+    private func filterUserText(_ input: String) -> String {
+        let deniedCharacters = CharacterSet
+            .whitespacesAndNewlines
+        let filtered = input.filter { char in
+            let string = String(char)
+            return string.rangeOfCharacter(from: deniedCharacters) == nil
         }
+        
+        return filtered
     }
 }
 

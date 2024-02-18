@@ -9,6 +9,7 @@ import SwiftUI
 import TipKit
 import SwiftData
 import GoTravel_CoreData
+import GoTravel_API
 
 @main
 struct GoTravelApp: App {
@@ -28,6 +29,10 @@ struct GoTravelApp: App {
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.configureWithDefaultBackground()
         UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+        
+        Task {
+            GlobalViewModel.shared.currentUser = try? await UserService.CurrentUser()
+        }
     }
     
     var body: some Scene {

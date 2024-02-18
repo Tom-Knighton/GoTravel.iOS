@@ -11,8 +11,18 @@ import Auth0
 
 public actor AuthClient {
     
-    private static let auth = Auth0.authentication(clientId: "1QQ5VqEGFtqJxA6MtdL2owDz2tDioCfz", domain: (Bundle.main.object(forInfoDictionaryKey: "AUTH0_BASE_URL") as? String ?? ""))
-    private static let scopes = "openid profile offline_access"
+    public static let auth = Auth0.authentication(clientId: "1QQ5VqEGFtqJxA6MtdL2owDz2tDioCfz", domain: (Bundle.main.object(forInfoDictionaryKey: "AUTH0_BASE_URL") as? String ?? ""))
+    private static let scopes = "openid profile offline_access preferred_username https://gotravel/nickname"
+    
+    public static func GetToken() async throws -> String? {
+        let credentials = CredentialsManager(authentication: auth)
+        
+        if credentials.canRenew() {
+            return try await credentials.credentials().accessToken
+        }
+        
+        return nil
+    }
     
     public static func Authenticate(with appleCode: String) async throws -> Bool {
         let token = try await auth
@@ -33,11 +43,15 @@ public actor AuthClient {
     }
     
     public static func SignUp(with email: String, password: String, username: String) async throws -> Bool {
-        let token = try await auth
+        _ = try await auth
             .signup(email: email, username: username, password: password, connection: "Username-Password-Authentication")
             .start()
         
         return try await Authenticate(with: email, password: password)
+    }
+    
+    public static func LogOut() async throws {
+        try await CredentialsManager(authentication: auth).revoke()
     }
     
     public init() {
