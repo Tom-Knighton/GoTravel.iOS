@@ -45,7 +45,7 @@ public class PostSignupViewModel {
         let username = usernameText.trimmingCharacters(in: .whitespacesAndNewlines)
 
         if needsUsernameSet() && (username.count > 25 || username.count < 3) {
-            fieldErrors.append(.init(fieldId: "username", error: "Must be between 3 and 25 characters"))
+            fieldErrors.append(.init(fieldId: "username", error: Strings.Errors.AuthUsernameLength))
         }
         
         if !fieldErrors.isEmpty {

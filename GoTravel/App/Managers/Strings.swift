@@ -204,6 +204,64 @@ public struct Strings {
         }
     }
     
+    public struct Auth {
+        public static let Login: LocalizedStringKey = "Auth:Login"
+        public static let SignUp: LocalizedStringKey = "Auth:SignUp"
+        
+        public static let UsernameOrEmail: LocalizedStringKey = "Auth:UsernameOrEmail"
+        public static let Password: LocalizedStringKey = "Auth:Password"
+        
+        public static let SignUpCTA: LocalizedStringKey = "Auth:SignUp:CTA"
+        public static let LoginCTA: LocalizedStringKey = "Auth:Login:CTA"
+        
+        public static let FewDetails: LocalizedStringKey = "Auth:SignUp:JustAFewDetails"
+        public static let ChooseUsername: LocalizedStringKey = "Auth:SignUp:ChooseUsername"
+        public static let ChooseEmail: LocalizedStringKey = "Auth:SignUp:ChooseEmail"
+        public static let ChoosePassword: LocalizedStringKey = "Auth:SignUp:ChoosePassword"
+        public static let ChooseConfPassword: LocalizedStringKey = "Auth:SignUp:ChooseConfPassword"
+        
+        public static let PostSignupThanks: LocalizedStringKey = "Auth:PostSignupThanks"
+        
+        public static let ChangeProfileImage: LocalizedStringKey = "Auth:ChangeProfileImage"
+        
+        public static let YourUsername: LocalizedStringKey = "Auth:YourUsername"
+        public static let Username: LocalizedStringKey = "Auth:Username"
+        
+        public struct Accessibility {
+            public static let MessageLoginPresented = "Auth:A11Y:MessageLoginPresented"
+            public static let MessageSignupPresented = "Auth:A11Y:MessageSignupPresented"
+            
+            public static func errors(_ errors: String) -> LocalizedStringKey {
+                LocalizedStringKey("Auth:A11Y:ErrorsOnForm:\(errors)")
+            }
+        }
+    }
+    
+    
+    public struct Community {
+        public struct Join {
+            public static let JoinTag: LocalizedStringKey = "Community:JoinTag"
+            public static let JoinDescription: LocalizedStringKey = "Community:JoinDescription"
+            
+            public static let Compete: LocalizedStringKey = "Community:Compete"
+            public static let CompeteDesc: LocalizedStringKey = "Community:CompeteDesc"
+            public static let Track: LocalizedStringKey = "Community:Track"
+            public static let TrackDesc: LocalizedStringKey = "Community:TrackDesc"
+            public static let Special: LocalizedStringKey = "Community:Special"
+            public static let SpecialDesc: LocalizedStringKey = "Community:SpecialDesc"
+            
+            public static let StartNow: LocalizedStringKey = "Community:StartNow"
+            public static let You: LocalizedStringKey = "Community:You!"
+        }
+        
+        public struct Accessibility {
+            public static let StartNowHint: LocalizedStringKey = "Community:A11Y:StartNowHint"
+            public static let ScoreboadLabel: LocalizedStringKey = "Community:A11Y:ScoreboardLabel"
+        }
+        
+        
+    }
+    
     public struct Misc {
         public static let Searching: LocalizedStringKey = "Misc:Searching..."
         public static let Loading: LocalizedStringKey = "Misc:Loading..."
@@ -214,12 +272,28 @@ public struct Strings {
         public static let Results: LocalizedStringKey = "Misc:Results"
         public static let TapToSeeMore: LocalizedStringKey = "Misc:TapSeeMore"
         public static let TapToExpand: LocalizedStringKey = "Misc:TapToExpand"
+        public static let Or: LocalizedStringKey = "Misc:Or"
+        public static let Error: LocalizedStringKey = "Misc:Error"
+        public static let Woohoo: LocalizedStringKey = "Misc:Woohoo"
+        public static let Continue: LocalizedStringKey = "Misc:Continue"
     }
     
     public struct Errors {
         public static let NoLineModesAPI: LocalizedStringKey = "Errors:NoLineModesFromAPI"
         public static let NoLineModesAPIDescription: LocalizedStringKey = "Errors:NoLineModesFromAPI:Description"
         public static let StopFailedLoad: LocalizedStringKey = "Errors:StopFailedLoading"
+        public static let SomethingWrong: LocalizedStringKey = "Errors:SomethingWentWrong"
+        
+        public static let AuthInvalidDetails: LocalizedStringKey = "Errors:Auth:InvalidDetails"
+        public static let AuthNotEmail: LocalizedStringKey = "Errors:Auth:NotEmail"
+        public static let AuthPasswordLength: LocalizedStringKey = "Errors:Auth:PasswordLength"
+        public static let AuthUsernameLength: LocalizedStringKey = "Errors:Auth:UsernameLength"
+        public static let AuthPasswordMatch: LocalizedStringKey = "Errors:Auth:PasswordMatch"
+        public static let AuthEmailValid: LocalizedStringKey = "Errors:Auth:EmailValid"
+        public static let AuthEmailTaken: LocalizedStringKey = "Errors:Auth:EmailTaken"
+        public static let AuthUsernameTaken: LocalizedStringKey = "Errors:Auth:UsernameTaken"
+        public static let AuthTooManyAttempts: LocalizedStringKey = "Errors:Auth:TooManyAttempts"
+        public static let AuthPasswordSecure: LocalizedStringKey = "Errors:Auth:PasswordSecure"
     }
     
     public struct Assets {

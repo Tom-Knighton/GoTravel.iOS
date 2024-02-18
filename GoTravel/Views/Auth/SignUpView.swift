@@ -33,14 +33,14 @@ public struct SignUpView: View {
                     VStack {
                           
                         Spacer()
-                        Text("Just a few details to continue...")
+                        Text(Strings.Auth.FewDetails)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .bold()
                             .fontDesign(.rounded)
                         
                         
                         ValidatedView({
-                            TextField("Choose a username", text: $viewModel.usernameField)
+                            TextField(Strings.Auth.ChooseUsername, text: $viewModel.usernameField)
                                 .textFieldStyle(AuthTextFieldStyle())
                                 .textContentType(.username)
                                 .textInputAutocapitalization(.never)
@@ -51,7 +51,7 @@ public struct SignUpView: View {
                         }, errors: self.viewModel.errors(for: "username"))
                        
                         ValidatedView({
-                            TextField("Your Email Address", text: $viewModel.emailField)
+                            TextField(Strings.Auth.ChooseEmail, text: $viewModel.emailField)
                                 .textFieldStyle(AuthTextFieldStyle())
                                 .textContentType(.emailAddress)
                                 .keyboardType(.emailAddress)
@@ -62,13 +62,13 @@ public struct SignUpView: View {
                         }, errors: self.viewModel.errors(for: "email"))
                         
                         ValidatedView({
-                            SecureField("Choose a Password", text: $viewModel.passwordField)
+                            SecureField(Strings.Auth.ChoosePassword, text: $viewModel.passwordField)
                                 .textFieldStyle(AuthTextFieldStyle())
                                 .textContentType(.newPassword)
                         }, errors: self.viewModel.errors(for: "password"))
                         
                         ValidatedView({
-                            SecureField("Confirm Password", text: $viewModel.confirmPasswordField)
+                            SecureField(Strings.Auth.ChooseConfPassword, text: $viewModel.confirmPasswordField)
                                 .textFieldStyle(AuthTextFieldStyle())
                                 .textContentType(.password)
                         }, errors: self.viewModel.errors(for: "passwordConfirm"))
@@ -76,7 +76,7 @@ public struct SignUpView: View {
                        
 
                         Button(action: { viewModel.Signup() }) {
-                            Text("Sign Up")
+                            Text(Strings.Auth.SignUp)
                                 .frame(maxWidth: .infinity)
                                 .padding(.vertical, 4)
                                 .bold()
@@ -105,10 +105,12 @@ public struct SignUpView: View {
                     HStack {
                         Spacer()
                         Image(systemName: Icons.minus)
-                        Text("Or")
+                        Text(Strings.Misc.Or)
                         Image(systemName: Icons.minus)
                         Spacer()
                     }
+                    .accessibilityHidden()
+                    
                     SignInWithAppleButton(.signUp) { request in
                         request.requestedScopes = [.fullName, .email, .init("openid"), .init("profile"), .init("offline_access")]
                     } onCompletion: { result in
@@ -120,7 +122,7 @@ public struct SignUpView: View {
                     Spacer().frame(height: 8)
                     
                     Button(action: { self.goToLogin() }) {
-                        Text("Already have an account? Sign In")
+                        Text(Strings.Auth.LoginCTA)
                             .foregroundStyle(.black)
                             .frame(maxWidth: .infinity)
                     }
@@ -159,12 +161,12 @@ public struct SignUpView: View {
                 .interactiveDismissDisabled()
                 .presentationBackgroundInteraction(.disabled)
         }
-        .alert("Error", isPresented: $viewModel.somethingWentWrong) {
+        .alert(Strings.Misc.Error, isPresented: $viewModel.somethingWentWrong) {
             Button(action: {}) {
-                Text("Ok")
+                Text(Strings.Misc.Ok)
             }
         } message: {
-            Text("Something went wrong. Please try again.")
+            Text(Strings.Errors.SomethingWrong)
         }
 
     }

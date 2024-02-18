@@ -36,11 +36,12 @@ public struct LoginView: View {
                     .frame(width: 100, height: 100)
                     .clipShape(.rect(cornerRadius: 25))
                     .shadow(radius: 10)
+                    .accessibilityHidden()
                 
                 Spacer().frame(height: 50)
                 
                 ValidatedView({
-                    TextField("Username or email address", text: $viewModel.userText)
+                    TextField(Strings.Auth.UsernameOrEmail, text: $viewModel.userText)
                         .textFieldStyle(AuthTextFieldStyle())
                         .textContentType(.emailAddress)
                         .keyboardType(.emailAddress)
@@ -52,12 +53,12 @@ public struct LoginView: View {
                 }, errors: viewModel.error == nil ? nil : [viewModel.error ?? ""])
               
                 Spacer().frame(height: 16)
-                SecureField("Password", text: $viewModel.passwordText)
+                SecureField(Strings.Auth.Password, text: $viewModel.passwordText)
                     .textFieldStyle(AuthTextFieldStyle())
                     .textContentType(.password)
                                 
                 Button(action: { viewModel.SignIn() }) {
-                    Text("Log In")
+                    Text(Strings.Auth.Login)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 4)
                         .bold()
@@ -75,11 +76,13 @@ public struct LoginView: View {
                     HStack {
                         Spacer()
                         Image(systemName: Icons.minus)
-                        Text("Or")
+                        Text(Strings.Misc.Or)
                         Image(systemName: Icons.minus)
                         Spacer()
                     }
                     .ignoresSafeArea(.keyboard)
+                    .accessibilityHidden()
+                    
                     SignInWithAppleButton(.signIn) { request in
                         request.requestedScopes = [.fullName, .email, .init("openid"), .init("profile"), .init("offline_access")]
                     } onCompletion: { result in
@@ -93,7 +96,7 @@ public struct LoginView: View {
                 Spacer().frame(height: 8)
                 
                 Button(action: { self.goToSignup() }) {
-                    Text("Don't have an account? Sign Up")
+                    Text(Strings.Auth.SignUpCTA)
                         .foregroundStyle(.black)
                         .frame(maxWidth: .infinity)
                 }
@@ -108,12 +111,12 @@ public struct LoginView: View {
         .onChange(of: self.scheme, initial: true) { _, value in
             self.bgColours = value == .dark ? ColorfulPreset.love.colors : ColorfulPreset.sunrise.colors
         }
-        .alert("Error", isPresented: $viewModel.somethingWentWrong) {
+        .alert(Strings.Misc.Error, isPresented: $viewModel.somethingWentWrong) {
             Button(action: {}) {
-                Text("Ok")
+                Text(Strings.Misc.Ok)
             }
         } message: {
-            Text("Something went wrong. Please try again.")
+            Text(Strings.Errors.SomethingWrong)
         }
     }
     

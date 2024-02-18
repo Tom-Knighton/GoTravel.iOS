@@ -19,18 +19,18 @@ public struct CommunityPage: View {
             
             if let user = globalVm.currentUser {
                 VStack {
-                    Text("Hey \(user.userName)!")
+                    Text(verbatim: "Hey \(user.userName)!")
                     Button(action: { Task {
                         try? await AuthClient.LogOut()
                         GlobalViewModel.shared.currentUser = nil
                     } }) {
-                        Text("Logout")
+                        Text(verbatim: "Logout")
                     }
                     .buttonStyle(.borderedProminent)
                 }
             } else {
                 CommunityNotLoggedInView()
-                    .navigationTitle("Community")
+                    .navigationTitle(Strings.Navigation.CommunityTab)
             }
         }
     }

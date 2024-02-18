@@ -21,11 +21,11 @@ public struct PostSignupView: View {
             
             VStack {
                 Spacer().frame(height: 16)
-                Text("Woohoo!")
+                Text(Strings.Misc.Woohoo)
                     .font(.title2.bold())
                     .fontDesign(.rounded)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text("Thank you for signing up, now you can choose how others will see you:")
+                Text(Strings.Auth.PostSignupThanks)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .fixedSize(horizontal: false, vertical: true)
                     .fontDesign(.rounded)
@@ -42,7 +42,7 @@ public struct PostSignupView: View {
                                 .clipShape(.circle)
                                 .contentShape(.circle)
                             
-                            Text("Change Profile Image")
+                            Text(Strings.Auth.ChangeProfileImage)
                                 .buttonStyle(.bordered)
                         }
                     }
@@ -59,7 +59,7 @@ public struct PostSignupView: View {
                                     .clipShape(.circle)
                                     .contentShape(.circle)
                                 
-                                Text("Change Profile Image")
+                                Text(Strings.Auth.ChangeProfileImage)
                                     .buttonStyle(.bordered)
                             }
                         }
@@ -71,10 +71,10 @@ public struct PostSignupView: View {
                 if viewModel.needsUsernameSet() {
                     Spacer().frame(height: 8)
                     
-                    Text("Your username:")
+                    Text(Strings.Auth.YourUsername)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     ValidatedView({
-                        TextField("Username", text: $viewModel.usernameText)
+                        TextField(Strings.Auth.Username, text: $viewModel.usernameText)
                             .textFieldStyle(AuthTextFieldStyle())
                             .textContentType(.username)
                             .textInputAutocapitalization(.never)
@@ -94,7 +94,7 @@ public struct PostSignupView: View {
                         ProgressView()
                             .frame(maxWidth: .infinity)
                     } else {
-                        Text("Continue")
+                        Text(Strings.Misc.Continue)
                             .frame(maxWidth: .infinity)
                     }
                 }

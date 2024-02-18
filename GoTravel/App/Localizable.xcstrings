@@ -17,15 +17,6 @@
         }
       }
     },
-    "207 pts" : {
-
-    },
-    "290 pts" : {
-
-    },
-    "300 pts" : {
-
-    },
     "Accessibility:Map:BikesRemainingText:%lld" : {
       "localizations" : {
         "en" : {
@@ -236,44 +227,396 @@
         }
       }
     },
-    "Already have an account? Sign In" : {
-
+    "Auth:A11Y:ErrorsOnForm:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Errors on form: %@"
+          }
+        }
+      }
     },
-    "Change Profile Image" : {
-
+    "Auth:ChangeProfileImage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change Profile Image"
+          }
+        }
+      }
     },
-    "Choose a Password" : {
-
+    "Auth:Login" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log In"
+          }
+        }
+      }
     },
-    "Choose a username" : {
-
+    "Auth:Login:CTA" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Already have an account? Sign In"
+          }
+        }
+      }
     },
-    "Climb up the leaderboards and earn virtual points and prizes simply by travelling" : {
-
+    "Auth:Password" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password"
+          }
+        }
+      }
+    },
+    "Auth:PostSignupThanks" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thank you for signing up, now you can choose how others will see you:"
+          }
+        }
+      }
+    },
+    "Auth:SignUp" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign Up"
+          }
+        }
+      }
+    },
+    "Auth:SignUp:ChooseConfPassword" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm Password"
+          }
+        }
+      }
+    },
+    "Auth:SignUp:ChooseEmail" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your Email Address"
+          }
+        }
+      }
+    },
+    "Auth:SignUp:ChoosePassword" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a Password"
+          }
+        }
+      }
+    },
+    "Auth:SignUp:ChooseUsername" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CHoose a username"
+          }
+        }
+      }
+    },
+    "Auth:SignUp:CTA" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't have an account? Sign Up"
+          }
+        }
+      }
+    },
+    "Auth:SignUp:JustAFewDetails" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Just a few details to continue..."
+          }
+        }
+      }
+    },
+    "Auth:Username" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Username"
+          }
+        }
+      }
+    },
+    "Auth:UsernameOrEmail" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Username or email address"
+          }
+        }
+      }
+    },
+    "Auth:YourUsername" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your Username:"
+          }
+        }
+      }
     },
     "Community" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Community"
+          }
+        }
+      }
     },
-    "Compete" : {
-
+    "Community:A11Y:ScoreboardLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An example of a scoreboard with 3 users"
+          }
+        }
+      }
     },
-    "Compete with friends and travellers across the UK to use the most public transport!" : {
-
+    "Community:A11Y:StartNowHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opens the login/sign up page"
+          }
+        }
+      }
     },
-    "Confirm Password" : {
-
+    "Community:Compete" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compete"
+          }
+        }
+      }
     },
-    "Continue" : {
-
+    "Community:CompeteDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compete with friends and travellers across the UK to use the most public transport!"
+          }
+        }
+      }
     },
-    "David_1988" : {
-
+    "Community:JoinDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compete with friends and travellers across the UK to use the most public transport!"
+          }
+        }
+      }
     },
-    "Don't have an account? Sign Up" : {
-
+    "Community:JoinTag" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Join the Go Travel Community"
+          }
+        }
+      }
     },
-    "Error" : {
-
+    "Community:Special" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Special Challenges"
+          }
+        }
+      }
+    },
+    "Community:SpecialDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Join the entire Go Travel community in special, time sensitive challenges across the UK"
+          }
+        }
+      }
+    },
+    "Community:StartNow" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Now"
+          }
+        }
+      }
+    },
+    "Community:Track" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Track"
+          }
+        }
+      }
+    },
+    "Community:TrackDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Track your journeys, and set travel goals to increase your public transport usage."
+          }
+        }
+      }
+    },
+    "Community:You!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You!"
+          }
+        }
+      }
+    },
+    "Errors:Auth:EmailTaken" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This email already belongs to a user"
+          }
+        }
+      }
+    },
+    "Errors:Auth:EmailValid" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter a valid email"
+          }
+        }
+      }
+    },
+    "Errors:Auth:InvalidDetails" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incorrect username/email and password"
+          }
+        }
+      }
+    },
+    "Errors:Auth:NotEmail" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter a valid email"
+          }
+        }
+      }
+    },
+    "Errors:Auth:PasswordLength" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password must be over 8 characters"
+          }
+        }
+      }
+    },
+    "Errors:Auth:PasswordMatch" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passwords must match"
+          }
+        }
+      }
+    },
+    "Errors:Auth:PasswordSecure" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password is not strong enough, must be over 8 characters and include special characters and a capital letter"
+          }
+        }
+      }
+    },
+    "Errors:Auth:TooManyAttempts" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too many attempts. Please try again later."
+          }
+        }
+      }
+    },
+    "Errors:Auth:UsernameLength" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Username must be between 3 and 25 characters."
+          }
+        }
+      }
+    },
+    "Errors:Auth:UsernameTaken" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This username already belongs to a user"
+          }
+        }
+      }
     },
     "Errors:NoLineModesFromAPI" : {
       "localizations" : {
@@ -295,6 +638,16 @@
         }
       }
     },
+    "Errors:SomethingWentWrong" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Something went wrong"
+          }
+        }
+      }
+    },
     "Errors:StopFailedLoading" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -305,18 +658,6 @@
           }
         }
       }
-    },
-    "Hey %@!" : {
-
-    },
-    "Invalid username/email or password" : {
-
-    },
-    "Join the entire Go Travel community in special, time sensitive challenges across the UK" : {
-
-    },
-    "Join the Go Travel Community" : {
-
     },
     "Journey:Accessibility:EmptyFromLabel" : {
       "localizations" : {
@@ -1098,18 +1439,6 @@
         }
       }
     },
-    "Just a few details to continue..." : {
-
-    },
-    "Log In" : {
-
-    },
-    "Login" : {
-
-    },
-    "Logout" : {
-
-    },
     "Map:Distance:%@:%@" : {
       "localizations" : {
         "en" : {
@@ -1242,6 +1571,26 @@
         }
       }
     },
+    "Misc:Continue" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue"
+          }
+        }
+      }
+    },
+    "Misc:Error" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        }
+      }
+    },
     "Misc:Loading..." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1259,6 +1608,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ok"
+          }
+        }
+      }
+    },
+    "Misc:Or" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Or"
           }
         }
       }
@@ -1325,14 +1684,15 @@
         }
       }
     },
-    "Must be an email" : {
-
-    },
-    "Must be between 3 and 25 characters" : {
-
-    },
-    "Must be more than 8 characters" : {
-
+    "Misc:Woohoo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Woohoo!"
+          }
+        }
+      }
     },
     "Navigation:CommunityTab" : {
       "localizations" : {
@@ -1363,33 +1723,6 @@
           }
         }
       }
-    },
-    "Ok" : {
-
-    },
-    "Or" : {
-
-    },
-    "Password" : {
-
-    },
-    "Passwords must match" : {
-
-    },
-    "Please enter a valid email address" : {
-
-    },
-    "Sign Up" : {
-
-    },
-    "Something went wrong. Please try again." : {
-
-    },
-    "Special Challenges" : {
-
-    },
-    "Start Now" : {
-
     },
     "StopPage:Accessibility:HasWifiLabel" : {
       "localizations" : {
@@ -1584,48 +1917,6 @@
           }
         }
       }
-    },
-    "Thank you for signing up, now you can choose how others will see you:" : {
-
-    },
-    "This email address already belongs to a user" : {
-
-    },
-    "This username is already taken" : {
-
-    },
-    "Too many attempts. Try again later." : {
-
-    },
-    "Track" : {
-
-    },
-    "Track your journeys, and set travel goals to increase your public transport usage." : {
-
-    },
-    "TrailBlazer01!" : {
-
-    },
-    "Username" : {
-
-    },
-    "Username or email address" : {
-
-    },
-    "Woohoo!" : {
-
-    },
-    "You!" : {
-
-    },
-    "Your Email Address" : {
-
-    },
-    "Your password is not secure enough, it must contain a special character, capital letters, numbers and be over 8 characters" : {
-
-    },
-    "Your username:" : {
-
     }
   },
   "version" : "1.0"

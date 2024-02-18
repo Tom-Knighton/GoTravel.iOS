@@ -62,14 +62,13 @@ public class SignInViewModel {
             } catch {
                 if let authError = error as? AuthenticationError {
                     if let errorCode = authError.info["error"] as? String, errorCode == "invalid_request" || errorCode == "invalid_grant" {
-                        self.error = "Invalid username/email or password"
+                        self.error = Strings.Errors.AuthInvalidDetails
                     } else if let reason = authError.info["statusCode"] as? Int {
                         switch reason {
                         case 429:
-                            self.error = "Too many attempts. Try again later."
+                            self.error = Strings.Errors.AuthTooManyAttempts
                             break
                         default:
-                            print(reason)
                             self.somethingWentWrong = true
                             break
                         }

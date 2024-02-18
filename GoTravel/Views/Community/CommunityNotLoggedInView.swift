@@ -19,10 +19,10 @@ public struct CommunityNotLoggedInView: View {
             
             ScrollView {
                 VStack {
-                    Text("Join the Go Travel Community")
+                    Text(Strings.Community.Join.JoinTag)
                         .font(.title3.bold())
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Compete with friends and travellers across the UK to use the most public transport!")
+                    Text(Strings.Community.Join.JoinDescription)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     
@@ -33,11 +33,13 @@ public struct CommunityNotLoggedInView: View {
                     Spacer()
                     
                     Button(action: { self.showLoginSection = true }) {
-                        Text("Start Now")
+                        Text(Strings.Community.Join.StartNow)
                             .bold()
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent)
+                    .accessibilityLabel(Strings.Community.Join.StartNow)
+                    .accessibilityHint(Strings.Community.Accessibility.StartNowHint)
                     
                     Spacer().frame(height: 16)
                 }
@@ -50,8 +52,8 @@ public struct CommunityNotLoggedInView: View {
                 AuthPage()
             }
         })
-        .onChange(of: globalVm.currentUser) { oldValue, newValue in
-            if let newValue {
+        .onChange(of: globalVm.currentUser) { _, newValue in
+            if newValue != nil {
                 self.showLoginSection = false
             }
         }
@@ -60,10 +62,10 @@ public struct CommunityNotLoggedInView: View {
     @ViewBuilder
     private func CompetePanel() -> some View {
         VStack {
-            Text("Compete")
+            Text(Strings.Community.Join.Compete)
                 .font(.headline.bold())
                 .frame(maxWidth: .infinity, alignment: .leading)
-            Text("Climb up the leaderboards and earn virtual points and prizes simply by travelling")
+            Text(Strings.Community.Join.CompeteDesc)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .multilineTextAlignment(.leading)
             
@@ -75,7 +77,7 @@ public struct CommunityNotLoggedInView: View {
                         .frame(width: 30, height: 30)
                         .clipShape(.circle)
                         .shadow(radius: 3)
-                    Text("David_1988")
+                    Text(verbatim: "David_1988")
                         .font(.subheadline)
                         .fontWeight(.light)
                     
@@ -83,7 +85,7 @@ public struct CommunityNotLoggedInView: View {
                     Image(systemName: "trophy.fill")
                         .foregroundStyle(.yellow)
                         .bold()
-                    Text("300 pts")
+                    Text(verbatim: "300 pts")
                 }
                 Divider()
                 HStack {
@@ -93,13 +95,13 @@ public struct CommunityNotLoggedInView: View {
                         .frame(width: 30, height: 30)
                         .clipShape(.circle)
                         .shadow(radius: 3)
-                    Text("You!")
+                    Text(Strings.Community.Join.You)
                         .bold()
                         .font(.subheadline)
                         .fontWeight(.light)
                     
                     Spacer()
-                    Text("290 pts")
+                    Text(verbatim: "290 pts")
                 }
                 Divider()
                 HStack {
@@ -109,12 +111,12 @@ public struct CommunityNotLoggedInView: View {
                         .frame(width: 30, height: 30)
                         .clipShape(.circle)
                         .shadow(radius: 3)
-                    Text("TrailBlazer01!")
+                    Text(verbatim: "TrailBlazer01!")
                         .font(.subheadline)
                         .fontWeight(.light)
                     
                     Spacer()
-                    Text("207 pts")
+                    Text(verbatim: "207 pts")
                 }
             }
             .padding(8)
@@ -122,6 +124,9 @@ public struct CommunityNotLoggedInView: View {
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(.gray.opacity(0.7), lineWidth: 1)
             }
+            .accessibilityElement(children: .ignore)
+            .accessibilityElement()
+            .accessibilityLabel(Strings.Community.Accessibility.ScoreboadLabel)
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
@@ -136,10 +141,10 @@ public struct CommunityNotLoggedInView: View {
     private func TrackPanel() -> some View {
         VStack {
             VStack {
-                Text("Track")
+                Text(Strings.Community.Join.Track)
                     .font(.headline.bold())
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text("Track your journeys, and set travel goals to increase your public transport usage.")
+                Text(Strings.Community.Join.TrackDesc)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
  
@@ -157,10 +162,10 @@ public struct CommunityNotLoggedInView: View {
     private func SpecialChallengesPanel() -> some View {
         VStack {
             VStack {
-                Text("Special Challenges")
+                Text(Strings.Community.Join.Special)
                     .font(.headline.bold())
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text("Join the entire Go Travel community in special, time sensitive challenges across the UK")
+                Text(Strings.Community.Join.SpecialDesc)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
  
@@ -180,6 +185,6 @@ public struct CommunityNotLoggedInView: View {
     
     NavigationStack {
         CommunityNotLoggedInView()
-            .navigationTitle("Community")
+            .navigationTitle(Strings.Navigation.CommunityTab)
     }
 })
