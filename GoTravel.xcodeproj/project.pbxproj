@@ -72,6 +72,7 @@
 		E25572632B33BAB900988348 /* RoundedCornerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255723C2B33BAB900988348 /* RoundedCornerViewModifier.swift */; };
 		E25572642B33BAB900988348 /* IgnoresSafeAreaCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255723D2B33BAB900988348 /* IgnoresSafeAreaCompatible.swift */; };
 		E266110C2B920321003F55C2 /* CustomNavigationTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E266110B2B920321003F55C2 /* CustomNavigationTitle.swift */; };
+		E266110E2B9222A3003F55C2 /* RelationshipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E266110D2B9222A3003F55C2 /* RelationshipsView.swift */; };
 		E26905EB2B669ED000CC1271 /* JourneyPlannerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26905EA2B669ED000CC1271 /* JourneyPlannerPage.swift */; };
 		E269388F2B768CD900738C6D /* JourneyMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269388E2B768CD900738C6D /* JourneyMapView.swift */; };
 		E26938912B76BCBF00738C6D /* SingleAxisGeoReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26938902B76BCBF00738C6D /* SingleAxisGeoReader.swift */; };
@@ -198,6 +199,7 @@
 		E255723C2B33BAB900988348 /* RoundedCornerViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornerViewModifier.swift; sourceTree = "<group>"; };
 		E255723D2B33BAB900988348 /* IgnoresSafeAreaCompatible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IgnoresSafeAreaCompatible.swift; sourceTree = "<group>"; };
 		E266110B2B920321003F55C2 /* CustomNavigationTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationTitle.swift; sourceTree = "<group>"; };
+		E266110D2B9222A3003F55C2 /* RelationshipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipsView.swift; sourceTree = "<group>"; };
 		E26905EA2B669ED000CC1271 /* JourneyPlannerPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerPage.swift; sourceTree = "<group>"; };
 		E269388E2B768CD900738C6D /* JourneyMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyMapView.swift; sourceTree = "<group>"; };
 		E26938902B76BCBF00738C6D /* SingleAxisGeoReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAxisGeoReader.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			children = (
 				E23094032B8226A800C67D96 /* CommunityNotLoggedInView.swift */,
 				E26B5A682B9130E4001DD548 /* CommunityPageHeader.swift */,
+				E266110D2B9222A3003F55C2 /* RelationshipsView.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				E2E673A12B71376200361118 /* RadioToggleStyle.swift in Sources */,
 				E28DC2BC2B1FE7CA00E2FECE /* SwiftUI+GoTravel.swift in Sources */,
 				E255724D2B33BAB900988348 /* BottomSheet+CustomBackground.swift in Sources */,
+				E266110E2B9222A3003F55C2 /* RelationshipsView.swift in Sources */,
 				E280F6552B13ADC100563D7E /* String+GoTravel.swift in Sources */,
 				E25572522B33BAB900988348 /* BottomSheetPosition.swift in Sources */,
 				E25572592B33BAB900988348 /* BottomSheetView+KeyboardHeight.swift in Sources */,
