@@ -71,7 +71,6 @@
 		E25572622B33BAB900988348 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255723A2B33BAB900988348 /* VisualEffectView.swift */; };
 		E25572632B33BAB900988348 /* RoundedCornerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255723C2B33BAB900988348 /* RoundedCornerViewModifier.swift */; };
 		E25572642B33BAB900988348 /* IgnoresSafeAreaCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255723D2B33BAB900988348 /* IgnoresSafeAreaCompatible.swift */; };
-		E266110A2B914346003F55C2 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = E26611092B914346003F55C2 /* SwiftUIIntrospect */; };
 		E266110C2B920321003F55C2 /* CustomNavigationTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E266110B2B920321003F55C2 /* CustomNavigationTitle.swift */; };
 		E26905EB2B669ED000CC1271 /* JourneyPlannerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26905EA2B669ED000CC1271 /* JourneyPlannerPage.swift */; };
 		E269388F2B768CD900738C6D /* JourneyMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269388E2B768CD900738C6D /* JourneyMapView.swift */; };
@@ -251,7 +250,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E266110A2B914346003F55C2 /* SwiftUIIntrospect in Frameworks */,
 				E238EF6F2B781CE600DC8E84 /* Lottie in Frameworks */,
 				E238EF752B782EB100DC8E84 /* ColorfulX in Frameworks */,
 				E26988762B35D2E10097B8EF /* WrappingHStack in Frameworks */,
@@ -684,7 +682,6 @@
 				E26988752B35D2E10097B8EF /* WrappingHStack */,
 				E238EF6E2B781CE600DC8E84 /* Lottie */,
 				E238EF742B782EB100DC8E84 /* ColorfulX */,
-				E26611092B914346003F55C2 /* SwiftUIIntrospect */,
 			);
 			productName = GoLondon;
 			productReference = E283D37E2AC23316008ECF81 /* GoTravel.app */;
@@ -718,7 +715,6 @@
 				E26988742B35D2E10097B8EF /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 				E238EF6D2B781CE600DC8E84 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				E238EF732B782EB100DC8E84 /* XCRemoteSwiftPackageReference "ColorfulX" */,
-				E26611082B914346003F55C2 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = E283D37F2AC23316008ECF81 /* Products */;
 			projectDirPath = "";
@@ -1095,14 +1091,6 @@
 				minimumVersion = 2.4.0;
 			};
 		};
-		E26611082B914346003F55C2 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.3;
-			};
-		};
 		E26988742B35D2E10097B8EF /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ksemianov/WrappingHStack";
@@ -1123,11 +1111,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E238EF732B782EB100DC8E84 /* XCRemoteSwiftPackageReference "ColorfulX" */;
 			productName = ColorfulX;
-		};
-		E26611092B914346003F55C2 /* SwiftUIIntrospect */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E26611082B914346003F55C2 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
-			productName = SwiftUIIntrospect;
 		};
 		E26988752B35D2E10097B8EF /* WrappingHStack */ = {
 			isa = XCSwiftPackageProductDependency;

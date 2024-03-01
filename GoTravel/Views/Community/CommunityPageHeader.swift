@@ -7,7 +7,6 @@
 
 import SwiftUI
 import GoTravel_Models
-@_spi(Advanced) import SwiftUIIntrospect
 
 
 public struct CommunityPageHeader: View {
