@@ -81,8 +81,8 @@ public struct RelationshipsView: View {
         
         Spacer().frame(height: 16)
         LazyVStack {
-            ForEach(user.followers.filter { self.searchText.isEmpty || $0.userName.localizedCaseInsensitiveContains(self.searchText) }, id: \.userName) { user in
-                UserRowView(user: user, type: .Followers)
+            ForEach(user.followers.filter { self.searchText.isEmpty || $0.user.userName.localizedCaseInsensitiveContains(self.searchText) }, id: \.user.userName) { following in
+                UserRowView(user: following.user, type: .Followers)
                 Divider()
             }
         }
@@ -116,10 +116,10 @@ public struct RelationshipsView: View {
     
     let global = GlobalViewModel()
     
-    let followers: [User] = [
-        .init(userName: "Test 1", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", followerCount: 1),
-        .init(userName: "Test 2", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", followerCount: 1),
-        .init(userName: "Test 3", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", followerCount: 1),
+    let followers: [UserFollowing] = [
+        .init(followingType: .following, user: .init(userName: "Test 1", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", followerCount: 1)),
+        .init(followingType: .following, user: .init(userName: "Test 2", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", followerCount: 1)),
+        .init(followingType: .following, user: .init(userName: "Test 3", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", followerCount: 1)),
     ]
     let following: [UserFollowing] = [
         .init(followingType: .following, user: .init(userName: "Test 5", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", followerCount: 1)),

@@ -239,6 +239,9 @@
     "Add Friend" : {
 
     },
+    "Approve" : {
+
+    },
     "Auth:A11Y:ErrorsOnForm:%@" : {
       "localizations" : {
         "en" : {
@@ -1757,6 +1760,9 @@
 
     },
     "No results" : {
+
+    },
+    "Reject" : {
 
     },
     "Remove" : {

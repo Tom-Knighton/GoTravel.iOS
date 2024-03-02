@@ -78,12 +78,32 @@ public struct UserRowView: View {
                             .buttonStyle(.bordered)
                             .font(.subheadline)
                         }
-                    } else if let followed = current.followers.first(where: { $0.userName == user.userName }) {
-                        Button(action: { Task { await self.removeFollower() }}) {
-                            Text("Remove")
+                    } else if let followed = current.followers.first(where: { $0.user.userName == user.userName }) {
+                        switch followed.followingType {
+                        case .following:
+                            Button(action: { Task { await self.removeFollower() }}) {
+                                Text("Remove")
+                            }
+                            .buttonStyle(.bordered)
+                            .font(.subheadline)
+                        case .requested:
+                            HStack {
+                                Button(action: { Task { await self.respondToRequest(approve: true) }}) {
+                                    Text("Approve")
+                                }
+                                .buttonStyle(.bordered)
+                                .font(.subheadline)
+                                Button(action: { Task { await self.respondToRequest(approve: false) }}) {
+                                    Text("Reject")
+                                }
+                                .buttonStyle(.bordered)
+                                .font(.subheadline)
+                                .tint(.red)
+                            }
+                        case .blocked:
+                            EmptyView()
                         }
-                        .buttonStyle(.bordered)
-                        .font(.subheadline)
+                       
                     } else {
                         Button(action: { Task { await self.requestFollow() }}) {
                             Text("Add Friend")
@@ -92,11 +112,33 @@ public struct UserRowView: View {
                         .font(.subheadline)
                     }
                 case .Followers:
-                    Button(action: { Task { await self.removeFollower() }}) {
-                        Text("Remove")
+                    if let follower = current.followers.first(where: { $0.user.userName == user.userName }) {
+                        switch follower.followingType {
+                        case .following:
+                            Button(action: { Task { await self.removeFollower() }}) {
+                                Text("Remove")
+                            }
+                            .buttonStyle(.bordered)
+                            .font(.subheadline)
+                        case .requested:
+                            HStack {
+                                Button(action: { Task { await self.respondToRequest(approve: true) }}) {
+                                    Text("Approve")
+                                }
+                                .buttonStyle(.bordered)
+                                .font(.subheadline)
+                                Button(action: { Task { await self.respondToRequest(approve: false) }}) {
+                                    Text("Reject")
+                                }
+                                .buttonStyle(.bordered)
+                                .font(.subheadline)
+                                .tint(.red)
+                            }
+                        case .blocked:
+                            EmptyView()
+                        }
+
                     }
-                    .buttonStyle(.bordered)
-                    .font(.subheadline)
                 case .Following:
                     if let follower = current.following.first(where: { $0.user.userName == user.userName }) {
                         if follower.followingType == .requested {
@@ -167,6 +209,20 @@ public struct UserRowView: View {
         
         do {
             let result = try await FriendshipsService.removeFollower(followerId: user.userName)
+            if result {
+                globalVm.currentUser = try await UserService.CurrentUser()
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func respondToRequest(approve: Bool) async {
+        self.isPerformingAction = true
+        defer { self.isPerformingAction = false }
+        
+        do {
+            let result = try await FriendshipsService.respondToRequest(requesterId: user.userName, accept: approve)
             if result {
                 globalVm.currentUser = try await UserService.CurrentUser()
             }

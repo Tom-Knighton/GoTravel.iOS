@@ -28,13 +28,13 @@ public struct CurrentUser: Decodable {
     
     /// DTOs of the users that follow this user
     @Default<Empty>
-    public var followers: [User]
+    public var followers: [UserFollowing]
     
     /// DTOs of the users this user is following
     @Default<Empty>
     public var following: [UserFollowing]
     
-    public init(userId: String, userName: String, userEmail: String, userPictureUrl: String, dateCreated: Date, followers: [User] = [], following: [UserFollowing] = []) {
+    public init(userId: String, userName: String, userEmail: String, userPictureUrl: String, dateCreated: Date, followers: [UserFollowing] = [], following: [UserFollowing] = []) {
         self.userId = userId
         self.userName = userName
         self.userEmail = userEmail
