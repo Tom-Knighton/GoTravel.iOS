@@ -17,6 +17,12 @@
         }
       }
     },
+    "2" : {
+
+    },
+    "5 Following" : {
+
+    },
     "Accessibility:Map:BikesRemainingText:%lld" : {
       "localizations" : {
         "en" : {
@@ -227,6 +233,12 @@
         }
       }
     },
+    "Add friend" : {
+
+    },
+    "Add Friend" : {
+
+    },
     "Auth:A11Y:ErrorsOnForm:%@" : {
       "localizations" : {
         "en" : {
@@ -386,6 +398,9 @@
           }
         }
       }
+    },
+    "Blocked" : {
+
     },
     "Community" : {
       "localizations" : {
@@ -657,6 +672,18 @@
           }
         }
       }
+    },
+    "Filter..." : {
+
+    },
+    "Followers" : {
+
+    },
+    "Following" : {
+
+    },
+    "Friendships" : {
+
     },
     "Journey:Accessibility:EmptyFromLabel" : {
       "localizations" : {
@@ -1723,6 +1750,30 @@
         }
       }
     },
+    "No Followers" : {
+
+    },
+    "No one's here..." : {
+
+    },
+    "No results" : {
+
+    },
+    "Remove" : {
+
+    },
+    "Requested" : {
+
+    },
+    "Search for friends to add and follow their travels, and compete against them!" : {
+
+    },
+    "Search for users" : {
+
+    },
+    "Search for users..." : {
+
+    },
     "StopPage:Accessibility:HasWifiLabel" : {
       "localizations" : {
         "en" : {
@@ -1916,6 +1967,30 @@
           }
         }
       }
+    },
+    "There were no results for this search." : {
+
+    },
+    "Unblock" : {
+
+    },
+    "Unfollow" : {
+
+    },
+    "Updates:" : {
+
+    },
+    "You don't have any followers yet, spread the word!" : {
+
+    },
+    "You haven't blocked any users yet. If you do, they will appear here and you can choose to unblock them." : {
+
+    },
+    "You haven't blocked anyone" : {
+
+    },
+    "You're not following anyone yet, follow a friend to see their updates and compete against them!" : {
+
     }
   },
   "version" : "1.0"

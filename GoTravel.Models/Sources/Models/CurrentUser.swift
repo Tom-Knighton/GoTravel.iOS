@@ -32,9 +32,9 @@ public struct CurrentUser: Decodable {
     
     /// DTOs of the users this user is following
     @Default<Empty>
-    public var following: [User]
+    public var following: [UserFollowing]
     
-    public init(userId: String, userName: String, userEmail: String, userPictureUrl: String, dateCreated: Date, followers: [User] = [], following: [User] = []) {
+    public init(userId: String, userName: String, userEmail: String, userPictureUrl: String, dateCreated: Date, followers: [User] = [], following: [UserFollowing] = []) {
         self.userId = userId
         self.userName = userName
         self.userEmail = userEmail
@@ -43,4 +43,21 @@ public struct CurrentUser: Decodable {
         self.followers = followers
         self.following = following
     }
+}
+
+public struct UserFollowing: Codable, Equatable {
+    
+    public let followingType: UserFollowingType
+    public let user: User
+    
+    public init(followingType: UserFollowingType, user: User) {
+        self.followingType = followingType
+        self.user = user
+    }
+}
+
+public enum UserFollowingType: String, Codable {
+    case following = "Following"
+    case requested = "Requested"
+    case blocked = "Blocked"
 }

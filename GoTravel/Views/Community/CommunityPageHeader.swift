@@ -14,14 +14,18 @@ public struct CommunityPageHeader: View {
     @Environment(GlobalViewModel.self) private var globalVm
     
     @State private var showProfileSheet: Bool = false
+    @State private var relationshipViewOpenTo: Int? = nil
 
     
     public var body: some View {
         VStack {
             HStack {
                 Spacer()
-                Label("2", systemImage: "person.3.fill")
-                    .bold()
+                Button(action: { self.relationshipViewOpenTo = 0 } ) {
+                    Label("2", systemImage: "person.3.fill")
+                        .bold()
+                }
+                .tint(.primary)
             }
             
             VStack {
@@ -29,7 +33,11 @@ public struct CommunityPageHeader: View {
                     Text("Updates:")
                         .font(.headline.bold())
                     Spacer()
-                    Label("5 Following", systemImage: "person.3.sequence")
+                    
+                    Button(action: { self.relationshipViewOpenTo = 1 }) {
+                        Label("5 Following", systemImage: "person.3.sequence")
+                    }
+                    .tint(.primary)
                 }
             }
             .frame(maxWidth: .infinity)
@@ -43,6 +51,9 @@ public struct CommunityPageHeader: View {
         .fontDesign(.rounded)
         .customNavigationTitleWithRightIcon {
             barContent()
+        }
+        .sheet(item: $relationshipViewOpenTo) { relView in
+            RelationshipsView(openToType: relView == 0 ? .followers : relView == 1 ? .following : .blocked)
         }
     }
     

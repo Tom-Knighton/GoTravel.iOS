@@ -26,6 +26,7 @@ public struct CommunityPage: View {
                     }
                 }
                 .navigationTitle("Community")
+                .contentMargins(.horizontal, 16, for: .scrollContent)
 
             } else {
                 CommunityNotLoggedInView()

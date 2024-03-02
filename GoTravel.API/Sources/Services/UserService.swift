@@ -59,4 +59,13 @@ public struct UserService {
         
         return result
     }
+    
+    /// Searches for users with a part of a username, case insensitive
+    public static func Search(for username: String) async throws -> [User] {
+        
+        let request = APIRequest(path: "User/Search/\(username)", queryItems: [], body: nil)
+        let result: [User] = try await client.perform(request)
+        
+        return result
+    }
 }

@@ -10,4 +10,5 @@ import Foundation
 enum APIError: Error {
     case invalidBaseUrl
     case couldNotParse
+    case unexpectedFailure
 }

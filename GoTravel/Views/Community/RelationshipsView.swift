@@ -19,6 +19,7 @@ public struct RelationshipsView: View {
     @Environment(GlobalViewModel.self) private var globalVm
     @State private var selection: RelType = .followers
     @State private var searchText: String = ""
+    @State private var addFriendSheet: Bool = false
     
     init(openToType: RelType = .followers) {
         self._selection = State(wrappedValue: openToType)
@@ -53,8 +54,21 @@ public struct RelationshipsView: View {
             .contentMargins(.horizontal, 16, for: .scrollContent)
             .toolbarTitleDisplayMode(.large)
             .navigationTitle("Friendships")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: { self.addFriendSheet = true }) {
+                        HStack {
+                            Image(systemName: "magnifyingglass")
+                            Text("Add friend")
+                        }                           
+                    }
+                }
+            }
         }
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Filter...")
+        .sheet(isPresented: $addFriendSheet) {
+            UserSearchView()
+        }
     }
     
     @ViewBuilder
@@ -68,28 +82,7 @@ public struct RelationshipsView: View {
         Spacer().frame(height: 16)
         LazyVStack {
             ForEach(user.followers.filter { self.searchText.isEmpty || $0.userName.localizedCaseInsensitiveContains(self.searchText) }, id: \.userName) { user in
-                HStack {
-                    AsyncImage(url: URL(string: user.userPictureUrl)) { img in
-                        img
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 34, height: 34)
-                            .clipShape(.circle)
-                            .shadow(radius: 3)
-                    } placeholder: {
-                        ProgressView()
-                            .frame(width: 34, height: 34)
-                    }
-                    
-                    Text(user.userName)
-                    Spacer()
-                    
-                    Button(action: {}) {
-                        Text("Remove")
-                    }
-                    .buttonStyle(.bordered)
-                    .font(.subheadline)
-                }
+                UserRowView(user: user, type: .Followers)
                 Divider()
             }
         }
@@ -99,37 +92,14 @@ public struct RelationshipsView: View {
     private func followingView(for user: CurrentUser) -> some View {
         
         if user.following.isEmpty {
-            ContentUnavailableView("No Followers", systemImage: "xmark", description: Text("You don't have any followers yet, spread the word!"))
+            ContentUnavailableView("No one's here...", systemImage: "xmark", description: Text("You're not following anyone yet, follow a friend to see their updates and compete against them!"))
         }
         
         
         Spacer().frame(height: 16)
         LazyVStack {
-            ForEach(user.following.filter { self.searchText.isEmpty || $0.userName.localizedCaseInsensitiveContains(self.searchText) }, id: \.userName) { user in
-                HStack {
-                    AsyncImage(url: URL(string: user.userPictureUrl)) { img in
-                        img
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 34, height: 34)
-                            .clipShape(.circle)
-                            .shadow(radius: 3)
-                    } placeholder: {
-                        ProgressView()
-                            .frame(width: 34, height: 34)
-                    }
-                    
-                    Text(user.userName)
-                    
-                    Spacer()
-                    
-                    Button(action: {}) {
-                        Text("Unfollow")
-                    }
-                    .buttonStyle(.bordered)
-                    .font(.subheadline)
-                    
-                }
+            ForEach(user.following.filter { self.searchText.isEmpty || $0.user.userName.localizedCaseInsensitiveContains(self.searchText) }, id: \.user.userName) { following in
+                UserRowView(user: following.user, type: .Following)
                 Divider()
             }
         }
@@ -151,10 +121,10 @@ public struct RelationshipsView: View {
         .init(userName: "Test 2", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", followerCount: 1),
         .init(userName: "Test 3", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", followerCount: 1),
     ]
-    let following: [User] = [
-        .init(userName: "Test 5", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", followerCount: 1),
-        .init(userName: "Test 6", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", followerCount: 1),
-        .init(userName: "Test 8", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", followerCount: 1),
+    let following: [UserFollowing] = [
+        .init(followingType: .following, user: .init(userName: "Test 5", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", followerCount: 1)),
+        .init(followingType: .following, user: .init(userName: "Test 6", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", followerCount: 1)),
+        .init(followingType: .following, user: .init(userName: "Test 8", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", followerCount: 1)),
     ]
     global.currentUser = CurrentUser(userId: "auth0|Id", userName: "tomknighton", userEmail: "tomknighton@icloud.com", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", dateCreated: Date(), followers: followers, following: following)
     
