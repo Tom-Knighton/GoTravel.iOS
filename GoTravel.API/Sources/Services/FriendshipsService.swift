@@ -28,4 +28,11 @@ public struct FriendshipsService {
         
         return true
     }
+    
+    public static func removeFollower(followerId: String) async throws -> Bool {
+        let request = APIRequest(method: .delete, path: "UserFriendships/RemoveFollower", queryItems: [.init(name: "followerId", value: followerId)], body: nil)
+        try await api.performExpect200(request)
+        
+        return true
+    }
 }

@@ -79,7 +79,7 @@ public struct UserRowView: View {
                             .font(.subheadline)
                         }
                     } else if let followed = current.followers.first(where: { $0.userName == user.userName }) {
-                        Button(action: {}) {
+                        Button(action: { Task { await self.removeFollower() }}) {
                             Text("Remove")
                         }
                         .buttonStyle(.bordered)
@@ -92,17 +92,33 @@ public struct UserRowView: View {
                         .font(.subheadline)
                     }
                 case .Followers:
-                    Button(action: {}) {
+                    Button(action: { Task { await self.removeFollower() }}) {
                         Text("Remove")
                     }
                     .buttonStyle(.bordered)
                     .font(.subheadline)
                 case .Following:
-                    Button(action: { Task { await self.unfollow() }}) {
-                        Text("Unfollow")
+                    if let follower = current.following.first(where: { $0.user.userName == user.userName }) {
+                        if follower.followingType == .requested {
+                            Button(action: {}) {
+                                Text("Requested")
+                            }
+                            .buttonStyle(.bordered)
+                            .font(.subheadline)
+                        } else {
+                            Button(action: { Task { await self.unfollow() }}) {
+                                Text("Unfollow")
+                            }
+                            .buttonStyle(.bordered)
+                            .font(.subheadline)
+                        }
+                    } else {
+                        Button(action: { Task { await self.unfollow() }}) {
+                            Text("Unfollow")
+                        }
+                        .buttonStyle(.bordered)
+                        .font(.subheadline)
                     }
-                    .buttonStyle(.bordered)
-                    .font(.subheadline)
                 case .Blocked:
                     Button(action: {}) {
                         Text("Unblock")
@@ -143,5 +159,19 @@ public struct UserRowView: View {
             print(error)
         }
         
+    }
+    
+    private func removeFollower() async {
+        self.isPerformingAction = true
+        defer { self.isPerformingAction = false }
+        
+        do {
+            let result = try await FriendshipsService.removeFollower(followerId: user.userName)
+            if result {
+                globalVm.currentUser = try await UserService.CurrentUser()
+            }
+        } catch {
+            print(error)
+        }
     }
 }
