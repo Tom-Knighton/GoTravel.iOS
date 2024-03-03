@@ -25,7 +25,7 @@ public struct CommunityPage: View {
                         Spacer()
                     }
                 }
-                .navigationTitle("Community")
+                .navigationTitle(Strings.Navigation.CommunityTab)
                 .contentMargins(.horizontal, 16, for: .scrollContent)
 
             } else {

@@ -36,6 +36,7 @@ public struct UserRowView: View {
                 ProgressView()
                     .frame(width: 34, height: 34)
             }
+            .accessibilityHidden()
             
             Text(user.userName)
             Spacer()
@@ -50,9 +51,7 @@ public struct UserRowView: View {
         if let current = globalVm.currentUser {
             
             if self.isPerformingAction {
-                Button(action: {}) {
-                    ProgressView()
-                }
+                ProgressView()
             }
             else {
                 switch self.type {
@@ -60,117 +59,132 @@ public struct UserRowView: View {
                     if let following = current.following.first(where: { $0.user.userName == user.userName }) {
                         switch following.followingType {
                         case .following:
-                            Button(action: { Task { await self.unfollow() } }) {
-                                Text("Unfollow")
-                            }
-                            .buttonStyle(.bordered)
-                            .font(.subheadline)
+                            unfollowButton()
                         case .requested:
-                            Button(action: {}) {
-                                Text("Requested")
-                            }
-                            .buttonStyle(.bordered)
-                            .font(.subheadline)
+                            requestedButton()
                         case .blocked:
-                            Button(action: {}) {
-                                Text("Unblock")
-                            }
-                            .buttonStyle(.bordered)
-                            .font(.subheadline)
+                            unblockButton()
                         }
                     } else if let followed = current.followers.first(where: { $0.user.userName == user.userName }) {
                         switch followed.followingType {
                         case .following:
-                            Button(action: { Task { await self.removeFollower() }}) {
-                                Text("Remove")
-                            }
-                            .buttonStyle(.bordered)
-                            .font(.subheadline)
+                            removeButton()
                         case .requested:
                             HStack {
-                                Button(action: { Task { await self.respondToRequest(approve: true) }}) {
-                                    Text("Approve")
-                                }
-                                .buttonStyle(.bordered)
-                                .font(.subheadline)
-                                Button(action: { Task { await self.respondToRequest(approve: false) }}) {
-                                    Text("Reject")
-                                }
-                                .buttonStyle(.bordered)
-                                .font(.subheadline)
-                                .tint(.red)
+                                approveButton()
+                                rejectButton()
                             }
                         case .blocked:
-                            EmptyView()
+                            unblockButton()
                         }
                        
                     } else {
-                        Button(action: { Task { await self.requestFollow() }}) {
-                            Text("Add Friend")
-                        }
-                        .buttonStyle(.bordered)
-                        .font(.subheadline)
+                        requestButton()
                     }
                 case .Followers:
                     if let follower = current.followers.first(where: { $0.user.userName == user.userName }) {
                         switch follower.followingType {
                         case .following:
-                            Button(action: { Task { await self.removeFollower() }}) {
-                                Text("Remove")
-                            }
-                            .buttonStyle(.bordered)
-                            .font(.subheadline)
+                            removeButton()
                         case .requested:
                             HStack {
-                                Button(action: { Task { await self.respondToRequest(approve: true) }}) {
-                                    Text("Approve")
-                                }
-                                .buttonStyle(.bordered)
-                                .font(.subheadline)
-                                Button(action: { Task { await self.respondToRequest(approve: false) }}) {
-                                    Text("Reject")
-                                }
-                                .buttonStyle(.bordered)
-                                .font(.subheadline)
-                                .tint(.red)
+                                approveButton()
+                                rejectButton()
                             }
                         case .blocked:
-                            EmptyView()
+                            unblockButton()
                         }
 
                     }
                 case .Following:
                     if let follower = current.following.first(where: { $0.user.userName == user.userName }) {
                         if follower.followingType == .requested {
-                            Button(action: {}) {
-                                Text("Requested")
-                            }
-                            .buttonStyle(.bordered)
-                            .font(.subheadline)
+                            requestedButton()
                         } else {
-                            Button(action: { Task { await self.unfollow() }}) {
-                                Text("Unfollow")
-                            }
-                            .buttonStyle(.bordered)
-                            .font(.subheadline)
+                            unfollowButton()
                         }
                     } else {
-                        Button(action: { Task { await self.unfollow() }}) {
-                            Text("Unfollow")
-                        }
-                        .buttonStyle(.bordered)
-                        .font(.subheadline)
+                        unfollowButton()
                     }
                 case .Blocked:
-                    Button(action: {}) {
-                        Text("Unblock")
-                    }
-                    .buttonStyle(.bordered)
-                    .font(.subheadline)
-                    .tint(.red)
+                    unblockButton()
                 }
             }
         }
+    }
+    
+    @ViewBuilder
+    private func unblockButton() -> some View {
+        Button(action: {}) {
+            Text(Strings.Community.Relationships.Unblock)
+        }
+        .buttonStyle(.bordered)
+        .font(.subheadline)
+        .tint(.red)
+        .accessibilityHint(Strings.Community.Accessibility.UnblockHint)
+    }
+    
+    @ViewBuilder
+    private func unfollowButton() -> some View {
+        Button(action: { Task { await self.unfollow() }}) {
+            Text(Strings.Community.Relationships.Unfollow)
+        }
+        .buttonStyle(.bordered)
+        .font(.subheadline)
+        .accessibilityHint(Strings.Community.Accessibility.UnfollowHint)
+    }
+    
+    @ViewBuilder
+    private func requestedButton() -> some View {
+        Button(action: {}) {
+            Text(Strings.Community.Relationships.Requested)
+        }
+        .buttonStyle(.bordered)
+        .font(.subheadline)
+        .accessibilityHint(Strings.Community.Accessibility.RequestedHint)
+    }
+    
+    @ViewBuilder
+    private func approveButton() -> some View {
+        Button(action: { Task { await self.respondToRequest(approve: true) }}) {
+            Text(Strings.Community.Relationships.Approve)
+        }
+        .buttonStyle(.bordered)
+        .font(.subheadline)
+        .accessibilityHint(Strings.Community.Accessibility.ApproveHint)
+        .accessibilityRemoveTraits(.isButton)
+    }
+    
+    @ViewBuilder
+    private func rejectButton() -> some View {
+        Button(action: { Task { await self.respondToRequest(approve: false) }}) {
+            Text(Strings.Community.Relationships.Reject)
+        }
+        .buttonStyle(.bordered)
+        .font(.subheadline)
+        .tint(.red)
+        .accessibilityHint(Strings.Community.Accessibility.RejectHint)
+    }
+    
+    @ViewBuilder
+    private func removeButton() -> some View {
+        Button(action: { Task { await self.removeFollower() }}) {
+            Text(Strings.Community.Relationships.Remove)
+        }
+        .buttonStyle(.bordered)
+        .font(.subheadline)
+        .accessibilityHint(Strings.Community.Accessibility.RemoveHint)
+    }
+    
+    
+    @ViewBuilder
+    private func requestButton() -> some View {
+        Button(action: { Task { await self.requestFollow() }}) {
+            Text(Strings.Community.Relationships.AddFriend)
+        }
+        .buttonStyle(.bordered)
+        .font(.subheadline)
+        .accessibilityHint(Strings.Community.Accessibility.RequestHint)
     }
     
     private func requestFollow() async {
@@ -185,7 +199,6 @@ public struct UserRowView: View {
         } catch {
             print(error)
         }
-        
     }
     
     private func unfollow() async {

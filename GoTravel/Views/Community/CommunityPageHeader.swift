@@ -22,22 +22,24 @@ public struct CommunityPageHeader: View {
             HStack {
                 Spacer()
                 Button(action: { self.relationshipViewOpenTo = 0 } ) {
-                    Label("2", systemImage: "person.3.fill")
+                    Label(String(describing: globalVm.currentUser?.followers.count ?? 0), systemImage: Icons.threePeopleFilled)
                         .bold()
                 }
                 .tint(.primary)
+                .accessibilityHint(Strings.Community.Accessibility.ManageFollowersHint)
             }
             
             VStack {
                 HStack {
-                    Text("Updates:")
+                    Text(Strings.Community.Updates.Title)
                         .font(.headline.bold())
                     Spacer()
                     
                     Button(action: { self.relationshipViewOpenTo = 1 }) {
-                        Label("5 Following", systemImage: "person.3.sequence")
+                        Label(Strings.Community.Updates.FollowingCount(globalVm.currentUser?.following.count ?? 0), systemImage: Icons.threePeopleSeq)
                     }
                     .tint(.primary)
+                    .accessibilityHint(Strings.Community.Accessibility.ManageFollowingHint)
                 }
             }
             .frame(maxWidth: .infinity)
@@ -74,7 +76,9 @@ public struct CommunityPageHeader: View {
                     .shadow(radius: 3)
             }
         }
-//        .sheet(isPresented: $showProfileSheet, content: {
+        .accessibilityLabel(Strings.Community.Accessibility.ProfilePicLabel)
+        .accessibilityHint(Strings.Community.Accessibility.ProfilePicHint)
+        //        .sheet(isPresented: $showProfileSheet, content: {
 //            VStack {
 //                
 //            }

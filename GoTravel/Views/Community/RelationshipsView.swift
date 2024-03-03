@@ -30,9 +30,9 @@ public struct RelationshipsView: View {
             ScrollView {
                 VStack {
                     Picker("", selection: $selection) {
-                        Text("Followers").tag(RelType.followers)
-                        Text("Following").tag(RelType.following)
-                        Text("Blocked").tag(RelType.blocked)
+                        Text(Strings.Community.Relationships.Followers).tag(RelType.followers)
+                        Text(Strings.Community.Relationships.Following).tag(RelType.following)
+                        Text(Strings.Community.Relationships.Blocked).tag(RelType.blocked)
                     }
                     .pickerStyle(.segmented)
                     .labelsHidden()
@@ -53,19 +53,20 @@ public struct RelationshipsView: View {
             }
             .contentMargins(.horizontal, 16, for: .scrollContent)
             .toolbarTitleDisplayMode(.large)
-            .navigationTitle("Friendships")
+            .navigationTitle(Strings.Community.Relationships.Friendships)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: { self.addFriendSheet = true }) {
                         HStack {
-                            Image(systemName: "magnifyingglass")
-                            Text("Add friend")
+                            Image(systemName: Icons.magnifyingGlass)
+                            Text(Strings.Community.Relationships.AddFriend)
                         }                           
                     }
+                    .accessibilityHint(Strings.Community.Accessibility.AddFriendBtnHint)
                 }
             }
         }
-        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Filter...")
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: Strings.Misc.Filter)
         .sheet(isPresented: $addFriendSheet) {
             UserSearchView()
         }
@@ -75,7 +76,7 @@ public struct RelationshipsView: View {
     private func followersView(for user: CurrentUser) -> some View {
         
         if user.followers.isEmpty {
-            ContentUnavailableView("No Followers", systemImage: "xmark", description: Text("You don't have any followers yet, spread the word!"))
+            ContentUnavailableView(Strings.Community.Relationships.NoFollowers, systemImage: Icons.cross, description: Text(Strings.Community.Relationships.NoFollowersDesc))
         }
         
         
@@ -92,7 +93,7 @@ public struct RelationshipsView: View {
     private func followingView(for user: CurrentUser) -> some View {
         
         if user.following.isEmpty {
-            ContentUnavailableView("No one's here...", systemImage: "xmark", description: Text("You're not following anyone yet, follow a friend to see their updates and compete against them!"))
+            ContentUnavailableView(Strings.Community.Relationships.NoFollowing, systemImage: Icons.cross, description: Text(Strings.Community.Relationships.NoFollowingDesc))
         }
         
         
@@ -108,7 +109,7 @@ public struct RelationshipsView: View {
     @ViewBuilder
     private func blockedView(for user: CurrentUser) -> some View {
         
-        ContentUnavailableView("You haven't blocked anyone", systemImage: "xmark", description: Text("You haven't blocked any users yet. If you do, they will appear here and you can choose to unblock them."))
+        ContentUnavailableView(Strings.Community.Relationships.NoBlocked, systemImage: Icons.cross, description: Text(Strings.Community.Relationships.NoBlockedDesc))
     }
 }
 

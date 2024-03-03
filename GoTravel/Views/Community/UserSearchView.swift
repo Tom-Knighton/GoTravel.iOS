@@ -22,7 +22,7 @@ public struct UserSearchView: View {
             ScrollView {
                 VStack {
                     if searchText.isEmpty {
-                        ContentUnavailableView("Search for users", systemImage: "magnifyingglass", description: Text("Search for friends to add and follow their travels, and compete against them!"))
+                        ContentUnavailableView(Strings.Community.Relationships.SearchUsers, systemImage: Icons.magnifyingGlass, description: Text(Strings.Community.Relationships.SearchUsersDesc))
                     }
                     
                     if searchText.count >= 3 {
@@ -30,7 +30,7 @@ public struct UserSearchView: View {
                             ProgressView()
                         } else {
                             if users.isEmpty {
-                                ContentUnavailableView("No results", systemImage: "xmark", description: Text("There were no results for this search."))
+                                ContentUnavailableView(Strings.Misc.NoResults, systemImage: Icons.cross, description: Text(Strings.Misc.NoResultsDesc))
                             } else {
                                 ForEach(users, id: \.userName) { user in
                                     UserRowView(user: user, type: .Default)
@@ -43,8 +43,8 @@ public struct UserSearchView: View {
                 }
             }
             .contentMargins(.horizontal, 16, for: .scrollContent)
-            .navigationTitle("Add Friend")
-            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for users...")
+            .navigationTitle(Strings.Community.Relationships.AddFriend)
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: Strings.Community.Relationships.SearchUsersPrompt)
             .onChange(of: self.searchText, { _, newValue in
                 self.searchTextPublisher.send(newValue)
             })
@@ -70,7 +70,6 @@ public struct UserSearchView: View {
             self.users = users
         } catch {
             self.users = []
-            print("error")
         }
     }
 }

@@ -254,9 +254,54 @@ public struct Strings {
             public static let You: LocalizedStringKey = "Community:You!"
         }
         
+        public struct Updates {
+            public static let Title: LocalizedStringKey = "Community:Updates:Title"
+            public static func FollowingCount(_ count: Int) ->  LocalizedStringKey {
+                LocalizedStringKey("Community:Updates:FollowingCount:\(count)")
+            }
+        }
+        
+        public struct Relationships {
+            public static let Following: LocalizedStringKey = "Community:Rel:Following"
+            public static let Followers: LocalizedStringKey = "Community:Rel:Followers"
+            public static let Blocked: LocalizedStringKey = "Community:Rel:Blocked"
+            public static let Friendships: LocalizedStringKey = "Community:Rel:Friendships"
+            public static let AddFriend: LocalizedStringKey = "Community:Rel:AddFriend"
+            public static let NoFollowers: LocalizedStringKey = "Community:Rel:NoFollowers"
+            public static let NoFollowing: LocalizedStringKey = "Community:Rel:NoFollowing"
+            public static let NoBlocked: LocalizedStringKey = "Community:Rel:NoBlocked"
+            public static let NoFollowersDesc: LocalizedStringKey = "Community:Rel:NoFollowersDesc"
+            public static let NoFollowingDesc: LocalizedStringKey = "Community:Rel:NoFollowingDesc"
+            public static let NoBlockedDesc: LocalizedStringKey = "Community:Rel:NoBlockedDesc"
+            public static let SearchUsers: LocalizedStringKey = "Community:Rel:SearchUsers"
+            public static let SearchUsersDesc: LocalizedStringKey = "Community:Rel:SearchUsersDesc"
+            public static let SearchUsersPrompt: LocalizedStringKey = "Community:Rel:SearchUsersPrompt"
+            
+            public static let Unfollow: LocalizedStringKey = "Community:Rel:Unfollow"
+            public static let Unblock: LocalizedStringKey = "Community:Rel:Unblock"
+            public static let Requested: LocalizedStringKey = "Community:Rel:Requested"
+            public static let Remove: LocalizedStringKey = "Community:Rel:Remove"
+            public static let Approve: LocalizedStringKey = "Community:Rel:Approve"
+            public static let Reject: LocalizedStringKey = "Community:Rel:Reject"
+            
+        }
+        
         public struct Accessibility {
             public static let StartNowHint: LocalizedStringKey = "Community:A11Y:StartNowHint"
             public static let ScoreboadLabel: LocalizedStringKey = "Community:A11Y:ScoreboardLabel"
+            
+            public static let ManageFollowersHint: LocalizedStringKey = "Community:A11Y:ManageFollowersHint"
+            public static let ManageFollowingHint: LocalizedStringKey = "Community:A11Y:ManageFollowingHint"
+            public static let ProfilePicLabel: LocalizedStringKey = "Community:A11Y:ProfilePicLabel"
+            public static let ProfilePicHint: LocalizedStringKey = "Community:A11Y:ProfilePicHint"
+            public static let AddFriendBtnHint: LocalizedStringKey = "Community:A11Y:AddFriendBtnHint"
+            public static let UnblockHint: LocalizedStringKey = "Community:A11Y:UnblockHint"
+            public static let ApproveHint: LocalizedStringKey = "Community:A11Y:ApproveHint"
+            public static let RejectHint: LocalizedStringKey = "Community:A11Y:RejectHint"
+            public static let UnfollowHint: LocalizedStringKey = "Community:A11Y:UnfollowHint"
+            public static let RequestedHint: LocalizedStringKey = "Community:A11Y:RequestedHint"
+            public static let RemoveHint: LocalizedStringKey = "Community:A11Y:RemoveHint"
+            public static let RequestHint: LocalizedStringKey = "Community:A11Y:RequestedHint"
         }
         
         
@@ -276,6 +321,9 @@ public struct Strings {
         public static let Error: LocalizedStringKey = "Misc:Error"
         public static let Woohoo: LocalizedStringKey = "Misc:Woohoo"
         public static let Continue: LocalizedStringKey = "Misc:Continue"
+        public static let Filter: LocalizedStringKey = "Misc:Filter..."
+        public static let NoResults: LocalizedStringKey = "Misc:NoResults"
+        public static let NoResultsDesc: LocalizedStringKey = "Misc:NoResultsDesc"
     }
     
     public struct Errors {
@@ -394,4 +442,7 @@ public struct Icons {
     public static let walk = "figure.walk"
     public static let signPostFilled = "signpost.right.and.left.fill"
     public static let personOnBustFilled = "person.bust.fill"
+    public static let threePeopleFilled = "person.3.fill"
+    public static let threePeopleSeq = "person.3.sequence"
+    public static let magnifyingGlass = "magnifyingglass"
 }
