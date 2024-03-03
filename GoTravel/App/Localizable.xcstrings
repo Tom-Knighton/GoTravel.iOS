@@ -387,13 +387,92 @@
         }
       }
     },
-    "Community" : {
-      "extractionState" : "stale",
+    "Community:A11Y:AddFriendBtnHint" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Community"
+            "value" : "Tap to search for and add friends"
+          }
+        }
+      }
+    },
+    "Community:A11Y:ApproveHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press to approve this follower request"
+          }
+        }
+      }
+    },
+    "Community:A11Y:ManageFollowersHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press to open a sheet and manage your followers, or follow new friends."
+          }
+        }
+      }
+    },
+    "Community:A11Y:ManageFollowingHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press to manage who you're following"
+          }
+        }
+      }
+    },
+    "Community:A11Y:ProfilePicHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press to manage your profile"
+          }
+        }
+      }
+    },
+    "Community:A11Y:ProfilePicLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your profile picture"
+          }
+        }
+      }
+    },
+    "Community:A11Y:RejectHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press to reject this follower request"
+          }
+        }
+      }
+    },
+    "Community:A11Y:RemoveHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press to remove this follower so they no longer follow you"
+          }
+        }
+      }
+    },
+    "Community:A11Y:RequestedHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You've requested to follow this user"
           }
         }
       }
@@ -414,6 +493,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Opens the login/sign up page"
+          }
+        }
+      }
+    },
+    "Community:A11Y:UnblockHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press to unblock this user"
+          }
+        }
+      }
+    },
+    "Community:A11Y:UnfollowHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press to unfollow this user"
           }
         }
       }
@@ -454,6 +553,206 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Join the Go Travel Community"
+          }
+        }
+      }
+    },
+    "Community:Rel:AddFriend" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Friend"
+          }
+        }
+      }
+    },
+    "Community:Rel:Approve" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Approve"
+          }
+        }
+      }
+    },
+    "Community:Rel:Blocked" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blocked"
+          }
+        }
+      }
+    },
+    "Community:Rel:Followers" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Followers"
+          }
+        }
+      }
+    },
+    "Community:Rel:Following" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Following"
+          }
+        }
+      }
+    },
+    "Community:Rel:Friendships" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Friendships"
+          }
+        }
+      }
+    },
+    "Community:Rel:NoBlocked" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You haven't blocked anyone"
+          }
+        }
+      }
+    },
+    "Community:Rel:NoBlockedDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You haven't blocked any users yet. If you do, they will appear here and you can choose to unblock them."
+          }
+        }
+      }
+    },
+    "Community:Rel:NoFollowers" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Followers"
+          }
+        }
+      }
+    },
+    "Community:Rel:NoFollowersDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You don't have any followers yet, spread the word!"
+          }
+        }
+      }
+    },
+    "Community:Rel:NoFollowing" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There's no one here..."
+          }
+        }
+      }
+    },
+    "Community:Rel:NoFollowingDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You aren't following anyone yet. Follow your friends to compete against them, see their updates and their shared journeys!"
+          }
+        }
+      }
+    },
+    "Community:Rel:Reject" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reject"
+          }
+        }
+      }
+    },
+    "Community:Rel:Remove" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove"
+          }
+        }
+      }
+    },
+    "Community:Rel:Requested" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Requested"
+          }
+        }
+      }
+    },
+    "Community:Rel:SearchUsers" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for users"
+          }
+        }
+      }
+    },
+    "Community:Rel:SearchUsersDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for friends to add and follow their travels, and compete against them!"
+          }
+        }
+      }
+    },
+    "Community:Rel:SearchUsersPrompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for users..."
+          }
+        }
+      }
+    },
+    "Community:Rel:Unblock" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unblock"
+          }
+        }
+      }
+    },
+    "Community:Rel:Unfollow" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unfollow"
           }
         }
       }
@@ -504,6 +803,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Track your journeys, and set travel goals to increase your public transport usage."
+          }
+        }
+      }
+    },
+    "Community:Updates:FollowingCount:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Following"
+          }
+        }
+      }
+    },
+    "Community:Updates:Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Updates:"
           }
         }
       }
@@ -1591,6 +1910,16 @@
         }
       }
     },
+    "Misc:Filter..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filter..."
+          }
+        }
+      }
+    },
     "Misc:Loading..." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1598,6 +1927,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Loading..."
+          }
+        }
+      }
+    },
+    "Misc:NoResults" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Results"
+          }
+        }
+      }
+    },
+    "Misc:NoResultsDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There were no results for this search"
           }
         }
       }

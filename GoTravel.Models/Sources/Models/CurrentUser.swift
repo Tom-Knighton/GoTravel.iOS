@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import DefaultCodable
 
 /// Information on a current logged in user
 public struct CurrentUser: Decodable {
@@ -25,11 +26,38 @@ public struct CurrentUser: Decodable {
     /// The date the user signed up
     public let dateCreated: Date
     
-    public init(userId: String, userName: String, userEmail: String, userPictureUrl: String, dateCreated: Date) {
+    /// DTOs of the users that follow this user
+    @Default<Empty>
+    public var followers: [UserFollowing]
+    
+    /// DTOs of the users this user is following
+    @Default<Empty>
+    public var following: [UserFollowing]
+    
+    public init(userId: String, userName: String, userEmail: String, userPictureUrl: String, dateCreated: Date, followers: [UserFollowing] = [], following: [UserFollowing] = []) {
         self.userId = userId
         self.userName = userName
         self.userEmail = userEmail
         self.userPictureUrl = userPictureUrl
         self.dateCreated = dateCreated
+        self.followers = followers
+        self.following = following
     }
+}
+
+public struct UserFollowing: Codable, Equatable {
+    
+    public let followingType: UserFollowingType
+    public let user: User
+    
+    public init(followingType: UserFollowingType, user: User) {
+        self.followingType = followingType
+        self.user = user
+    }
+}
+
+public enum UserFollowingType: String, Codable {
+    case following = "Following"
+    case requested = "Requested"
+    case blocked = "Blocked"
 }

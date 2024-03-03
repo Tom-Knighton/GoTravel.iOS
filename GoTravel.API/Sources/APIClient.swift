@@ -31,6 +31,33 @@ public actor APIClient {
     private let baseUrl = URL(string: (Bundle.main.object(forInfoDictionaryKey: "GTAPI_BASE_URL") as? String ?? "https://api.gotravel.tomk.online"))
         
     func perform<T: Decodable>(_ request: APIRequest) async throws -> T {
+        let (data, _) = try await perform(request)
+      
+        if T.self is String.Type {
+            return String(data: data, encoding: .utf8) as! T
+        }
+        
+        do {
+            let response = try data.decode(to: T.self)
+            return response
+        } catch {
+            throw error
+        }
+    }
+    
+    func performExpect200(_ request: APIRequest) async throws {
+        let (_, resp) = try await perform(request)
+        
+        if let resp = resp as? HTTPURLResponse {
+            if (200...299).contains(resp.statusCode) {
+                return
+            }
+        }
+        
+        throw APIError.unexpectedFailure
+    }
+    
+    private func perform(_ request: APIRequest) async throws -> (Data, URLResponse) {
         guard let baseUrl else {
             throw APIError.invalidBaseUrl
         }
@@ -53,17 +80,8 @@ public actor APIClient {
             apiRequest.httpBody = body
         }
         
-        let (data, _) = try await session.data(for: apiRequest)
+        let (data, resp) = try await session.data(for: apiRequest)
         
-        if T.self is String.Type {
-            return String(data: data, encoding: .utf8) as! T
-        }
-        
-        do {
-            let response = try data.decode(to: T.self)
-            return response
-        } catch {
-            throw error
-        }
+        return (data, resp)
     }
 }
