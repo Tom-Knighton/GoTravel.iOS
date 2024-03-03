@@ -11,8 +11,9 @@ import Auth0
 
 public actor AuthClient {
     
-    public static let auth = Auth0.authentication(clientId: "1QQ5VqEGFtqJxA6MtdL2owDz2tDioCfz", domain: (Bundle.main.object(forInfoDictionaryKey: "AUTH0_BASE_URL") as? String ?? ""))
+    public static let auth = Auth0.authentication(clientId: (Bundle.main.object(forInfoDictionaryKey: "AUTH0_CLIENTID") as? String ?? ""), domain: (Bundle.main.object(forInfoDictionaryKey: "AUTH0_BASE_URL") as? String ?? ""))
     private static let scopes = "openid profile offline_access preferred_username https://gotravel/nickname"
+    private static let domain = Bundle.main.object(forInfoDictionaryKey: "AUTH0_DOMAIN") as? String ?? ""
     
     public static func GetToken() async throws -> String? {
         let credentials = CredentialsManager(authentication: auth)
@@ -26,7 +27,7 @@ public actor AuthClient {
     
     public static func Authenticate(with appleCode: String) async throws -> Bool {
         let token = try await auth
-            .login(appleAuthorizationCode: appleCode, audience: "https://go-travel-dev", scope: scopes)
+            .login(appleAuthorizationCode: appleCode, audience: domain, scope: scopes)
             .start()
         
         let didStore = CredentialsManager(authentication: auth).store(credentials: token)
@@ -35,7 +36,7 @@ public actor AuthClient {
     
     public static func Authenticate(with username: String, password: String) async throws -> Bool {
         let token = try await auth
-            .loginDefaultDirectory(withUsername: username, password: password, audience: "https://go-travel-dev", scope: scopes)
+            .loginDefaultDirectory(withUsername: username, password: password, audience: domain, scope: scopes)
             .start()
         
         let didStore = CredentialsManager(authentication: auth).store(credentials: token)
