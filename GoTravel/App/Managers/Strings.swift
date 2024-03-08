@@ -286,6 +286,13 @@ public struct Strings {
             
         }
         
+        public struct Info {
+            public static let UsersReported: LocalizedStringKey = "Community:Info:UsersReportedTitle"
+            public static let Blurb: LocalizedStringKey = "Community:Info:Blurb"
+            public static let Closed: LocalizedStringKey = "Community:Info:Closed"
+            public static let Delayed: LocalizedStringKey = "Community:Info:DelayedJourneys"
+        }
+        
         public struct Accessibility {
             public static let StartNowHint: LocalizedStringKey = "Community:A11Y:StartNowHint"
             public static let ScoreboadLabel: LocalizedStringKey = "Community:A11Y:ScoreboardLabel"
@@ -302,6 +309,10 @@ public struct Strings {
             public static let RequestedHint: LocalizedStringKey = "Community:A11Y:RequestedHint"
             public static let RemoveHint: LocalizedStringKey = "Community:A11Y:RemoveHint"
             public static let RequestHint: LocalizedStringKey = "Community:A11Y:RequestedHint"
+            
+            public static let UserInfoLabel: LocalizedStringKey = "Community:A11Y:UserInfoLabel"
+            public static let UserInfoHint: LocalizedStringKey = "Community:A11Y:UserInfoHint"
+            public static let UserInfoSeeMoreHint: LocalizedStringKey = "Community:A11Y:UserInfoSeeMoreHint"
         }
         
         
@@ -324,6 +335,11 @@ public struct Strings {
         public static let Filter: LocalizedStringKey = "Misc:Filter..."
         public static let NoResults: LocalizedStringKey = "Misc:NoResults"
         public static let NoResultsDesc: LocalizedStringKey = "Misc:NoResultsDesc"
+        public static let Information: LocalizedStringKey = "Misc:Information"
+        
+        public static func Quote(_ content: String) -> LocalizedStringKey {
+            LocalizedStringKey("Misc:Quote:\(content)")
+        }
     }
     
     public struct Errors {
@@ -433,7 +449,7 @@ public struct Icons {
     public static let location_magnifyingglass = "location.magnifyingglass"
     public static let filter = "line.3.horizontal.decrease.circle"
     public static let info = "info"
-    public static let info_circle = "info.circle"
+    public static let infoCircle = "info.circle"
     public static let add = "plus"
     public static let addCircle = "plus.circle"
     public static let minus = "minus"
@@ -445,4 +461,6 @@ public struct Icons {
     public static let threePeopleFilled = "person.3.fill"
     public static let threePeopleSeq = "person.3.sequence"
     public static let magnifyingGlass = "magnifyingglass"
+    public static let exclamationMarkTriangle = "exclamationmark.triangle"
+    public static let exclamationMarkStopFill = "exclamationmark.octagon.fill"
 }

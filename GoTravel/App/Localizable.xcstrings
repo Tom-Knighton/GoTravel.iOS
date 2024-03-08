@@ -517,6 +517,36 @@
         }
       }
     },
+    "Community:A11Y:UserInfoHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to see information on how user submitted info works"
+          }
+        }
+      }
+    },
+    "Community:A11Y:UserInfoLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User submitted information help"
+          }
+        }
+      }
+    },
+    "Community:A11Y:UserInfoSeeMoreHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to see all user submitted information here"
+          }
+        }
+      }
+    },
     "Community:Compete" : {
       "localizations" : {
         "en" : {
@@ -533,6 +563,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Compete with friends and travellers across the UK to use the most public transport!"
+          }
+        }
+      }
+    },
+    "Community:Info:Blurb" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Users can submit information on any stop, line or line mode that they believe will be helpful to other users. Submitted information is reviewed automatically and manually, and you can vote on information if you believe it to be helpful. If you want to report information for being irrelevant or harmful, you can do so - and the information will be flagged for further review."
+          }
+        }
+      }
+    },
+    "Community:Info:Closed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Closed"
+          }
+        }
+      }
+    },
+    "Community:Info:DelayedJourneys" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delayed Journeys"
+          }
+        }
+      }
+    },
+    "Community:Info:UsersReportedTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Users reported the following:"
           }
         }
       }
@@ -1920,6 +1990,16 @@
         }
       }
     },
+    "Misc:Information" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Information"
+          }
+        }
+      }
+    },
     "Misc:Loading..." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1978,6 +2058,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : ", and "
+          }
+        }
+      }
+    },
+    "Misc:Quote:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"%@\""
           }
         }
       }
