@@ -11,6 +11,7 @@ import GoTravel_Models
 public struct CrowdsourceView: View {
     
     @State private var showSheet: Bool = false
+    @State private var showInfoAlert: Bool = false
     var crowdsources: [CrowdsourceSubmission]
     var fullMode: Bool
     
@@ -25,14 +26,21 @@ public struct CrowdsourceView: View {
             if (fullMode) {
                 Spacer().frame(height: 16)
             }
-            Text("Users reported the following:")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .font(fullMode ? .title3.bold() : .body.bold())
+            
+            HStack {
+                Text("Users reported the following:")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(fullMode ? .title3.bold() : .body.bold())
+                Button(action: { self.showInfoAlert = true }) {
+                    Image(systemName: "info.circle")
+                }
+            }
+            
             
             initialFlagsView()
                 .padding(.bottom, 2)
             
-            let withText = crowdsources.filter { $0.text != nil }
+            let withText = crowdsources.filter { $0.text != nil && $0.text?.isEmpty == false }
             let viewable = fullMode ? crowdsources : Array(withText.prefix(2))
             ForEach(viewable, id: \.crowdsourceId) { submission in
                 Text("\"" + (submission.text ?? "") + "\"")
@@ -66,6 +74,12 @@ public struct CrowdsourceView: View {
                 CrowdsourceView(crowdsources: crowdsources, fullMode: true)
             }
         }
+        .alert(Text("Information"), isPresented: $showInfoAlert) {
+            Button(action: {}) { Text("Ok")}
+        } message: {
+            Text("Users can submit information on any stop, line or line mode that they believe will be helpful to other users. Submitted information is reviewed automatically and manually, and you can vote on information if you believe it to be helpful. If you want to report information for being irrelevant or harmful, you can do so - and the information will be flagged for further review.")
+        }
+
     }
     
     @ViewBuilder
@@ -91,8 +105,8 @@ public struct CrowdsourceView: View {
 #Preview {
     
     let crowdsources: [CrowdsourceSubmission] = [
-        .init(crowdsourceId: "1", text: "There were a huge queues today to get out of the station, delayed my journey", isDelayed: true, isClosed: true, started: Date(), expectedEnd: Date(), isFlagged: false, submittedBy: PreviewUserData.User1, currentUserVoteStatus: .noVote, score: 12),
-        .init(crowdsourceId: "2", text: "A lot busier than usual, some exits are closed", isDelayed: true, isClosed: true, started: Date(), expectedEnd: Date(), isFlagged: false, submittedBy: PreviewUserData.User2, currentUserVoteStatus: .noVote, score: 0),
+        .init(crowdsourceId: "1", text: "", isDelayed: true, isClosed: true, started: Date(), expectedEnd: Date(), isFlagged: false, submittedBy: PreviewUserData.User1, currentUserVoteStatus: .noVote, score: 12),
+        .init(crowdsourceId: "2", text: "There were a huge queues today to get out of the station, delayed my journey", isDelayed: true, isClosed: true, started: Date(), expectedEnd: Date(), isFlagged: false, submittedBy: PreviewUserData.User2, currentUserVoteStatus: .noVote, score: 0),
         .init(crowdsourceId: "3", text: "A lot busier than usual, some exits are closed", isDelayed: true, isClosed: true, started: Date(), expectedEnd: Date(), isFlagged: false, submittedBy: PreviewUserData.User2, currentUserVoteStatus: .noVote, score: 0)
     ]
     
