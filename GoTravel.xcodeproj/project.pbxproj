@@ -29,6 +29,8 @@
 		E238EF7C2B79011500DC8E84 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238EF7B2B79011500DC8E84 /* AuthTextField.swift */; };
 		E238EF7F2B79330C00DC8E84 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238EF7E2B79330C00DC8E84 /* SignInViewModel.swift */; };
 		E238EF812B79331600DC8E84 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238EF802B79331600DC8E84 /* SignupViewModel.swift */; };
+		E242FD682B9B46EB000BE477 /* CrowdsourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E242FD672B9B46EB000BE477 /* CrowdsourceView.swift */; };
+		E242FD6A2B9B4E78000BE477 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E242FD692B9B4E78000BE477 /* UserData.swift */; };
 		E2438F1E2B25D82B00BBF345 /* Accessibility+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */; };
 		E2438F202B26195100BBF345 /* AccessibilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */; };
 		E25572082B33B28200988348 /* MapSearchSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25572072B33B28200988348 /* MapSearchSheetView.swift */; };
@@ -158,6 +160,8 @@
 		E238EF7B2B79011500DC8E84 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		E238EF7E2B79330C00DC8E84 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		E238EF802B79331600DC8E84 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		E242FD672B9B46EB000BE477 /* CrowdsourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrowdsourceView.swift; sourceTree = "<group>"; };
+		E242FD692B9B4E78000BE477 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E2438F1D2B25D82B00BBF345 /* Accessibility+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Accessibility+GoTravel.swift"; sourceTree = "<group>"; };
 		E2438F1F2B26195100BBF345 /* AccessibilityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityHelper.swift; sourceTree = "<group>"; };
 		E25572072B33B28200988348 /* MapSearchSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchSheetView.swift; sourceTree = "<group>"; };
@@ -309,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				E20CD6312B74245F00459104 /* JourneyData.swift */,
+				E242FD692B9B4E78000BE477 /* UserData.swift */,
 			);
 			path = "Preview Data";
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 		E23094022B82269800C67D96 /* Community */ = {
 			isa = PBXGroup;
 			children = (
+				E242FD662B9B46DA000BE477 /* Crowdsource */,
 				E2B3590D2B935B07002DE211 /* User */,
 				E23094032B8226A800C67D96 /* CommunityNotLoggedInView.swift */,
 				E26B5A682B9130E4001DD548 /* CommunityPageHeader.swift */,
@@ -351,6 +357,14 @@
 				E2311A762B7EA48800D7DCD4 /* PostSignupViewModel.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		E242FD662B9B46DA000BE477 /* Crowdsource */ = {
+			isa = PBXGroup;
+			children = (
+				E242FD672B9B46EB000BE477 /* CrowdsourceView.swift */,
+			);
+			path = Crowdsource;
 			sourceTree = "<group>";
 		};
 		E255720E2B33BAB900988348 /* BottomSheet */ = {
@@ -788,6 +802,7 @@
 				E2000C182AC821D3003D01A9 /* StopMapViewModel.swift in Sources */,
 				E28DC2BF2B2107D900E2FECE /* LineModeFilterViewModel.swift in Sources */,
 				E25572612B33BAB900988348 /* ColorExtension.swift in Sources */,
+				E242FD6A2B9B4E78000BE477 /* UserData.swift in Sources */,
 				E25572622B33BAB900988348 /* VisualEffectView.swift in Sources */,
 				E255725C2B33BAB900988348 /* DragGestureExtension.swift in Sources */,
 				E25572492B33BAB900988348 /* BottomSheet+FlickThrough.swift in Sources */,
@@ -843,6 +858,7 @@
 				E255724D2B33BAB900988348 /* BottomSheet+CustomBackground.swift in Sources */,
 				E266110E2B9222A3003F55C2 /* RelationshipsView.swift in Sources */,
 				E280F6552B13ADC100563D7E /* String+GoTravel.swift in Sources */,
+				E242FD682B9B46EB000BE477 /* CrowdsourceView.swift in Sources */,
 				E25572522B33BAB900988348 /* BottomSheetPosition.swift in Sources */,
 				E25572592B33BAB900988348 /* BottomSheetView+KeyboardHeight.swift in Sources */,
 				E25572462B33BAB900988348 /* BottomSheet+ContentDrag.swift in Sources */,
