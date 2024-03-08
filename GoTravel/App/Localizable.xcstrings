@@ -387,9 +387,6 @@
         }
       }
     },
-    "Closed" : {
-
-    },
     "Community:A11Y:AddFriendBtnHint" : {
       "localizations" : {
         "en" : {
@@ -536,6 +533,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Compete with friends and travellers across the UK to use the most public transport!"
+          }
+        }
+      }
+    },
+    "Community:Info:Blurb" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Users can submit information on any stop, line or line mode that they believe will be helpful to other users. Submitted information is reviewed automatically and manually, and you can vote on information if you believe it to be helpful. If you want to report information for being irrelevant or harmful, you can do so - and the information will be flagged for further review."
+          }
+        }
+      }
+    },
+    "Community:Info:Closed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Closed"
+          }
+        }
+      }
+    },
+    "Community:Info:DelayedJourneys" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delayed Journeys"
+          }
+        }
+      }
+    },
+    "Community:Info:UsersReportedTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Users reported the following:"
           }
         }
       }
@@ -840,9 +877,6 @@
         }
       }
     },
-    "Delayed Journeys" : {
-
-    },
     "Errors:Auth:EmailTaken" : {
       "localizations" : {
         "en" : {
@@ -983,9 +1017,6 @@
           }
         }
       }
-    },
-    "Information" : {
-
     },
     "Journey:Accessibility:EmptyFromLabel" : {
       "localizations" : {
@@ -1929,6 +1960,16 @@
         }
       }
     },
+    "Misc:Information" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Information"
+          }
+        }
+      }
+    },
     "Misc:Loading..." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1987,6 +2028,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : ", and "
+          }
+        }
+      }
+    },
+    "Misc:Quote:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"%@\""
           }
         }
       }
@@ -2081,12 +2132,6 @@
           }
         }
       }
-    },
-    "Ok" : {
-
-    },
-    "See More" : {
-
     },
     "StopPage:Accessibility:HasWifiLabel" : {
       "localizations" : {
@@ -2281,12 +2326,6 @@
           }
         }
       }
-    },
-    "Users can submit information on any stop, line or line mode that they believe will be helpful to other users. Submitted information is reviewed automatically and manually, and you can vote on information if you believe it to be helpful. If you want to report information for being irrelevant or harmful, you can do so - and the information will be flagged for further review." : {
-
-    },
-    "Users reported the following:" : {
-
     }
   },
   "version" : "1.0"

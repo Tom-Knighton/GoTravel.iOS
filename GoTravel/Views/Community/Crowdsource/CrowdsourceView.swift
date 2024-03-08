@@ -5,7 +5,7 @@
 //  Created by Tom Knighton on 08/03/2024.
 //
 
-import SwiftUI
+import SwiftUI 
 import GoTravel_Models
 
 public struct CrowdsourceView: View {
@@ -28,11 +28,11 @@ public struct CrowdsourceView: View {
             }
             
             HStack {
-                Text("Users reported the following:")
+                Text(Strings.Community.Info.UsersReported)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(fullMode ? .title3.bold() : .body.bold())
                 Button(action: { self.showInfoAlert = true }) {
-                    Image(systemName: "info.circle")
+                    Image(systemName: Icons.infoCircle)
                 }
             }
             
@@ -43,16 +43,19 @@ public struct CrowdsourceView: View {
             let withText = crowdsources.filter { $0.text != nil && $0.text?.isEmpty == false }
             let viewable = fullMode ? crowdsources : Array(withText.prefix(2))
             ForEach(viewable, id: \.crowdsourceId) { submission in
-                Text("\"" + (submission.text ?? "") + "\"")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .multilineTextAlignment(.leading)
-                    .fontWeight(.light)
+                if let text = submission.text {
+                    Text(Strings.Misc.Quote(text))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .multilineTextAlignment(.leading)
+                        .fontWeight(.light)
+                }
+               
                 Divider()
             }
             
             if (!fullMode && withText.dropFirst(2).count > 0) {
                 Button(action: { self.showSheet = true }) {
-                    Text("See More")
+                    Text(Strings.Misc.TapToSeeMore)
                 }
             }
             
@@ -74,10 +77,10 @@ public struct CrowdsourceView: View {
                 CrowdsourceView(crowdsources: crowdsources, fullMode: true)
             }
         }
-        .alert(Text("Information"), isPresented: $showInfoAlert) {
-            Button(action: {}) { Text("Ok")}
+        .alert(Text(Strings.Misc.Information), isPresented: $showInfoAlert) {
+            Button(action: {}) { Text(Strings.Misc.Ok)}
         } message: {
-            Text("Users can submit information on any stop, line or line mode that they believe will be helpful to other users. Submitted information is reviewed automatically and manually, and you can vote on information if you believe it to be helpful. If you want to report information for being irrelevant or harmful, you can do so - and the information will be flagged for further review.")
+            Text(Strings.Community.Info.Blurb)
         }
 
     }
@@ -86,13 +89,13 @@ public struct CrowdsourceView: View {
     private func initialFlagsView() -> some View {
         VStack {
             if crowdsources.contains(where: { $0.isClosed }) {
-               Label("Closed", systemImage: "exclamationmark.octagon.fill")
+                Label(Strings.Community.Info.Closed, systemImage: Icons.exclamationMarkStopFill)
                    .foregroundStyle(.red)
                    .bold()
                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             if crowdsources.contains(where: { $0.isDelayed }) {
-                Label("Delayed Journeys", systemImage: "exclamationmark.triangle")
+                Label(Strings.Community.Info.Delayed, systemImage: Icons.exclamationMarkTriangle)
                    .foregroundStyle(.yellow)
                    .bold()
                    .frame(maxWidth: .infinity, alignment: .leading)

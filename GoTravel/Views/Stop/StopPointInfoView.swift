@@ -131,7 +131,7 @@ public struct StopPointInfoView: View {
                                             self.toiletInfoString = info
                                             self.showToiletInfoAlert = true
                                         }) {
-                                            Image(systemName: Icons.info_circle)
+                                            Image(systemName: Icons.infoCircle)
                                                 .resizable()
                                                 .frame(width: 25, height: 25)
                                         }
