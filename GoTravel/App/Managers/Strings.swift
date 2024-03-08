@@ -309,6 +309,10 @@ public struct Strings {
             public static let RequestedHint: LocalizedStringKey = "Community:A11Y:RequestedHint"
             public static let RemoveHint: LocalizedStringKey = "Community:A11Y:RemoveHint"
             public static let RequestHint: LocalizedStringKey = "Community:A11Y:RequestedHint"
+            
+            public static let UserInfoLabel: LocalizedStringKey = "Community:A11Y:UserInfoLabel"
+            public static let UserInfoHint: LocalizedStringKey = "Community:A11Y:UserInfoHint"
+            public static let UserInfoSeeMoreHint: LocalizedStringKey = "Community:A11Y:UserInfoSeeMoreHint"
         }
         
         

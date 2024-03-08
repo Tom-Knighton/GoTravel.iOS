@@ -31,8 +31,11 @@ public struct CrowdsourceView: View {
                 Text(Strings.Community.Info.UsersReported)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(fullMode ? .title3.bold() : .body.bold())
+                    .accessibilityAddTraits(.isHeader)
                 Button(action: { self.showInfoAlert = true }) {
                     Image(systemName: Icons.infoCircle)
+                        .accessibilityLabel(Strings.Community.Accessibility.UserInfoLabel)
+                        .accessibilityHint(Strings.Community.Accessibility.UserInfoHint)
                 }
             }
             
@@ -57,6 +60,7 @@ public struct CrowdsourceView: View {
                 Button(action: { self.showSheet = true }) {
                     Text(Strings.Misc.TapToSeeMore)
                 }
+                .accessibilityHint(Strings.Community.Accessibility.UserInfoSeeMoreHint)
             }
             
             if (fullMode) {

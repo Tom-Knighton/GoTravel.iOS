@@ -517,6 +517,36 @@
         }
       }
     },
+    "Community:A11Y:UserInfoHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to see information on how user submitted info works"
+          }
+        }
+      }
+    },
+    "Community:A11Y:UserInfoLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User submitted information help"
+          }
+        }
+      }
+    },
+    "Community:A11Y:UserInfoSeeMoreHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to see all user submitted information here"
+          }
+        }
+      }
+    },
     "Community:Compete" : {
       "localizations" : {
         "en" : {
