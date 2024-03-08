@@ -69,6 +69,11 @@ public struct StopPointPage: View {
                 .environment(viewModel)
             
             Spacer().frame(height: 16)
+            if !viewModel.crowdsourceInfo.isEmpty {
+                CrowdsourceView(crowdsources: viewModel.crowdsourceInfo)
+            }
+            
+            Spacer().frame(height: 16)
             if let info = viewModel.information {
                 StopPointInfoView(info: info, coords: stopPoint.stopPoint.stopPointCoordinate.coordinates, hideAccessible: stopPoint.stopPoint is BusStopPoint)
             }

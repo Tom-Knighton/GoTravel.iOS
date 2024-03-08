@@ -25,6 +25,7 @@ public class StopPointViewModel {
     
     //MARK: Information
     public var information: StopPointInfo? = nil
+    public var crowdsourceInfo: [CrowdsourceSubmission] = []
     
     
     public func load(_ stopId: String) async {
@@ -93,11 +94,14 @@ public class StopPointViewModel {
         
         do {
             let info = try await StopPointService.Info(stop.stopPointId)
+            let csInfo = try await CrowdsourceService.GetSubmissions(for: stop.stopPointId)
             await MainActor.run {
                 self.information = info
+                self.crowdsourceInfo = csInfo
             }
         } catch {
             print("error setting info " + error.localizedDescription)
+            print(error)
         }
     }
     

@@ -35,7 +35,7 @@ public struct CrowdsourceSubmission: Codable {
 }
 
 public enum CrowdsourceVoteStatus: String, Codable {
-    case upvoted = "upvoted"
-    case downvoted = "downvoted"
-    case noVote = "noVote"
+    case upvoted = "Upvoted"
+    case downvoted = "Downvoted"
+    case noVote = "NoVote"
 }

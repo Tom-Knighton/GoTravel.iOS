@@ -387,6 +387,9 @@
         }
       }
     },
+    "Closed" : {
+
+    },
     "Community:A11Y:AddFriendBtnHint" : {
       "localizations" : {
         "en" : {
@@ -837,6 +840,9 @@
         }
       }
     },
+    "Delayed Journeys" : {
+
+    },
     "Errors:Auth:EmailTaken" : {
       "localizations" : {
         "en" : {
@@ -977,6 +983,9 @@
           }
         }
       }
+    },
+    "Information" : {
+
     },
     "Journey:Accessibility:EmptyFromLabel" : {
       "localizations" : {
@@ -2073,6 +2082,12 @@
         }
       }
     },
+    "Ok" : {
+
+    },
+    "See More" : {
+
+    },
     "StopPage:Accessibility:HasWifiLabel" : {
       "localizations" : {
         "en" : {
@@ -2266,6 +2281,12 @@
           }
         }
       }
+    },
+    "Users can submit information on any stop, line or line mode that they believe will be helpful to other users. Submitted information is reviewed automatically and manually, and you can vote on information if you believe it to be helpful. If you want to report information for being irrelevant or harmful, you can do so - and the information will be flagged for further review." : {
+
+    },
+    "Users reported the following:" : {
+
     }
   },
   "version" : "1.0"
