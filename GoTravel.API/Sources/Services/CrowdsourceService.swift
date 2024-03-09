@@ -33,7 +33,7 @@ public struct CrowdsourceService {
     public static func Submit(for entity: String, submission: CrowdsourceSubmission) async throws -> Bool {
         
         let command = SubmitCrowdsourceCommand(freeText: submission.text, isDelayed: submission.isDelayed, isClosed: submission.isClosed, startsAt: submission.started, endsAt: submission.expectedEnd)
-        let request = APIRequest(method: .post, path: "Crowdsource/Entity/\(entity)", queryItems: [], body: nil)
+        let request = APIRequest(method: .post, path: "Crowdsource/Entity/\(entity)", queryItems: [], body: command.toJson())
         let _ = try await api.performExpect200(request)
         
         return true

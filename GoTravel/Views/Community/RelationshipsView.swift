@@ -113,6 +113,7 @@ public struct RelationshipsView: View {
     }
 }
 
+#if DEBUG
 #Preview {
     
     let global = GlobalViewModel()
@@ -128,3 +129,4 @@ public struct RelationshipsView: View {
     })
     .environment(global)
 }
+#endif

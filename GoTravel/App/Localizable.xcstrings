@@ -407,6 +407,26 @@
         }
       }
     },
+    "Community:A11Y:ClosedHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This means the stop or line is closed"
+          }
+        }
+      }
+    },
+    "Community:A11Y:DelayedHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This means there were delays to your journey here"
+          }
+        }
+      }
+    },
     "Community:A11Y:ManageFollowersHint" : {
       "localizations" : {
         "en" : {
@@ -423,6 +443,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Press to manage who you're following"
+          }
+        }
+      }
+    },
+    "Community:A11Y:NoChangeHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This means there were no changes in timings of your journeys here"
           }
         }
       }
@@ -497,6 +527,16 @@
         }
       }
     },
+    "Community:A11Y:SubmitInfoHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to open a form to submit info for other users, you'll need to be signed in"
+          }
+        }
+      }
+    },
     "Community:A11Y:UnblockHint" : {
       "localizations" : {
         "en" : {
@@ -567,6 +607,26 @@
         }
       }
     },
+    "Community:Crowdsource" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crowdsource"
+          }
+        }
+      }
+    },
+    "Community:CrowdsourceDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Post helpful and useful information, letting other users know about delays or events around them."
+          }
+        }
+      }
+    },
     "Community:Info:Blurb" : {
       "localizations" : {
         "en" : {
@@ -587,6 +647,16 @@
         }
       }
     },
+    "Community:Info:ConfirmBeforeSubmit" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "👉 By submitting, you confirm your info is accurate and grant us rights to use it.\n👉 It's public, so no confidential stuff.\n👉 Be respectful."
+          }
+        }
+      }
+    },
     "Community:Info:DelayedJourneys" : {
       "localizations" : {
         "en" : {
@@ -597,12 +667,172 @@
         }
       }
     },
+    "Community:Info:EndsAt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expected end at:"
+          }
+        }
+      }
+    },
+    "Community:Info:HoldUp" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold up!"
+          }
+        }
+      }
+    },
+    "Community:Info:HowLong" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How long?"
+          }
+        }
+      }
+    },
+    "Community:Info:HowLongDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Just provide a rough estimate so other users know how long to expect your info to be relevant for"
+          }
+        }
+      }
+    },
+    "Community:Info:NoChange" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No change to journey"
+          }
+        }
+      }
+    },
+    "Community:Info:PostATip" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Post a Tip"
+          }
+        }
+      }
+    },
+    "Community:Info:SignUpAndPost" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign up and post a tip now"
+          }
+        }
+      }
+    },
+    "Community:Info:SomeMore" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Some more info..."
+          }
+        }
+      }
+    },
+    "Community:Info:StartsAt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Started at:"
+          }
+        }
+      }
+    },
+    "Community:Info:Status" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Status:"
+          }
+        }
+      }
+    },
+    "Community:Info:StatusDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Did you experience delayed journeys or a closed station? If not, feel free to leave this blank and fill in some text below"
+          }
+        }
+      }
+    },
+    "Community:Info:SubmitHeader" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Submit your own information"
+          }
+        }
+      }
+    },
+    "Community:Info:SubmitSubheader" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Submit useful tips and up-to-date information to help other users on their journeys"
+          }
+        }
+      }
+    },
+    "Community:Info:Success" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your submission may take some time to appear, as it may be manually reviewed"
+          }
+        }
+      }
+    },
     "Community:Info:UsersReportedTitle" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Users reported the following:"
+          }
+        }
+      }
+    },
+    "Community:Info:WhatsGoingOn" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What's going on here?"
+          }
+        }
+      }
+    },
+    "Community:Info:WhatsGoingOnDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(Optional) Provide some further information to users like 'There were huge queues to leave!'"
           }
         }
       }
@@ -1003,6 +1233,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This username already belongs to a user"
+          }
+        }
+      }
+    },
+    "Errors:Info:Error" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Something went wrong uploading your submission. It may have failed our automatic moderation - make sure any text provided is relevant for other users and not harmful."
+          }
+        }
+      }
+    },
+    "Errors:Info:NoChangeNoText" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If there's no change to the journey status, you need to provide some text telling other user's what's happening! If you're trying to balance out reports of delays/closed stops - simply report those submissions instead."
+          }
+        }
+      }
+    },
+    "Errors:Info:TextTooLong" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your status text is too long"
+          }
+        }
+      }
+    },
+    "Errors:Info:TimeWrong" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This information might not be right for other users - there should be a minimum of 5 hours for an event, otherwise it probably won't impact others!"
           }
         }
       }
@@ -1960,6 +2230,16 @@
         }
       }
     },
+    "Misc:Cancel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
     "Misc:Continue" : {
       "localizations" : {
         "en" : {
@@ -2088,6 +2368,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Searching..."
+          }
+        }
+      }
+    },
+    "Misc:Submit" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Submit"
+          }
+        }
+      }
+    },
+    "Misc:Success" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Success"
           }
         }
       }

@@ -25,7 +25,7 @@ public struct CommunityNotLoggedInView: View {
                     Text(Strings.Community.Join.JoinDescription)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    
+                    CrowdsourcePanel()
                     CompetePanel()
                     TrackPanel()
                     SpecialChallengesPanel()
@@ -38,6 +38,8 @@ public struct CommunityNotLoggedInView: View {
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent)
+                    .tint(.orange)
+                    .shadow(color: .orange, radius: 3)
                     .accessibilityLabel(Strings.Community.Join.StartNow)
                     .accessibilityHint(Strings.Community.Accessibility.StartNowHint)
                     
@@ -57,6 +59,25 @@ public struct CommunityNotLoggedInView: View {
                 self.showLoginSection = false
             }
         }
+    }
+    
+    @ViewBuilder
+    private func CrowdsourcePanel() -> some View {
+        VStack {
+            Text(Strings.Community.Join.Crowdsource)
+                .font(.headline.bold())
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Text(Strings.Community.Join.CrowdsourceDesc)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .multilineTextAlignment(.leading)
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 8)
+        .frame(maxWidth: .infinity)
+        .background(Color.layer2)
+        .clipShape(.rect(cornerRadius: 10))
+        .padding(.vertical, 8)
+        .shadow(radius: 3)
     }
     
     @ViewBuilder
@@ -133,7 +154,6 @@ public struct CommunityNotLoggedInView: View {
         .frame(maxWidth: .infinity)
         .background(Color.layer2)
         .clipShape(.rect(cornerRadius: 10))
-        .padding(.vertical, 8)
         .shadow(radius: 3)
     }
     
@@ -181,10 +201,17 @@ public struct CommunityNotLoggedInView: View {
     }
 }
 
-#Preview(body: {
+#if DEBUG
+
+#Preview {
     
-    NavigationStack {
+    let globalVm = GlobalViewModel()
+    
+    return NavigationStack {
         CommunityNotLoggedInView()
             .navigationTitle(Strings.Navigation.CommunityTab)
+            .environment(globalVm)
     }
-})
+}
+
+#endif

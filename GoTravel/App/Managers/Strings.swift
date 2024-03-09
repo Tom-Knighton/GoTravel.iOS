@@ -249,6 +249,8 @@ public struct Strings {
             public static let TrackDesc: LocalizedStringKey = "Community:TrackDesc"
             public static let Special: LocalizedStringKey = "Community:Special"
             public static let SpecialDesc: LocalizedStringKey = "Community:SpecialDesc"
+            public static let Crowdsource: LocalizedStringKey = "Community:Crowdsource"
+            public static let CrowdsourceDesc: LocalizedStringKey = "Community:CrowdsourceDesc"
             
             public static let StartNow: LocalizedStringKey = "Community:StartNow"
             public static let You: LocalizedStringKey = "Community:You!"
@@ -291,6 +293,30 @@ public struct Strings {
             public static let Blurb: LocalizedStringKey = "Community:Info:Blurb"
             public static let Closed: LocalizedStringKey = "Community:Info:Closed"
             public static let Delayed: LocalizedStringKey = "Community:Info:DelayedJourneys"
+            
+            public static let SignUpAndPost: LocalizedStringKey = "Community:Info:SignUpAndPost"
+            public static let PostATip: LocalizedStringKey = "Community:Info:PostATip"
+            
+            public static let SubmitHeader: LocalizedStringKey = "Community:Info:SubmitHeader"
+            public static let SubmitSubheader: LocalizedStringKey = "Community:Info:SubmitSubheader"
+            public static let Status: LocalizedStringKey = "Community:Info:Status"
+            public static let StatusDesc: LocalizedStringKey = "Community:Info:StatusDesc"
+            public static let NoChange: LocalizedStringKey = "Community:Info:NoChange"
+            public static let SomeMoreInfo: LocalizedStringKey = "Community:Info:SomeMore"
+            
+            public static let WhatsGoingOn: LocalizedStringKey = "Community:Info:WhatsGoingOn"
+            public static let WhatsGoingOnDesc: LocalizedStringKey = "Community:Info:WhatsGoingOnDesc"
+            
+            public static let HowLong: LocalizedStringKey = "Community:Info:HowLong"
+            public static let HowLongDesc: LocalizedStringKey = "Community:Info:HowLongDesc"
+            
+            public static let StartsAt: LocalizedStringKey = "Community:Info:StartsAt"
+            public static let EndsAt: LocalizedStringKey = "Community:Info:EndsAt"
+            
+            public static let HoldUp: LocalizedStringKey = "Community:Info:HoldUp"
+            public static let ConfirmBeforeSubmit: LocalizedStringKey = "Community:Info:ConfirmBeforeSubmit"
+            
+            public static let SuccessMsg: LocalizedStringKey = "Community:Info:Success"
         }
         
         public struct Accessibility {
@@ -313,6 +339,10 @@ public struct Strings {
             public static let UserInfoLabel: LocalizedStringKey = "Community:A11Y:UserInfoLabel"
             public static let UserInfoHint: LocalizedStringKey = "Community:A11Y:UserInfoHint"
             public static let UserInfoSeeMoreHint: LocalizedStringKey = "Community:A11Y:UserInfoSeeMoreHint"
+            public static let SubmitInfoHint: LocalizedStringKey = "Community:A11Y:SubmitInfoHint"
+            public static let NoChangeHint: LocalizedStringKey = "Community:A11Y:NoChangeHint"
+            public static let DelayedHint: LocalizedStringKey = "Community:A11Y:DelayedHint"
+            public static let ClosedHint: LocalizedStringKey = "Community:A11Y:ClosedHint"
         }
         
         
@@ -336,6 +366,9 @@ public struct Strings {
         public static let NoResults: LocalizedStringKey = "Misc:NoResults"
         public static let NoResultsDesc: LocalizedStringKey = "Misc:NoResultsDesc"
         public static let Information: LocalizedStringKey = "Misc:Information"
+        public static let Submit: LocalizedStringKey = "Misc:Submit"
+        public static let Cancel: LocalizedStringKey = "Misc:Cancel"
+        public static let Success: LocalizedStringKey = "Misc:Success"
         
         public static func Quote(_ content: String) -> LocalizedStringKey {
             LocalizedStringKey("Misc:Quote:\(content)")
@@ -358,6 +391,11 @@ public struct Strings {
         public static let AuthUsernameTaken: LocalizedStringKey = "Errors:Auth:UsernameTaken"
         public static let AuthTooManyAttempts: LocalizedStringKey = "Errors:Auth:TooManyAttempts"
         public static let AuthPasswordSecure: LocalizedStringKey = "Errors:Auth:PasswordSecure"
+        
+        public static let InfoSubNoChangeNoText: LocalizedStringKey = "Errors:Info:NoChangeNoText"
+        public static let InfoSubTextTooLong: LocalizedStringKey = "Errors:Info:TextTooLong"
+        public static let InfoSubTimeWrong: LocalizedStringKey = "Errors:Info:TimeWrong"
+        public static let InfoSubError: LocalizedStringKey = "Errors:Info:Error"
     }
     
     public struct Assets {
