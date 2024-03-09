@@ -73,6 +73,8 @@ public struct StopPointPage: View {
                 CrowdsourceView(crowdsources: viewModel.crowdsourceInfo)
             }
             
+            SubmitCrowdsourceButton(entityId: stopPoint.stopPoint.stopPointId)
+            
             Spacer().frame(height: 16)
             if let info = viewModel.information {
                 StopPointInfoView(info: info, coords: stopPoint.stopPoint.stopPointCoordinate.coordinates, hideAccessible: stopPoint.stopPoint is BusStopPoint)
@@ -110,8 +112,15 @@ public struct StopPointPage: View {
     }
 }
 
+#if DEBUG
 #Preview {
-    NavigationStack {
+    
+    let globalVM = GlobalViewModel()
+    globalVM.currentUser = PreviewUserData.Current
+    
+    return NavigationStack {
         StopPointPage(stopId: "HUBSRA")
+            .environment(globalVM)
     }
 }
+#endif
