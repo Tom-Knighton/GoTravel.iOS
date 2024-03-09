@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import Observation
 import GoTravel_Models
 import GoTravel_API
@@ -26,7 +27,7 @@ public class SubmitCrowdsourceViewModel {
     public var endsAt: Date = Date()
     
     public var isLoading: Bool = false
-    public var error: String? = nil
+    public var error: LocalizedStringKey? = nil
     public var showError: Bool = false
     
     public init() {
@@ -43,15 +44,15 @@ public class SubmitCrowdsourceViewModel {
         defer { self.isLoading = false }
         
         if self.journeyStatus == .noChange && self.freeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            self.error = "If there's no change to the journey status, you need to provide some text telling other user's what's happening! If you're trying to balance out reports of delays/closed stops - simply report those submissions instead."
+            self.error = Strings.Errors.InfoSubNoChangeNoText
         }
         
         if self.freeText.trimmingCharacters(in: .whitespacesAndNewlines).count > freeTextLimit {
-            self.error = "Your status text is too long"
+            self.error = Strings.Errors.InfoSubTextTooLong
         }
         
         if self.startsAt.timeUntil(self.endsAt, unit: .hours) < 5 {
-            self.error = "This information might not be right for other users - there should be a minimum of 5 hours for an event, otherwise it probably won't impact others!"
+            self.error = Strings.Errors.InfoSubTimeWrong
         }
         
         if self.error != nil {
@@ -65,7 +66,7 @@ public class SubmitCrowdsourceViewModel {
             let success = try await CrowdsourceService.Submit(for: entityId, submission: submission)
             return success
         } catch {
-            self.error = "Something went wrong uploading your submission. It may have failed our automatic moderation - make sure any text provided is relevant for other users and not harmful."
+            self.error = Strings.Errors.InfoSubError
             self.showError = true
             print(error)
             return false

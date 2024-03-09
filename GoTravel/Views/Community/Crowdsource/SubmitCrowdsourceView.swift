@@ -16,7 +16,7 @@ public struct SubmitCrowdsourceButton: View {
     
     public var body: some View {
         Button(action: { self.showSheet = true }) {
-            Text(globalVm.currentUser == nil ? "Sign up and Post a tip" : "Post a tip")
+            Text(globalVm.currentUser == nil ? Strings.Community.Info.SignUpAndPost : Strings.Community.Info.PostATip)
                 .fontDesign(.rounded)
                 .bold()
                 .frame(maxWidth: .infinity)
@@ -47,30 +47,30 @@ public struct SubmitCrowdsourceView: View {
     public var body: some View {
         ScrollView {
             Spacer().frame(height: 16)
-            Text("Submit your own information")
+            Text(Strings.Community.Info.SubmitHeader)
                 .font(.title3.bold())
                 .frame(maxWidth: .infinity, alignment: .leading)
-            Text("Submit useful tips and up-to-date information to help other users on their journeys")
+            Text(Strings.Community.Info.SubmitSubheader)
                 .font(.subheadline)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             Divider()
             
-            Text("Status:")
+            Text(Strings.Community.Info.Status)
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
-            Text("Did you experience delayed journeys or a closed station? If not, feel free to leave this blank and fill in some text below")
+            Text(Strings.Community.Info.StatusDesc)
                 .font(.subheadline)
                 .fontWeight(.light)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            Picker("Status", selection: $viewModel.journeyStatus) {
-                Text("No change in journey")
+            Picker("", selection: $viewModel.journeyStatus) {
+                Text(Strings.Community.Info.NoChange)
                     .tag(SubmitCrowdsourceViewModel.Status.noChange)
-                Label("Delayed Journey", systemImage: "exclamationmark.triangle")
+                Label(Strings.Community.Info.Delayed, systemImage: Icons.exclamationMarkTriangle)
                     .tint(.yellow)
                     .tag(SubmitCrowdsourceViewModel.Status.delayed)
-                Label("Closed", systemImage: "exclamationmark.octagon.fill")
+                Label(Strings.Community.Info.Closed, systemImage: Icons.exclamationMarkStopFill)
                     .tint(.red)
                     .tag(SubmitCrowdsourceViewModel.Status.closed)
             }
@@ -84,15 +84,15 @@ public struct SubmitCrowdsourceView: View {
             
             Divider()
             
-            Text("What's going on here?")
+            Text(Strings.Community.Info.WhatsGoingOn)
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
-            Text("(Optional) Provide some further information to users like 'There were huge queues to leave!'")
+            Text(Strings.Community.Info.WhatsGoingOnDesc)
                 .font(.subheadline)
                 .fontWeight(.light)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            TextField(text: $viewModel.freeText, prompt: Text("Some more info"), axis: .vertical) {
+            TextField(text: $viewModel.freeText, prompt: Text(Strings.Community.Info.SomeMoreInfo), axis: .vertical) {
                 Text("")
             }
             .lineLimit(10)
@@ -111,21 +111,21 @@ public struct SubmitCrowdsourceView: View {
             
             Divider()
             
-            Text("How long?")
+            Text(Strings.Community.Info.HowLong)
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
-            Text("Just provide a rough estimate so other users know how long to expect your info to be relevant for")
+            Text(Strings.Community.Info.HowLongDesc)
                 .font(.subheadline)
                 .fontWeight(.light)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             DatePicker(selection: $viewModel.startsAt, displayedComponents: [.date, .hourAndMinute]) {
-                Text("Started at:")
+                Text(Strings.Community.Info.StartsAt)
                     .bold()
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             DatePicker(selection: $viewModel.endsAt, in: viewModel.startsAt..., displayedComponents: [.date, .hourAndMinute]) {
-                Text("Expected end:")
+                Text(Strings.Community.Info.EndsAt)
                     .bold()
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -138,7 +138,7 @@ public struct SubmitCrowdsourceView: View {
                     if self.viewModel.isLoading {
                         ProgressView()
                     } else {
-                        Text("Submit")
+                        Text(Strings.Misc.Submit)
                     }
                 }
                 .bold()
@@ -152,16 +152,16 @@ public struct SubmitCrowdsourceView: View {
         }
         .fontDesign(.rounded)
         .contentMargins(.horizontal, 16, for: .scrollContent)
-        .alert("Hold up!", isPresented: $showConfirmDialog) {
-            Button(action: { Task { await self.viewModel.submit(for: self.entityId) }}) { Text("Confirm") }
-            Button("Cancel") {}
+        .alert(Strings.Community.Info.HoldUp, isPresented: $showConfirmDialog) {
+            Button(action: { Task { await self.viewModel.submit(for: self.entityId) }}) { Text(Strings.Misc.Continue) }
+            Button(Strings.Misc.Cancel) {}
         } message: {
-            Text("👉 By submitting, you confirm your info is accurate and grant us rights to use it.\n👉 It's public, so no confidential stuff.\n👉 Be respectful.")
+            Text(Strings.Community.Info.ConfirmBeforeSubmit)
         }
-        .alert("Hold up!", isPresented: $viewModel.showError) {
-            Button("Ok") {}
+        .alert(Strings.Community.Info.HoldUp, isPresented: $viewModel.showError) {
+            Button(Strings.Misc.Ok) {}
         } message: {
-            Text(self.viewModel.error ?? "Something went wrong")
+            Text(self.viewModel.error ?? Strings.Errors.SomethingWrong)
         }
 
     }
