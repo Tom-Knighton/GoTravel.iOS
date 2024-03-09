@@ -21,6 +21,7 @@ public struct SubmitCrowdsourceButton: View {
                 .bold()
                 .frame(maxWidth: .infinity)
         }
+        .accessibilityHint(Strings.Community.Accessibility.SubmitInfoHint)
         .buttonStyle(.borderedProminent)
         .tint(.orange)
         .shadow(color: .orange, radius: 3)
@@ -66,11 +67,14 @@ public struct SubmitCrowdsourceView: View {
             
             Picker("", selection: $viewModel.journeyStatus) {
                 Text(Strings.Community.Info.NoChange)
+                    .accessibilityHint(Strings.Community.Accessibility.NoChangeHint)
                     .tag(SubmitCrowdsourceViewModel.Status.noChange)
                 Label(Strings.Community.Info.Delayed, systemImage: Icons.exclamationMarkTriangle)
+                    .accessibilityHint(Strings.Community.Accessibility.DelayedHint)
                     .tint(.yellow)
                     .tag(SubmitCrowdsourceViewModel.Status.delayed)
                 Label(Strings.Community.Info.Closed, systemImage: Icons.exclamationMarkStopFill)
+                    .accessibilityHint(Strings.Community.Accessibility.ClosedHint)
                     .tint(.red)
                     .tag(SubmitCrowdsourceViewModel.Status.closed)
             }

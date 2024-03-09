@@ -407,6 +407,26 @@
         }
       }
     },
+    "Community:A11Y:ClosedHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This means the stop or line is closed"
+          }
+        }
+      }
+    },
+    "Community:A11Y:DelayedHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This means there were delays to your journey here"
+          }
+        }
+      }
+    },
     "Community:A11Y:ManageFollowersHint" : {
       "localizations" : {
         "en" : {
@@ -423,6 +443,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Press to manage who you're following"
+          }
+        }
+      }
+    },
+    "Community:A11Y:NoChangeHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This means there were no changes in timings of your journeys here"
           }
         }
       }
@@ -493,6 +523,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Opens the login/sign up page"
+          }
+        }
+      }
+    },
+    "Community:A11Y:SubmitInfoHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to open a form to submit info for other users, you'll need to be signed in"
           }
         }
       }
