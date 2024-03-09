@@ -42,9 +42,11 @@ public struct SubmitCrowdsourceView: View {
     
     public let entityId: String
     
+    @Environment(\.dismiss) private var dismiss
     @State private var viewModel = SubmitCrowdsourceViewModel()
     @State private var showConfirmDialog: Bool = false
-    
+    @State private var showSuccessAlert: Bool = false
+
     public var body: some View {
         ScrollView {
             Spacer().frame(height: 16)
@@ -157,7 +159,12 @@ public struct SubmitCrowdsourceView: View {
         .fontDesign(.rounded)
         .contentMargins(.horizontal, 16, for: .scrollContent)
         .alert(Strings.Community.Info.HoldUp, isPresented: $showConfirmDialog) {
-            Button(action: { Task { await self.viewModel.submit(for: self.entityId) }}) { Text(Strings.Misc.Continue) }
+            Button(action: { Task {
+                let success = await self.viewModel.submit(for: self.entityId)
+                if success {
+                    self.showSuccessAlert = true
+                }
+            }}) { Text(Strings.Misc.Continue) }
             Button(Strings.Misc.Cancel) {}
         } message: {
             Text(Strings.Community.Info.ConfirmBeforeSubmit)
@@ -166,6 +173,11 @@ public struct SubmitCrowdsourceView: View {
             Button(Strings.Misc.Ok) {}
         } message: {
             Text(self.viewModel.error ?? Strings.Errors.SomethingWrong)
+        }
+        .alert(Strings.Misc.Success, isPresented: $showSuccessAlert) {
+            Button(Strings.Misc.Ok) { self.dismiss() }
+        } message: {
+            Text(Strings.Community.Info.SuccessMsg)
         }
 
     }

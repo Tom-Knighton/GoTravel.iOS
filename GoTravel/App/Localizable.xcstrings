@@ -652,7 +652,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "👉 By submitting, you confirm your info is accurate and grant us rights to use it.\\n👉 It's public, so no confidential stuff.\\n👉 Be respectful."
+            "value" : "👉 By submitting, you confirm your info is accurate and grant us rights to use it.\n👉 It's public, so no confidential stuff.\n👉 Be respectful."
           }
         }
       }
@@ -793,6 +793,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Submit useful tips and up-to-date information to help other users on their journeys"
+          }
+        }
+      }
+    },
+    "Community:Info:Success" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your submission may take some time to appear, as it may be manually reviewed"
           }
         }
       }
@@ -2368,6 +2378,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Submit"
+          }
+        }
+      }
+    },
+    "Misc:Success" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Success"
           }
         }
       }

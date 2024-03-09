@@ -315,6 +315,8 @@ public struct Strings {
             
             public static let HoldUp: LocalizedStringKey = "Community:Info:HoldUp"
             public static let ConfirmBeforeSubmit: LocalizedStringKey = "Community:Info:ConfirmBeforeSubmit"
+            
+            public static let SuccessMsg: LocalizedStringKey = "Community:Info:Success"
         }
         
         public struct Accessibility {
@@ -366,6 +368,7 @@ public struct Strings {
         public static let Information: LocalizedStringKey = "Misc:Information"
         public static let Submit: LocalizedStringKey = "Misc:Submit"
         public static let Cancel: LocalizedStringKey = "Misc:Cancel"
+        public static let Success: LocalizedStringKey = "Misc:Success"
         
         public static func Quote(_ content: String) -> LocalizedStringKey {
             LocalizedStringKey("Misc:Quote:\(content)")
