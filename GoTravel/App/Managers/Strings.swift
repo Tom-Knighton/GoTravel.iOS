@@ -249,6 +249,8 @@ public struct Strings {
             public static let TrackDesc: LocalizedStringKey = "Community:TrackDesc"
             public static let Special: LocalizedStringKey = "Community:Special"
             public static let SpecialDesc: LocalizedStringKey = "Community:SpecialDesc"
+            public static let Crowdsource: LocalizedStringKey = "Community:Crowdsource"
+            public static let CrowdsourceDesc: LocalizedStringKey = "Community:CrowdsourceDesc"
             
             public static let StartNow: LocalizedStringKey = "Community:StartNow"
             public static let You: LocalizedStringKey = "Community:You!"

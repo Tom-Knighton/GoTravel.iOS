@@ -16,11 +16,11 @@ public struct CrowdsourceSubmission: Codable {
     public let started: Date
     public let expectedEnd: Date
     public let isFlagged: Bool
-    public let submittedBy: User
+    public let submittedBy: User?
     public let currentUserVoteStatus: CrowdsourceVoteStatus
     public let score: Int
     
-    public init(crowdsourceId: String, text: String?, isDelayed: Bool, isClosed: Bool, started: Date, expectedEnd: Date, isFlagged: Bool, submittedBy: User, currentUserVoteStatus: CrowdsourceVoteStatus, score: Int) {
+    public init(crowdsourceId: String, text: String?, isDelayed: Bool, isClosed: Bool, started: Date, expectedEnd: Date, isFlagged: Bool, submittedBy: User?, currentUserVoteStatus: CrowdsourceVoteStatus, score: Int) {
         self.crowdsourceId = crowdsourceId
         self.text = text
         self.isDelayed = isDelayed

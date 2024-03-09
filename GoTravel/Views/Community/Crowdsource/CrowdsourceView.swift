@@ -108,7 +108,7 @@ public struct CrowdsourceView: View {
     }
 }
 
-
+#if DEBUG
 #Preview {
     
     let crowdsources: [CrowdsourceSubmission] = [
@@ -122,3 +122,4 @@ public struct CrowdsourceView: View {
             .padding(.horizontal, 16)
     }
 }
+#endif
