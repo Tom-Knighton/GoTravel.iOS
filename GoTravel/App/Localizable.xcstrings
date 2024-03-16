@@ -2463,6 +2463,12 @@
         }
       }
     },
+    "Report Reason:" : {
+
+    },
+    "Report Received" : {
+
+    },
     "StopPage:Accessibility:HasWifiLabel" : {
       "localizations" : {
         "en" : {
@@ -2656,6 +2662,9 @@
           }
         }
       }
+    },
+    "Your report has been received, it will be reviewed manually." : {
+
     }
   },
   "version" : "1.0"

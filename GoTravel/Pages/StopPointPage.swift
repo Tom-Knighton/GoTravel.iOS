@@ -70,7 +70,7 @@ public struct StopPointPage: View {
             
             Spacer().frame(height: 16)
             if !viewModel.crowdsourceInfo.isEmpty {
-                CrowdsourceView(crowdsources: viewModel.crowdsourceInfo)
+                CrowdsourceView(entityId: stopPoint.stopPoint.stopPointId, crowdsources: viewModel.crowdsourceInfo)
             }
             
             SubmitCrowdsourceButton(entityId: stopPoint.stopPoint.stopPointId)
