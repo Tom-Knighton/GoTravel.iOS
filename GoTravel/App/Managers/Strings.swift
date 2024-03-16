@@ -352,6 +352,25 @@ public struct Strings {
             public static let NoChangeHint: LocalizedStringKey = "Community:A11Y:NoChangeHint"
             public static let DelayedHint: LocalizedStringKey = "Community:A11Y:DelayedHint"
             public static let ClosedHint: LocalizedStringKey = "Community:A11Y:ClosedHint"
+            public static let ReportSubmission: LocalizedStringKey = "Community:A11Y:ReportSubmission"
+            public static let ReportSubmissionHint: LocalizedStringKey = "Community:A11Y:ReportSubmissionHint"
+            public static let Downvote: LocalizedStringKey = "Community:A11Y:Downvote"
+            
+            public static func UpVotes(_ score: Int) -> LocalizedStringKey {
+                LocalizedStringKey("Community:A11Y:Upvotes:\(score)")
+            }
+            public static func UpVotesHint(_ hasVoted: Bool) -> LocalizedStringKey {
+                if hasVoted {
+                    return LocalizedStringKey("Community:A11Y:HasUpVotedHint")
+                }
+                return LocalizedStringKey("Community:A11Y:HasNotUpVotedHint")
+            }
+            public static func DownVoteHint(_ hasVoted: Bool) -> LocalizedStringKey {
+                if hasVoted {
+                    return LocalizedStringKey("Community:A11Y:HasDownVotedHint")
+                }
+                return LocalizedStringKey("Community:A11Y:HasNotDownVotedHint")
+            }
         }
         
         

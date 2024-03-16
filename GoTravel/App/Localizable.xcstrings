@@ -427,6 +427,56 @@
         }
       }
     },
+    "Community:A11Y:Downvote" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downvote"
+          }
+        }
+      }
+    },
+    "Community:A11Y:HasDownVotedHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to remove your downvote"
+          }
+        }
+      }
+    },
+    "Community:A11Y:HasNotDownVotedHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to downvote this submission"
+          }
+        }
+      }
+    },
+    "Community:A11Y:HasNotUpVotedHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to upvote this submission"
+          }
+        }
+      }
+    },
+    "Community:A11Y:HasUpVotedHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to remove your upvote"
+          }
+        }
+      }
+    },
     "Community:A11Y:ManageFollowersHint" : {
       "localizations" : {
         "en" : {
@@ -497,6 +547,26 @@
         }
       }
     },
+    "Community:A11Y:ReportSubmission" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Report this submission"
+          }
+        }
+      }
+    },
+    "Community:A11Y:ReportSubmissionHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opens a menu to select a reason to report this submission"
+          }
+        }
+      }
+    },
     "Community:A11Y:RequestedHint" : {
       "localizations" : {
         "en" : {
@@ -553,6 +623,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Press to unfollow this user"
+          }
+        }
+      }
+    },
+    "Community:A11Y:Upvotes:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld upvotes"
           }
         }
       }

@@ -68,39 +68,8 @@ public struct CrowdsourceView: View {
                             .fontWeight(.light)
                     }
                     
-                    HStack {
-                        Menu {
-                            Section(Strings.Community.Info.ReportReason) {
-                                ForEach(Array(reportReasons.enumerated()), id: \.0) { _, reason in
-                                    Button(action: { self.report(reason, id: submission.crowdsourceId)}) {
-                                        Text(reason)
-                                    }
-                                }
-                            }
-                        } label: {
-                            Image(systemName: Icons.flag)
-                        }
-                        .disabled(self.isLoading)
-                        
-                        Spacer()
-                        
-                        Button(action: { self.vote(submission.currentUserVoteStatus == .upvoted ? .noVote : .upvoted, id: submission.crowdsourceId)}) {
-                            HStack(spacing: 2) {
-                                Image(systemName: Icons.arrowUpCircle)
-                                Text(String(describing: submission.score))
-                                    .font(.subheadline)
-                            }
-                        }
-                        .tint(submission.currentUserVoteStatus == .upvoted ? .orange : .accentColor)
-                        .disabled(self.isLoading)
-
-                        Button(action: { self.vote(submission.currentUserVoteStatus == .downvoted ? .noVote : .downvoted, id: submission.crowdsourceId) }) {
-                            Image(systemName: Icons.arrowDownCircle)
-                        }
-                        .tint(submission.currentUserVoteStatus == .downvoted ? .purple : .accentColor)
-                        .disabled(self.isLoading)
-                    }
-                    .padding(.vertical, 1)
+                    actionsView(submission)
+                        .padding(.vertical, 1)
 
                     Divider()
                 }
@@ -162,6 +131,48 @@ public struct CrowdsourceView: View {
         }
     }
     
+    @ViewBuilder
+    private func actionsView(_ submission: CrowdsourceSubmission) -> some View {
+        HStack {
+            Menu {
+                Section(Strings.Community.Info.ReportReason) {
+                    ForEach(Array(reportReasons.enumerated()), id: \.0) { _, reason in
+                        Button(action: { self.report(reason, id: submission.crowdsourceId)}) {
+                            Text(reason)
+                        }
+                    }
+                }
+            } label: {
+                Image(systemName: Icons.flag)
+            }
+            .disabled(self.isLoading)
+            .accessibilityLabel(Strings.Community.Accessibility.ReportSubmission)
+            .accessibilityHint(Strings.Community.Accessibility.ReportSubmissionHint)
+            
+            Spacer()
+            
+            Button(action: { self.vote(submission.currentUserVoteStatus == .upvoted ? .noVote : .upvoted, id: submission.crowdsourceId)}) {
+                HStack(spacing: 2) {
+                    Image(systemName: Icons.arrowUpCircle)
+                    Text(String(describing: submission.score))
+                        .font(.subheadline)
+                }
+            }
+            .tint(submission.currentUserVoteStatus == .upvoted ? .orange : .accentColor)
+            .disabled(self.isLoading)
+            .accessibilityLabel(Strings.Community.Accessibility.UpVotes(submission.score))
+            .accessibilityHint(Strings.Community.Accessibility.UpVotesHint(submission.currentUserVoteStatus == .upvoted))
+
+            Button(action: { self.vote(submission.currentUserVoteStatus == .downvoted ? .noVote : .downvoted, id: submission.crowdsourceId) }) {
+                Image(systemName: Icons.arrowDownCircle)
+            }
+            .tint(submission.currentUserVoteStatus == .downvoted ? .purple : .accentColor)
+            .disabled(self.isLoading)
+            .accessibilityLabel(Strings.Community.Accessibility.Downvote)
+            .accessibilityHint(Strings.Community.Accessibility.DownVoteHint(submission.currentUserVoteStatus == .downvoted))
+        }
+    }
+    
     private func vote(_ status: CrowdsourceVoteStatus, id: String) {
         guard !isLoading else { return }
         
@@ -183,12 +194,13 @@ public struct CrowdsourceView: View {
     private func report(_ reason: LocalizedStringKey, id: String) {
         guard !isLoading else { return }
         
+        let reasonText = reason.toString()
         Task {
             self.isLoading = true
             defer { self.isLoading = false }
             
             do {
-                if try await CrowdsourceService.Report(id, reason: reason.toString()) {
+                if try await CrowdsourceService.Report(id, reason: reasonText) {
                     self.crowdsources = try await CrowdsourceService.GetSubmissions(for: entityId)
                     self.showReportAlert = true
                 }
