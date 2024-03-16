@@ -317,6 +317,15 @@ public struct Strings {
             public static let ConfirmBeforeSubmit: LocalizedStringKey = "Community:Info:ConfirmBeforeSubmit"
             
             public static let SuccessMsg: LocalizedStringKey = "Community:Info:Success"
+            
+            public static let ReportReason: LocalizedStringKey = "Community:Info:Reason"
+            public static let ReportReceived: LocalizedStringKey = "Community:Info:ReportReceived"
+            public static let ReportReceivedDesc: LocalizedStringKey = "Community:Info:ReportReceivedDesc"
+            public static let ReportMisleading: LocalizedStringKey = "Community:Info:Report:Misleading"
+            public static let ReportInnapropriate: LocalizedStringKey = "Community:Info:Report:Innapropriate"
+            public static let ReportSpam: LocalizedStringKey = "Community:Info:Report:Spam"
+            public static let ReportMean: LocalizedStringKey = "Community:Info:Report:Mean"
+            public static let ReportIllegal: LocalizedStringKey = "Community:Info:Report:Illegal"
         }
         
         public struct Accessibility {
@@ -501,4 +510,7 @@ public struct Icons {
     public static let magnifyingGlass = "magnifyingglass"
     public static let exclamationMarkTriangle = "exclamationmark.triangle"
     public static let exclamationMarkStopFill = "exclamationmark.octagon.fill"
+    public static let flag = "flag"
+    public static let arrowUpCircle = "arrow.up.circle"
+    public static let arrowDownCircle = "arrow.down.circle"
 }

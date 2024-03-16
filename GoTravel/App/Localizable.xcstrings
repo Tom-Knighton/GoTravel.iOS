@@ -727,6 +727,86 @@
         }
       }
     },
+    "Community:Info:Reason" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Report Reason:"
+          }
+        }
+      }
+    },
+    "Community:Info:Report:Illegal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safety Concern or Illegal"
+          }
+        }
+      }
+    },
+    "Community:Info:Report:Innapropriate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Innapropriate or Offensive"
+          }
+        }
+      }
+    },
+    "Community:Info:Report:Mean" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Harrasment or Bullying"
+          }
+        }
+      }
+    },
+    "Community:Info:Report:Misleading" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Misleading, Incorrect or Irrelevant"
+          }
+        }
+      }
+    },
+    "Community:Info:Report:Spam" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spam or Advertisement"
+          }
+        }
+      }
+    },
+    "Community:Info:ReportReceived" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Report Received"
+          }
+        }
+      }
+    },
+    "Community:Info:ReportReceivedDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your report has been receieved, it will be reviewed manually."
+          }
+        }
+      }
+    },
     "Community:Info:SignUpAndPost" : {
       "localizations" : {
         "en" : {
@@ -2463,12 +2543,6 @@
         }
       }
     },
-    "Report Reason:" : {
-
-    },
-    "Report Received" : {
-
-    },
     "StopPage:Accessibility:HasWifiLabel" : {
       "localizations" : {
         "en" : {
@@ -2662,9 +2736,6 @@
           }
         }
       }
-    },
-    "Your report has been received, it will be reviewed manually." : {
-
     }
   },
   "version" : "1.0"

@@ -18,12 +18,12 @@ public struct CrowdsourceView: View {
     @State private var isLoading: Bool = false
     @State private var crowdsources: [CrowdsourceSubmission]
     
-    var reportReasons: [String] = [
-        "Misleading, Incorrect or Irrelevant",
-        "Innapropriate or Offensive",
-        "Spam or Advertisement",
-        "Harrasment or Bullying",
-        "Safety Concern or Illegal"
+    var reportReasons: [LocalizedStringKey] = [
+        Strings.Community.Info.ReportMisleading,
+        Strings.Community.Info.ReportInnapropriate,
+        Strings.Community.Info.ReportSpam,
+        Strings.Community.Info.ReportMean,
+        Strings.Community.Info.ReportIllegal
     ]
     
     var fullMode: Bool
@@ -70,15 +70,15 @@ public struct CrowdsourceView: View {
                     
                     HStack {
                         Menu {
-                            Section("Report Reason:") {
-                                ForEach(self.reportReasons, id: \.self) { reason in
+                            Section(Strings.Community.Info.ReportReason) {
+                                ForEach(Array(reportReasons.enumerated()), id: \.0) { _, reason in
                                     Button(action: { self.report(reason, id: submission.crowdsourceId)}) {
                                         Text(reason)
                                     }
                                 }
                             }
                         } label: {
-                            Image(systemName: "flag")
+                            Image(systemName: Icons.flag)
                         }
                         .disabled(self.isLoading)
                         
@@ -86,7 +86,7 @@ public struct CrowdsourceView: View {
                         
                         Button(action: { self.vote(submission.currentUserVoteStatus == .upvoted ? .noVote : .upvoted, id: submission.crowdsourceId)}) {
                             HStack(spacing: 2) {
-                                Image(systemName: "arrow.up.circle")
+                                Image(systemName: Icons.arrowUpCircle)
                                 Text(String(describing: submission.score))
                                     .font(.subheadline)
                             }
@@ -95,7 +95,7 @@ public struct CrowdsourceView: View {
                         .disabled(self.isLoading)
 
                         Button(action: { self.vote(submission.currentUserVoteStatus == .downvoted ? .noVote : .downvoted, id: submission.crowdsourceId) }) {
-                            Image(systemName: "arrow.down.circle")
+                            Image(systemName: Icons.arrowDownCircle)
                         }
                         .tint(submission.currentUserVoteStatus == .downvoted ? .purple : .accentColor)
                         .disabled(self.isLoading)
@@ -136,10 +136,10 @@ public struct CrowdsourceView: View {
         } message: {
             Text(Strings.Community.Info.Blurb)
         }
-        .alert(Text("Report Received"), isPresented: $showReportAlert) {
+        .alert(Text(Strings.Community.Info.ReportReceived), isPresented: $showReportAlert) {
             Button(action: {}) { Text(Strings.Misc.Ok) }
         } message: {
-            Text("Your report has been received, it will be reviewed manually.")
+            Text(Strings.Community.Info.ReportReceivedDesc)
         }
 
     }
@@ -180,7 +180,7 @@ public struct CrowdsourceView: View {
         }
     }
     
-    private func report(_ reason: String, id: String) {
+    private func report(_ reason: LocalizedStringKey, id: String) {
         guard !isLoading else { return }
         
         Task {
@@ -188,7 +188,7 @@ public struct CrowdsourceView: View {
             defer { self.isLoading = false }
             
             do {
-                if try await CrowdsourceService.Report(id, reason: reason) {
+                if try await CrowdsourceService.Report(id, reason: reason.toString()) {
                     self.crowdsources = try await CrowdsourceService.GetSubmissions(for: entityId)
                     self.showReportAlert = true
                 }
