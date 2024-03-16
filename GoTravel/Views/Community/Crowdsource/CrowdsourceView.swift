@@ -84,7 +84,7 @@ public struct CrowdsourceView: View {
                         
                         Spacer()
                         
-                        Button(action: { self.vote(.upvoted, id: submission.crowdsourceId)}) {
+                        Button(action: { self.vote(submission.currentUserVoteStatus == .upvoted ? .noVote : .upvoted, id: submission.crowdsourceId)}) {
                             HStack(spacing: 2) {
                                 Image(systemName: "arrow.up.circle")
                                 Text(String(describing: submission.score))
@@ -94,7 +94,7 @@ public struct CrowdsourceView: View {
                         .tint(submission.currentUserVoteStatus == .upvoted ? .orange : .accentColor)
                         .disabled(self.isLoading)
 
-                        Button(action: { self.vote(.downvoted, id: submission.crowdsourceId) }) {
+                        Button(action: { self.vote(submission.currentUserVoteStatus == .downvoted ? .noVote : .downvoted, id: submission.crowdsourceId) }) {
                             Image(systemName: "arrow.down.circle")
                         }
                         .tint(submission.currentUserVoteStatus == .downvoted ? .purple : .accentColor)
