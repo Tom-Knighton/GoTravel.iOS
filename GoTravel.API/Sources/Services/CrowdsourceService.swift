@@ -39,4 +39,30 @@ public struct CrowdsourceService {
         return true
     }
     
+    /// 'Votes' on a crowdsource submission
+    /// - Parameters:
+    ///   - entity: The id of the crowdsource submission
+    ///   - vote: The type of vote (upvote, downvote, novote)
+    public static func Vote(on crowdsourceId: String, _ vote: CrowdsourceVoteStatus) async throws -> Bool {
+        
+        let command = VoteCrowdsourceCommand(voteType: vote)
+        let request = APIRequest(method: .post, path: "Crowdsource/\(crowdsourceId)/vote", queryItems: [], body: command.toJson())
+        let _ = try await api.performExpect200(request)
+        
+        return true
+    }
+    
+    /// Submits a report on a crowdsource submission to be reviewed by moderators
+    /// - Parameters:
+    ///   - crowdsourceId: The id of the crowdsource submission
+    ///   - reason: The string reason for the report, max 255 characters
+    public static func Report(_ crowdsourceId: String, reason: String) async throws -> Bool {
+        
+        let command = ReportCrowdsourceCommand(reportReason: reason)
+        let request = APIRequest(method: .post, path: "Crowdsource/\(crowdsourceId)/report", queryItems: [], body: command.toJson())
+        let _ = try await api.performExpect200(request)
+        
+        return true
+    }
+    
 }

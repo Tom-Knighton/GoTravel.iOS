@@ -427,6 +427,56 @@
         }
       }
     },
+    "Community:A11Y:Downvote" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downvote"
+          }
+        }
+      }
+    },
+    "Community:A11Y:HasDownVotedHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to remove your downvote"
+          }
+        }
+      }
+    },
+    "Community:A11Y:HasNotDownVotedHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to downvote this submission"
+          }
+        }
+      }
+    },
+    "Community:A11Y:HasNotUpVotedHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to upvote this submission"
+          }
+        }
+      }
+    },
+    "Community:A11Y:HasUpVotedHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to remove your upvote"
+          }
+        }
+      }
+    },
     "Community:A11Y:ManageFollowersHint" : {
       "localizations" : {
         "en" : {
@@ -497,6 +547,26 @@
         }
       }
     },
+    "Community:A11Y:ReportSubmission" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Report this submission"
+          }
+        }
+      }
+    },
+    "Community:A11Y:ReportSubmissionHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opens a menu to select a reason to report this submission"
+          }
+        }
+      }
+    },
     "Community:A11Y:RequestedHint" : {
       "localizations" : {
         "en" : {
@@ -553,6 +623,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Press to unfollow this user"
+          }
+        }
+      }
+    },
+    "Community:A11Y:Upvotes:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld upvotes"
           }
         }
       }
@@ -723,6 +803,86 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Post a Tip"
+          }
+        }
+      }
+    },
+    "Community:Info:Reason" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Report Reason:"
+          }
+        }
+      }
+    },
+    "Community:Info:Report:Illegal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safety Concern or Illegal"
+          }
+        }
+      }
+    },
+    "Community:Info:Report:Innapropriate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Innapropriate or Offensive"
+          }
+        }
+      }
+    },
+    "Community:Info:Report:Mean" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Harrasment or Bullying"
+          }
+        }
+      }
+    },
+    "Community:Info:Report:Misleading" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Misleading, Incorrect or Irrelevant"
+          }
+        }
+      }
+    },
+    "Community:Info:Report:Spam" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spam or Advertisement"
+          }
+        }
+      }
+    },
+    "Community:Info:ReportReceived" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Report Received"
+          }
+        }
+      }
+    },
+    "Community:Info:ReportReceivedDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your report has been receieved, it will be reviewed manually."
           }
         }
       }
