@@ -16,6 +16,7 @@ struct GoTravelApp: App {
     
     @State private var globalVM = GlobalViewModel.shared
     @State private var locationManager = LocationManager()
+    @State private var journeyManager = JourneyManager()
     @State private var appData = AppData.shared
     
     
@@ -41,6 +42,7 @@ struct GoTravelApp: App {
                 .environment(globalVM)
                 .environment(locationManager)
                 .environment(appData)
+                .environment(journeyManager)
                 .task {
                     if self.locationManager.locationUndetermined {
                         locationManager.requestAuth()

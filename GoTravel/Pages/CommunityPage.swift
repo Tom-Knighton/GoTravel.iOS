@@ -22,6 +22,8 @@ public struct CommunityPage: View {
                 ScrollView {
                     VStack {
                         CommunityPageHeader()
+                        Spacer().frame(height: 16)
+                        TrackJourneyButton()
                         Spacer()
                     }
                 }

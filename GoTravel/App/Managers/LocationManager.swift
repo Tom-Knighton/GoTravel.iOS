@@ -18,12 +18,15 @@ class LocationManager: NSObject {
     public var manager: CLLocationManager = CLLocationManager()
     private var allowedStatuses: [CLAuthorizationStatus] = [.authorizedAlways, .authorizedWhenInUse]
     
+    private var locUpdateSubscribers: [String: ([CLLocation]) -> Void] = [:]
+    
     override init() {
         super.init()
         self.manager.delegate = self
         self.manager.desiredAccuracy = kCLLocationAccuracyBest
         self.manager.startUpdatingLocation()
         self.manager.startUpdatingHeading()
+        self.manager.startMonitoringSignificantLocationChanges()
     }
     
     /// Whether or not the app is allowed access to the user's location
@@ -38,8 +41,16 @@ class LocationManager: NSObject {
     }
     
     /// Request's the user's location
-    func requestAuth() {
+    public func requestAuth() {
         manager.requestAlwaysAuthorization()
+    }
+    
+    public func subscribeToUpdates(id: String, _ subscriber: @escaping([CLLocation]) -> Void) {
+        self.locUpdateSubscribers[id] = subscriber
+    }
+    
+    public func unsubscribeFromUpdated(id: String) {
+        self.locUpdateSubscribers.removeValue(forKey: id)
     }
 }
 
@@ -48,5 +59,17 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         self.status = manager.authorizationStatus
         NotificationCenter.default.post(name: .GLLocationPermissionsDidChange, object: nil, userInfo: [status: manager.authorizationStatus])
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        Task {
+            if let current = await JourneyManager.shared.currentJourney() {
+                await MainActor.run {
+                    locations.forEach { loc in
+                        current.coordinates.append(.init(loc))
+                    }
+                }
+            }
+        }
     }
 }

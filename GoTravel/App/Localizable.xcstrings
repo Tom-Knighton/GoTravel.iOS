@@ -387,6 +387,9 @@
         }
       }
     },
+    "Community" : {
+
+    },
     "Community:A11Y:AddFriendBtnHint" : {
       "localizations" : {
         "en" : {
@@ -2623,6 +2626,9 @@
         }
       }
     },
+    "Start Tracking Journey" : {
+
+    },
     "StopPage:Accessibility:HasWifiLabel" : {
       "localizations" : {
         "en" : {
@@ -2816,6 +2822,9 @@
           }
         }
       }
+    },
+    "Username" : {
+
     }
   },
   "version" : "1.0"
