@@ -22,4 +22,25 @@ extension Date {
         
         return Double(timeUntil - current)
     }
+    
+    public func friendlyDifference(_ to : Date) -> String {
+        let interval = self.timeIntervalSince(to)
+        
+        let hours = Int(interval) / 3600
+        let minutes = Int(interval) / 60 % 60
+        let seconds = Int(interval) % 60
+
+        var result = ""
+        if hours != 0 {
+            result += "\(hours)hr\(hours > 1 ? "s" : "") "
+        }
+        if minutes != 0{
+            result += "\(minutes)min\(minutes > 1 ? "s" : "") "
+        }
+        if seconds != 0 {
+            result += "\(seconds)sec\(seconds > 1 ? "s" : "")"
+        }
+        
+        return result.trimmingCharacters(in: .whitespaces)
+    }
 }

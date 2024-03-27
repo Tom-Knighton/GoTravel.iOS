@@ -17,6 +17,9 @@
         }
       }
     },
+    "1h 20m" : {
+
+    },
     "Accessibility:Map:BikesRemainingText:%lld" : {
       "localizations" : {
         "en" : {
@@ -386,6 +389,9 @@
           }
         }
       }
+    },
+    "Awaiting Moderation" : {
+
     },
     "Community" : {
 
@@ -1299,6 +1305,15 @@
           }
         }
       }
+    },
+    "Distance:" : {
+
+    },
+    "End Journey" : {
+
+    },
+    "Ended:" : {
+
     },
     "Errors:Auth:EmailTaken" : {
       "localizations" : {
@@ -2261,6 +2276,9 @@
         }
       }
     },
+    "Make Public" : {
+
+    },
     "Map:Distance:%@:%@" : {
       "localizations" : {
         "en" : {
@@ -2626,7 +2644,22 @@
         }
       }
     },
+    "Points:" : {
+
+    },
+    "Privacy:" : {
+
+    },
+    "Private" : {
+
+    },
     "Start Tracking Journey" : {
+
+    },
+    "Started:" : {
+
+    },
+    "Stop Tracking Journey" : {
 
     },
     "StopPage:Accessibility:HasWifiLabel" : {
@@ -2823,7 +2856,16 @@
         }
       }
     },
+    "Tracking Journey" : {
+
+    },
     "Username" : {
+
+    },
+    "View All" : {
+
+    },
+    "You're tracking a journey, tap below to end it now, or dismiss this notification if you're still on your journey 😀" : {
 
     }
   },

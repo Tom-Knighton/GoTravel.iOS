@@ -47,7 +47,7 @@ public class GoTravelCoreData {
         HiddenLineMode.self,
         CurrentTrackingData.self,
         TrackingLocation.self,
-        
+        SavedJourney.self,
     ]
     
 }

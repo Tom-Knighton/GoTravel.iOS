@@ -24,4 +24,24 @@ public struct JourneyService {
         return result
     }
     
+    /// Saves a user's trip to the API to receive points
+    /// - Parameter command: The trip details
+    /// - Parameter id: An idempotency key, this should be the id of the SwiftData model ideally
+    public static func SaveTrip(_ command: SaveUserTripCommand, id: String) async throws -> UserSavedJourney {
+        
+        let request = APIRequest(method: .post, path: "Journey/SaveTrip", queryItems: [], body: command.toJson())
+        let result: UserSavedJourney = try await client.perform(request)
+        
+        return result
+    }
+    
+    /// Returns all user's saved journeys
+    public static func GetTrips(startFrom: Int = 1, results: Int = 25) async throws -> [UserSavedJourney] {
+        
+        let request = APIRequest(path: "Journey/Trips", queryItems: [.init(name: "startFrom", value: "\(startFrom)"), .init(name: "results", value: "\(results)")], body: nil)
+        let result: [UserSavedJourney] = try await client.perform(request)
+        
+        return result
+    }
+    
 }

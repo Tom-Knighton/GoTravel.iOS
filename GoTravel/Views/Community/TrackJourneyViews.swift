@@ -6,32 +6,20 @@
 //
 
 import SwiftUI
+import SwiftData
+import GoTravel_CoreData
+import MapKit
 
-public struct TrackJourneyButton: View {
-    
-    @Environment(JourneyManager.self) private var journeyVM
-    
-    public var body: some View {
-        ZStack {
-            Button(action: { Task { await journeyVM.startTrackingJourney() }}) {
-                Text("Start Tracking Journey")
-                    .padding(.vertical, 8)
-                    .foregroundStyle(.white)
-                    .bold()
-                    .fontDesign(.rounded)
-                    .frame(maxWidth: .infinity)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(LinearGradient(colors: [.orange, .green], startPoint: .bottomLeading, endPoint: .topTrailing))
-                            .shadow(color: .orange, radius: 3)
-                    )
-            }
-            .buttonStyle(.plain)
-        }
-    }
-}
+
 
 public struct TrackingJourneyView: View {
+    
+    private var onDismiss: () -> Void
+    
+    public init (onDismiss: @escaping () -> Void) {
+        self.onDismiss = onDismiss
+    }
+    
     public var body: some View {
         VStack {
             VStack {
@@ -40,7 +28,7 @@ public struct TrackingJourneyView: View {
                         .font(.title3.bold())
                         .fontDesign(.rounded)
                     Spacer()
-                    Button(action: {}) {
+                    Button(action: { self.onDismiss() }) {
                         ExitButtonView()
                             .shadow(radius: 3)
                     }
@@ -53,7 +41,7 @@ public struct TrackingJourneyView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
                 HStack {
-                    Button(action: {}) {
+                    Button(action: { Task { await JourneyManager.shared.endTracking() }}) {
                         Text("End Journey")
                             .font(.caption)
                     }
@@ -76,9 +64,53 @@ public struct TrackingJourneyView: View {
     }
 }
 
-#Preview {
-    ZStack {
-        Color.blue.ignoresSafeArea(edges: .all)
-        TrackingJourneyView()
+public struct DebugPastJourneys: View {
+    
+    @Environment(GlobalViewModel.self) private var globalVM
+    @Query private var savedJourneys: [SavedJourney]
+    
+    public var body: some View {
+        VStack {
+            ForEach(savedJourneys, id: \.endedAt) { journey in
+                VStack {
+                    Text(journey.startedAt, format: .dateTime)
+                    Text(journey.endedAt, format: .dateTime)
+                    
+                }
+                .onTapGesture {
+                    globalVM.addToCurrentNavStack(journey.id)
+                }
+            }
+        }
+    }
+}
+
+public struct DebugJourney: View {
+    
+    @State private var journey: SavedJourney?
+    private var id: PersistentIdentifier
+
+    public init(id: PersistentIdentifier) {
+        self.id = id
+    }
+    
+    public var body: some View {
+        Map {
+            if let journey {
+                MapPolyline(coordinates: journey.coordinates.sorted(by: { a, b in
+                    a.time < b.time
+                }).compactMap { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)})
+                    .stroke(.red, style: .init(lineWidth: 8, lineCap: .round))
+            }
+        }
+        .ignoresSafeArea()
+        .navigationTitle(journey?.name ?? journey?.startedAt.formatted() ?? "Loading...")
+        .task {
+            let container = GoTravelCoreData.shared.container
+            let context = await container.mainContext
+            
+            let retrieved: SavedJourney? = context.registeredModel(for: id)
+            self.journey = retrieved
+        }
     }
 }

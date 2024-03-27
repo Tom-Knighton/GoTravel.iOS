@@ -24,6 +24,8 @@ public struct CommunityPage: View {
                         CommunityPageHeader()
                         Spacer().frame(height: 16)
                         TrackJourneyButton()
+                        Spacer().frame(height: 16)
+                        SavedJourneyList()
                         Spacer()
                     }
                 }

@@ -17,9 +17,7 @@ class LocationManager: NSObject {
     
     public var manager: CLLocationManager = CLLocationManager()
     private var allowedStatuses: [CLAuthorizationStatus] = [.authorizedAlways, .authorizedWhenInUse]
-    
-    private var locUpdateSubscribers: [String: ([CLLocation]) -> Void] = [:]
-    
+        
     override init() {
         super.init()
         self.manager.delegate = self
@@ -27,6 +25,12 @@ class LocationManager: NSObject {
         self.manager.startUpdatingLocation()
         self.manager.startUpdatingHeading()
         self.manager.startMonitoringSignificantLocationChanges()
+        
+        Task {
+            if let _ = await JourneyManager.shared.currentJourney() {
+                self.monitorBackground()
+            }
+        }
     }
     
     /// Whether or not the app is allowed access to the user's location
@@ -45,12 +49,20 @@ class LocationManager: NSObject {
         manager.requestAlwaysAuthorization()
     }
     
-    public func subscribeToUpdates(id: String, _ subscriber: @escaping([CLLocation]) -> Void) {
-        self.locUpdateSubscribers[id] = subscriber
+    public func monitorBackground() {
+        manager.allowsBackgroundLocationUpdates = true
+        manager.showsBackgroundLocationIndicator = true
+        manager.pausesLocationUpdatesAutomatically = false
+        manager.startMonitoringSignificantLocationChanges()
+        manager.activityType = .otherNavigation
     }
     
-    public func unsubscribeFromUpdated(id: String) {
-        self.locUpdateSubscribers.removeValue(forKey: id)
+    public func pauseBackgroundMonitoring() {
+        manager.allowsBackgroundLocationUpdates = false
+        manager.showsBackgroundLocationIndicator = false
+        manager.pausesLocationUpdatesAutomatically = true
+        manager.stopMonitoringSignificantLocationChanges()
+        manager.activityType = .otherNavigation
     }
 }
 
@@ -59,6 +71,12 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         self.status = manager.authorizationStatus
         NotificationCenter.default.post(name: .GLLocationPermissionsDidChange, object: nil, userInfo: [status: manager.authorizationStatus])
+        
+        Task {
+            if let _ = await JourneyManager.shared.currentJourney() {
+                self.monitorBackground()
+            }
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
