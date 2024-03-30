@@ -50,6 +50,6 @@ public struct AuthTextFieldStyle: TextFieldStyle {
 
 #Preview(body: {
     @State var text: String = ""
-    return TextField("Username", text: $text)
+    return TextField(Strings.Auth.Username, text: $text)
         .textFieldStyle(AuthTextFieldStyle())
 })

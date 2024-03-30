@@ -6,12 +6,19 @@
 //
 
 import Foundation
-import SwiftData
 
 public struct SavedJourneyNavModel: Hashable {
-    public let savedJourneyId: PersistentIdentifier
+    public static func == (lhs: SavedJourneyNavModel, rhs: SavedJourneyNavModel) -> Bool {
+        lhs.journey.journeyId == rhs.journey.journeyId
+    }
     
-    public init(savedJourneyId: PersistentIdentifier) {
-        self.savedJourneyId = savedJourneyId
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(journey.journeyId)
+    }
+    
+    public let journey: UserSavedJourney
+    
+    public init(journey: UserSavedJourney) {
+        self.journey = journey
     }
 }

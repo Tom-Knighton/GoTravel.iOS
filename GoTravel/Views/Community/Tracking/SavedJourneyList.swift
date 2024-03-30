@@ -13,9 +13,9 @@ import SwiftData
 
 public struct SavedJourneyList: View {
     
+    @Environment(GlobalViewModel.self) private var globalVM
     static var descriptor: FetchDescriptor<SavedJourney> {
-        var descriptor = FetchDescriptor<SavedJourney>(sortBy: [SortDescriptor(\.endedAt, order: .reverse)])
-        descriptor.fetchLimit = 5
+        let descriptor = FetchDescriptor<SavedJourney>(sortBy: [SortDescriptor(\.endedAt, order: .reverse)])
         return descriptor
     }
     @Query(descriptor) private var unsavedJourneys: [SavedJourney]
@@ -23,7 +23,7 @@ public struct SavedJourneyList: View {
     
     public var body: some View {
         VStack() {
-            Text("My Journeys:")
+            Text(Strings.Community.Journey.MyJourneys)
                 .font(.headline)
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -34,7 +34,7 @@ public struct SavedJourneyList: View {
 
             if unsavedJourneys.count != 0 {
                 HStack {
-                    Text("Unsaved Journeys:")
+                    Text(Strings.Community.Journey.UnsavedJourneys)
                         .font(.headline)
                         .bold()
                     Button(action: {}) {
@@ -52,10 +52,11 @@ public struct SavedJourneyList: View {
         }
         .fontDesign(.rounded)
         .task {
-            do {
-                self.savedJourneys = try await JourneyService.GetTrips()
-            } catch {
-                print(error)
+            await load()
+        }
+        .onChange(of: globalVM.saveTripId) { _, _ in
+            Task {
+                await load()
             }
         }
     }
@@ -75,25 +76,15 @@ public struct SavedJourneyList: View {
     private func previewSavedJourneys() -> some View {
         
         if savedJourneys.isEmpty {
-            ContentUnavailableView("No Saved Journeys", systemImage: Icons.map_circle, description: Text("You haven't saved any journeys yet, start tracking the next time you get a bus or train, and earn points for your travels!"))
+            ContentUnavailableView(Strings.Community.Journey.NoSaved, systemImage: Icons.map_circle, description: Text(Strings.Community.Journey.NoSavedMsg))
         }
         
         ForEach(savedJourneys, id: \.journeyId) { journey in
-//            NavigationLink(value: SavedJourneyNavModel(savedJourneyId: journey.id)) {
+            NavigationLink(value: SavedJourneyNavModel(journey: journey)) {
                 row(journey)
-//            }
-//            .tint(.primary)
-            Divider()
-        }
-        
-        if !savedJourneys.isEmpty {
-            Button(action: {}) {
-                Text("View All")
-                    .bold()
-                    .padding(.vertical, 12)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .background(Color.layer2)
             }
+            .tint(.primary)
+            Divider()
         }
     }
     
@@ -101,14 +92,14 @@ public struct SavedJourneyList: View {
     private func row(_ journey: SavedJourney) -> some View {
         HStack() {
             VStack {
-                Text(journey.name ?? "Journey")
+                Text(journey.name ?? Strings.JourneyPage.Journey.toString())
                     .font(.headline.bold())
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
                 
                 HStack(alignment: .center) {
                     Text(journey.startedAt.formatted(date: .abbreviated, time: .omitted))
-                    Image(systemName: "circle.fill")
+                    Image(systemName: Icons.circleFill)
                         .font(.caption2)
                     Text(journey.endedAt.friendlyDifference(journey.startedAt))
                         .font(.caption)
@@ -119,7 +110,7 @@ public struct SavedJourneyList: View {
                 .flipsForRightToLeftLayoutDirection(true)
             }
             
-            Image(systemName: "chevron.right")
+            Image(systemName: Icons.chevronRight)
                 .foregroundStyle(.gray)
         }
         .padding(.horizontal, 16)
@@ -139,7 +130,7 @@ public struct SavedJourneyList: View {
                 
                 HStack(alignment: .center) {
                     Text(journey.startedAt.formatted(date: .abbreviated, time: .omitted))
-                    Image(systemName: "circle.fill")
+                    Image(systemName: Icons.circleFill)
                         .font(.caption2)
                     Text(journey.endedAt.friendlyDifference(journey.startedAt))
                         .font(.caption)
@@ -150,13 +141,21 @@ public struct SavedJourneyList: View {
                 .flipsForRightToLeftLayoutDirection(true)
             }
             
-            Image(systemName: "chevron.right")
+            Image(systemName: Icons.chevronRight)
                 .foregroundStyle(.gray)
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
         .frame(maxWidth: .infinity)
         .background(Color.layer2)
+    }
+    
+    private func load() async {
+        do {
+            self.savedJourneys = try await JourneyService.GetTrips()
+        } catch {
+            print(error)
+        }
     }
 }
 

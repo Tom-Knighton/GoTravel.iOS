@@ -25,7 +25,7 @@ public struct TrackingJourneyView: View {
         VStack {
             VStack {
                 HStack {
-                    Text("Tracking Journey")
+                    Text(Strings.Community.Journey.TrackingJourney)
                         .font(.title3.bold())
                         .fontDesign(.rounded)
                     Spacer()
@@ -36,21 +36,17 @@ public struct TrackingJourneyView: View {
                 }
                 .flipsForRightToLeftLayoutDirection(true)
                
-                Text("You're tracking a journey, tap below to end it now, or dismiss this notification if you're still on your journey 😀")
+                Text(Strings.Community.Journey.StillTracking)
                     .font(.caption)
                     .fontDesign(.rounded)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
                 HStack {
                     Button(action: { Task { await journeyVM.endTracking() }}) {
-                        Text("End Journey")
+                        Text(Strings.Community.Journey.EndJourney)
                             .font(.caption)
                     }
                     .buttonStyle(.borderedProminent)
-                    Text("1h 20m")
-                        .font(.caption)
-                        .bold()
-                        .fontDesign(.rounded)
                     Spacer()
                 }
                

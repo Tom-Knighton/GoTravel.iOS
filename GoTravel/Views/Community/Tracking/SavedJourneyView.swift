@@ -6,18 +6,16 @@
 //
 
 import SwiftUI
-import SwiftData
-import GoTravel_CoreData
+import GoTravel_Models
 import MapKit
+import WrappingHStack
 
 public struct SavedJourneyView: View {
     
-    @Environment(\.modelContext) var modelContext
-    @State private var journey: SavedJourney?
-    private var id: PersistentIdentifier
+    @State private var journey: UserSavedJourney
     
-    public init(id: PersistentIdentifier) {
-        self.id = id
+    public init(journey: UserSavedJourney) {
+        self._journey = State(wrappedValue: journey)
     }
     
     public var body: some View {
@@ -25,65 +23,54 @@ public struct SavedJourneyView: View {
             Color.layer1.ignoresSafeArea()
             ScrollView {
                 VStack {
-                    if let journey {
-                        mapPreview(journey)
-                        detailsView(journey)
+                    if journey.isUnderReview {
+                        HStack {
+                            Spacer()
+                            Image(systemName: Icons.exclamationMarkTriangle)
+                            Text(Strings.Community.Journey.UnderReviewPending)
+                                .bold()
+                            Spacer()
+                        }
+                        .foregroundStyle(.white)
+                        .padding(.vertical, 6)
+                        .background(Color.yellow)
+                        .clipShape(.rect(cornerRadius: 10))
+                        .shadow(radius: 3)
                     }
+                    mapPreview(journey)
+                    detailsView(journey)
                 }
             }
             .fontDesign(.rounded)
             .contentMargins(.horizontal, 16, for: .scrollContent)
-            .navigationTitle(journey?.name ?? journey?.startedAt.formatted() ?? "Loading...")
+            .navigationTitle(journey.journeyName)
             .toolbarBackground(.automatic, for: .navigationBar)
             .toolbarBackground(Color.layer1, for: .navigationBar)
-            .task {
-                let context = modelContext
-                
-                let retrieved: SavedJourney? = context.registeredModel(for: id)
-                self.journey = retrieved
-            }
         }
         
     }
     
     @ViewBuilder
-    private func mapPreview(_ journey: SavedJourney) -> some View {
+    private func mapPreview(_ journey: UserSavedJourney) -> some View {
         Map {
-            let coords = journey.coordinates.sorted(by: { $0.time < $1.time }).compactMap { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)}
+            let coords = journey.coordinates.compactMap { CLLocationCoordinate2D(latitude: $0[1], longitude: $0[0])}
             MapPolyline(points: coords.compactMap { .init($0) }, contourStyle: .straight)
                 .stroke(.red, lineWidth: 2)
         }
+        .allowsHitTesting(false)
         .frame(maxWidth: .infinity, minHeight: 200, maxHeight: 200)
         .clipShape(.rect(cornerRadius: 10))
         .shadow(radius: 10)
     }
     
     @ViewBuilder
-    private func detailsView(_ journey: SavedJourney) -> some View {
-        HStack {
-            Text("Started:") +
-            Text(" ") +
-            Text(journey.startedAt, format: .dateTime)
-            Spacer()
-        }
-        .font(.caption)
-        .flipsForRightToLeftLayoutDirection(true)
-        
-        HStack {
-            Text("Ended:") +
-            Text(" ") +
-            Text(journey.endedAt, format: .dateTime)
-            Spacer()
-        }
-        .font(.caption)
-        .flipsForRightToLeftLayoutDirection(true)
-        
+    private func detailsView(_ journey: UserSavedJourney) -> some View {
         Grid {
             GridRow {
                 VStack {
-                    Text("Points:")
+                    Text(Strings.Community.Journey.Started)
                         .font(.caption)
-                    Text("Awaiting Moderation")
+                    Text(journey.startedAt, format: .dateTime)
                         .font(.headline)
                 }
                 .padding(.vertical, 8)
@@ -94,7 +81,20 @@ public struct SavedJourneyView: View {
                 .shadow(radius: 3)
                 
                 VStack {
-                    Text("Distance:")
+                    Text(Strings.Community.Journey.Ended)
+                        .font(.caption)
+                    Text(journey.endedAt, format: .dateTime)
+                        .font(.headline)
+                }
+                .padding(.vertical, 8)
+                .padding(.horizontal, 2)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.layer2)
+                .clipShape(.rect(cornerRadius: 10))
+                .shadow(radius: 3)
+                
+                VStack {
+                    Text(Strings.Community.Journey.Distance)
                         .font(.caption)
                     Text(Measurement<UnitLength>(value: distance(journey), unit: .meters), format: .measurement(width: .wide))
                         .font(.headline)
@@ -109,33 +109,64 @@ public struct SavedJourneyView: View {
             
             GridRow {
                 VStack {
-                    Text("Privacy:")
+                    Text(Strings.Community.Journey.Points)
                         .font(.caption)
-                    Text("Private")
-                        .font(.headline)
-                    Button(action: {}) {
-                        Text("Make Public")
-                            .font(.caption)
+                    Text(String(describing: journey.pointsReceived))
+                        .bold(journey.isUnderReview == false)
+                    
+                    if journey.isUnderReview {
+                        Text(Strings.Community.Journey.UnderReview)
+                            .bold()
+                        Text(Strings.Community.Journey.UnderReviewMessage)
+                        if let note = journey.note {
+                            Text(note)
+                        }
                     }
-                    .buttonStyle(.bordered)
                 }
                 .padding(.vertical, 8)
                 .padding(.horizontal, 2)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.layer2)
                 .clipShape(.rect(cornerRadius: 10))
-                .gridCellColumns(2)
                 .shadow(radius: 3)
+                .gridCellColumns(3)
+            }
+            
+            if !journey.lines.isEmpty {
+                GridRow {
+                    VStack(spacing: 8) {
+                        Text(Strings.Community.Journey.Lines)
+                            .frame(maxWidth: .infinity)
+                        
+                        WrappingHStack(alignment: .leading) {
+                            ForEach(journey.lines, id: \.lineId) { line in
+                                Text(line.lineName)
+                                    .padding(.vertical, 8)
+                                    .padding(.horizontal)
+                                    .background(Color(hex: line.linePrimaryColour ?? "") ?? Color.layer2)
+                                    .clipShape(.rect(cornerRadius: 10))
+                                    .foregroundColor(.white)
+                            }
+                        }
+                    }
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 12)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.layer2)
+                    .clipShape(.rect(cornerRadius: 10))
+                    .shadow(radius: 3)
+                    .gridCellColumns(3)
+                }
             }
         }
         .multilineTextAlignment(.center)
     }
     
-    private func distance(_ journey: SavedJourney) -> Double {
-        let ordered = journey.coordinates.sorted(by: { $0.time < $1.time })
+    private func distance(_ journey: UserSavedJourney) -> Double {
+        let ordered = journey.coordinates
         let distance = zip(ordered, ordered.dropFirst())
-            .map { CLLocation(latitude: $0.0.latitude, longitude: $0.0.longitude)
-                .distance(from: .init(latitude: $0.1.latitude, longitude: $0.1.longitude))}
+            .map { CLLocation(latitude: $0.0[1], longitude: $0.0[0])
+                .distance(from: .init(latitude: $0.1[1], longitude: $0.1[0]))}
             .reduce(0, +)
         return (distance * 10).rounded() / 10
     }
@@ -144,22 +175,8 @@ public struct SavedJourneyView: View {
 #if DEBUG
 #Preview {
     MainActor.assumeIsolated {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try! ModelContainer(for: SavedJourney.self, configurations: config)
-        
-        var journey = PreviewSavedJourneyData.savedJourneys.first!
-        container.mainContext.insert(journey)
-        var descriptor: FetchDescriptor<SavedJourney> {
-            var descriptor = FetchDescriptor<SavedJourney>(sortBy: [SortDescriptor(\.endedAt, order: .reverse)])
-            descriptor.fetchLimit = 1
-            return descriptor
-        }
-        journey = try! container.mainContext.fetch(descriptor).first!
-        try! container.mainContext.save()
-        
         return NavigationStack {
-            SavedJourneyView(id: journey.id)
-                .modelContainer(container)
+            SavedJourneyView(journey: .init(journeyId: "", journeyName: "", startedAt: Date(), endedAt: Date(), pointsReceived: 50, isUnderReview: false, note: nil, coordinates: [], lines: []))
         }
     }
     

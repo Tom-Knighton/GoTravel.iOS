@@ -33,7 +33,7 @@ struct ContentView: View {
                             JourneyDetailPage(nav.journey)
                         }
                         .navigationDestination(for: SavedJourneyNavModel.self) { nav in
-                            SavedJourneyView(id: nav.savedJourneyId)
+                            SavedJourneyView(journey: nav.journey)
                         }
                 }
                 .tag(0)
@@ -53,7 +53,7 @@ struct ContentView: View {
                             JourneyDetailPage(nav.journey)
                         }
                         .navigationDestination(for: SavedJourneyNavModel.self) { nav in
-                            SavedJourneyView(id: nav.savedJourneyId)
+                            SavedJourneyView(journey: nav.journey)
                         }
                 }
                 .tag(1)
@@ -73,7 +73,7 @@ struct ContentView: View {
                             JourneyDetailPage(nav.journey)
                         }
                         .navigationDestination(for: SavedJourneyNavModel.self) { nav in
-                            SavedJourneyView(id: nav.savedJourneyId)
+                            SavedJourneyView(journey: nav.journey)
                         }
                 }
                 .tag(2)

@@ -328,6 +328,36 @@ public struct Strings {
             public static let ReportIllegal: LocalizedStringKey = "Community:Info:Report:Illegal"
         }
         
+        public struct Journey {
+            public static let LineInfoMessage: LocalizedStringKey = "Community:Trip:SubmitLinesMessage"
+            public static let TrimTrip: LocalizedStringKey = "Community:Trip:TrimTrip"
+            public static let Started: LocalizedStringKey = "Community:Trip:Started:"
+            public static let Ended: LocalizedStringKey = "Community:Trip:Ended:"
+            public static let Distance: LocalizedStringKey = "Community:Trip:Distance"
+            public static let Lines: LocalizedStringKey = "Community:Trip:Lines"
+            public static let LinesEmpty: LocalizedStringKey = "Community:Trip:LinesEmpty"
+            public static let AddLine: LocalizedStringKey = "Community:Trip:AddLine"
+            public static let SearchLines: LocalizedStringKey = "Community:Trip:SearchLines"
+            public static let Points: LocalizedStringKey = "Community:Trip:Points"
+            public static let UnderReview: LocalizedStringKey = "Community:Trip:UnderReview"
+            public static let UnderReviewPending: LocalizedStringKey = "Community:Trip:UnderReviewPending"
+            public static let UnderReviewMessage: LocalizedStringKey = "Community:Trip:UnderReviewMessage"
+            public static let StopTracking: LocalizedStringKey = "Community:Trip:StopTracking"
+            public static let EndJourney: LocalizedStringKey = "Community:Trip:EndJourney"
+            public static let TrackingJourney: LocalizedStringKey = "Community:Trip:TrackingJourney"
+            public static let StartTracking: LocalizedStringKey = "Community:Trip:StartTracking"
+            public static let StillTracking: LocalizedStringKey = "Community:Trip:StillTracking"
+            
+            public static let MyJourneys: LocalizedStringKey = "Community:Trip:MyJourneys"
+            public static let UnsavedJourneys: LocalizedStringKey = "Community:Trip:UnsavedJourneys"
+            public static let NoSaved: LocalizedStringKey = "Community:Trip:NoSaved"
+            public static let NoSavedMsg: LocalizedStringKey = "Community:Trip:NoSavedMsg"
+            
+            public static func receivedPoints(_ points: Int) -> LocalizedStringKey {
+                LocalizedStringKey("Community:Trip:ReceivedPoints:\(points)")
+            }
+        }
+        
         public struct Accessibility {
             public static let StartNowHint: LocalizedStringKey = "Community:A11Y:StartNowHint"
             public static let ScoreboadLabel: LocalizedStringKey = "Community:A11Y:ScoreboardLabel"
@@ -395,6 +425,7 @@ public struct Strings {
         public static let NoResultsDesc: LocalizedStringKey = "Misc:NoResultsDesc"
         public static let Information: LocalizedStringKey = "Misc:Information"
         public static let Submit: LocalizedStringKey = "Misc:Submit"
+        public static let Delete: LocalizedStringKey = "Misc:Delete"
         public static let Cancel: LocalizedStringKey = "Misc:Cancel"
         public static let Success: LocalizedStringKey = "Misc:Success"
         
@@ -533,4 +564,6 @@ public struct Icons {
     public static let arrowUpCircle = "arrow.up.circle"
     public static let arrowDownCircle = "arrow.down.circle"
     public static let checkCircleFill = "checkmark.circle.fill"
+    public static let circleFill = "circle.fill"
+    public static let chevronRight = "chevron.right"
 }

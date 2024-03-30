@@ -364,7 +364,6 @@
 				E26B5A682B9130E4001DD548 /* CommunityPageHeader.swift */,
 				E266110D2B9222A3003F55C2 /* RelationshipsView.swift */,
 				E266110F2B924219003F55C2 /* UserSearchView.swift */,
-				E2437FF22BAA32E900B97CF8 /* TrackJourneyViews.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -401,6 +400,7 @@
 		E253C3672BACC61600D9BD15 /* Tracking */ = {
 			isa = PBXGroup;
 			children = (
+				E2437FF22BAA32E900B97CF8 /* TrackJourneyViews.swift */,
 				E253C3682BACC62000D9BD15 /* TrackJourneyButton.swift */,
 				E253C36A2BACC75600D9BD15 /* SavedJourneyList.swift */,
 				E253C36C2BACE45B00D9BD15 /* SavedJourneyView.swift */,

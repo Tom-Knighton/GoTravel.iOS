@@ -17,7 +17,7 @@ public struct TrackJourneyButton: View {
             
             if journeyVM.current != nil {
                 Button(action: { Task { await stopTracking() }}) {
-                    Text("Stop Tracking Journey")
+                    Text(Strings.Community.Journey.StopTracking)
                         .bold()
                         .fontDesign(.rounded)
                         .frame(maxWidth: .infinity)
@@ -26,7 +26,7 @@ public struct TrackJourneyButton: View {
                 .tint(.red)
             } else {
                 Button(action: { Task { await journeyVM.startTrackingJourney() }}) {
-                    Text("Start Tracking Journey")
+                    Text(Strings.Community.Journey.StartTracking)
                         .padding(.vertical, 8)
                         .foregroundStyle(.white)
                         .bold()

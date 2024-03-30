@@ -50,7 +50,7 @@ public struct SubmitTripView: View {
             }
             .fontDesign(.rounded)
             .contentMargins(.horizontal, 16, for: .scrollContent)
-            .navigationTitle(journey?.name ?? journey?.startedAt.formatted() ?? "Loading...")
+            .navigationTitle(journey?.name ?? journey?.startedAt.formatted() ?? Strings.Misc.Loading.toString())
             .toolbarBackground(.automatic, for: .navigationBar)
             .toolbarBackground(Color.layer1, for: .navigationBar)
             .task {
@@ -64,19 +64,19 @@ public struct SubmitTripView: View {
                     LineSearchView(selectedLines: $lines)
                 }
             })
-            .alert("Info", isPresented: $showLinesInfo, actions: {
+            .alert(Strings.Misc.Information, isPresented: $showLinesInfo, actions: {
                 Button(action: {}) {
-                    Text("Ok")
+                    Text(Strings.Misc.Ok)
                 }
             }, message: {
-                Text("When you submit your journey, you can tell GoTravel which lines you travelled on, these will be compared against the route you took and you can get extra points for submitting this information")
+                Text(Strings.Community.Journey.LineInfoMessage)
             })
-            .alert("Success!", isPresented: $successAlert, presenting: self.apiJourney) { _ in
-                Button(action: { self.dismiss() }) {
-                    Text("Ok")
+            .alert(Strings.Misc.Success, isPresented: $successAlert, presenting: self.apiJourney) { _ in
+                Button(action: { Task { await self.postSubmit() } }) {
+                    Text(Strings.Misc.Ok)
                 }
             } message: { data in
-                Text("You got \(data.pointsReceived) points for this journey!")
+                Text(Strings.Community.Journey.receivedPoints(data.pointsReceived))
             }
 
         }
@@ -99,7 +99,7 @@ public struct SubmitTripView: View {
     @ViewBuilder
     private func trimView() -> some View {
         VStack {
-            Text("Trim Trip:")
+            Text(Strings.Community.Journey.TrimTrip)
                 .font(.headline.bold())
                 .fontDesign(.rounded)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -124,7 +124,7 @@ public struct SubmitTripView: View {
         Grid {
             GridRow {
                 VStack {
-                    Text("Started:")
+                    Text(Strings.Community.Journey.Started)
                         .font(.caption)
                     Text(journey.startedAt, format: .dateTime)
                         .font(.headline)
@@ -137,7 +137,7 @@ public struct SubmitTripView: View {
                 .shadow(radius: 3)
                 
                 VStack {
-                    Text("Ended:")
+                    Text(Strings.Community.Journey.Ended)
                         .font(.caption)
                     Text(journey.endedAt, format: .dateTime)
                         .font(.headline)
@@ -150,7 +150,7 @@ public struct SubmitTripView: View {
                 .shadow(radius: 3)
                 
                 VStack {
-                    Text("Distance:")
+                    Text(Strings.Community.Journey.Distance)
                         .font(.caption)
                     Text(Measurement<UnitLength>(value: distance(journey), unit: .meters), format: .measurement(width: .wide))
                         .font(.headline)
@@ -166,7 +166,7 @@ public struct SubmitTripView: View {
             GridRow {
                 VStack(spacing: 8) {
                     HStack {
-                        Text("Lines:")
+                        Text(Strings.Community.Journey.Lines)
                         Spacer()
                         Button(action: { self.showLinesInfo = true }) {
                             Image(systemName: Icons.infoCircle)
@@ -175,7 +175,7 @@ public struct SubmitTripView: View {
                     .flipsForRightToLeftLayoutDirection(true)
                     
                     if lines.isEmpty {
-                        Text("Add the lines you travelled on to increase your points!")
+                        Text(Strings.Community.Journey.LinesEmpty)
                     }
                     
                     WrappingHStack(alignment: .leading) {
@@ -192,7 +192,7 @@ public struct SubmitTripView: View {
                     }
                     
                     Button(action:{ self.showLineSheet = true }) {
-                        Text("Add Line")
+                        Text(Strings.Community.Journey.AddLine)
                     }
                     .buttonStyle(.bordered)
                 }
@@ -214,7 +214,7 @@ public struct SubmitTripView: View {
                             .progressViewStyle(.circular)
                             .frame(maxWidth: .infinity)
                     } else {
-                        Text("Submit")
+                        Text(Strings.Misc.Submit)
                             .bold()
                             .fontDesign(.rounded)
                             .frame(maxWidth: .infinity)
@@ -228,7 +228,7 @@ public struct SubmitTripView: View {
             
             GridRow {
                 Button(action: { modelContext.delete(journey); self.dismiss(); }) {
-                    Text("Delete")
+                    Text(Strings.Misc.Delete)
                         .bold()
                         .fontDesign(.rounded)
                         .frame(maxWidth: .infinity)
@@ -277,6 +277,13 @@ public struct SubmitTripView: View {
     
     private func removeLine(_ lineId: String) {
         self.lines.removeAll(where: { $0.lineId == lineId })
+    }
+    
+    private func postSubmit() async {
+        if let journey {
+            await JourneyManager.shared.exportJourney(journey)
+            self.dismiss()
+        }
     }
 }
 

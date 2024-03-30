@@ -36,7 +36,10 @@ public class GlobalViewModel {
 }
 
 @Observable
-public class GVMSaveTripDetails: Identifiable {
+public class GVMSaveTripDetails: Identifiable, Equatable {
+    public static func == (lhs: GVMSaveTripDetails, rhs: GVMSaveTripDetails) -> Bool {
+        lhs.saveTripId == rhs.saveTripId
+    }
     
     public var saveTripId: PersistentIdentifier
     public var canClose: Bool

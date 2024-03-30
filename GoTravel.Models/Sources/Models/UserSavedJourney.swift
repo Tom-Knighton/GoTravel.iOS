@@ -22,12 +22,12 @@ public struct UserSavedJourney: Codable {
     public let note: String?
     
     @Default<Empty>
-    public var coordinates: [[Float]]
+    public var coordinates: [[Double]]
     
     @Default<Empty>
     public var lines: [Line]
     
-    public init(journeyId: String, journeyName: String, startedAt: Date, endedAt: Date, pointsReceived: Int, isUnderReview: Bool, note: String?, coordinates: [[Float]], lines: [Line]) {
+    public init(journeyId: String, journeyName: String, startedAt: Date, endedAt: Date, pointsReceived: Int, isUnderReview: Bool, note: String?, coordinates: [[Double]], lines: [Line]) {
         self.journeyId = journeyId
         self.journeyName = journeyName
         self.startedAt = startedAt

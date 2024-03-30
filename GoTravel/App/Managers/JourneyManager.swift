@@ -97,11 +97,29 @@ public class JourneyManager {
         GlobalViewModel.shared.saveTripId = GVMSaveTripDetails(saveTripId: savedJourney.id, canClose: false)
     }
     
+    public func exportJourney(_ journey: SavedJourney) async {
+        let container = GoTravelCoreData.shared.container
+        let context = await container.mainContext
+        
+        context.delete(journey)
+        try? context.save()
+    }
+    
     @available(*, deprecated, message: "DEBUG take out before using")
     public static func DEBUG_deleteAllSavedJourneys() async {
         let container = GoTravelCoreData.shared.container
         let context = await container.mainContext
         
         try? context.delete(model: SavedJourney.self)
+    }
+    
+    @available(*, deprecated, message: "DEBUG take out before using")
+    public func DEBUG_copy(_ journey: SavedJourney) async {
+        
+        let newJourney = SavedJourney(name: (journey.name ?? "") + "\(Int.random(in: 0...100))", startedAt: journey.startedAt, endedAt: journey.endedAt, coordinates: journey.coordinates.flatMap { .init(time: $0.time, latitude: $0.latitude, longitude: $0.longitude, speed: $0.speed, direction: $0.direction)}, lines: journey.lines)
+        let container = GoTravelCoreData.shared.container
+        let context = await container.mainContext
+        
+        try? context.insert(newJourney)
     }
 }

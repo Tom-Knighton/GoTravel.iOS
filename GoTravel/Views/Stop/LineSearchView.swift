@@ -64,7 +64,7 @@ public struct LineSearchView: View {
                 }
             }
             .contentMargins(.horizontal, 16, for: .scrollContent)
-            .navigationTitle("Search Lines")
+            .navigationTitle(Strings.Community.Journey.SearchLines)
             .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: Strings.Community.Relationships.SearchUsersPrompt)
             .onChange(of: self.searchText, { _, newValue in
                 self.searchTextPublisher.send(newValue)
