@@ -15,7 +15,7 @@ public struct TrackJourneyButton: View {
     public var body: some View {
         ZStack {
             
-            if journeyVM.current != nil {
+            if journeyVM.isInJourney {
                 Button(action: { Task { await stopTracking() }}) {
                     Text(Strings.Community.Journey.StopTracking)
                         .bold()
