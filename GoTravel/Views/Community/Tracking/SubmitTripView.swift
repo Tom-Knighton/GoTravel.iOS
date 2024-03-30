@@ -117,6 +117,7 @@ public struct SubmitTripView: View {
         .background(Color.layer2)
         .clipShape(.rect(cornerRadius: 10))
         .shadow(radius: 3)
+        .accessibilityHidden()
     }
     
     @ViewBuilder

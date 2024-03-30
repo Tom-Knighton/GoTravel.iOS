@@ -20,6 +20,7 @@ public struct SavedJourneyList: View {
     }
     @Query(descriptor) private var unsavedJourneys: [SavedJourney]
     @State private var savedJourneys: [UserSavedJourney] = []
+    @State private var unsavedInfo: Bool = false
     
     public var body: some View {
         VStack() {
@@ -37,7 +38,7 @@ public struct SavedJourneyList: View {
                     Text(Strings.Community.Journey.UnsavedJourneys)
                         .font(.headline)
                         .bold()
-                    Button(action: {}) {
+                    Button(action: { self.unsavedInfo = true }) {
                         Image(systemName: Icons.infoCircle)
                     }
                     Spacer()
@@ -59,6 +60,12 @@ public struct SavedJourneyList: View {
                 await load()
             }
         }
+        .alert(Strings.Misc.Information, isPresented: $unsavedInfo) {
+            Button(action: {}) { Text(Strings.Misc.Ok) }
+        } message: {
+            Text(Strings.Community.Journey.UnsavedInfo)
+        }
+
     }
     
     @ViewBuilder
@@ -117,6 +124,10 @@ public struct SavedJourneyList: View {
         .padding(.vertical, 8)
         .frame(maxWidth: .infinity)
         .background(Color.layer2)
+        .accessibilityElement(children: .ignore)
+        .accessibilityElement()
+        .accessibilityLabel(Strings.Community.Accessibility.UnsavedJourney(journey.name ?? Strings.JourneyPage.Journey.toString(), startedAt: journey.startedAt))
+        .accessibilityHint(Strings.Community.Accessibility.UnsavedJourneyHint)
     }
     
     @ViewBuilder

@@ -29,7 +29,7 @@ public struct LineSearchView: View {
             ScrollView {
                 VStack {
                     if searchText.isEmpty {
-                        ContentUnavailableView(Strings.Community.Relationships.SearchUsers, systemImage: Icons.magnifyingGlass, description: Text(Strings.Community.Relationships.SearchUsersDesc))
+                        ContentUnavailableView(Strings.Community.Journey.SearchLines, systemImage: Icons.magnifyingGlass, description: Text(Strings.Community.Journey.SearchLinesDesc))
                     }
                     
                     if searchText.count >= 1 {
@@ -65,7 +65,7 @@ public struct LineSearchView: View {
             }
             .contentMargins(.horizontal, 16, for: .scrollContent)
             .navigationTitle(Strings.Community.Journey.SearchLines)
-            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: Strings.Community.Relationships.SearchUsersPrompt)
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: Strings.Community.Journey.SearchLinesPrompt)
             .onChange(of: self.searchText, { _, newValue in
                 self.searchTextPublisher.send(newValue)
             })

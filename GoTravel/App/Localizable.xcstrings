@@ -387,6 +387,26 @@
         }
       }
     },
+    "Comminity:Trip:SearchLinesDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for lines like the Elizabeth Line, or bus lines like '380'"
+          }
+        }
+      }
+    },
+    "Comminity:Trip:SearchLinesPrompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for line i.e. elizabeth, 380..."
+          }
+        }
+      }
+    },
     "Community:A11Y:AddFriendBtnHint" : {
       "localizations" : {
         "en" : {
@@ -623,6 +643,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Press to unfollow this user"
+          }
+        }
+      }
+    },
+    "Community:A11Y:UnsavedJourney:%@:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Community:A11Y:UnsavedJourney:%1$@:%2$@"
+          }
+        }
+      }
+    },
+    "Community:A11Y:UnsavedJourneyHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to edit, submit or delete this unsaved journey"
           }
         }
       }
@@ -1483,6 +1523,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Under Review - Points Pending"
+          }
+        }
+      }
+    },
+    "Community:Trip:UnsavedInfo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "These are journeys that haven't been saved yet, save them now to earn points for them!"
           }
         }
       }

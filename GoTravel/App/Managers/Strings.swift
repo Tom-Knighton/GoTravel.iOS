@@ -352,6 +352,10 @@ public struct Strings {
             public static let UnsavedJourneys: LocalizedStringKey = "Community:Trip:UnsavedJourneys"
             public static let NoSaved: LocalizedStringKey = "Community:Trip:NoSaved"
             public static let NoSavedMsg: LocalizedStringKey = "Community:Trip:NoSavedMsg"
+            public static let UnsavedInfo: LocalizedStringKey = "Community:Trip:UnsavedInfo"
+            
+            public static let SearchLinesDesc: LocalizedStringKey = "Comminity:Trip:SearchLinesDesc"
+            public static let SearchLinesPrompt: LocalizedStringKey = "Comminity:Trip:SearchLinesPrompt"
             
             public static func receivedPoints(_ points: Int) -> LocalizedStringKey {
                 LocalizedStringKey("Community:Trip:ReceivedPoints:\(points)")
@@ -385,6 +389,12 @@ public struct Strings {
             public static let ReportSubmission: LocalizedStringKey = "Community:A11Y:ReportSubmission"
             public static let ReportSubmissionHint: LocalizedStringKey = "Community:A11Y:ReportSubmissionHint"
             public static let Downvote: LocalizedStringKey = "Community:A11Y:Downvote"
+            
+            public static let UnsavedJourneyHint: LocalizedStringKey = "Community:A11Y:UnsavedJourneyHint"
+            
+            public static func UnsavedJourney(_ name: String, startedAt: Date) -> LocalizedStringKey {
+                LocalizedStringKey("Community:A11Y:UnsavedJourney:\(name):\(startedAt)")
+            }
             
             public static func UpVotes(_ score: Int) -> LocalizedStringKey {
                 LocalizedStringKey("Community:A11Y:Upvotes:\(score)")
