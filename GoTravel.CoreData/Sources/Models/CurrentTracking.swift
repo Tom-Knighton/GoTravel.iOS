@@ -20,7 +20,6 @@ public class CurrentTrackingData {
         self.startedAt = startedAt
         self.coordinates = coordinates
     }
-
 }
 
 @Model

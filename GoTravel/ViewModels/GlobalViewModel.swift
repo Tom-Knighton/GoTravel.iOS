@@ -8,6 +8,7 @@
 import SwiftUI
 import Observation
 import GoTravel_Models
+import SwiftData
 
 @Observable
 public class GlobalViewModel {
@@ -29,6 +30,21 @@ public class GlobalViewModel {
     
     /// The current index of the selected tab at the root of the app
     public var tabIndex: Int = 0
+    
+    /// The id of a just saved user trip, to present a sheet the user can save from
+    public var saveTripId: GVMSaveTripDetails? = nil
+}
+
+@Observable
+public class GVMSaveTripDetails: Identifiable {
+    
+    public var saveTripId: PersistentIdentifier
+    public var canClose: Bool
+    
+    public init(saveTripId: PersistentIdentifier, canClose: Bool) {
+        self.saveTripId = saveTripId
+        self.canClose = canClose
+    }
 }
 
 extension GlobalViewModel {

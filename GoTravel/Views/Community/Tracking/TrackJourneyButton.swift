@@ -16,7 +16,7 @@ public struct TrackJourneyButton: View {
         ZStack {
             
             if journeyVM.current != nil {
-                Button(action: { Task { await journeyVM.startTrackingJourney() }}) {
+                Button(action: { Task { await stopTracking() }}) {
                     Text("Stop Tracking Journey")
                         .bold()
                         .fontDesign(.rounded)
@@ -41,6 +41,10 @@ public struct TrackJourneyButton: View {
                 .buttonStyle(.plain)
             }
         }
+    }
+    
+    private func stopTracking() async {
+        await journeyVM.endTracking()
     }
 }
 

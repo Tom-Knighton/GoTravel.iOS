@@ -97,8 +97,14 @@ struct ContentView: View {
         .task {
             journeyManager.current = await journeyManager.currentJourney()
         }
-        .onChange(of: journeyManager.current) { _, newValue in
+        .onChange(of: journeyManager.current, initial: true) { _, newValue in
             self.isInJourney = newValue != nil
+        }
+        .sheet(item: $globalVM.saveTripId) { saveTrip in
+            NavigationStack {
+                SubmitTripView(id: saveTrip.saveTripId)
+                    .interactiveDismissDisabled(!saveTrip.canClose)
+            }
         }
     }
 }

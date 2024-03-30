@@ -14,6 +14,7 @@ import MapKit
 
 public struct TrackingJourneyView: View {
     
+    @Environment(JourneyManager.self) private var journeyVM
     private var onDismiss: () -> Void
     
     public init (onDismiss: @escaping () -> Void) {
@@ -41,7 +42,7 @@ public struct TrackingJourneyView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
                 HStack {
-                    Button(action: { Task { await JourneyManager.shared.endTracking() }}) {
+                    Button(action: { Task { await journeyVM.endTracking() }}) {
                         Text("End Journey")
                             .font(.caption)
                     }

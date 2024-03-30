@@ -230,6 +230,12 @@
         }
       }
     },
+    "Add Line" : {
+
+    },
+    "Add the lines you travelled on to increase your points!" : {
+
+    },
     "Auth:A11Y:ErrorsOnForm:%@" : {
       "localizations" : {
         "en" : {
@@ -1306,6 +1312,9 @@
         }
       }
     },
+    "Delete" : {
+
+    },
     "Distance:" : {
 
     },
@@ -1495,6 +1504,9 @@
           }
         }
       }
+    },
+    "Info" : {
+
     },
     "Journey:Accessibility:EmptyFromLabel" : {
       "localizations" : {
@@ -2276,6 +2288,9 @@
         }
       }
     },
+    "Lines:" : {
+
+    },
     "Make Public" : {
 
     },
@@ -2614,6 +2629,9 @@
         }
       }
     },
+    "My Journeys:" : {
+
+    },
     "Navigation:CommunityTab" : {
       "localizations" : {
         "en" : {
@@ -2644,6 +2662,12 @@
         }
       }
     },
+    "No Saved Journeys" : {
+
+    },
+    "Ok" : {
+
+    },
     "Points:" : {
 
     },
@@ -2651,6 +2675,9 @@
 
     },
     "Private" : {
+
+    },
+    "Search Lines" : {
 
     },
     "Start Tracking Journey" : {
@@ -2856,13 +2883,34 @@
         }
       }
     },
+    "Submit" : {
+
+    },
+    "Success!" : {
+
+    },
     "Tracking Journey" : {
+
+    },
+    "Trim Trip:" : {
+
+    },
+    "Unsaved Journeys:" : {
 
     },
     "Username" : {
 
     },
     "View All" : {
+
+    },
+    "When you submit your journey, you can tell GoTravel which lines you travelled on, these will be compared against the route you took and you can get extra points for submitting this information" : {
+
+    },
+    "You got %lld points for this journey!" : {
+
+    },
+    "You haven't saved any journeys yet, start tracking the next time you get a bus or train, and earn points for your travels!" : {
 
     },
     "You're tracking a journey, tap below to end it now, or dismiss this notification if you're still on your journey 😀" : {

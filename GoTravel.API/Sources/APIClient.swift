@@ -39,7 +39,7 @@ public actor APIClient {
         }
         
         do {
-            let response = try data.decode(to: T.self)
+            let response = try! data.decode(to: T.self)
             return response
         } catch {
             throw error
@@ -69,7 +69,7 @@ public actor APIClient {
         apiRequest.setValue(request.contentType, forHTTPHeaderField: "Content-Type")
         
         if let idempotencyKey = request.idempotencyKey {
-            apiRequest.setValue(request.idempotencyKey, forHTTPHeaderField: "IdempotencyKey")
+            apiRequest.setValue(idempotencyKey, forHTTPHeaderField: "IdempotencyKey")
         }
         
         if let token = try? await AuthClient.GetToken() {
@@ -78,6 +78,7 @@ public actor APIClient {
         }
         
         #if DEBUG
+        print(apiRequest.allHTTPHeaderFields)
         print(url.absoluteString)
         #endif
         

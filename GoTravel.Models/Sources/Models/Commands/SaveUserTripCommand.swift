@@ -14,12 +14,14 @@ public struct SaveUserTripCommand: Codable {
     public let averageSpeed: Double
     public let lines: [String]
     public let coordinates: [[Double]]
+    public let name: String
     
-    public init(startedAt: Date, endedAt: Date, averageSpeed: Double, lines: [String], coordinates: [[Double]]) {
+    public init(name: String, startedAt: Date, endedAt: Date, averageSpeed: Double, lines: [String], coordinates: [[Double]]) {
         self.startedAt = startedAt
         self.endedAt = endedAt
         self.averageSpeed = averageSpeed
         self.lines = lines
         self.coordinates = coordinates
+        self.name = name
     }
 }

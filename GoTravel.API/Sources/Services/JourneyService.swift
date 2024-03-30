@@ -29,7 +29,7 @@ public struct JourneyService {
     /// - Parameter id: An idempotency key, this should be the id of the SwiftData model ideally
     public static func SaveTrip(_ command: SaveUserTripCommand, id: String) async throws -> UserSavedJourney {
         
-        let request = APIRequest(method: .post, path: "Journey/SaveTrip", queryItems: [], body: command.toJson())
+        let request = APIRequest(method: .post, path: "Journey/SaveTrip", queryItems: [], body: command.toJson(), idempotencyKey: id)
         let result: UserSavedJourney = try await client.perform(request)
         
         return result

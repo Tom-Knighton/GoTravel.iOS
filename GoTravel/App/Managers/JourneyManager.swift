@@ -17,6 +17,9 @@ public class JourneyManager {
     @ObservationIgnored
     public static let shared = JourneyManager()
     
+    public var isInJourney: Bool {
+        get { current != nil }
+    }
     public var current: CurrentTrackingData? = nil
     
     /// Enables background location monitoring and starts recording journey data to SwiftData/CoreData
@@ -83,15 +86,15 @@ public class JourneyManager {
                 name = tempName
             }
         }
-       
-        
         
         let savedJourney = SavedJourney(name: name, startedAt: current.startedAt, endedAt: Date(), coordinates: current.coordinates.compactMap { .init(time: $0.time, latitude: $0.latitude, longitude: $0.longitude, speed: $0.speed, direction: $0.direction)}, lines: [])
         context.insert(savedJourney)
         context.delete(current)
+        try? context.save()
         self.current = nil
         
         LocationManager.shared.pauseBackgroundMonitoring()
+        GlobalViewModel.shared.saveTripId = GVMSaveTripDetails(saveTripId: savedJourney.id, canClose: false)
     }
     
     @available(*, deprecated, message: "DEBUG take out before using")

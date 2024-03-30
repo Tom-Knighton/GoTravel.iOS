@@ -115,6 +115,10 @@
 		E2BF5D772AD3641100261261 /* StopPoint+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF5D762AD3641100261261 /* StopPoint+GoTravel.swift */; };
 		E2CFBAA12AC89EC200662DC1 /* LocationNeededBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFBAA02AC89EC200662DC1 /* LocationNeededBanner.swift */; };
 		E2CFD9932AFA8233008A6726 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CFD9922AFA8233008A6726 /* AppData.swift */; };
+		E2D3E8542BB4DACB003FBFF1 /* SubmitTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E8532BB4DACA003FBFF1 /* SubmitTripView.swift */; };
+		E2D3E8572BB4E12E003FBFF1 /* CompactSlider in Frameworks */ = {isa = PBXBuildFile; productRef = E2D3E8562BB4E12E003FBFF1 /* CompactSlider */; };
+		E2D3E8592BB4E328003FBFF1 /* RangedSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E8582BB4E328003FBFF1 /* RangedSlider.swift */; };
+		E2D3E85B2BB62E94003FBFF1 /* LineSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D3E85A2BB62E94003FBFF1 /* LineSearchView.swift */; };
 		E2E5119F2B57043A003BE56E /* StopPointPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E5119E2B57043A003BE56E /* StopPointPage.swift */; };
 		E2E511A22B572933003BE56E /* StopPointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E511A12B572933003BE56E /* StopPointViewModel.swift */; };
 		E2E511A52B59ADDB003BE56E /* LineModesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E511A42B59ADDB003BE56E /* LineModesView.swift */; };
@@ -255,6 +259,9 @@
 		E2BF5D762AD3641100261261 /* StopPoint+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StopPoint+GoTravel.swift"; sourceTree = "<group>"; };
 		E2CFBAA02AC89EC200662DC1 /* LocationNeededBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNeededBanner.swift; sourceTree = "<group>"; };
 		E2CFD9922AFA8233008A6726 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		E2D3E8532BB4DACA003FBFF1 /* SubmitTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitTripView.swift; sourceTree = "<group>"; };
+		E2D3E8582BB4E328003FBFF1 /* RangedSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangedSlider.swift; sourceTree = "<group>"; };
+		E2D3E85A2BB62E94003FBFF1 /* LineSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSearchView.swift; sourceTree = "<group>"; };
 		E2E5119E2B57043A003BE56E /* StopPointPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointPage.swift; sourceTree = "<group>"; };
 		E2E511A12B572933003BE56E /* StopPointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointViewModel.swift; sourceTree = "<group>"; };
 		E2E511A42B59ADDB003BE56E /* LineModesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineModesView.swift; sourceTree = "<group>"; };
@@ -281,6 +288,7 @@
 				E238EF752B782EB100DC8E84 /* ColorfulX in Frameworks */,
 				E26988762B35D2E10097B8EF /* WrappingHStack in Frameworks */,
 				E28DC2B02B1F62B900E2FECE /* GoTravel.CoreData in Frameworks */,
+				E2D3E8572BB4E12E003FBFF1 /* CompactSlider in Frameworks */,
 				E28DC2B32B1FE44900E2FECE /* GoTravel.Models in Frameworks */,
 				E28DC2B62B1FE5DE00E2FECE /* GoTravel.API in Frameworks */,
 			);
@@ -396,6 +404,7 @@
 				E253C3682BACC62000D9BD15 /* TrackJourneyButton.swift */,
 				E253C36A2BACC75600D9BD15 /* SavedJourneyList.swift */,
 				E253C36C2BACE45B00D9BD15 /* SavedJourneyView.swift */,
+				E2D3E8532BB4DACA003FBFF1 /* SubmitTripView.swift */,
 			);
 			path = Tracking;
 			sourceTree = "<group>";
@@ -531,6 +540,7 @@
 				E26938902B76BCBF00738C6D /* SingleAxisGeoReader.swift */,
 				E238EF7B2B79011500DC8E84 /* AuthTextField.swift */,
 				E266110B2B920321003F55C2 /* CustomNavigationTitle.swift */,
+				E2D3E8582BB4E328003FBFF1 /* RangedSlider.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -702,6 +712,7 @@
 				E2E511A42B59ADDB003BE56E /* LineModesView.swift */,
 				E2E511A62B59EB53003BE56E /* StopArrivalsView.swift */,
 				E269C7672B5DE6DC00C78BCE /* StopPointInfoView.swift */,
+				E2D3E85A2BB62E94003FBFF1 /* LineSearchView.swift */,
 			);
 			path = Stop;
 			sourceTree = "<group>";
@@ -755,6 +766,7 @@
 				E26988752B35D2E10097B8EF /* WrappingHStack */,
 				E238EF6E2B781CE600DC8E84 /* Lottie */,
 				E238EF742B782EB100DC8E84 /* ColorfulX */,
+				E2D3E8562BB4E12E003FBFF1 /* CompactSlider */,
 			);
 			productName = GoLondon;
 			productReference = E283D37E2AC23316008ECF81 /* GoTravel.app */;
@@ -788,6 +800,7 @@
 				E26988742B35D2E10097B8EF /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 				E238EF6D2B781CE600DC8E84 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				E238EF732B782EB100DC8E84 /* XCRemoteSwiftPackageReference "ColorfulX" */,
+				E2D3E8552BB4E12E003FBFF1 /* XCRemoteSwiftPackageReference "CompactSlider" */,
 			);
 			productRefGroup = E283D37F2AC23316008ECF81 /* Products */;
 			projectDirPath = "";
@@ -819,6 +832,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E255724B2B33BAB900988348 /* BottomSheet+SwipeToDismiss.swift in Sources */,
+				E2D3E8542BB4DACB003FBFF1 /* SubmitTripView.swift in Sources */,
 				E255724F2B33BAB900988348 /* BottomSheet+CustomBackground+iOS15.swift in Sources */,
 				E2EAF2432B7969C900CB5CA4 /* PostSignupView.swift in Sources */,
 				E2438F202B26195100BBF345 /* AccessibilityHelper.swift in Sources */,
@@ -860,6 +874,7 @@
 				E238EF722B782DEA00DC8E84 /* LoginView.swift in Sources */,
 				E2E511A72B59EB53003BE56E /* StopArrivalsView.swift in Sources */,
 				E25572082B33B28200988348 /* MapSearchSheetView.swift in Sources */,
+				E2D3E8592BB4E328003FBFF1 /* RangedSlider.swift in Sources */,
 				E25572572B33BAB900988348 /* BottomSheetView+Gestures.swift in Sources */,
 				E2438F1E2B25D82B00BBF345 /* Accessibility+GoTravel.swift in Sources */,
 				E273078F2AD20A4E0060FF99 /* Strings.swift in Sources */,
@@ -904,6 +919,7 @@
 				E2E673A12B71376200361118 /* RadioToggleStyle.swift in Sources */,
 				E2B3590F2B935B12002DE211 /* UserRowView.swift in Sources */,
 				E28DC2BC2B1FE7CA00E2FECE /* SwiftUI+GoTravel.swift in Sources */,
+				E2D3E85B2BB62E94003FBFF1 /* LineSearchView.swift in Sources */,
 				E255724D2B33BAB900988348 /* BottomSheet+CustomBackground.swift in Sources */,
 				E266110E2B9222A3003F55C2 /* RelationshipsView.swift in Sources */,
 				E280F6552B13ADC100563D7E /* String+GoTravel.swift in Sources */,
@@ -1189,6 +1205,14 @@
 				minimumVersion = 0.2.0;
 			};
 		};
+		E2D3E8552BB4E12E003FBFF1 /* XCRemoteSwiftPackageReference "CompactSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/buh/CompactSlider/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.5;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1218,6 +1242,11 @@
 		E28DC2B52B1FE5DE00E2FECE /* GoTravel.API */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GoTravel.API;
+		};
+		E2D3E8562BB4E12E003FBFF1 /* CompactSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2D3E8552BB4E12E003FBFF1 /* XCRemoteSwiftPackageReference "CompactSlider" */;
+			productName = CompactSlider;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

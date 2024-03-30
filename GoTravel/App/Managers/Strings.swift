@@ -532,4 +532,5 @@ public struct Icons {
     public static let flag = "flag"
     public static let arrowUpCircle = "arrow.up.circle"
     public static let arrowDownCircle = "arrow.down.circle"
+    public static let checkCircleFill = "checkmark.circle.fill"
 }
