@@ -46,6 +46,11 @@ public struct CommunityPage: View {
         .task {
             await viewModel.loadMostTravelScoreboardId()
         }
+        .onChange(of: globalVm.saveTripId) { _, _ in
+            Task {
+                await viewModel.loadMostTravelScoreboardId()
+            }
+        }
     }
 }
 
