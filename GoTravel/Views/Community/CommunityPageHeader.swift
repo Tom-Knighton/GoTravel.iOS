@@ -97,7 +97,7 @@ public struct CommunityPageHeader: View {
             VStack {
                 CommunityPageHeader()
             }
-            .navigationTitle("Community")
+            .navigationTitle(Strings.Navigation.CommunityTab)
             .environment(global)
         }
         .contentMargins(.horizontal, 16, for: .scrollContent)

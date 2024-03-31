@@ -387,6 +387,26 @@
         }
       }
     },
+    "Comminity:Trip:SearchLinesDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for lines like the Elizabeth Line, or bus lines like '380'"
+          }
+        }
+      }
+    },
+    "Comminity:Trip:SearchLinesPrompt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for line i.e. elizabeth, 380..."
+          }
+        }
+      }
+    },
     "Community:A11Y:AddFriendBtnHint" : {
       "localizations" : {
         "en" : {
@@ -623,6 +643,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Press to unfollow this user"
+          }
+        }
+      }
+    },
+    "Community:A11Y:UnsavedJourney:%@:%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Community:A11Y:UnsavedJourney:%1$@:%2$@"
+          }
+        }
+      }
+    },
+    "Community:A11Y:UnsavedJourneyHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to edit, submit or delete this unsaved journey"
           }
         }
       }
@@ -1263,6 +1303,246 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Track your journeys, and set travel goals to increase your public transport usage."
+          }
+        }
+      }
+    },
+    "Community:Trip:AddLine" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Line"
+          }
+        }
+      }
+    },
+    "Community:Trip:Distance" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Distance:"
+          }
+        }
+      }
+    },
+    "Community:Trip:Ended:" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ended:"
+          }
+        }
+      }
+    },
+    "Community:Trip:EndJourney" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "End Journey"
+          }
+        }
+      }
+    },
+    "Community:Trip:Lines" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lines"
+          }
+        }
+      }
+    },
+    "Community:Trip:LinesEmpty" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add the lines you travelled on to increase your points!"
+          }
+        }
+      }
+    },
+    "Community:Trip:MyJourneys" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Journeys:"
+          }
+        }
+      }
+    },
+    "Community:Trip:NoSaved" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Saved Journeys"
+          }
+        }
+      }
+    },
+    "Community:Trip:NoSavedMsg" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You haven't saved any journeys yet, start tracking the next time you get a bus or train, and earn points for your travels!"
+          }
+        }
+      }
+    },
+    "Community:Trip:Points" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Points:"
+          }
+        }
+      }
+    },
+    "Community:Trip:ReceivedPoints:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You received %lld points from this trip!"
+          }
+        }
+      }
+    },
+    "Community:Trip:SearchLines" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search Lines"
+          }
+        }
+      }
+    },
+    "Community:Trip:Started:" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Started:"
+          }
+        }
+      }
+    },
+    "Community:Trip:StartTracking" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Tracking Journey"
+          }
+        }
+      }
+    },
+    "Community:Trip:StillTracking" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You're tracking a journey, tap below to end it now, or dismiss this notification if you're still on your journey 😀"
+          }
+        }
+      }
+    },
+    "Community:Trip:StopTracking" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stop Tracking Journey"
+          }
+        }
+      }
+    },
+    "Community:Trip:SubmitLinesMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When you submit your journey, you can tell GoTravel which lines you travelled on, these will be compared against the route you took and you can get extra points for submitting this information"
+          }
+        }
+      }
+    },
+    "Community:Trip:TrackingJourney" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teacking Journey"
+          }
+        }
+      }
+    },
+    "Community:Trip:TrimTrip" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trim Trip"
+          }
+        }
+      }
+    },
+    "Community:Trip:UnderReview" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Under Review"
+          }
+        }
+      }
+    },
+    "Community:Trip:UnderReviewMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your trip will be reviewed shortly, and your points will be applied once approved. Submit accurate lines with your next trip to help avoid this."
+          }
+        }
+      }
+    },
+    "Community:Trip:UnderReviewPending" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Under Review - Points Pending"
+          }
+        }
+      }
+    },
+    "Community:Trip:UnsavedInfo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "These are journeys that haven't been saved yet, save them now to earn points for them!"
+          }
+        }
+      }
+    },
+    "Community:Trip:UnsavedJourneys" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unsaved Journeys:"
           }
         }
       }
@@ -2406,6 +2686,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Continue"
+          }
+        }
+      }
+    },
+    "Misc:Delete" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
           }
         }
       }

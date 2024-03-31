@@ -22,6 +22,7 @@ public struct APIRequest {
     let queryItems: [URLQueryItem]?
     let body: Data?
     var contentType: String = "application/json"
+    var idempotencyKey: String? = nil
 }
 
 public actor APIClient {
@@ -38,7 +39,7 @@ public actor APIClient {
         }
         
         do {
-            let response = try data.decode(to: T.self)
+            let response = try! data.decode(to: T.self)
             return response
         } catch {
             throw error
@@ -67,12 +68,17 @@ public actor APIClient {
         apiRequest.httpMethod = request.method.rawValue
         apiRequest.setValue(request.contentType, forHTTPHeaderField: "Content-Type")
         
+        if let idempotencyKey = request.idempotencyKey {
+            apiRequest.setValue(idempotencyKey, forHTTPHeaderField: "IdempotencyKey")
+        }
+        
         if let token = try? await AuthClient.GetToken() {
             apiRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             print(token)
         }
         
         #if DEBUG
+        print(apiRequest.allHTTPHeaderFields)
         print(url.absoluteString)
         #endif
         

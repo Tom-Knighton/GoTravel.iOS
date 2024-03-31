@@ -44,7 +44,10 @@ public class GoTravelCoreData {
     [
         LineModeCache.self,
         LineModeBrandingCache.self,
-        HiddenLineMode.self
+        HiddenLineMode.self,
+        CurrentTrackingData.self,
+        TrackingLocation.self,
+        SavedJourney.self,
     ]
     
 }

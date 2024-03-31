@@ -42,4 +42,17 @@ public struct LineModeService {
         
         return result
     }
+    
+    
+    /// Returns a list of lines matching a given query
+    /// - Parameters:
+    ///   - query: The case insensitive name of the line
+    ///   - maxResults: The number of similar results to return
+    public static func SearchLines(query: String, maxResults: Int) async throws -> [Line] {
+        
+        let request = APIRequest(path: "LineModes/Search/\(query)", queryItems: [.init(name: "maxResults", value: "\(maxResults)")], body: nil)
+        let result: [Line] = try await client.perform(request)
+        
+        return result
+    }
 }
