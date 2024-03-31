@@ -651,8 +651,8 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Community:A11Y:UnsavedJourney:%1$@:%2$@"
+            "state" : "translated",
+            "value" : "%1$@, %2$@ - tap to manage, submit or delete"
           }
         }
       }
@@ -1543,6 +1543,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unsaved Journeys:"
+          }
+        }
+      }
+    },
+    "Community:Trip:UnsavedJourneysBtn:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld unsaved journeys, manage and submit"
+          }
+        }
+      }
+    },
+    "Community:Trip:UnsavedJourneysBtnHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to manage all your unsaved journeys, submit or delete them"
           }
         }
       }
@@ -3106,6 +3126,9 @@
           }
         }
       }
+    },
+    "Unsaved Journeys" : {
+
     }
   },
   "version" : "1.0"

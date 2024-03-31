@@ -357,6 +357,11 @@ public struct Strings {
             public static let SearchLinesDesc: LocalizedStringKey = "Comminity:Trip:SearchLinesDesc"
             public static let SearchLinesPrompt: LocalizedStringKey = "Comminity:Trip:SearchLinesPrompt"
             
+            public static let UnsavedBtnHint: LocalizedStringKey = "Community:Trip:UnsavedJourneysBtnHint"
+            public static func UnsavedBtnLabel(_ count: Int) -> LocalizedStringKey {
+                LocalizedStringKey("Community:Trip:UnsavedJourneysBtn:\(count)")
+            }
+            
             public static func receivedPoints(_ points: Int) -> LocalizedStringKey {
                 LocalizedStringKey("Community:Trip:ReceivedPoints:\(points)")
             }

@@ -109,6 +109,7 @@
 		E28F814E2B9CC41B009953EB /* SubmitCrowdsourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F814D2B9CC41B009953EB /* SubmitCrowdsourceViewModel.swift */; };
 		E29848C12AC6FB83004A5BDC /* HomeMapPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29848C02AC6FB83004A5BDC /* HomeMapPage.swift */; };
 		E2B3590F2B935B12002DE211 /* UserRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3590E2B935B12002DE211 /* UserRowView.swift */; };
+		E2B6BAAC2BB993B9001060DD /* UnsavedJourneysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6BAAB2BB993B9001060DD /* UnsavedJourneysView.swift */; };
 		E2BF5D712AD35A8E00261261 /* StopPointMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF5D702AD35A8E00261261 /* StopPointMarkerView.swift */; };
 		E2BF5D732AD3629500261261 /* LineMode+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF5D722AD3629500261261 /* LineMode+GoTravel.swift */; };
 		E2BF5D752AD3634700261261 /* Color+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF5D742AD3634700261261 /* Color+GoTravel.swift */; };
@@ -253,6 +254,7 @@
 		E28F814D2B9CC41B009953EB /* SubmitCrowdsourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCrowdsourceViewModel.swift; sourceTree = "<group>"; };
 		E29848C02AC6FB83004A5BDC /* HomeMapPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMapPage.swift; sourceTree = "<group>"; };
 		E2B3590E2B935B12002DE211 /* UserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRowView.swift; sourceTree = "<group>"; };
+		E2B6BAAB2BB993B9001060DD /* UnsavedJourneysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsavedJourneysView.swift; sourceTree = "<group>"; };
 		E2BF5D702AD35A8E00261261 /* StopPointMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointMarkerView.swift; sourceTree = "<group>"; };
 		E2BF5D722AD3629500261261 /* LineMode+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LineMode+GoTravel.swift"; sourceTree = "<group>"; };
 		E2BF5D742AD3634700261261 /* Color+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+GoTravel.swift"; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 				E253C36A2BACC75600D9BD15 /* SavedJourneyList.swift */,
 				E253C36C2BACE45B00D9BD15 /* SavedJourneyView.swift */,
 				E2D3E8532BB4DACA003FBFF1 /* SubmitTripView.swift */,
+				E2B6BAAB2BB993B9001060DD /* UnsavedJourneysView.swift */,
 			);
 			path = Tracking;
 			sourceTree = "<group>";
@@ -851,6 +854,7 @@
 				E23027B12B6D41F100DC1D54 /* JourneyLocationSearchSheet.swift in Sources */,
 				E28DC2C52B210E5500E2FECE /* LineMode+Cache.swift in Sources */,
 				E2311A772B7EA48800D7DCD4 /* PostSignupViewModel.swift in Sources */,
+				E2B6BAAC2BB993B9001060DD /* UnsavedJourneysView.swift in Sources */,
 				E2E6739D2B6FC14700361118 /* ExitButtonVIew.swift in Sources */,
 				E25572472B33BAB900988348 /* BottomSheet+CustomAnimation.swift in Sources */,
 				E238EF772B78349100DC8E84 /* AuthPage.swift in Sources */,
