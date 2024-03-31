@@ -23,7 +23,7 @@ public struct ScoreboardView: View {
         }
         .task {
 #if targetEnvironment(simulator)
-            viewModel.scoreboard = Scoreboard(scoreboardId: "", scoreboardName: "Most Travel", scoreboardDescription: "Compete against friends to use the most public transport!", scoreboardLogoUrl: "", startDate: Date(), endDate: Date(), doesReset: false, scoreboardUsers: [.init(rank: 1, points: 100, user: PreviewUserData.User2), .init(rank: 2, points: 100, user: PreviewUserData.User3), .init(rank: 4, points: 100, user: PreviewUserData.UserCurrentButDto)])
+            viewModel.scoreboard = Scoreboard(scoreboardId: "", scoreboardName: "Most Travel", scoreboardDescription: "Compete against friends to use the most public transport!", scoreboardLogoUrl: "", startDate: Date(), endDate: Date(), doesReset: false, scoreboardUsers: [.init(rank: 1, points: 100, user: PreviewUserData.User2), .init(rank: 2, points: 100, user: PreviewUserData.User5), .init(rank: 4, points: 100, user: PreviewUserData.User4)])
 #else
             await viewModel.load(id)
 #endif
@@ -106,7 +106,11 @@ public struct ScoreboardView: View {
                     .bold(user.user.userName == globalVM.currentUser?.userName)
                     Divider()
                 }
- 
+            }
+            
+            if !scoreboard.scoreboardUsers.contains(where: { $0.user.userName == globalVM.currentUser?.userName }) {
+                Divider()
+                Text("You haven't earned any points here yet! Start tracking your journeys to earn some points!")
             }
         }
         .padding()

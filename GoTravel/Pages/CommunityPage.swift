@@ -16,19 +16,21 @@ import GoTravel_CoreData
 public struct CommunityPage: View {
     
     @Environment(GlobalViewModel.self) private var globalVm
+    @State private var viewModel = CommunityViewModel()
     
     public var body: some View {
         ZStack {
             Color.layer1.ignoresSafeArea()
             
             
-            if let user = globalVm.currentUser {
+            if globalVm.currentUser != nil {
                 ScrollView {
-                    VStack {
+                    VStack(spacing: 16) {
                         CommunityPageHeader()
-                        Spacer().frame(height: 16)
                         TrackJourneyButton()
-                        Spacer().frame(height: 16)
+                        if let scoreboard = viewModel.mostTravelScoreboardId {
+                            ScoreboardView(id: scoreboard)
+                        }
                         SavedJourneyList()
                         Spacer()
                     }
@@ -40,6 +42,9 @@ public struct CommunityPage: View {
                 CommunityNotLoggedInView()
                     .navigationTitle(Strings.Navigation.CommunityTab)
             }
+        }
+        .task {
+            await viewModel.loadMostTravelScoreboardId()
         }
     }
 }

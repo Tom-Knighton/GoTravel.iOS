@@ -112,6 +112,7 @@
 		E2B6BAAC2BB993B9001060DD /* UnsavedJourneysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6BAAB2BB993B9001060DD /* UnsavedJourneysView.swift */; };
 		E2B6BAAF2BB9B0A1001060DD /* ScoreboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6BAAE2BB9B0A1001060DD /* ScoreboardView.swift */; };
 		E2B6BAB12BB9B4A0001060DD /* ScoreboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6BAB02BB9B4A0001060DD /* ScoreboardViewModel.swift */; };
+		E2B6BAB32BBA199F001060DD /* CommunityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6BAB22BBA199F001060DD /* CommunityViewModel.swift */; };
 		E2BF5D712AD35A8E00261261 /* StopPointMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF5D702AD35A8E00261261 /* StopPointMarkerView.swift */; };
 		E2BF5D732AD3629500261261 /* LineMode+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF5D722AD3629500261261 /* LineMode+GoTravel.swift */; };
 		E2BF5D752AD3634700261261 /* Color+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BF5D742AD3634700261261 /* Color+GoTravel.swift */; };
@@ -259,6 +260,7 @@
 		E2B6BAAB2BB993B9001060DD /* UnsavedJourneysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsavedJourneysView.swift; sourceTree = "<group>"; };
 		E2B6BAAE2BB9B0A1001060DD /* ScoreboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardView.swift; sourceTree = "<group>"; };
 		E2B6BAB02BB9B4A0001060DD /* ScoreboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardViewModel.swift; sourceTree = "<group>"; };
+		E2B6BAB22BBA199F001060DD /* CommunityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewModel.swift; sourceTree = "<group>"; };
 		E2BF5D702AD35A8E00261261 /* StopPointMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointMarkerView.swift; sourceTree = "<group>"; };
 		E2BF5D722AD3629500261261 /* LineMode+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LineMode+GoTravel.swift"; sourceTree = "<group>"; };
 		E2BF5D742AD3634700261261 /* Color+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+GoTravel.swift"; sourceTree = "<group>"; };
@@ -670,6 +672,7 @@
 			children = (
 				E28F814D2B9CC41B009953EB /* SubmitCrowdsourceViewModel.swift */,
 				E2B6BAB02BB9B4A0001060DD /* ScoreboardViewModel.swift */,
+				E2B6BAB22BBA199F001060DD /* CommunityViewModel.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -859,6 +862,7 @@
 				E255724C2B33BAB900988348 /* BottomSheet+BackgroundBlur.swift in Sources */,
 				E25572632B33BAB900988348 /* RoundedCornerViewModifier.swift in Sources */,
 				E25572602B33BAB900988348 /* BundleExtension.swift in Sources */,
+				E2B6BAB32BBA199F001060DD /* CommunityViewModel.swift in Sources */,
 				E253C36F2BACE9CD00D9BD15 /* SavedJourneyData.swift in Sources */,
 				E29848C12AC6FB83004A5BDC /* HomeMapPage.swift in Sources */,
 				E25572442B33BAB900988348 /* BottomSheet+Threshold.swift in Sources */,

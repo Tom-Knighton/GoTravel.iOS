@@ -7,6 +7,12 @@
     " " : {
 
     },
+    "...." : {
+
+    },
+    "(Pos. %lld)" : {
+
+    },
     "•" : {
       "localizations" : {
         "en" : {
@@ -1597,6 +1603,9 @@
         }
       }
     },
+    "Ends soon!" : {
+
+    },
     "Errors:Auth:EmailTaken" : {
       "localizations" : {
         "en" : {
@@ -2933,6 +2942,12 @@
         }
       }
     },
+    "Resets soon!" : {
+
+    },
+    "Scoreboard Closed" : {
+
+    },
     "StopPage:Accessibility:HasWifiLabel" : {
       "localizations" : {
         "en" : {
@@ -3128,6 +3143,9 @@
       }
     },
     "Unsaved Journeys" : {
+
+    },
+    "You haven't earned any points here yet! Start tracking your journeys to earn some points!" : {
 
     }
   },

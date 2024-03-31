@@ -13,7 +13,7 @@ public struct Scoreboard: Codable {
     public let scoreboardId: String
     public let scoreboardName: String
     public let scoreboardDescription: String
-    public let scoreboardLogoUrl: String
+    public let scoreboardLogoUrl: String?
     public let startDate: Date
     public let endDate: Date?
     public let doesReset: Bool
@@ -21,7 +21,7 @@ public struct Scoreboard: Codable {
     @Default<Empty>
     public var scoreboardUsers: [ScoreboardUser]
     
-    public init(scoreboardId: String, scoreboardName: String, scoreboardDescription: String, scoreboardLogoUrl: String, startDate: Date, endDate: Date?, doesReset: Bool, scoreboardUsers: [ScoreboardUser]) {
+    public init(scoreboardId: String, scoreboardName: String, scoreboardDescription: String, scoreboardLogoUrl: String?, startDate: Date, endDate: Date?, doesReset: Bool, scoreboardUsers: [ScoreboardUser]) {
         self.scoreboardId = scoreboardId
         self.scoreboardName = scoreboardName
         self.scoreboardDescription = scoreboardDescription
