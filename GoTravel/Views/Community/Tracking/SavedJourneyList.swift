@@ -20,7 +20,6 @@ public struct SavedJourneyList: View {
     }
     @Query(descriptor) private var unsavedJourneys: [SavedJourney]
     @State private var savedJourneys: [UserSavedJourney] = []
-    @State private var unsavedInfo: Bool = false
     
     public var body: some View {
         VStack() {
@@ -34,21 +33,38 @@ public struct SavedJourneyList: View {
             .clipShape(.rect(cornerRadius: 10))
 
             if unsavedJourneys.count != 0 {
-                HStack {
-                    Text(Strings.Community.Journey.UnsavedJourneys)
-                        .font(.headline)
-                        .bold()
-                    Button(action: { self.unsavedInfo = true }) {
-                        Image(systemName: Icons.infoCircle)
+                NavigationLink(value: UnsavedJourneysNav()) {
+                    HStack {
+                        Text(Strings.Community.Journey.UnsavedJourneys)
+                            .font(.headline.bold())
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .multilineTextAlignment(.leading)
+                        
+                        Spacer()
+                        
+                        ZStack {
+                            Circle()
+                                .fill(.red)
+                                .frame(width: 18, height: 18)
+                            Text(String(describing: unsavedJourneys.count))
+                                .font(.caption)
+                                .tint(.white)
+                        }
+                        
+                        
+                        Image(systemName: Icons.chevronRight)
+                            .foregroundStyle(.gray)
                     }
-                    Spacer()
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.layer2)
+                    .clipShape(.rect(cornerRadius: 10))
                 }
-                .flipsForRightToLeftLayoutDirection(true)
-               
-                VStack(spacing: 0) {
-                    previewUnsubmittedJourneys()
-                }
-                .clipShape(.rect(cornerRadius: 10))
+                .accessibilityElement(children: .ignore)
+                .accessibilityElement()
+                .accessibilityLabel(Strings.Community.Journey.UnsavedBtnLabel(unsavedJourneys.count))
+                .accessibilityLabel(Strings.Community.Journey.UnsavedBtnHint)
             }
         }
         .fontDesign(.rounded)
@@ -60,24 +76,8 @@ public struct SavedJourneyList: View {
                 await load()
             }
         }
-        .alert(Strings.Misc.Information, isPresented: $unsavedInfo) {
-            Button(action: {}) { Text(Strings.Misc.Ok) }
-        } message: {
-            Text(Strings.Community.Journey.UnsavedInfo)
-        }
+    }
 
-    }
-    
-    @ViewBuilder
-    private func previewUnsubmittedJourneys() -> some View {
-        ForEach(unsavedJourneys, id: \.id) { journey in
-            row(journey)
-                .onTapGesture {
-                    GlobalViewModel.shared.saveTripId = GVMSaveTripDetails(saveTripId: journey.id, canClose: true)
-                }
-            Divider()
-        }
-    }
     
     @ViewBuilder
     private func previewSavedJourneys() -> some View {
@@ -93,41 +93,6 @@ public struct SavedJourneyList: View {
             .tint(.primary)
             Divider()
         }
-    }
-    
-    @ViewBuilder
-    private func row(_ journey: SavedJourney) -> some View {
-        HStack() {
-            VStack {
-                Text(journey.name ?? Strings.JourneyPage.Journey.toString())
-                    .font(.headline.bold())
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .multilineTextAlignment(.leading)
-                
-                HStack(alignment: .center) {
-                    Text(journey.startedAt.formatted(date: .abbreviated, time: .omitted))
-                    Image(systemName: Icons.circleFill)
-                        .font(.caption2)
-                    Text(journey.endedAt.friendlyDifference(journey.startedAt))
-                        .font(.caption)
-                    
-                    Spacer()
-                }
-                .font(.caption)
-                .flipsForRightToLeftLayoutDirection(true)
-            }
-            
-            Image(systemName: Icons.chevronRight)
-                .foregroundStyle(.gray)
-        }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 8)
-        .frame(maxWidth: .infinity)
-        .background(Color.layer2)
-        .accessibilityElement(children: .ignore)
-        .accessibilityElement()
-        .accessibilityLabel(Strings.Community.Accessibility.UnsavedJourney(journey.name ?? Strings.JourneyPage.Journey.toString(), startedAt: journey.startedAt))
-        .accessibilityHint(Strings.Community.Accessibility.UnsavedJourneyHint)
     }
     
     @ViewBuilder
@@ -178,6 +143,8 @@ public struct SavedJourneyList: View {
     for j in PreviewSavedJourneyData.savedJourneys {
         container.mainContext.insert(j)
     }
+    let global = GlobalViewModel()
+    global.currentUser = CurrentUser(userId: "auth0|Id", userName: "tomknighton", userEmail: "tomknighton@icloud.com", userPictureUrl: "https://cdn.tomk.online/gotravel/Users/auth0|65d254c562315443371df109/03b6a22d25974a26b65e1852a2b636a9.jpg", dateCreated: Date())
     
     return NavigationStack {
         ScrollView {
@@ -185,6 +152,7 @@ public struct SavedJourneyList: View {
                 .modelContainer(container)
         }
         .contentMargins(.horizontal, 16, for: .scrollContent)
+        .environment(global)
     }
 }
 #endif

@@ -7,6 +7,9 @@
     " " : {
 
     },
+    "...." : {
+
+    },
     "•" : {
       "localizations" : {
         "en" : {
@@ -607,6 +610,16 @@
         }
       }
     },
+    "Community:A11Y:ScoreboardRow:%@:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ with %lld points"
+          }
+        }
+      }
+    },
     "Community:A11Y:StartNowHint" : {
       "localizations" : {
         "en" : {
@@ -651,8 +664,8 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Community:A11Y:UnsavedJourney:%1$@:%2$@"
+            "state" : "translated",
+            "value" : "%1$@, %2$@ - tap to manage, submit or delete"
           }
         }
       }
@@ -1257,6 +1270,56 @@
         }
       }
     },
+    "Community:Scoreboard:Closed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scoreboard Closed"
+          }
+        }
+      }
+    },
+    "Community:Scoreboard:EndsSoon" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ends Soon!"
+          }
+        }
+      }
+    },
+    "Community:Scoreboard:NoPointsYet" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You haven't earned any points here yet! Start tracking your journeys to earn some points!"
+          }
+        }
+      }
+    },
+    "Community:Scoreboard:Pos:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(Pos. %lld)"
+          }
+        }
+      }
+    },
+    "Community:Scoreboard:ResetsSoon" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resets Soon!"
+          }
+        }
+      }
+    },
     "Community:Special" : {
       "localizations" : {
         "en" : {
@@ -1543,6 +1606,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unsaved Journeys:"
+          }
+        }
+      }
+    },
+    "Community:Trip:UnsavedJourneysBtn:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld unsaved journeys, manage and submit"
+          }
+        }
+      }
+    },
+    "Community:Trip:UnsavedJourneysBtnHint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to manage all your unsaved journeys, submit or delete them"
           }
         }
       }

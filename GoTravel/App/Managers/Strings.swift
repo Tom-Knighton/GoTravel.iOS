@@ -357,8 +357,24 @@ public struct Strings {
             public static let SearchLinesDesc: LocalizedStringKey = "Comminity:Trip:SearchLinesDesc"
             public static let SearchLinesPrompt: LocalizedStringKey = "Comminity:Trip:SearchLinesPrompt"
             
+            public static let UnsavedBtnHint: LocalizedStringKey = "Community:Trip:UnsavedJourneysBtnHint"
+            public static func UnsavedBtnLabel(_ count: Int) -> LocalizedStringKey {
+                LocalizedStringKey("Community:Trip:UnsavedJourneysBtn:\(count)")
+            }
+            
             public static func receivedPoints(_ points: Int) -> LocalizedStringKey {
                 LocalizedStringKey("Community:Trip:ReceivedPoints:\(points)")
+            }
+        }
+        
+        public struct Scoreboard {
+            public static let ResetsSoon: LocalizedStringKey = "Community:Scoreboard:ResetsSoon"
+            public static let EndsSoon: LocalizedStringKey = "Community:Scoreboard:EndsSoon"
+            public static let Closed: LocalizedStringKey = "Community:Scoreboard:Closed"
+            public static let NoPointsYet: LocalizedStringKey = "Community:Scoreboard:NoPointsYet"
+            
+            public static func Pos(_ pos: Int) -> LocalizedStringKey {
+                LocalizedStringKey("Community:Scoreboard:Pos:\(pos)")
             }
         }
         
@@ -410,6 +426,10 @@ public struct Strings {
                     return LocalizedStringKey("Community:A11Y:HasDownVotedHint")
                 }
                 return LocalizedStringKey("Community:A11Y:HasNotDownVotedHint")
+            }
+            
+            public static func ScoreboardRow(_ username: String, _ points: Int) -> LocalizedStringKey {
+                return LocalizedStringKey("Community:A11Y:ScoreboardRow:\(username):\(points)")
             }
         }
         
@@ -576,4 +596,6 @@ public struct Icons {
     public static let checkCircleFill = "checkmark.circle.fill"
     public static let circleFill = "circle.fill"
     public static let chevronRight = "chevron.right"
+    public static let trophy = "trophy"
+    public static let trophyFill = "trophy.fill"
 }

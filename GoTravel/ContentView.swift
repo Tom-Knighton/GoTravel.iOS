@@ -35,6 +35,9 @@ struct ContentView: View {
                         .navigationDestination(for: SavedJourneyNavModel.self) { nav in
                             SavedJourneyView(journey: nav.journey)
                         }
+                        .navigationDestination(for: UnsavedJourneysNav.self) { _ in
+                            UnsavedJourneysView()
+                        }
                 }
                 .tag(0)
                 .tabItem {
@@ -55,6 +58,9 @@ struct ContentView: View {
                         .navigationDestination(for: SavedJourneyNavModel.self) { nav in
                             SavedJourneyView(journey: nav.journey)
                         }
+                        .navigationDestination(for: UnsavedJourneysNav.self) { _ in
+                            UnsavedJourneysView()
+                        }
                 }
                 .tag(1)
                 .tabItem {
@@ -74,6 +80,9 @@ struct ContentView: View {
                         }
                         .navigationDestination(for: SavedJourneyNavModel.self) { nav in
                             SavedJourneyView(journey: nav.journey)
+                        }
+                        .navigationDestination(for: UnsavedJourneysNav.self) { _ in
+                            UnsavedJourneysView()
                         }
                 }
                 .tag(2)
