@@ -367,6 +367,17 @@ public struct Strings {
             }
         }
         
+        public struct Scoreboard {
+            public static let ResetsSoon: LocalizedStringKey = "Community:Scoreboard:ResetsSoon"
+            public static let EndsSoon: LocalizedStringKey = "Community:Scoreboard:EndsSoon"
+            public static let Closed: LocalizedStringKey = "Community:Scoreboard:Closed"
+            public static let NoPointsYet: LocalizedStringKey = "Community:Scoreboard:NoPointsYet"
+            
+            public static func Pos(_ pos: Int) -> LocalizedStringKey {
+                LocalizedStringKey("Community:Scoreboard:Pos:\(pos)")
+            }
+        }
+        
         public struct Accessibility {
             public static let StartNowHint: LocalizedStringKey = "Community:A11Y:StartNowHint"
             public static let ScoreboadLabel: LocalizedStringKey = "Community:A11Y:ScoreboardLabel"
@@ -581,4 +592,6 @@ public struct Icons {
     public static let checkCircleFill = "checkmark.circle.fill"
     public static let circleFill = "circle.fill"
     public static let chevronRight = "chevron.right"
+    public static let trophy = "trophy"
+    public static let trophyFill = "trophy.fill"
 }

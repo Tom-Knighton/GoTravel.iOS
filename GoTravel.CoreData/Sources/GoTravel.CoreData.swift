@@ -49,5 +49,4 @@ public class GoTravelCoreData {
         TrackingLocation.self,
         SavedJourney.self,
     ]
-    
 }

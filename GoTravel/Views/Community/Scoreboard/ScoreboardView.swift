@@ -45,13 +45,13 @@ public struct ScoreboardView: View {
                     if endsAt > Date() {
                         if Date().timeUntil(endsAt, unit: .hours) < 24 {
                             if scoreboard.doesReset {
-                                Text("Resets soon!")
+                                Text(Strings.Community.Scoreboard.ResetsSoon)
                             } else {
-                                Text("Ends soon!")
+                                Text(Strings.Community.Scoreboard.EndsSoon)
                             }
                         }
                     } else {
-                        Text("Scoreboard Closed")
+                        Text(Strings.Community.Scoreboard.Closed)
                     }
                 }
             }
@@ -78,7 +78,7 @@ public struct ScoreboardView: View {
                         
                         Text(user.user.userName)
                         if user.user.userName == globalVM.currentUser?.userName && userIsOutOfRange() {
-                            Text("(Pos. \(user.rank))")
+                            Text(Strings.Community.Scoreboard.Pos(user.rank))
                         }
                         
                         Spacer()
@@ -88,13 +88,13 @@ public struct ScoreboardView: View {
                         
                         switch user.rank {
                         case 1:
-                            Image(systemName: "trophy.fill")
+                            Image(systemName: Icons.trophyFill)
                                 .foregroundStyle(.yellow)
                         case 2:
-                            Image(systemName: "trophy")
+                            Image(systemName: Icons.trophy)
                                 .foregroundStyle(.gray)
                         case 3:
-                            Image(systemName: "trophy")
+                            Image(systemName: Icons.trophy)
                                 .foregroundStyle(.red)
                         default:
                             EmptyView()
@@ -110,7 +110,7 @@ public struct ScoreboardView: View {
             
             if !scoreboard.scoreboardUsers.contains(where: { $0.user.userName == globalVM.currentUser?.userName }) {
                 Divider()
-                Text("You haven't earned any points here yet! Start tracking your journeys to earn some points!")
+                Text(Strings.Community.Scoreboard.NoPointsYet)
             }
         }
         .padding()

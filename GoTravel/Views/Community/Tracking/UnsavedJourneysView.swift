@@ -40,7 +40,7 @@ public struct UnsavedJourneysView: View {
                     .clipShape(.rect(cornerRadius: 10))
                 }
             }
-            .navigationTitle("Unsaved Journeys")
+            .navigationTitle(Strings.Community.Journey.UnsavedJourneys)
             .contentMargins(.horizontal, 16, for: .scrollContent)
             .alert(Strings.Misc.Information, isPresented: $unsavedInfo) {
                 Button(action: {}) { Text(Strings.Misc.Ok) }

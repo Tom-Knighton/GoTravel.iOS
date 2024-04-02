@@ -10,9 +10,6 @@
     "...." : {
 
     },
-    "(Pos. %lld)" : {
-
-    },
     "•" : {
       "localizations" : {
         "en" : {
@@ -1263,6 +1260,56 @@
         }
       }
     },
+    "Community:Scoreboard:Closed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scoreboard Closed"
+          }
+        }
+      }
+    },
+    "Community:Scoreboard:EndsSoon" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ends Soon!"
+          }
+        }
+      }
+    },
+    "Community:Scoreboard:NoPointsYet" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You haven't earned any points here yet! Start tracking your journeys to earn some points!"
+          }
+        }
+      }
+    },
+    "Community:Scoreboard:Pos:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(Pos. %lld)"
+          }
+        }
+      }
+    },
+    "Community:Scoreboard:ResetsSoon" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resets Soon!"
+          }
+        }
+      }
+    },
     "Community:Special" : {
       "localizations" : {
         "en" : {
@@ -1602,9 +1649,6 @@
           }
         }
       }
-    },
-    "Ends soon!" : {
-
     },
     "Errors:Auth:EmailTaken" : {
       "localizations" : {
@@ -2942,12 +2986,6 @@
         }
       }
     },
-    "Resets soon!" : {
-
-    },
-    "Scoreboard Closed" : {
-
-    },
     "StopPage:Accessibility:HasWifiLabel" : {
       "localizations" : {
         "en" : {
@@ -3143,9 +3181,6 @@
       }
     },
     "Unsaved Journeys" : {
-
-    },
-    "You haven't earned any points here yet! Start tracking your journeys to earn some points!" : {
 
     }
   },
