@@ -610,6 +610,16 @@
         }
       }
     },
+    "Community:A11Y:ScoreboardRow:%@:%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ with %lld points"
+          }
+        }
+      }
+    },
     "Community:A11Y:StartNowHint" : {
       "localizations" : {
         "en" : {
@@ -3179,9 +3189,6 @@
           }
         }
       }
-    },
-    "Unsaved Journeys" : {
-
     }
   },
   "version" : "1.0"

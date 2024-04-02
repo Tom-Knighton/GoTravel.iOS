@@ -427,6 +427,10 @@ public struct Strings {
                 }
                 return LocalizedStringKey("Community:A11Y:HasNotDownVotedHint")
             }
+            
+            public static func ScoreboardRow(_ username: String, _ points: Int) -> LocalizedStringKey {
+                return LocalizedStringKey("Community:A11Y:ScoreboardRow:\(username):\(points)")
+            }
         }
         
         

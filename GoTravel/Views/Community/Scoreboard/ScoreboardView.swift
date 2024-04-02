@@ -75,6 +75,7 @@ public struct ScoreboardView: View {
                             ProgressView()
                                 .frame(width: 50, height: 50)
                         }
+                        .accessibilityHidden()
                         
                         Text(user.user.userName)
                         if user.user.userName == globalVM.currentUser?.userName && userIsOutOfRange() {
@@ -104,6 +105,9 @@ public struct ScoreboardView: View {
                     .background(user.user.userName == globalVM.currentUser?.userName ? .yellow.opacity(0.5) : .clear)
                     .clipShape(.rect(cornerRadius: 10))
                     .bold(user.user.userName == globalVM.currentUser?.userName)
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityElement()
+                    .accessibilityLabel(Strings.Community.Accessibility.ScoreboardRow(user.user.userName, user.points))
                     Divider()
                 }
             }
