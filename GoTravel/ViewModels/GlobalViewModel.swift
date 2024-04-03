@@ -33,6 +33,9 @@ public class GlobalViewModel {
     
     /// The id of a just saved user trip, to present a sheet the user can save from
     public var saveTripId: GVMSaveTripDetails? = nil
+    
+    /// A win a user can claim
+    public var win: ScoreboardWin? = nil
 }
 
 @Observable

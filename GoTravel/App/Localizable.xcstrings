@@ -390,6 +390,9 @@
         }
       }
     },
+    "Claim Random Prize Now" : {
+
+    },
     "Comminity:Trip:SearchLinesDesc" : {
       "localizations" : {
         "en" : {
@@ -1270,6 +1273,27 @@
         }
       }
     },
+    "Community:Rewards:Mult_2" : {
+
+    },
+    "Community:Rewards:Mult1_5" : {
+
+    },
+    "Community:Rewards:None" : {
+
+    },
+    "Community:Rewards:Points10" : {
+
+    },
+    "Community:Rewards:Points30" : {
+
+    },
+    "Community:Rewards:TitleExpert" : {
+
+    },
+    "Community:Rewards:TitleSuper" : {
+
+    },
     "Community:Scoreboard:Closed" : {
       "localizations" : {
         "en" : {
@@ -1659,6 +1683,12 @@
           }
         }
       }
+    },
+    "Congrats! You've won " : {
+
+    },
+    "Congratulations!!" : {
+
     },
     "Errors:Auth:EmailTaken" : {
       "localizations" : {
@@ -2996,6 +3026,9 @@
         }
       }
     },
+    "Ok" : {
+
+    },
     "StopPage:Accessibility:HasWifiLabel" : {
       "localizations" : {
         "en" : {
@@ -3189,6 +3222,18 @@
           }
         }
       }
+    },
+    "Success!" : {
+
+    },
+    "Tap below to spin the wheel and try to claim a random prize!" : {
+
+    },
+    "Unfortunately you lost the raffle this time, no prize for you :( Try again next time!" : {
+
+    },
+    "You placed 1st in a recent Most Travel Scoreboard" : {
+
     }
   },
   "version" : "1.0"

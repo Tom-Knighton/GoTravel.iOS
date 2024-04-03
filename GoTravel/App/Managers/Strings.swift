@@ -263,6 +263,16 @@ public struct Strings {
             }
         }
         
+        public struct Rewards {
+            public static let None: LocalizedStringKey = "Community:Rewards:None"
+            public static let Mult1_5: LocalizedStringKey = "Community:Rewards:Mult1_5"
+            public static let Mult_2: LocalizedStringKey = "Community:Rewards:Mult_2"
+            public static let Points10: LocalizedStringKey = "Community:Rewards:Points10"
+            public static let Points30: LocalizedStringKey = "Community:Rewards:Points30"
+            public static let TitleSuper: LocalizedStringKey = "Community:Rewards:TitleSuper"
+            public static let TitleExpert: LocalizedStringKey = "Community:Rewards:TitleExpert"
+        }
+        
         public struct Relationships {
             public static let Following: LocalizedStringKey = "Community:Rel:Following"
             public static let Followers: LocalizedStringKey = "Community:Rel:Followers"
@@ -489,6 +499,7 @@ public struct Strings {
     
     public struct Assets {
         public static let BusLoading = "BusLoading"
+        public static let Confetti = "Confetti"
     }
     
     public struct Accessibility {

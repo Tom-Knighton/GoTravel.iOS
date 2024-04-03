@@ -34,7 +34,10 @@ public struct CurrentUser: Decodable {
     @Default<Empty>
     public var following: [UserFollowing]
     
-    public init(userId: String, userName: String, userEmail: String, userPictureUrl: String, dateCreated: Date, followers: [UserFollowing] = [], following: [UserFollowing] = []) {
+    /// A subtitle a user may have through winning scoreboards
+    public let subtitle: String?
+    
+    public init(userId: String, userName: String, userEmail: String, userPictureUrl: String, dateCreated: Date, followers: [UserFollowing] = [], following: [UserFollowing] = [], subtitle: String? = nil) {
         self.userId = userId
         self.userName = userName
         self.userEmail = userEmail
@@ -42,6 +45,7 @@ public struct CurrentUser: Decodable {
         self.dateCreated = dateCreated
         self.followers = followers
         self.following = following
+        self.subtitle = subtitle
     }
 }
 

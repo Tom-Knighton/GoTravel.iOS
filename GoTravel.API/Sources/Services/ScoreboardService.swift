@@ -37,4 +37,28 @@ public struct ScoreboardService {
         
         return response
     }
+    
+    /// Gets all unclaimed wins for the user
+    public static func UnseenWins(for userId: String) async throws -> [ScoreboardWin] {
+        let request = APIRequest(path: "Scoreboard/UnseenWins", queryItems: [], body: nil)
+        let response: [ScoreboardWin] = try await client.perform(request)
+        
+        return response
+    }
+    
+    /// Gets all claimed and active wins for the user
+    public static func ClaimedWins(for userId: String) async throws -> [ScoreboardWin] {
+        let request = APIRequest(path: "Scoreboard/SeenWins", queryItems: [], body: nil)
+        let response: [ScoreboardWin] = try await client.perform(request)
+        
+        return response
+    }
+    
+    /// Claims a win for this user
+    public static func ClaimWin(for userId: String, winId: String) async throws -> Bool {
+        let request = APIRequest(method: .put, path: "Scoreboard/win/\(winId)/consumed", queryItems: [], body: nil)
+        try await client.performExpect200(request)
+        
+        return true
+    }
 }

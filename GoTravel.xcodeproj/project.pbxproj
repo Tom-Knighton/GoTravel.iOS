@@ -108,6 +108,10 @@
 		E28F814B2B9CBC55009953EB /* SubmitCrowdsourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F814A2B9CBC55009953EB /* SubmitCrowdsourceView.swift */; };
 		E28F814E2B9CC41B009953EB /* SubmitCrowdsourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28F814D2B9CC41B009953EB /* SubmitCrowdsourceViewModel.swift */; };
 		E29848C12AC6FB83004A5BDC /* HomeMapPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29848C02AC6FB83004A5BDC /* HomeMapPage.swift */; };
+		E2AE7BDB2BBC8E5B00CCED61 /* WinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE7BDA2BBC8E5B00CCED61 /* WinView.swift */; };
+		E2AE7BDD2BBC8ED500CCED61 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE7BDC2BBC8ED500CCED61 /* ConfettiView.swift */; };
+		E2AE7BDF2BBC920200CCED61 /* Confetti.lottie in Resources */ = {isa = PBXBuildFile; fileRef = E2AE7BDE2BBC920200CCED61 /* Confetti.lottie */; };
+		E2AE7BE12BBC97C400CCED61 /* ScoreboardRewardType+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE7BE02BBC97C400CCED61 /* ScoreboardRewardType+GoTravel.swift */; };
 		E2B3590F2B935B12002DE211 /* UserRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3590E2B935B12002DE211 /* UserRowView.swift */; };
 		E2B6BAAC2BB993B9001060DD /* UnsavedJourneysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6BAAB2BB993B9001060DD /* UnsavedJourneysView.swift */; };
 		E2B6BAAF2BB9B0A1001060DD /* ScoreboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B6BAAE2BB9B0A1001060DD /* ScoreboardView.swift */; };
@@ -256,6 +260,10 @@
 		E28F814A2B9CBC55009953EB /* SubmitCrowdsourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCrowdsourceView.swift; sourceTree = "<group>"; };
 		E28F814D2B9CC41B009953EB /* SubmitCrowdsourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCrowdsourceViewModel.swift; sourceTree = "<group>"; };
 		E29848C02AC6FB83004A5BDC /* HomeMapPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMapPage.swift; sourceTree = "<group>"; };
+		E2AE7BDA2BBC8E5B00CCED61 /* WinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinView.swift; sourceTree = "<group>"; };
+		E2AE7BDC2BBC8ED500CCED61 /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
+		E2AE7BDE2BBC920200CCED61 /* Confetti.lottie */ = {isa = PBXFileReference; lastKnownFileType = file; path = Confetti.lottie; sourceTree = "<group>"; };
+		E2AE7BE02BBC97C400CCED61 /* ScoreboardRewardType+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreboardRewardType+GoTravel.swift"; sourceTree = "<group>"; };
 		E2B3590E2B935B12002DE211 /* UserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRowView.swift; sourceTree = "<group>"; };
 		E2B6BAAB2BB993B9001060DD /* UnsavedJourneysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsavedJourneysView.swift; sourceTree = "<group>"; };
 		E2B6BAAE2BB9B0A1001060DD /* ScoreboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardView.swift; sourceTree = "<group>"; };
@@ -551,6 +559,7 @@
 				E238EF7B2B79011500DC8E84 /* AuthTextField.swift */,
 				E266110B2B920321003F55C2 /* CustomNavigationTitle.swift */,
 				E2D3E8582BB4E328003FBFF1 /* RangedSlider.swift */,
+				E2AE7BDC2BBC8ED500CCED61 /* ConfettiView.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -663,6 +672,7 @@
 				E23027B42B6D534C00DC1D54 /* Journey+GoTravel.swift */,
 				E26938922B76C2E400738C6D /* JourneyLeg+GoTravel.swift */,
 				E23094052B82532D00C67D96 /* CurrentUser+GoTravel.swift */,
+				E2AE7BE02BBC97C400CCED61 /* ScoreboardRewardType+GoTravel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -702,6 +712,7 @@
 			isa = PBXGroup;
 			children = (
 				E2B6BAAE2BB9B0A1001060DD /* ScoreboardView.swift */,
+				E2AE7BDA2BBC8E5B00CCED61 /* WinView.swift */,
 			);
 			path = Scoreboard;
 			sourceTree = "<group>";
@@ -749,6 +760,7 @@
 		E2E673962B6E90C200361118 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				E2AE7BDE2BBC920200CCED61 /* Confetti.lottie */,
 				E2E673972B6E90D900361118 /* BusLoading.lottie */,
 			);
 			path = Lottie;
@@ -837,6 +849,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2E673982B6E90D900361118 /* BusLoading.lottie in Resources */,
+				E2AE7BDF2BBC920200CCED61 /* Confetti.lottie in Resources */,
 				E283D3892AC23318008ECF81 /* Preview Assets.xcassets in Resources */,
 				E283D3862AC23318008ECF81 /* Assets.xcassets in Resources */,
 				E255723E2B33BAB900988348 /* Media.xcassets in Resources */,
@@ -862,6 +875,7 @@
 				E255724C2B33BAB900988348 /* BottomSheet+BackgroundBlur.swift in Sources */,
 				E25572632B33BAB900988348 /* RoundedCornerViewModifier.swift in Sources */,
 				E25572602B33BAB900988348 /* BundleExtension.swift in Sources */,
+				E2AE7BDD2BBC8ED500CCED61 /* ConfettiView.swift in Sources */,
 				E2B6BAB32BBA199F001060DD /* CommunityViewModel.swift in Sources */,
 				E253C36F2BACE9CD00D9BD15 /* SavedJourneyData.swift in Sources */,
 				E29848C12AC6FB83004A5BDC /* HomeMapPage.swift in Sources */,
@@ -936,6 +950,7 @@
 				E255723F2B33BAB900988348 /* BottomSheet+Resizable.swift in Sources */,
 				E25572502B33BAB900988348 /* BottomSheet+CloseButton.swift in Sources */,
 				E28DC2BA2B1FE73700E2FECE /* MapControlButtonStyle.swift in Sources */,
+				E2AE7BDB2BBC8E5B00CCED61 /* WinView.swift in Sources */,
 				E25572542B33BAB900988348 /* BottomSheet.swift in Sources */,
 				E255725B2B33BAB900988348 /* BottomSheetView+SwitchPosition.swift in Sources */,
 				E2437FF62BAA477600B97CF8 /* JourneyManager.swift in Sources */,
@@ -955,6 +970,7 @@
 				E238EF812B79331600DC8E84 /* SignupViewModel.swift in Sources */,
 				E253C3692BACC62000D9BD15 /* TrackJourneyButton.swift in Sources */,
 				E25572582B33BAB900988348 /* BottomSheetView.swift in Sources */,
+				E2AE7BE12BBC97C400CCED61 /* ScoreboardRewardType+GoTravel.swift in Sources */,
 				E25572512B33BAB900988348 /* BottomSheetWidth.swift in Sources */,
 				E2F9415B2AD2C2A10047EA04 /* GlobalViewModel.swift in Sources */,
 				E26611102B924219003F55C2 /* UserSearchView.swift in Sources */,
