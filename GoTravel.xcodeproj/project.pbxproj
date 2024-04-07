@@ -10,6 +10,7 @@
 		E2000C182AC821D3003D01A9 /* StopMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2000C172AC821D3003D01A9 /* StopMapViewModel.swift */; };
 		E2000C1B2AC82799003D01A9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2000C1A2AC82799003D01A9 /* LocationManager.swift */; };
 		E20CD6322B74245F00459104 /* JourneyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20CD6312B74245F00459104 /* JourneyData.swift */; };
+		E22749B42BC2BA4200D6A160 /* Silkscreen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E22749B32BC2BA4200D6A160 /* Silkscreen-Regular.ttf */; };
 		E22DBC3D2B5B227800276034 /* PlatformArrivals+GoTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22DBC3C2B5B227800276034 /* PlatformArrivals+GoTravel.swift */; };
 		E22DBC3F2B5BEA8100276034 /* GaugeTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22DBC3E2B5BEA8100276034 /* GaugeTimerView.swift */; };
 		E23027AD2B69775D00DC1D54 /* JourneyPlannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23027AC2B69775D00DC1D54 /* JourneyPlannerViewModel.swift */; };
@@ -162,6 +163,7 @@
 		E2000C1A2AC82799003D01A9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E2000C1F2AC82C97003D01A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E20CD6312B74245F00459104 /* JourneyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyData.swift; sourceTree = "<group>"; };
+		E22749B32BC2BA4200D6A160 /* Silkscreen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Silkscreen-Regular.ttf"; sourceTree = "<group>"; };
 		E22DBC3C2B5B227800276034 /* PlatformArrivals+GoTravel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlatformArrivals+GoTravel.swift"; sourceTree = "<group>"; };
 		E22DBC3E2B5BEA8100276034 /* GaugeTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeTimerView.swift; sourceTree = "<group>"; };
 		E23027AC2B69775D00DC1D54 /* JourneyPlannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerViewModel.swift; sourceTree = "<group>"; };
@@ -751,6 +753,7 @@
 		E2E673952B6E90BE00361118 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E22749B32BC2BA4200D6A160 /* Silkscreen-Regular.ttf */,
 				E20CD6302B74245300459104 /* Preview Data */,
 				E2E673962B6E90C200361118 /* Lottie */,
 			);
@@ -849,6 +852,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2E673982B6E90D900361118 /* BusLoading.lottie in Resources */,
+				E22749B42BC2BA4200D6A160 /* Silkscreen-Regular.ttf in Resources */,
 				E2AE7BDF2BBC920200CCED61 /* Confetti.lottie in Resources */,
 				E283D3892AC23318008ECF81 /* Preview Assets.xcassets in Resources */,
 				E283D3862AC23318008ECF81 /* Assets.xcassets in Resources */,

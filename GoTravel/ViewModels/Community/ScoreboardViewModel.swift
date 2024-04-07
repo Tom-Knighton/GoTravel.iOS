@@ -17,9 +17,15 @@ public class ScoreboardViewModel {
     public var scoreboard: Scoreboard? = nil
     public var isError: Bool = false
     
+    public var appliedWins: [ScoreboardWin] = []
+    
     public func load(_ id: String) async {
         do {
             self.scoreboard = try await ScoreboardService.GetScoreboard(by: id)
+            if let userId = GlobalViewModel.shared.currentUser?.userId {
+                let wins = try await ScoreboardService.ClaimedWins(for: userId)
+                self.appliedWins = wins.filter { $0.rewardType != .noReward }
+            }
         } catch {
             print(error)
             self.isError = true

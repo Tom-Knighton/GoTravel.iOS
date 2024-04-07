@@ -7,6 +7,9 @@
     " " : {
 
     },
+    " 🎉" : {
+
+    },
     "...." : {
 
     },
@@ -19,6 +22,9 @@
           }
         }
       }
+    },
+    "🎉 " : {
+
     },
     "Accessibility:Map:BikesRemainingText:%lld" : {
       "localizations" : {
@@ -1274,25 +1280,74 @@
       }
     },
     "Community:Rewards:Mult_2" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2x Points Multiplier"
+          }
+        }
+      }
     },
     "Community:Rewards:Mult1_5" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1.5x Points Multiplier"
+          }
+        }
+      }
     },
     "Community:Rewards:None" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No reward"
+          }
+        }
+      }
     },
     "Community:Rewards:Points10" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10 starting points"
+          }
+        }
+      }
     },
     "Community:Rewards:Points30" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 starting points"
+          }
+        }
+      }
     },
     "Community:Rewards:TitleExpert" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "special title: Public Transport Expert"
+          }
+        }
+      }
     },
     "Community:Rewards:TitleSuper" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "special title: Super Traveller"
+          }
+        }
+      }
     },
     "Community:Scoreboard:Closed" : {
       "localizations" : {
@@ -3229,10 +3284,16 @@
     "Tap below to spin the wheel and try to claim a random prize!" : {
 
     },
+    "These are rewards that are active until the next travel leaderboard rollover" : {
+
+    },
     "Unfortunately you lost the raffle this time, no prize for you :( Try again next time!" : {
 
     },
     "You placed 1st in a recent Most Travel Scoreboard" : {
+
+    },
+    "Your current rewards:" : {
 
     }
   },
