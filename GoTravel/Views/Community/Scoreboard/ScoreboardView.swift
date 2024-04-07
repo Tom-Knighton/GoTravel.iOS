@@ -32,92 +32,144 @@ public struct ScoreboardView: View {
     
     
     @ViewBuilder
-    private func scoreboardView(_ scoreboard: Scoreboard) -> some View{
+    private func scoreboardView(_ scoreboard: Scoreboard) -> some View {
         VStack {
-            Text(scoreboard.scoreboardName)
-                .font(.title3.bold())
-                .frame(maxWidth: .infinity, alignment: .leading)
-            Text(scoreboard.scoreboardDescription)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
-            Group {
-                if let endsAt = scoreboard.endDate {
-                    if endsAt > Date() {
-                        if Date().timeUntil(endsAt, unit: .hours) < 24 {
-                            if scoreboard.doesReset {
-                                Text(Strings.Community.Scoreboard.ResetsSoon)
-                            } else {
-                                Text(Strings.Community.Scoreboard.EndsSoon)
+            VStack {
+                Text(scoreboard.scoreboardName)
+                    .font(.title3.bold())
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .fontDesign(.rounded)
+                Text(scoreboard.scoreboardDescription)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .fontDesign(.rounded)
+
+                Group {
+                    if let endsAt = scoreboard.endDate {
+                        if endsAt > Date() {
+                            if Date().timeUntil(endsAt, unit: .hours) < 24 {
+                                if scoreboard.doesReset {
+                                    Text(Strings.Community.Scoreboard.ResetsSoon)
+                                } else {
+                                    Text(Strings.Community.Scoreboard.EndsSoon)
+                                }
                             }
+                        } else {
+                            Text(Strings.Community.Scoreboard.Closed)
                         }
-                    } else {
-                        Text(Strings.Community.Scoreboard.Closed)
                     }
                 }
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .bold()
-            
-            ForEach(scoreboard.scoreboardUsers, id: \.user.userName) { user in
-                VStack {
-                    if user.user.userName == globalVM.currentUser?.userName && userIsOutOfRange() {
-                        Text("....")
-                    }
-                    HStack {
-                        AsyncImage(url: URL(string: user.user.userPictureUrl)) { img in
-                            img
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 30, height: 30)
-                                .clipShape(.circle)
-                                .shadow(radius: 50)
-                        } placeholder: {
-                            ProgressView()
-                                .frame(width: 50, height: 50)
-                        }
-                        .accessibilityHidden()
-                        
-                        Text(user.user.userName)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .bold()
+                .fontDesign(.rounded)
+                
+                ForEach(scoreboard.scoreboardUsers, id: \.user.userName) { user in
+                    VStack {
                         if user.user.userName == globalVM.currentUser?.userName && userIsOutOfRange() {
-                            Text(Strings.Community.Scoreboard.Pos(user.rank))
+                            Text("....")
                         }
-                        
-                        Spacer()
-                        
-                        Text(String(describing: user.points))
-                            .bold()
-                        
-                        switch user.rank {
-                        case 1:
-                            Image(systemName: Icons.trophyFill)
-                                .foregroundStyle(.yellow)
-                        case 2:
-                            Image(systemName: Icons.trophy)
-                                .foregroundStyle(.gray)
-                        case 3:
-                            Image(systemName: Icons.trophy)
-                                .foregroundStyle(.red)
-                        default:
-                            EmptyView()
+                        HStack {
+                            AsyncImage(url: URL(string: user.user.userPictureUrl)) { img in
+                                img
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 30, height: 30)
+                                    .clipShape(.circle)
+                                    .shadow(radius: 50)
+                            } placeholder: {
+                                ProgressView()
+                                    .frame(width: 50, height: 50)
+                            }
+                            .accessibilityHidden()
+                            
+                            VStack(alignment: .leading) {
+                                Text(user.user.userName)
+                                if let subtitle = user.user.subtitle {
+                                    Text(subtitle)
+                                        .font(.custom("Silkscreen-Regular", size: 16))
+                                        .foregroundStyle(
+                                            LinearGradient(
+                                                        colors: [.red, .blue, .green, .yellow],
+                                                        startPoint: .bottomLeading,
+                                                        endPoint: .topTrailing
+                                                    )
+                                        )
+                                }
+                            }
+                            if user.user.userName == globalVM.currentUser?.userName && userIsOutOfRange() {
+                                Text(Strings.Community.Scoreboard.Pos(user.rank))
+                            }
+                            
+                            Spacer()
+                            
+                            Text(String(describing: user.points))
+                                .bold()
+                            
+                            switch user.rank {
+                            case 1:
+                                Image(systemName: Icons.trophyFill)
+                                    .foregroundStyle(.yellow)
+                            case 2:
+                                Image(systemName: Icons.trophy)
+                                    .foregroundStyle(.gray)
+                            case 3:
+                                Image(systemName: Icons.trophy)
+                                    .foregroundStyle(.red)
+                            default:
+                                EmptyView()
+                            }
+                            Spacer().frame(width: 8)
                         }
-                        Spacer().frame(width: 8)
+                        .background(user.user.userName == globalVM.currentUser?.userName ? .yellow.opacity(0.5) : .clear)
+                        .clipShape(.rect(cornerRadius: 10))
+                        .bold(user.user.userName == globalVM.currentUser?.userName)
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityElement()
+                        .accessibilityLabel(Strings.Community.Accessibility.ScoreboardRow(user.user.userName, user.points))
+                        Divider()
                     }
-                    .background(user.user.userName == globalVM.currentUser?.userName ? .yellow.opacity(0.5) : .clear)
-                    .clipShape(.rect(cornerRadius: 10))
-                    .bold(user.user.userName == globalVM.currentUser?.userName)
-                    .accessibilityElement(children: .ignore)
-                    .accessibilityElement()
-                    .accessibilityLabel(Strings.Community.Accessibility.ScoreboardRow(user.user.userName, user.points))
-                    Divider()
+                }
+                
+                if !scoreboard.scoreboardUsers.contains(where: { $0.user.userName == globalVM.currentUser?.userName }) {
+                    Text(Strings.Community.Scoreboard.NoPointsYet)
+                        .fontDesign(.rounded)
                 }
             }
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(.gray)
+            )
+        }
+        
+        if !viewModel.appliedWins.isEmpty {
+            winsView()
+        }
+    }
+    
+    @ViewBuilder
+    private func winsView() -> some View {
+        VStack {
+            Text(Strings.Community.Rewards.CurrentRewards)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .bold()
+            Text(Strings.Community.Rewards.CurrentRewardsDesc)
+                .font(.subheadline)
+                .frame(maxWidth: .infinity, alignment: .leading)
             
-            if !scoreboard.scoreboardUsers.contains(where: { $0.user.userName == globalVM.currentUser?.userName }) {
-                Divider()
-                Text(Strings.Community.Scoreboard.NoPointsYet)
+            ForEach(viewModel.appliedWins, id: \.winId) { win in
+                Spacer().frame(height: 12)
+                HStack {
+                    Text("🎉")
+                        .accessibilityHidden()
+                    Text(win.rewardType.getFriendlyName())
+                    Text("🎉")
+                        .accessibilityHidden()
+                }
+                
             }
         }
         .padding()
+        .frame(maxWidth: .infinity)
         .background(
             RoundedRectangle(cornerRadius: 10)
                 .stroke(.gray)

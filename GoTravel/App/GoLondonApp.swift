@@ -19,7 +19,6 @@ struct GoTravelApp: App {
     @State private var journeyManager = JourneyManager()
     @State private var appData = AppData.shared
     
-    
     init() {
         try? Tips.resetDatastore()
         try? Tips.configure()
@@ -32,7 +31,14 @@ struct GoTravelApp: App {
         UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
         
         Task {
-            GlobalViewModel.shared.currentUser = try? await UserService.CurrentUser()
+            let user = try? await UserService.CurrentUser()
+            GlobalViewModel.shared.currentUser = user
+            if let user {
+                let wins = try? await ScoreboardService.UnseenWins(for: user.userId)
+                if let win = wins?.first {
+                    GlobalViewModel.shared.win = win
+                }
+            }
         }
     }
     

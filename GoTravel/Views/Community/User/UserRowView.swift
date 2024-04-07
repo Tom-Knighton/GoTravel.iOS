@@ -38,7 +38,21 @@ public struct UserRowView: View {
             }
             .accessibilityHidden()
             
-            Text(user.userName)
+            VStack(alignment: .leading) {
+                Text(user.userName)
+                
+                if let subtitle = user.subtitle {
+                    Text(subtitle)
+                        .font(.custom("Silkscreen-Regular", size: 18))
+                        .foregroundStyle(
+                            LinearGradient(
+                                        colors: [.red, .blue, .green, .yellow],
+                                        startPoint: .bottomLeading,
+                                        endPoint: .topTrailing
+                                    )
+                        )
+                }
+            }
             Spacer()
             
             actionButton()
@@ -244,3 +258,13 @@ public struct UserRowView: View {
         }
     }
 }
+
+#if DEBUG
+#Preview {
+    let global = GlobalViewModel()
+    global.currentUser = PreviewUserData.Current
+    return UserRowView(user: PreviewUserData.User1, type: .Default)
+        .environment(global)
+        .padding(.horizontal, 16)
+}
+#endif

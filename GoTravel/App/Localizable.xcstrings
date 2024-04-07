@@ -20,6 +20,9 @@
         }
       }
     },
+    "🎉" : {
+
+    },
     "Accessibility:Map:BikesRemainingText:%lld" : {
       "localizations" : {
         "en" : {
@@ -1266,6 +1269,146 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unfollow"
+          }
+        }
+      }
+    },
+    "Community:Rewards:ClaimPrize" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Claim Random Prize Now"
+          }
+        }
+      }
+    },
+    "Community:Rewards:CurrentRewards" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your current rewards:"
+          }
+        }
+      }
+    },
+    "Community:Rewards:CurrentRewardsDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "These are rewards that are active until the next travel leaderboard rollover"
+          }
+        }
+      }
+    },
+    "Community:Rewards:LostRaffle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unfortunately you lost the raffle this time, no prize for you :( Try again next time!"
+          }
+        }
+      }
+    },
+    "Community:Rewards:Mult_2" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2x Points Multiplier for journey tracking"
+          }
+        }
+      }
+    },
+    "Community:Rewards:Mult1_5" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1.5x Points Multiplier for all journey tracking"
+          }
+        }
+      }
+    },
+    "Community:Rewards:None" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No reward"
+          }
+        }
+      }
+    },
+    "Community:Rewards:Placed1st" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You placed first in a recent Most Travel Scoreboard"
+          }
+        }
+      }
+    },
+    "Community:Rewards:Points10" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10 starting points for the new Scoreboard round"
+          }
+        }
+      }
+    },
+    "Community:Rewards:Points30" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 starting points for the new Scoreboard round"
+          }
+        }
+      }
+    },
+    "Community:Rewards:SpinWheel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap below to spin the wheel and try to claim a random prize!"
+          }
+        }
+      }
+    },
+    "Community:Rewards:TitleExpert" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A special title: Public Transport Expert"
+          }
+        }
+      }
+    },
+    "Community:Rewards:TitleSuper" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A special title: Super Traveller"
+          }
+        }
+      }
+    },
+    "Community:Rewards:YouveWon" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Congrats! You've won "
           }
         }
       }
@@ -2759,6 +2902,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "Misc:Congrats" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Congratulations!!"
           }
         }
       }

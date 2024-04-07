@@ -19,9 +19,13 @@ public struct User: Codable, Equatable {
     /// The number of users that follow this user
     public let followerCount: Int
     
-    public init(userName: String, userPictureUrl: String, followerCount: Int) {
+    /// A subtitle a user may have through winning scoreboards
+    public let subtitle: String?
+    
+    public init(userName: String, userPictureUrl: String, followerCount: Int, subtitle: String? = nil) {
         self.userName = userName
         self.userPictureUrl = userPictureUrl
         self.followerCount = followerCount
+        self.subtitle = subtitle
     }
 }

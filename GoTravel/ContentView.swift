@@ -115,5 +115,8 @@ struct ContentView: View {
                     .interactiveDismissDisabled(!saveTrip.canClose)
             }
         }
+        .fullScreenCover(item: $globalVM.win) { win in
+            WinView(win: win)
+        }
     }
 }

@@ -263,6 +263,23 @@ public struct Strings {
             }
         }
         
+        public struct Rewards {
+            public static let None: LocalizedStringKey = "Community:Rewards:None"
+            public static let Mult1_5: LocalizedStringKey = "Community:Rewards:Mult1_5"
+            public static let Mult_2: LocalizedStringKey = "Community:Rewards:Mult_2"
+            public static let Points10: LocalizedStringKey = "Community:Rewards:Points10"
+            public static let Points30: LocalizedStringKey = "Community:Rewards:Points30"
+            public static let TitleSuper: LocalizedStringKey = "Community:Rewards:TitleSuper"
+            public static let TitleExpert: LocalizedStringKey = "Community:Rewards:TitleExpert"
+            public static let CurrentRewards: LocalizedStringKey = "Community:Rewards:CurrentRewards"
+            public static let CurrentRewardsDesc: LocalizedStringKey = "Community:Rewards:CurrentRewardsDesc"
+            public static let Placed1st: LocalizedStringKey = "Community:Rewards:Placed1st"
+            public static let LostRaffle: LocalizedStringKey = "Community:Rewards:LostRaffle"
+            public static let SpinWheel: LocalizedStringKey = "Community:Rewards:SpinWheel"
+            public static let YouveWon: LocalizedStringKey = "Community:Rewards:YouveWon"
+            public static let ClaimPrize: LocalizedStringKey = "Community:Rewards:ClaimPrize"
+        }
+        
         public struct Relationships {
             public static let Following: LocalizedStringKey = "Community:Rel:Following"
             public static let Followers: LocalizedStringKey = "Community:Rel:Followers"
@@ -458,6 +475,7 @@ public struct Strings {
         public static let Delete: LocalizedStringKey = "Misc:Delete"
         public static let Cancel: LocalizedStringKey = "Misc:Cancel"
         public static let Success: LocalizedStringKey = "Misc:Success"
+        public static let Congrats: LocalizedStringKey = "Misc:Congrats"
         
         public static func Quote(_ content: String) -> LocalizedStringKey {
             LocalizedStringKey("Misc:Quote:\(content)")
@@ -489,6 +507,7 @@ public struct Strings {
     
     public struct Assets {
         public static let BusLoading = "BusLoading"
+        public static let Confetti = "Confetti"
     }
     
     public struct Accessibility {
