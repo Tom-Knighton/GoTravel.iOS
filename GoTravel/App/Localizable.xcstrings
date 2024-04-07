@@ -396,9 +396,6 @@
         }
       }
     },
-    "Claim Random Prize Now" : {
-
-    },
     "Comminity:Trip:SearchLinesDesc" : {
       "localizations" : {
         "en" : {
@@ -1279,6 +1276,46 @@
         }
       }
     },
+    "Community:Rewards:ClaimPrize" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Claim Random Prize Now"
+          }
+        }
+      }
+    },
+    "Community:Rewards:CurrentRewards" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your current rewards:"
+          }
+        }
+      }
+    },
+    "Community:Rewards:CurrentRewardsDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "These are rewards that are active until the next travel leaderboard rollover"
+          }
+        }
+      }
+    },
+    "Community:Rewards:LostRaffle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unfortunately you lost the raffle this time, no prize for you :( Try again next time!"
+          }
+        }
+      }
+    },
     "Community:Rewards:Mult_2" : {
       "localizations" : {
         "en" : {
@@ -1309,6 +1346,16 @@
         }
       }
     },
+    "Community:Rewards:Placed1st" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You placed first in a recent Most Travel Scoreboard"
+          }
+        }
+      }
+    },
     "Community:Rewards:Points10" : {
       "localizations" : {
         "en" : {
@@ -1329,6 +1376,16 @@
         }
       }
     },
+    "Community:Rewards:SpinWheel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap below to spin the wheel and try to claim a random prize!"
+          }
+        }
+      }
+    },
     "Community:Rewards:TitleExpert" : {
       "localizations" : {
         "en" : {
@@ -1345,6 +1402,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "special title: Super Traveller"
+          }
+        }
+      }
+    },
+    "Community:Rewards:YouveWon" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Congrats! You've won "
           }
         }
       }
@@ -1738,12 +1805,6 @@
           }
         }
       }
-    },
-    "Congrats! You've won " : {
-
-    },
-    "Congratulations!!" : {
-
     },
     "Errors:Auth:EmailTaken" : {
       "localizations" : {
@@ -2848,6 +2909,16 @@
         }
       }
     },
+    "Misc:Congrats" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Congratulations!!"
+          }
+        }
+      }
+    },
     "Misc:Continue" : {
       "localizations" : {
         "en" : {
@@ -3081,9 +3152,6 @@
         }
       }
     },
-    "Ok" : {
-
-    },
     "StopPage:Accessibility:HasWifiLabel" : {
       "localizations" : {
         "en" : {
@@ -3277,24 +3345,6 @@
           }
         }
       }
-    },
-    "Success!" : {
-
-    },
-    "Tap below to spin the wheel and try to claim a random prize!" : {
-
-    },
-    "These are rewards that are active until the next travel leaderboard rollover" : {
-
-    },
-    "Unfortunately you lost the raffle this time, no prize for you :( Try again next time!" : {
-
-    },
-    "You placed 1st in a recent Most Travel Scoreboard" : {
-
-    },
-    "Your current rewards:" : {
-
     }
   },
   "version" : "1.0"

@@ -149,10 +149,10 @@ public struct ScoreboardView: View {
     @ViewBuilder
     private func winsView() -> some View {
         VStack {
-            Text("Your current rewards:")
+            Text(Strings.Community.Rewards.CurrentRewards)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .bold()
-            Text("These are rewards that are active until the next travel leaderboard rollover")
+            Text(Strings.Community.Rewards.CurrentRewardsDesc)
                 .font(.subheadline)
                 .frame(maxWidth: .infinity, alignment: .leading)
             

@@ -38,11 +38,11 @@ public struct WinView: View {
                     Spacer().frame(width: 16)
                 }
                 Spacer()
-                Text("Congratulations!!")
+                Text(Strings.Misc.Congrats)
                     .font(.largeTitle.bold())
-                Text("You placed 1st in a recent Most Travel Scoreboard")
+                Text(Strings.Community.Rewards.Placed1st)
                 
-                Text("Tap below to spin the wheel and try to claim a random prize!")
+                Text(Strings.Community.Rewards.SpinWheel)
                 Spacer()
                 
                 if isLoading {
@@ -53,7 +53,7 @@ public struct WinView: View {
                         .bold()
                 } else {
                     Button(action: { Task { await claimPrize() }}) {
-                        Text("Claim Random Prize Now")
+                        Text(Strings.Community.Rewards.ClaimPrize)
                             .bold()
                             .padding()
                     }
@@ -67,13 +67,13 @@ public struct WinView: View {
         }
         .multilineTextAlignment(.center)
         .fontDesign(.rounded)
-        .alert("Success!", isPresented: $showSuccess) {
-            Button(action: { self.dismiss() }) { Text("Ok") }
+        .alert(Strings.Misc.Success, isPresented: $showSuccess) {
+            Button(action: { self.dismiss() }) { Text(Strings.Misc.Success) }
         } message: {
             if win.rewardType == .noReward {
-                Text("Unfortunately you lost the raffle this time, no prize for you :( Try again next time!")
+                Text(Strings.Community.Rewards.LostRaffle)
             } else {
-                Text("Congrats! You've won ") + Text(win.rewardType.getFriendlyName())
+                Text(Strings.Community.Rewards.YouveWon) + Text(win.rewardType.getFriendlyName())
             }
         }
 

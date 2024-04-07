@@ -271,6 +271,13 @@ public struct Strings {
             public static let Points30: LocalizedStringKey = "Community:Rewards:Points30"
             public static let TitleSuper: LocalizedStringKey = "Community:Rewards:TitleSuper"
             public static let TitleExpert: LocalizedStringKey = "Community:Rewards:TitleExpert"
+            public static let CurrentRewards: LocalizedStringKey = "Community:Rewards:CurrentRewards"
+            public static let CurrentRewardsDesc: LocalizedStringKey = "Community:Rewards:CurrentRewardsDesc"
+            public static let Placed1st: LocalizedStringKey = "Community:Rewards:Placed1st"
+            public static let LostRaffle: LocalizedStringKey = "Community:Rewards:LostRaffle"
+            public static let SpinWheel: LocalizedStringKey = "Community:Rewards:SpinWheel"
+            public static let YouveWon: LocalizedStringKey = "Community:Rewards:YouveWon"
+            public static let ClaimPrize: LocalizedStringKey = "Community:Rewards:ClaimPrize"
         }
         
         public struct Relationships {
@@ -468,6 +475,7 @@ public struct Strings {
         public static let Delete: LocalizedStringKey = "Misc:Delete"
         public static let Cancel: LocalizedStringKey = "Misc:Cancel"
         public static let Success: LocalizedStringKey = "Misc:Success"
+        public static let Congrats: LocalizedStringKey = "Misc:Congrats"
         
         public static func Quote(_ content: String) -> LocalizedStringKey {
             LocalizedStringKey("Misc:Quote:\(content)")
