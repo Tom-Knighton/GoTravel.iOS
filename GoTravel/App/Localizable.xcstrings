@@ -7,9 +7,6 @@
     " " : {
 
     },
-    " 🎉" : {
-
-    },
     "...." : {
 
     },
@@ -23,7 +20,7 @@
         }
       }
     },
-    "🎉 " : {
+    "🎉" : {
 
     },
     "Accessibility:Map:BikesRemainingText:%lld" : {
@@ -1321,7 +1318,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "2x Points Multiplier"
+            "value" : "2x Points Multiplier for journey tracking"
           }
         }
       }
@@ -1331,7 +1328,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1.5x Points Multiplier"
+            "value" : "1.5x Points Multiplier for all journey tracking"
           }
         }
       }
@@ -1361,7 +1358,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "10 starting points"
+            "value" : "10 starting points for the new Scoreboard round"
           }
         }
       }
@@ -1371,7 +1368,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "30 starting points"
+            "value" : "30 starting points for the new Scoreboard round"
           }
         }
       }
@@ -1391,7 +1388,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "special title: Public Transport Expert"
+            "value" : "A special title: Public Transport Expert"
           }
         }
       }
@@ -1401,7 +1398,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "special title: Super Traveller"
+            "value" : "A special title: Super Traveller"
           }
         }
       }

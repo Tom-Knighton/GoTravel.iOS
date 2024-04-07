@@ -67,8 +67,8 @@ public struct WinView: View {
         }
         .multilineTextAlignment(.center)
         .fontDesign(.rounded)
-        .alert(Strings.Misc.Success, isPresented: $showSuccess) {
-            Button(action: { self.dismiss() }) { Text(Strings.Misc.Success) }
+        .alert(win.rewardType == .noReward ? Strings.Misc.Results : Strings.Misc.Woohoo, isPresented: $showSuccess) {
+            Button(action: { self.dismiss() }) { Text(Strings.Misc.Ok) }
         } message: {
             if win.rewardType == .noReward {
                 Text(Strings.Community.Rewards.LostRaffle)
@@ -98,7 +98,7 @@ public struct WinView: View {
 #Preview {
     let global = GlobalViewModel()
     global.currentUser = PreviewUserData.Current
-    return WinView(win: .init(winId: "", scoreboardName: "Most Travel", wonAt: Date(), position: 1, rewardType: .pointMultiplier1_5))
+    return WinView(win: .init(winId: "", scoreboardName: "Most Travel", wonAt: Date(), position: 1, rewardType: .pointMultiplier2))
         .environment(global)
 }
 #endif

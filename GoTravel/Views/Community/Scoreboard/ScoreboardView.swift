@@ -158,9 +158,14 @@ public struct ScoreboardView: View {
             
             ForEach(viewModel.appliedWins, id: \.winId) { win in
                 Spacer().frame(height: 12)
-                Text("🎉 ") +
-                Text(win.rewardType.getFriendlyName()) +
-                Text(" 🎉")
+                HStack {
+                    Text("🎉")
+                        .accessibilityHidden()
+                    Text(win.rewardType.getFriendlyName())
+                    Text("🎉")
+                        .accessibilityHidden()
+                }
+                
             }
         }
         .padding()
