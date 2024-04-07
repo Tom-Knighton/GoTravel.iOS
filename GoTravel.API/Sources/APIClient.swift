@@ -29,8 +29,7 @@ public actor APIClient {
     
     private let session = URLSession.shared
         
-//    private let baseUrl = URL(string: (Bundle.main.object(forInfoDictionaryKey: "GTAPI_BASE_URL") as? String ?? "https://api.gotravel.tomk.online"))
-    private let baseUrl = URL(string: "https://47f1-2a02-6b62-5427-0-642d-21d0-ff4d-97cf.ngrok-free.app")
+    private let baseUrl = URL(string: (Bundle.main.object(forInfoDictionaryKey: "GTAPI_BASE_URL") as? String ?? "https://api.gotravel.tomk.online"))
         
     func perform<T: Decodable>(_ request: APIRequest) async throws -> T {
         let (data, _) = try await perform(request)
