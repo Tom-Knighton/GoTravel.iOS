@@ -23,16 +23,17 @@ public class JourneyManager {
     public var current: CurrentTrackingData? = nil
     
     /// Enables background location monitoring and starts recording journey data to SwiftData/CoreData
+    @MainActor
     public func startTrackingJourney() async {
         let container = GoTravelCoreData.shared.container
         
         guard LocationManager.shared.isLocationGranted else {
-            fatalError("Smelly :(")
+            fatalError("")
         }
         
         LocationManager.shared.monitorBackground()
         
-        let context = await container.mainContext
+        let context = container.mainContext
         
         do {
             try context.delete(model: CurrentTrackingData.self)
@@ -45,18 +46,20 @@ public class JourneyManager {
             print(error)
         }
     }
-    
+
+    @MainActor
     public func currentJourney() async -> CurrentTrackingData? {
         let container = GoTravelCoreData.shared.container
-        let context = await container.mainContext
+        let context = container.mainContext
 
         let descriptor = FetchDescriptor<CurrentTrackingData>()
         return try? context.fetch(descriptor).first
     }
-    
+
+    @MainActor
     public func endTracking() async {
         let container = GoTravelCoreData.shared.container
-        let context = await container.mainContext
+        let context = container.mainContext
 
         guard let current = await self.currentJourney() else {
             return
@@ -92,34 +95,21 @@ public class JourneyManager {
         context.delete(current)
         try? context.save()
         self.current = nil
-        
         LocationManager.shared.pauseBackgroundMonitoring()
-        GlobalViewModel.shared.saveTripId = GVMSaveTripDetails(saveTripId: savedJourney.id, canClose: false)
+
+        
+        let lastInsert = try? context.fetch(FetchDescriptor<SavedJourney>())
+        if let lastId = lastInsert?.last {
+            GlobalViewModel.shared.saveTripId = GVMSaveTripDetails(saveTripId: lastId.id, canClose: false)
+        }
     }
     
+    @MainActor
     public func exportJourney(_ journey: SavedJourney) async {
         let container = GoTravelCoreData.shared.container
-        let context = await container.mainContext
+        let context = container.mainContext
         
         context.delete(journey)
         try? context.save()
-    }
-    
-    @available(*, deprecated, message: "DEBUG take out before using")
-    public static func DEBUG_deleteAllSavedJourneys() async {
-        let container = GoTravelCoreData.shared.container
-        let context = await container.mainContext
-        
-        try? context.delete(model: SavedJourney.self)
-    }
-    
-    @available(*, deprecated, message: "DEBUG take out before using")
-    public func DEBUG_copy(_ journey: SavedJourney) async {
-        
-        let newJourney = SavedJourney(name: (journey.name ?? "") + "\(Int.random(in: 0...100))", startedAt: journey.startedAt, endedAt: journey.endedAt, coordinates: journey.coordinates.flatMap { .init(time: $0.time, latitude: $0.latitude, longitude: $0.longitude, speed: $0.speed, direction: $0.direction)}, lines: journey.lines)
-        let container = GoTravelCoreData.shared.container
-        let context = await container.mainContext
-        
-        try? context.insert(newJourney)
     }
 }
